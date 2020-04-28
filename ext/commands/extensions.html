@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>Extensions &#8212; discord.py 1.4.0a 문서</title>
+    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="index" title="색인" href="../../genindex.html" />
+    <link rel="search" title="검색" href="../../search.html" />
+    <link rel="next" title="API Reference" href="api.html" />
+    <link rel="prev" title="Cogs" href="cogs.html" />
+   
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head><body>
+  
+  
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>탐색</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="전체 색인"
+             accesskey="I">색인</a></li>
+        <li class="right" >
+          <a href="api.html" title="API Reference"
+             accesskey="N">다음</a> |</li>
+        <li class="right" >
+          <a href="cogs.html" title="Cogs"
+             accesskey="P">이전</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">discord.py 1.4.0a 문서</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code> – Bot commands framework</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="extensions">
+<span id="ext-commands-extensions"></span><h1>Extensions<a class="headerlink" href="#extensions" title="제목 주소">¶</a></h1>
+<p>There comes a time in the bot development when you want to extend the bot functionality at run-time and quickly unload and reload code (also called hot-reloading). The command framework comes with this ability built-in, with a concept called <strong>extensions</strong>.</p>
+<div class="section" id="primer">
+<h2>Primer<a class="headerlink" href="#primer" title="제목 주소">¶</a></h2>
+<p>An extension at its core is a python file with an entry point called <code class="docutils literal notranslate"><span class="pre">setup</span></code>. This setup must be a plain Python function (not a coroutine). It takes a single parameter – the <a class="reference internal" href="api.html#discord.ext.commands.Bot" title="discord.ext.commands.Bot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bot</span></code></a> that loads the extension.</p>
+<p>An example extension looks like this:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">hello.py</span><a class="headerlink" href="#id1" title="이 코드에 대한 퍼머링크">¶</a></div>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discord.ext</span> <span class="kn">import</span> <span class="n">commands</span>
+
+<span class="nd">@commands</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;Hello </span><span class="si">{0.display_name}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">author</span><span class="p">))</span>
+
+<span class="hll"><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">bot</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">bot</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</div>
+<p>In this example we define a simple command, and when the extension is loaded this command is added to the bot. Now the final step to this is loading the extension, which we do by calling <a class="reference internal" href="api.html#discord.ext.commands.Bot.load_extension" title="discord.ext.commands.Bot.load_extension"><code class="xref py py-meth docutils literal notranslate"><span class="pre">commands.Bot.load_extension()</span></code></a>. To load this extension we call <code class="docutils literal notranslate"><span class="pre">bot.load_extension('hello')</span></code>.</p>
+<div class="helpful admonition">
+<p class="admonition-title">Cogs</p>
+<p>Extensions are usually used in conjunction with cogs. To read more about them, check out the documentation, <a class="reference internal" href="cogs.html#ext-commands-cogs"><span class="std std-ref">Cogs</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">참고</p>
+<p>Extension paths are ultimately similar to the import mechanism. What this means is that if there is a folder, then it must be dot-qualified. For example to load an extension in <code class="docutils literal notranslate"><span class="pre">plugins/hello.py</span></code> then we use the string <code class="docutils literal notranslate"><span class="pre">plugins.hello</span></code>.</p>
+</div>
+</div>
+<div class="section" id="reloading">
+<h2>Reloading<a class="headerlink" href="#reloading" title="제목 주소">¶</a></h2>
+<p>When you make a change to the extension and want to reload the references, the library comes with a function to do this for you, <code class="xref py py-meth docutils literal notranslate"><span class="pre">Bot.reload_extension()</span></code>.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bot</span><span class="o">.</span><span class="n">reload_extension</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once the extension reloads, any changes that we did will be applied. This is useful if we want to add or remove functionality without restarting our bot. If an error occurred during the reloading process, the bot will pretend as if the reload never happened.</p>
+</div>
+<div class="section" id="cleaning-up">
+<h2>Cleaning Up<a class="headerlink" href="#cleaning-up" title="제목 주소">¶</a></h2>
+<p>Although rare, sometimes an extension needs to clean-up or know when it’s being unloaded. For cases like these, there is another entry point named <code class="docutils literal notranslate"><span class="pre">teardown</span></code> which is similar to <code class="docutils literal notranslate"><span class="pre">setup</span></code> except called when the extension is unloaded.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">basic_ext.py</span><a class="headerlink" href="#id2" title="이 코드에 대한 퍼머링크">¶</a></div>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">bot</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I am being loaded!&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">teardown</span><span class="p">(</span><span class="n">bot</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I am being unloaded!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">목차</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Extensions</a><ul>
+<li><a class="reference internal" href="#primer">Primer</a></li>
+<li><a class="reference internal" href="#reloading">Reloading</a></li>
+<li><a class="reference internal" href="#cleaning-up">Cleaning Up</a></li>
+</ul>
+</li>
+</ul>
+<!-- purposefully empty -->
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">빠른 검색</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="이동" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    &copy; Copyright 2015-2020, Rapptz.
+    <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 버전으로 생성되었습니다.
+  </div>
+  
+  </body>
+</html>

@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>discord.ext.tasks – asyncio.Task 헬퍼 &#8212; discord.py 1.4.0a 문서</title>
+    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="index" title="색인" href="../../genindex.html" />
+    <link rel="search" title="검색" href="../../search.html" />
+    <link rel="next" title="봇 계정 생성" href="../../discord.html" />
+    <link rel="prev" title="API Reference" href="../commands/api.html" />
+   
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head><body>
+  
+  
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>탐색</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="전체 색인"
+             accesskey="I">색인</a></li>
+        <li class="right" >
+          <a href="../../discord.html" title="봇 계정 생성"
+             accesskey="N">다음</a> |</li>
+        <li class="right" >
+          <a href="../commands/api.html" title="API Reference"
+             accesskey="P">이전</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">discord.py 1.4.0a 문서</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="discord-ext-tasks-asyncio-task-helpers">
+<span id="discord-ext-tasks"></span><h1><code class="docutils literal notranslate"><span class="pre">discord.ext.tasks</span></code> – asyncio.Task 헬퍼<a class="headerlink" href="#discord-ext-tasks-asyncio-task-helpers" title="제목 주소">¶</a></h1>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.1.0에 추가.</span></p>
+</div>
+<p>봇을 만들 때 하는 가장 흔한 작업은 특정한 간격으로 백그라운드에서 돌아가는 루프를 갖는 것입니다. 이 패턴은 매우 흔하지만 당신이 조심해야할 많은 것들이 있습니다:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/asyncio-exceptions.html#asyncio.CancelledError" title="(in Python v3.8)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code></a> 는 어떻게 다루나요?</p></li>
+<li><p>만약에 인터넷이 끊기면 어떻게 해야하나요?</p></li>
+<li><p>아무튼 제가 잘 수 있는 최고 시간은 몇초인가요?</p></li>
+</ul>
+<p>이 discord.py 확장의 목적은 이런 관념적인 걱정들을 덜어주는 것입니다.</p>
+<div class="section" id="recipes">
+<h2>레시피<a class="headerlink" href="#recipes" title="제목 주소">¶</a></h2>
+<p><a class="reference internal" href="../commands/api.html#discord.ext.commands.Cog" title="discord.ext.commands.Cog"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cog</span></code></a> 에서의 간단한 백그라운드 태스크:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discord.ext</span> <span class="kn">import</span> <span class="n">tasks</span><span class="p">,</span> <span class="n">commands</span>
+
+<span class="k">class</span> <span class="nc">MyCog</span><span class="p">(</span><span class="n">commands</span><span class="o">.</span><span class="n">Cog</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">cog_unload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printer</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+
+    <span class="nd">@tasks</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">printer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>재연결중 발생하는 예외를 처리하기 위해 예외 추가:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncpg</span>
+<span class="kn">from</span> <span class="nn">discord.ext</span> <span class="kn">import</span> <span class="n">tasks</span><span class="p">,</span> <span class="n">commands</span>
+
+<span class="k">class</span> <span class="nc">MyCog</span><span class="p">(</span><span class="n">commands</span><span class="o">.</span><span class="n">Cog</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bot</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bot</span> <span class="o">=</span> <span class="n">bot</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_update</span><span class="o">.</span><span class="n">add_exception_type</span><span class="p">(</span><span class="n">asyncpg</span><span class="o">.</span><span class="n">PostgresConnectionError</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_update</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">cog_unload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_update</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+
+    <span class="nd">@tasks</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">batch_update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">bot</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span> <span class="k">as</span> <span class="n">con</span><span class="p">:</span>
+            <span class="c1"># batch update here...</span>
+            <span class="k">pass</span>
+</pre></div>
+</div>
+<p>종료하기 전에 특정 개수만큼 반복:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discord.ext</span> <span class="kn">import</span> <span class="n">tasks</span>
+
+<span class="nd">@tasks</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">slow_count</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">slow_count</span><span class="o">.</span><span class="n">current_loop</span><span class="p">)</span>
+
+<span class="nd">@slow_count</span><span class="o">.</span><span class="n">after_loop</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">after_slow_count</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done!&#39;</span><span class="p">)</span>
+
+<span class="n">slow_count</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>루프를 시작하기 전에 봇이 준비되기 전까지 기다림:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discord.ext</span> <span class="kn">import</span> <span class="n">tasks</span><span class="p">,</span> <span class="n">commands</span>
+
+<span class="k">class</span> <span class="nc">MyCog</span><span class="p">(</span><span class="n">commands</span><span class="o">.</span><span class="n">Cog</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bot</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bot</span> <span class="o">=</span> <span class="n">bot</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">cog_unload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">printer</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+
+    <span class="nd">@tasks</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">printer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="nd">@printer</span><span class="o">.</span><span class="n">before_loop</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">before_printer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;waiting...&#39;</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">bot</span><span class="o">.</span><span class="n">wait_until_ready</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>취소하는 동안 무언가를 하기:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discord.ext</span> <span class="kn">import</span> <span class="n">tasks</span><span class="p">,</span> <span class="n">commands</span>
+<span class="kn">import</span> <span class="nn">asyncio</span>
+
+<span class="k">class</span> <span class="nc">MyCog</span><span class="p">(</span><span class="n">commands</span><span class="o">.</span><span class="n">Cog</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bot</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bot</span><span class="o">=</span> <span class="n">bot</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_batch</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bulker</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">do_bulk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># bulk insert data here</span>
+        <span class="o">...</span>
+
+    <span class="nd">@tasks</span><span class="o">.</span><span class="n">loop</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">bulker</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_bulk</span><span class="p">()</span>
+
+    <span class="nd">@bulker</span><span class="o">.</span><span class="n">after_loop</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">on_bulker_cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bulker</span><span class="o">.</span><span class="n">is_being_cancelled</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_batch</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># if we&#39;re cancelled and we have some data left...</span>
+            <span class="c1"># let&#39;s insert it to our database</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_bulk</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="api-reference">
+<span id="ext-tasks-api"></span><h2>API 레퍼런스<a class="headerlink" href="#api-reference" title="제목 주소">¶</a></h2>
+<dl class="py class">
+<dt id="discord.ext.tasks.Loop">
+<em class="property">class </em><code class="sig-prename descclassname">discord.ext.tasks.</code><code class="sig-name descname">Loop</code><a class="headerlink" href="#discord.ext.tasks.Loop" title="정의 주소">¶</a></dt>
+<dd><p>당신을 위해 루프와 재연결 로직을 추상화하는 백그라운드 태스크 헬퍼.</p>
+<p>이것을 생성하는 주요 인터페이스는 <a class="reference internal" href="#discord.ext.tasks.loop" title="discord.ext.tasks.loop"><code class="xref py py-func docutils literal notranslate"><span class="pre">loop()</span></code></a> 를 통한 것입니다.</p>
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.current_loop">
+<code class="sig-name descname">current_loop</code><a class="headerlink" href="#discord.ext.tasks.Loop.current_loop" title="정의 주소">¶</a></dt>
+<dd><p>The current iteration of the loop.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.next_iteration">
+<code class="sig-name descname">next_iteration</code><a class="headerlink" href="#discord.ext.tasks.Loop.next_iteration" title="정의 주소">¶</a></dt>
+<dd><p>When the next iteration of the loop will occur.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.3에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.start">
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.start" title="정의 주소">¶</a></dt>
+<dd><p>Starts the internal task in the event loop.</p>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*args</strong> – The arguments to use.</p></li>
+<li><p><strong>**kwargs</strong> – The keyword arguments to use.</p></li>
+</ul>
+</dd>
+<dt class="field-even">예외</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.8)"><strong>RuntimeError</strong></a> – A task has already been launched and is running.</p>
+</dd>
+<dt class="field-odd">반환값</dt>
+<dd class="field-odd"><p>The task that has been created.</p>
+</dd>
+<dt class="field-even">반환 형식</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.Task" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Task</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.stop">
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.stop" title="정의 주소">¶</a></dt>
+<dd><p>Gracefully stops the task from running.</p>
+<p>Unlike <a class="reference internal" href="#discord.ext.tasks.Loop.cancel" title="discord.ext.tasks.Loop.cancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cancel()</span></code></a>, this allows the task to finish its
+current iteration before gracefully exiting.</p>
+<div class="admonition note">
+<p class="admonition-title">참고</p>
+<p>If the internal function raises an error that can be
+handled before finishing then it will retry until
+it succeeds.</p>
+<p>If this is undesirable, either remove the error handling
+before stopping via <a class="reference internal" href="#discord.ext.tasks.Loop.clear_exception_types" title="discord.ext.tasks.Loop.clear_exception_types"><code class="xref py py-meth docutils literal notranslate"><span class="pre">clear_exception_types()</span></code></a> or
+use <a class="reference internal" href="#discord.ext.tasks.Loop.cancel" title="discord.ext.tasks.Loop.cancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cancel()</span></code></a> instead.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.2에 추가.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.cancel">
+<code class="sig-name descname">cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.cancel" title="정의 주소">¶</a></dt>
+<dd><p>Cancels the internal task, if it is running.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.restart">
+<code class="sig-name descname">restart</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.restart" title="정의 주소">¶</a></dt>
+<dd><p>A convenience method to restart the internal task.</p>
+<div class="admonition note">
+<p class="admonition-title">참고</p>
+<p>Due to the way this function works, the task is not
+returned like <a class="reference internal" href="#discord.ext.tasks.Loop.start" title="discord.ext.tasks.Loop.start"><code class="xref py py-meth docutils literal notranslate"><span class="pre">start()</span></code></a>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*args</strong> – The arguments to to use.</p></li>
+<li><p><strong>**kwargs</strong> – The keyword arguments to use.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.add_exception_type">
+<code class="sig-name descname">add_exception_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">exceptions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.add_exception_type" title="정의 주소">¶</a></dt>
+<dd><p>Adds exception types to be handled during the reconnect logic.</p>
+<p>By default the exception types handled are those handled by
+<a class="reference internal" href="../../api.html#discord.Client.connect" title="discord.Client.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">discord.Client.connect()</span></code></a>, which includes a lot of internet disconnection
+errors.</p>
+<p>This function is useful if you’re interacting with a 3rd party library that
+raises its own set of exceptions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><p><strong>*exceptions</strong> (Type[<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#BaseException" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a>]) – An argument list of exception classes to handle.</p>
+</dd>
+<dt class="field-even">예외</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – An exception passed is either not a class or not inherited from <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#BaseException" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.clear_exception_types">
+<code class="sig-name descname">clear_exception_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.clear_exception_types" title="정의 주소">¶</a></dt>
+<dd><p>Removes all exception types that are handled.</p>
+<div class="admonition note">
+<p class="admonition-title">참고</p>
+<p>This operation obviously cannot be undone!</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.remove_exception_type">
+<code class="sig-name descname">remove_exception_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">exceptions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.remove_exception_type" title="정의 주소">¶</a></dt>
+<dd><p>Removes exception types from being handled during the reconnect logic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><p><strong>*exceptions</strong> (Type[<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#BaseException" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a>]) – An argument list of exception classes to handle.</p>
+</dd>
+<dt class="field-even">반환값</dt>
+<dd class="field-even"><p>Whether all exceptions were successfully removed.</p>
+</dd>
+<dt class="field-odd">반환 형식</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.get_task">
+<code class="sig-name descname">get_task</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.get_task" title="정의 주소">¶</a></dt>
+<dd><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.Task" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Task</span></code></a>]: Fetches the internal task or <code class="docutils literal notranslate"><span class="pre">None</span></code> if there isn’t one running.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.is_being_cancelled">
+<code class="sig-name descname">is_being_cancelled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.is_being_cancelled" title="정의 주소">¶</a></dt>
+<dd><p>Whether the task is being cancelled.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.failed">
+<code class="sig-name descname">failed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.failed" title="정의 주소">¶</a></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>: Whether the internal task has failed.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.2에 추가.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.is_running">
+<code class="sig-name descname">is_running</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.is_running" title="정의 주소">¶</a></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>: Check if the task is currently running.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.before_loop">
+<code class="sig-name descname">before_loop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coro</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.before_loop" title="정의 주소">¶</a></dt>
+<dd><p>A decorator that registers a coroutine to be called before the loop starts running.</p>
+<p>This is useful if you want to wait for some bot state before the loop starts,
+such as <a class="reference internal" href="../../api.html#discord.Client.wait_until_ready" title="discord.Client.wait_until_ready"><code class="xref py py-meth docutils literal notranslate"><span class="pre">discord.Client.wait_until_ready()</span></code></a>.</p>
+<p>The coroutine must take no arguments (except <code class="docutils literal notranslate"><span class="pre">self</span></code> in a class context).</p>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><p><strong>coro</strong> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">coroutine</span></a>) – The coroutine to register before the loop runs.</p>
+</dd>
+<dt class="field-even">예외</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – The function was not a coroutine.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.after_loop">
+<code class="sig-name descname">after_loop</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coro</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.after_loop" title="정의 주소">¶</a></dt>
+<dd><p>A decorator that register a coroutine to be called after the loop finished running.</p>
+<p>The coroutine must take no arguments (except <code class="docutils literal notranslate"><span class="pre">self</span></code> in a class context).</p>
+<div class="admonition note">
+<p class="admonition-title">참고</p>
+<p>This coroutine is called even during cancellation. If it is desirable
+to tell apart whether something was cancelled or not, check to see
+whether <a class="reference internal" href="#discord.ext.tasks.Loop.is_being_cancelled" title="discord.ext.tasks.Loop.is_being_cancelled"><code class="xref py py-meth docutils literal notranslate"><span class="pre">is_being_cancelled()</span></code></a> is <code class="docutils literal notranslate"><span class="pre">True</span></code> or not.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><p><strong>coro</strong> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">coroutine</span></a>) – The coroutine to register after the loop finishes.</p>
+</dd>
+<dt class="field-even">예외</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – The function was not a coroutine.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.error">
+<code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coro</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.error" title="정의 주소">¶</a></dt>
+<dd><p>A decorator that registers a coroutine to be called if the task encounters an unhandled exception.</p>
+<p>The coroutine must take only one argument the exception raised (except <code class="docutils literal notranslate"><span class="pre">self</span></code> in a class context).</p>
+<p>By default this prints to <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.stderr" title="(in Python v3.8)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stderr</span></code></a> however it could be
+overridden to have a different implementation.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><p><strong>coro</strong> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">coroutine</span></a>) – The coroutine to register in the event of an unhandled exception.</p>
+</dd>
+<dt class="field-even">예외</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – The function was not a coroutine.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.change_interval">
+<code class="sig-name descname">change_interval</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">seconds</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">minutes</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">hours</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.change_interval" title="정의 주소">¶</a></dt>
+<dd><p>Changes the interval for the sleep time.</p>
+<div class="admonition note">
+<p class="admonition-title">참고</p>
+<p>This only applies on the next loop iteration. If it is desirable for the change of interval
+to be applied right away, cancel the task with <a class="reference internal" href="#discord.ext.tasks.Loop.cancel" title="discord.ext.tasks.Loop.cancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cancel()</span></code></a>.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.2에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seconds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – The number of seconds between every iteration.</p></li>
+<li><p><strong>minutes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – The number of minutes between every iteration.</p></li>
+<li><p><strong>hours</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – The number of hours between every iteration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">예외</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – An invalid value was given.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="discord.ext.tasks.loop">
+<code class="sig-prename descclassname">discord.ext.tasks.</code><code class="sig-name descname">loop</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">seconds</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">minutes</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">hours</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reconnect</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">loop</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.loop" title="정의 주소">¶</a></dt>
+<dd><p>A decorator that schedules a task in the background for you with
+optional reconnect logic. The decorator returns a <a class="reference internal" href="#discord.ext.tasks.Loop" title="discord.ext.tasks.Loop"><code class="xref py py-class docutils literal notranslate"><span class="pre">Loop</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seconds</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – The number of seconds between every iteration.</p></li>
+<li><p><strong>minutes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – The number of minutes between every iteration.</p></li>
+<li><p><strong>hours</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – The number of hours between every iteration.</p></li>
+<li><p><strong>count</strong> (Optional[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]) – The number of loops to do, <code class="docutils literal notranslate"><span class="pre">None</span></code> if it should be an
+infinite loop.</p></li>
+<li><p><strong>reconnect</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Whether to handle errors and restart the task
+using an exponential back-off algorithm similar to the
+one used in <a class="reference internal" href="../../api.html#discord.Client.connect" title="discord.Client.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">discord.Client.connect()</span></code></a>.</p></li>
+<li><p><strong>loop</strong> (<a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.AbstractEventLoop" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.AbstractEventLoop</span></code></a>) – The loop to use to register the task, if not given
+defaults to <a class="reference external" href="https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.get_event_loop" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.get_event_loop()</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">예외</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – An invalid value was given.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – The function was not a coroutine.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">목차</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">discord.ext.tasks</span></code> – asyncio.Task 헬퍼</a><ul>
+<li><a class="reference internal" href="#recipes">레시피</a></li>
+<li><a class="reference internal" href="#api-reference">API 레퍼런스</a></li>
+</ul>
+</li>
+</ul>
+<!-- purposefully empty -->
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">빠른 검색</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="이동" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    &copy; Copyright 2015-2020, Rapptz.
+    <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 버전으로 생성되었습니다.
+  </div>
+  
+  </body>
+</html>
