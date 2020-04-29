@@ -9,9 +9,11 @@ In particular thanks to:
 */
 
 @import url('basic.css');
+@import url('https://cdn.jsdelivr.net/npm/font-kopub@1.0/kopub.min.css');
+@import url('https://cdn.jsdelivr.net/npm/firacode@3.1.0/distr/fira_code.min.css');
 
 body {
-  font-family: 'Georgia', 'Yu Gothic', 'Noto Sans CJK JP Regular', serif;
+  font-family: 'KoPub Dotum', sans-serif;
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -363,7 +365,7 @@ pre {
 }
 
 pre, tt, code {
-  font-family: 'Consolas', 'Menlo', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+  font-family: 'Fira Code', 'Consolas', 'Menlo', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
   font-size: 0.9em;
 }
 
