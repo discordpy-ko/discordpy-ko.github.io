@@ -176,7 +176,7 @@
 <code class="sig-name descname">current_loop</code><a class="headerlink" href="#discord.ext.tasks.Loop.current_loop" title="정의 주소">¶</a></dt>
 <dd><p>The current iteration of the loop.</p>
 <dl class="field-list simple">
-<dt class="field-odd">종류</dt>
+<dt class="field-odd">형식</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
 </dd>
 </dl>
@@ -190,7 +190,7 @@
 <p><span class="versionmodified added">버전 1.3에 추가.</span></p>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">종류</dt>
+<dt class="field-odd">형식</dt>
 <dd class="field-odd"><p>옵션[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]</p>
 </dd>
 </dl>
@@ -199,12 +199,12 @@
 <dl class="py method">
 <dt id="discord.ext.tasks.Loop.start">
 <code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.start" title="정의 주소">¶</a></dt>
-<dd><p>Starts the internal task in the event loop.</p>
+<dd><p>이벤트 루프에서 내부 태스크를 시작합니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>*args</strong> – The arguments to use.</p></li>
-<li><p><strong>**kwargs</strong> – The keyword arguments to use.</p></li>
+<li><p><strong>*args</strong> – 사용할 전달인자.</p></li>
+<li><p><strong>**kwargs</strong> – 사용할 키워드 전달인자.</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
@@ -222,9 +222,8 @@
 <dl class="py method">
 <dt id="discord.ext.tasks.Loop.stop">
 <code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.stop" title="정의 주소">¶</a></dt>
-<dd><p>Gracefully stops the task from running.</p>
-<p>Unlike <a class="reference internal" href="#discord.ext.tasks.Loop.cancel" title="discord.ext.tasks.Loop.cancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cancel()</span></code></a>, this allows the task to finish its
-current iteration before gracefully exiting.</p>
+<dd><p>돌아가는 태스크를 정지합니다.</p>
+<p><a class="reference internal" href="#discord.ext.tasks.Loop.cancel" title="discord.ext.tasks.Loop.cancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cancel()</span></code></a>과는 달리, 태스크를 정지하기 전에 현재 반복중인 것을 완료하게 만듭니다.</p>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>If the internal function raises an error that can be
@@ -258,7 +257,7 @@ returned like <a class="reference internal" href="#discord.ext.tasks.Loop.start"
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>*args</strong> – The arguments to to use.</p></li>
-<li><p><strong>**kwargs</strong> – The keyword arguments to use.</p></li>
+<li><p><strong>**kwargs</strong> – 사용할 키워드 전달인자.</p></li>
 </ul>
 </dd>
 </dl>
@@ -286,10 +285,10 @@ raises its own set of exceptions.</p>
 <dl class="py method">
 <dt id="discord.ext.tasks.Loop.clear_exception_types">
 <code class="sig-name descname">clear_exception_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.clear_exception_types" title="정의 주소">¶</a></dt>
-<dd><p>Removes all exception types that are handled.</p>
+<dd><p>처리 가능한 모든 형식의 예외를 삭제합니다.</p>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
-<p>This operation obviously cannot be undone!</p>
+<p>이 작업은 당연히 되돌릴 수 없습니다!</p>
 </div>
 </dd></dl>
 
