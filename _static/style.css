@@ -10,7 +10,6 @@ In particular thanks to:
 
 @import url('basic.css');
 @import url('https://fonts.googleapis.com/earlyaccess/nanumgothic.css');
-@import url('https://cdn.jsdelivr.net/npm/firacode@3.1.0/distr/fira_code.min.css');
 
 body {
   font-family: 'NanumGothic', sans-serif;
@@ -365,7 +364,7 @@ pre {
 }
 
 pre, tt, code {
-  font-family: 'NanumGothic', 'Consolas', 'Menlo', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+  font-family: 'Consolas', 'Menlo', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
   font-size: 0.9em;
 }
 
