@@ -49,11 +49,11 @@
             
   <div class="section" id="cogs">
 <span id="ext-commands-cogs"></span><h1>Cogs<a class="headerlink" href="#cogs" title="제목 주소">¶</a></h1>
-<p>봇의 개발 중 명령어들의 모음, 리스너, 그리고 몇몇 state들을 한 클래스에 조직화 하고 싶을 때가 옵니다. Cogs는 바로 그것을 가능할 수 있게 해줍니다.</p>
+<p>봇의 개발 중 명령어들의 모음, 리스너, 그리고 몇몇 state들을 한 클래스에 조직화하고 싶을 때가 옵니다. Cogs는 그것을 할 수 있게 해줍니다.</p>
 <p>요점:</p>
 <ul class="simple">
 <li><p>각각의 cog는 <a class="reference internal" href="api.html#discord.ext.commands.Cog" title="discord.ext.commands.Cog"><code class="xref py py-class docutils literal notranslate"><span class="pre">commands.Cog</span></code></a> 의 서브클래스인 Python 클래스입니다.</p></li>
-<li><p>모든 커맨드들은 <a class="reference internal" href="api.html#discord.ext.commands.command" title="discord.ext.commands.command"><code class="xref py py-func docutils literal notranslate"><span class="pre">commands.command()</span></code></a> 데코레이터로 표시됩니다.</p></li>
+<li><p>모든 명령어들은 <a class="reference internal" href="api.html#discord.ext.commands.command" title="discord.ext.commands.command"><code class="xref py py-func docutils literal notranslate"><span class="pre">commands.command()</span></code></a> 데코레이터로 표시됩니다.</p></li>
 <li><p>모든 리스너들은 <a class="reference internal" href="api.html#discord.ext.commands.Cog.listener" title="discord.ext.commands.Cog.listener"><code class="xref py py-meth docutils literal notranslate"><span class="pre">commands.Cog.listener()</span></code></a> 로 표시됩니다.</p></li>
 <li><p>Cogs는 <a class="reference internal" href="api.html#discord.ext.commands.Bot.add_cog" title="discord.ext.commands.Bot.add_cog"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Bot.add_cog()</span></code></a> 호출로 등록됩니다.</p></li>
 <li><p>Cogs는 <a class="reference internal" href="api.html#discord.ext.commands.Bot.remove_cog" title="discord.ext.commands.Bot.remove_cog"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Bot.remove_cog()</span></code></a> 호출로 제거됩니다.</p></li>
@@ -84,28 +84,28 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_last_member</span> <span class="o">=</span> <span class="n">member</span>
 </pre></div>
 </div>
-<p>고려해야할 몇 가지 기술적 참고 사항:</p>
+<p>고려해야 할 몇 가지 기술적 참고 사항:</p>
 <ul class="simple">
-<li><p>모든 리스너들은 명시적으로 <a class="reference internal" href="api.html#discord.ext.commands.Cog.listener" title="discord.ext.commands.Cog.listener"><code class="xref py py-meth docutils literal notranslate"><span class="pre">listener()</span></code></a> 데코레이터를 동해 표시되어야만 합니다.</p></li>
-<li><p>Cog의 이름은 자동적으로 클래스 이름에서 얻어오지만, 덮어씌워질 수 있습니다. <a class="reference internal" href="#ext-commands-cogs-meta-options"><span class="std std-ref">Meta Options</span></a> 를 참고하세요.</p></li>
-<li><p>모든 커맨드들은 이제 상태를 유지하는데 사용될 수 있는 인스턴스 속성들을 사용할 수 있게 <code class="docutils literal notranslate"><span class="pre">self</span></code> 파라미터를 사용해야 합니디.</p></li>
+<li><p>모든 리스너들은 명시적으로 <a class="reference internal" href="api.html#discord.ext.commands.Cog.listener" title="discord.ext.commands.Cog.listener"><code class="xref py py-meth docutils literal notranslate"><span class="pre">listener()</span></code></a> 데코레이터를 통해 표시되어야만 합니다.</p></li>
+<li><p>Cog의 이름은 자동적으로 클래스 이름에서 불러오지만, 덮어씌워질 수 있습니다. <a class="reference internal" href="#ext-commands-cogs-meta-options"><span class="std std-ref">Meta Options</span></a> 를 참고하세요.</p></li>
+<li><p>모든 명령어들은 이제 상태를 유지하는데 사용될 수 있는 인스턴스 속성들을 사용할 수 있게 <code class="docutils literal notranslate"><span class="pre">self</span></code> 파라미터를 사용해야 합니디.</p></li>
 </ul>
 </div>
 <div class="section" id="cog-registration">
 <h2>Cog 등록<a class="headerlink" href="#cog-registration" title="제목 주소">¶</a></h2>
-<p>일단 cogs를 정의했다면, 당신은 봇에게 사용될 cogs를 등록하라고 해야 합니다.  우리는 이것을 <a class="reference internal" href="api.html#discord.ext.commands.Bot.add_cog" title="discord.ext.commands.Bot.add_cog"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_cog()</span></code></a> 메소드를 통해 수행합니다.</p>
+<p>일단 cogs를 정의했다면, 당신은 cogs를 사용하기 위해 봇에게 등록하라고 해야 합니다.  우리는 이것을 <a class="reference internal" href="api.html#discord.ext.commands.Bot.add_cog" title="discord.ext.commands.Bot.add_cog"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_cog()</span></code></a> 메소드를 통해 수행합니다.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">bot</span><span class="o">.</span><span class="n">add_cog</span><span class="p">(</span><span class="n">Greetings</span><span class="p">(</span><span class="n">bot</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>이것은 cog를 봇으로 묶으며, 모든 커맨드들과 리스너들은 봇에 자동적으로 추가됩니다.</p>
-<p>우리가 cog를 <a class="reference internal" href="#ext-commands-cogs-meta-options"><span class="std std-ref">Meta Options</span></a> 로 덮어씌울 수 있는 이름으로 언급하는 것을 명심하세요. 그래서 만약 cog를 제거하고자 한다면 아래처럼 수행해야 합니다.</p>
+<p>우리가 cog를 <a class="reference internal" href="#ext-commands-cogs-meta-options"><span class="std std-ref">Meta Options</span></a> 를 통해 덮어씌울 수 있는 이름으로 참조한다는 것을 명심하세요. 따라서 만약 cog를 제거하고자 한다면 다음과 같이 해야 합니다.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">bot</span><span class="o">.</span><span class="n">remove_cog</span><span class="p">(</span><span class="s1">&#39;Greetings&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="using-cogs">
 <h2>Cogs 사용하기<a class="headerlink" href="#using-cogs" title="제목 주소">¶</a></h2>
-<p>방금 우리가 cog를 이름으로 제거했듯이, 또한 그것을 이름으로도 검색할 수 있습니다. 이는 우리가 cog를 데이터를 공유하기 위한 명령어 내부의 프로토콜로 사용할 수 있게 합니다. 예를 들어:</p>
+<p>방금 우리가 cog를 이름으로 제거했듯이, 우린 그것을 이름으로도 검색할 수 있습니다. 이는 우리가 cog를 데이터를 공유하기 위한 명령어 내부의 프로토콜로 사용할 수 있게 합니다. 예를 들어:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Economy</span><span class="p">(</span><span class="n">commands</span><span class="o">.</span><span class="n">Cog</span><span class="p">):</span>
     <span class="o">...</span>
 
@@ -137,7 +137,7 @@
 </div>
 <div class="section" id="special-methods">
 <span id="ext-commands-cogs-special-methods"></span><h2>특별한 메소드들<a class="headerlink" href="#special-methods" title="제목 주소">¶</a></h2>
-<p>Cogs가 더 복잡해지고 더 많은 명령어를 가지면서, cog 전체 또는 봇을 커스터마이즈 하고 싶은 때가 찾아옵니다.</p>
+<p>Cogs가 점점 복잡해지고 많은 명령어를 가지면서, cog 또는 봇을 통째로 커스터마이즈 하고 싶을 때가 찾아옵니다.</p>
 <p>이는 다음과 같습니다:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="api.html#discord.ext.commands.Cog.cog_unload" title="discord.ext.commands.Cog.cog_unload"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cog.cog_unload()</span></code></a></p></li>
@@ -148,7 +148,7 @@
 <li><p><a class="reference internal" href="api.html#discord.ext.commands.Cog.bot_check" title="discord.ext.commands.Cog.bot_check"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cog.bot_check()</span></code></a></p></li>
 <li><p><a class="reference internal" href="api.html#discord.ext.commands.Cog.bot_check_once" title="discord.ext.commands.Cog.bot_check_once"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cog.bot_check_once()</span></code></a></p></li>
 </ul>
-<p>더 자세한 정보를 위해 레퍼런스를 방문할 수 있습니다.</p>
+<p>레퍼런스를 방문해 더 자세한 정보를 찾아볼 수 있습니다.</p>
 </div>
 <div class="section" id="meta-options">
 <span id="ext-commands-cogs-meta-options"></span><h2>Meta Options<a class="headerlink" href="#meta-options" title="제목 주소">¶</a></h2>
