@@ -174,7 +174,7 @@
 <dl class="py method">
 <dt id="discord.ext.tasks.Loop.current_loop">
 <code class="sig-name descname">current_loop</code><a class="headerlink" href="#discord.ext.tasks.Loop.current_loop" title="정의 주소">¶</a></dt>
-<dd><p>The current iteration of the loop.</p>
+<dd><p>루프의 현재 반복중인 곳.</p>
 <dl class="field-list simple">
 <dt class="field-odd">형식</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
@@ -185,7 +185,7 @@
 <dl class="py method">
 <dt id="discord.ext.tasks.Loop.next_iteration">
 <code class="sig-name descname">next_iteration</code><a class="headerlink" href="#discord.ext.tasks.Loop.next_iteration" title="정의 주소">¶</a></dt>
-<dd><p>When the next iteration of the loop will occur.</p>
+<dd><p>루프의 다음 반복이 일어날 때</p>
 <div class="versionadded">
 <p><span class="versionmodified added">버전 1.3에 추가.</span></p>
 </div>
@@ -208,10 +208,10 @@
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.8)"><strong>RuntimeError</strong></a> – A task has already been launched and is running.</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#RuntimeError" title="(in Python v3.8)"><strong>RuntimeError</strong></a> – 태스크가 이미 시작되었고 돌아가는 중입니다.</p>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The task that has been created.</p>
+<dd class="field-odd"><p>생성된 태스크.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.Task" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Task</span></code></a></p>
@@ -226,12 +226,8 @@
 <p><a class="reference internal" href="#discord.ext.tasks.Loop.cancel" title="discord.ext.tasks.Loop.cancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cancel()</span></code></a>과는 달리, 태스크를 정지하기 전에 현재 반복중인 것을 완료하게 만듭니다.</p>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
-<p>If the internal function raises an error that can be
-handled before finishing then it will retry until
-it succeeds.</p>
-<p>If this is undesirable, either remove the error handling
-before stopping via <a class="reference internal" href="#discord.ext.tasks.Loop.clear_exception_types" title="discord.ext.tasks.Loop.clear_exception_types"><code class="xref py py-meth docutils literal notranslate"><span class="pre">clear_exception_types()</span></code></a> or
-use <a class="reference internal" href="#discord.ext.tasks.Loop.cancel" title="discord.ext.tasks.Loop.cancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cancel()</span></code></a> instead.</p>
+<p>만약 내부 함수가 끝내기 전에 처리할 수 있는 오류를 일으켰다면 성공할 때 까지 재시도할 것입니다.</p>
+<p>만약에 이것을 원하지 않는다면, <a class="reference internal" href="#discord.ext.tasks.Loop.clear_exception_types" title="discord.ext.tasks.Loop.clear_exception_types"><code class="xref py py-meth docutils literal notranslate"><span class="pre">clear_exception_types()</span></code></a>로 멈추기 전에 오류 처리를 제거하거나 <a class="reference internal" href="#discord.ext.tasks.Loop.cancel" title="discord.ext.tasks.Loop.cancel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cancel()</span></code></a>을 대신 사용해주세요.</p>
 </div>
 <div class="versionadded">
 <p><span class="versionmodified added">버전 1.2에 추가.</span></p>
@@ -241,22 +237,21 @@ use <a class="reference internal" href="#discord.ext.tasks.Loop.cancel" title="d
 <dl class="py method">
 <dt id="discord.ext.tasks.Loop.cancel">
 <code class="sig-name descname">cancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.cancel" title="정의 주소">¶</a></dt>
-<dd><p>Cancels the internal task, if it is running.</p>
+<dd><p>약 내부 태스크가 돌아가고 있다면 취소함.》</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discord.ext.tasks.Loop.restart">
 <code class="sig-name descname">restart</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.restart" title="정의 주소">¶</a></dt>
-<dd><p>A convenience method to restart the internal task.</p>
+<dd><p>내부 태스크를 재시작하기 위한 편리한 방법.</p>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
-<p>Due to the way this function works, the task is not
-returned like <a class="reference internal" href="#discord.ext.tasks.Loop.start" title="discord.ext.tasks.Loop.start"><code class="xref py py-meth docutils literal notranslate"><span class="pre">start()</span></code></a>.</p>
+<p>이 함수가 작동하는 방식때문에, <a class="reference internal" href="#discord.ext.tasks.Loop.start" title="discord.ext.tasks.Loop.start"><code class="xref py py-meth docutils literal notranslate"><span class="pre">start()</span></code></a>처럼 태스크가 반환되지 않습니다.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>*args</strong> – The arguments to to use.</p></li>
+<li><p><strong>*args</strong> – 사용할 전달인자.</p></li>
 <li><p><strong>**kwargs</strong> – 사용할 키워드 전달인자.</p></li>
 </ul>
 </dd>
@@ -266,18 +261,15 @@ returned like <a class="reference internal" href="#discord.ext.tasks.Loop.start"
 <dl class="py method">
 <dt id="discord.ext.tasks.Loop.add_exception_type">
 <code class="sig-name descname">add_exception_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">exceptions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.add_exception_type" title="정의 주소">¶</a></dt>
-<dd><p>Adds exception types to be handled during the reconnect logic.</p>
-<p>By default the exception types handled are those handled by
-<a class="reference internal" href="../../api.html#discord.Client.connect" title="discord.Client.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">discord.Client.connect()</span></code></a>, which includes a lot of internet disconnection
-errors.</p>
-<p>This function is useful if you’re interacting with a 3rd party library that
-raises its own set of exceptions.</p>
+<dd><p>재연결 로직 도중 처리돼야 하는 예외 형식들을 추가합니다.</p>
+<p>기본 상태에서는 처리되는 예외 형식들은 <a class="reference internal" href="../../api.html#discord.Client.connect" title="discord.Client.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">discord.Client.connect()</span></code></a>로 처리되는데, 많은 인터넷 연결 끊어짐 오류들을 포함하고 있습니다.</p>
+<p>만약에 자기만의 예외 집합을 일으키는 제 3자 라이브러리와 상호 작용하고 있다면 이 함수는 유용합니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>*exceptions</strong> (Type[<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#BaseException" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a>]) – An argument list of exception classes to handle.</p>
+<dd class="field-odd"><p><strong>*exceptions</strong> (Type[<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#BaseException" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a>]) – 처리해야 할 예외 클래스들의 전달인자 리스트.</p>
 </dd>
 <dt class="field-even">예외</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – An exception passed is either not a class or not inherited from <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#BaseException" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a>.</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – 지나간 예외는 클래스가 아니거나 <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#BaseException" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a>에서 상속되지 않았습니다.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -295,10 +287,10 @@ raises its own set of exceptions.</p>
 <dl class="py method">
 <dt id="discord.ext.tasks.Loop.remove_exception_type">
 <code class="sig-name descname">remove_exception_type</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">exceptions</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.remove_exception_type" title="정의 주소">¶</a></dt>
-<dd><p>Removes exception types from being handled during the reconnect logic.</p>
+<dd><p>재연결 로직 도중 처리돼야 하는 예외 형식들을 제거합니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>*exceptions</strong> (Type[<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#BaseException" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a>]) – An argument list of exception classes to handle.</p>
+<dd class="field-odd"><p><strong>*exceptions</strong> (Type[<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#BaseException" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a>]) – 처리해야 할 예외 클래스들의 전달인자 리스트.</p>
 </dd>
 <dt class="field-even">반환값</dt>
 <dd class="field-even"><p>Whether all exceptions were successfully removed.</p>
