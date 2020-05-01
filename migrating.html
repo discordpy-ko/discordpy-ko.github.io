@@ -4,7 +4,7 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <title>Migrating to v1.0 &#8212; discord.py 1.4.0a 문서</title>
+    <title>1.0 버전으로 이전하기 &#8212; discord.py 1.4.0a 문서</title>
     <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -47,26 +47,21 @@
           <div class="body" role="main">
             
   <div class="section" id="migrating-to-v1-0">
-<span id="migrating-1-0"></span><h1>Migrating to v1.0<a class="headerlink" href="#migrating-to-v1-0" title="제목 주소">¶</a></h1>
-<p>v1.0 is one of the biggest breaking changes in the library due to a complete
-redesign.</p>
-<p>The amount of changes are so massive and long that for all intents and purposes, it is a completely
-new library.</p>
-<p>Part of the redesign involves making things more easy to use and natural. Things are done on the
-<a class="reference internal" href="api.html#discord-api-models"><span class="std std-ref">models</span></a> instead of requiring a <a class="reference internal" href="api.html#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a> instance to do any work.</p>
+<span id="migrating-1-0"></span><h1>1.0 버전으로 이전하기<a class="headerlink" href="#migrating-to-v1-0" title="제목 주소">¶</a></h1>
+<p>1.0 버전은 전체적인 재설계로 인해 구 버전과 크게 달라졌습니다.</p>
+<p>모든 의도들과 목적들을 위한 변경점들은 매우 방대하고 길기 때문에,이것은 완전히 새로운 라이브러리가 되었습니다.</p>
+<p>재설계에는 여러가지 요소들을 더 쉽게, 그리고 더 자연스럽게 만드는 것이 포함됩니다.이러한 작업들은 어떤 일을 하기 위해 :class:<a href="#id1"><span class="problematic" id="id2">`</span></a>Client`의 객체를 요구하는 대신에:ref:<a href="#id3"><span class="problematic" id="id4">`</span></a>models &lt;discord_api_models&gt;`위에서 완료됩니다.</p>
 <div class="section" id="python-version-change">
-<h2>Python Version Change<a class="headerlink" href="#python-version-change" title="제목 주소">¶</a></h2>
-<p>In order to make development easier and also to allow for our dependencies to upgrade to allow usage of 3.7 or higher,
-the library had to remove support for Python versions lower than 3.5.3, which essentially means that <strong>support for Python 3.4
-is dropped</strong>.</p>
+<h2>파이썬의 버전 변화<a class="headerlink" href="#python-version-change" title="제목 주소">¶</a></h2>
+<p>개발을 더 쉽게 만들기 위해, 그리고 우리가 의존하는 라이브러리들이3.7 이상의 버전들을 지원하는것을 허락하기 위해 버전을 올리는 것을 허락하기 위해, discord.py는3.5.3 아래의 파이썬 버전들을 더 이상 지원하지 않기로 했습니다. 이것은 본질적으로 <strong>파이썬 3.4버전을 지원하는 일이 취소되었음</strong> 을 의미합니다.</p>
 </div>
 <div class="section" id="major-model-changes">
-<h2>Major Model Changes<a class="headerlink" href="#major-model-changes" title="제목 주소">¶</a></h2>
-<p>Below are major model changes that have happened in v1.0</p>
+<h2>주요 모델 변화<a class="headerlink" href="#major-model-changes" title="제목 주소">¶</a></h2>
+<p>아래에는 1.0 버전에서 발생한 주요 모델들의 변경점들을 기술합니다.</p>
 <div class="section" id="snowflakes-are-int">
-<h3>Snowflakes are int<a class="headerlink" href="#snowflakes-are-int" title="제목 주소">¶</a></h3>
-<p>Before v1.0, all snowflakes (the <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute) were strings. This has been changed to <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>.</p>
-<p>Quick example:</p>
+<h3>Snowflake는 정수형입니다.<a class="headerlink" href="#snowflakes-are-int" title="제목 주소">¶</a></h3>
+<p>1.0 이전 버전에서는, 모든 snowflake들(<code class="docutils literal notranslate"><span class="pre">id</span></code> 특성)은 문자열이었습니다. 이것은 :class:<a href="#id1"><span class="problematic" id="id2">`</span></a>int`로 변경되었습니다.</p>
+<p>간단한 예제입니다:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># before</span>
 <span class="n">ch</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_channel</span><span class="p">(</span><span class="s1">&#39;84319995256905728&#39;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="s1">&#39;80528701850124288&#39;</span><span class="p">:</span>
@@ -78,23 +73,20 @@ is dropped</strong>.</p>
     <span class="o">...</span>
 </pre></div>
 </div>
-<p>This change allows for fewer errors when using the Copy ID feature in the official client since you no longer have
-to wrap it in quotes and allows for optimisation opportunities by allowing ETF to be used instead of JSON internally.</p>
+<p>이 변경점은 ID를 따옴표로 감싸지 않게 만들어 공식 클라이언트에서 ID를 복사하는 기능을 사용했을 때 발생하는 오류의 수를 줄일 수 있게 합니다.또한, 이 변경점은 내부적으로 JSON 대신 ETF가 사용될 수 있게 해 최적화 기회를 제공합니다.</p>
 </div>
 <div class="section" id="server-is-now-guild">
-<h3>Server is now Guild<a class="headerlink" href="#server-is-now-guild" title="제목 주소">¶</a></h3>
-<p>The official API documentation calls the 《Server》 concept a 《Guild》 instead. In order to be more consistent with the
-API documentation when necessary, the model has been renamed to <a class="reference internal" href="api.html#discord.Guild" title="discord.Guild"><code class="xref py py-class docutils literal notranslate"><span class="pre">Guild</span></code></a> and all instances referring to it has
-been changed as well.</p>
-<p>A list of changes is as follows:</p>
+<h3>Server는 이제 Guild입니다.<a class="headerlink" href="#server-is-now-guild" title="제목 주소">¶</a></h3>
+<p>공식 API 문서는 《Server》의 개념을 《Guild》라고 부릅니다.필요할 때 API 문서와 더 일치시키기 위해서, 이 모델은 :class:<a href="#id1"><span class="problematic" id="id2">`</span></a>Guild`로 개명되었고 이를 참조하는 모든 객체들 또한 변경되었습니다.</p>
+<p>아래는 변경된 항목들입니다.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 48%" />
 <col style="width: 52%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>Before</p></td>
-<td><p>After</p></td>
+<tr class="row-odd"><td><p>이전</p></td>
+<td><p>이후</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Message.server</span></code></p></td>
 <td><p><a class="reference internal" href="api.html#discord.Message.guild" title="discord.Message.guild"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.guild</span></code></a></p></td>
@@ -133,18 +125,17 @@ been changed as well.</p>
 </table>
 </div>
 <div class="section" id="models-are-stateful">
-<span id="migrating-1-0-model-state"></span><h3>Models are Stateful<a class="headerlink" href="#models-are-stateful" title="제목 주소">¶</a></h3>
-<p>As mentioned earlier, a lot of functionality was moved out of <a class="reference internal" href="api.html#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a> and
-put into their respective <a class="reference internal" href="api.html#discord-api-models"><span class="std std-ref">model</span></a>.</p>
-<p>A list of these changes is enumerated below.</p>
+<span id="migrating-1-0-model-state"></span><h3>모델들은<a class="headerlink" href="#models-are-stateful" title="제목 주소">¶</a></h3>
+<p>이전에 언급했듯이, 많은 기능들이 :class:<a href="#id1"><span class="problematic" id="id2">`</span></a>Client`의 밖으로 이동해 각각의 :ref:<a href="#id3"><span class="problematic" id="id4">`</span></a>model &lt;discord_api_models&gt;`에 포함되었습니다.</p>
+<p>변경된 항목들은 아래에 기재되어 있습니다.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 67%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>Before</p></td>
-<td><p>After</p></td>
+<tr class="row-odd"><td><p>이전</p></td>
+<td><p>이후</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Client.add_reaction</span></code></p></td>
 <td><p><a class="reference internal" href="api.html#discord.Message.add_reaction" title="discord.Message.add_reaction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Message.add_reaction()</span></code></a></p></td>
@@ -153,7 +144,7 @@ put into their respective <a class="reference internal" href="api.html#discord-a
 <td><p><a class="reference internal" href="api.html#discord.Member.add_roles" title="discord.Member.add_roles"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Member.add_roles()</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Client.ban</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.Member.ban" title="discord.Member.ban"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Member.ban()</span></code></a> or <a class="reference internal" href="api.html#discord.Guild.ban" title="discord.Guild.ban"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.ban()</span></code></a></p></td>
+<td><p><a class="reference internal" href="api.html#discord.Member.ban" title="discord.Member.ban"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Member.ban()</span></code></a> 또는 <a class="reference internal" href="api.html#discord.Guild.ban" title="discord.Guild.ban"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.ban()</span></code></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Client.change_nickname</span></code></p></td>
 <td><p><a class="reference internal" href="api.html#discord.Member.edit" title="discord.Member.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Member.edit()</span></code></a></p></td>
@@ -162,7 +153,7 @@ put into their respective <a class="reference internal" href="api.html#discord-a
 <td><p><a class="reference internal" href="api.html#discord.Message.clear_reactions" title="discord.Message.clear_reactions"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Message.clear_reactions()</span></code></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Client.create_channel</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.Guild.create_text_channel" title="discord.Guild.create_text_channel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.create_text_channel()</span></code></a> and <a class="reference internal" href="api.html#discord.Guild.create_voice_channel" title="discord.Guild.create_voice_channel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.create_voice_channel()</span></code></a></p></td>
+<td><p><a class="reference internal" href="api.html#discord.Guild.create_text_channel" title="discord.Guild.create_text_channel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.create_text_channel()</span></code></a> 과 <a class="reference internal" href="api.html#discord.Guild.create_voice_channel" title="discord.Guild.create_voice_channel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.create_voice_channel()</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Client.create_custom_emoji</span></code></p></td>
 <td><p><a class="reference internal" href="api.html#discord.Guild.create_custom_emoji" title="discord.Guild.create_custom_emoji"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.create_custom_emoji()</span></code></a></p></td>
@@ -177,13 +168,13 @@ put into their respective <a class="reference internal" href="api.html#discord-a
 <td><p><a class="reference internal" href="api.html#discord.abc.GuildChannel.delete" title="discord.abc.GuildChannel.delete"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.GuildChannel.delete()</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Client.delete_channel_permissions</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.abc.GuildChannel.set_permissions" title="discord.abc.GuildChannel.set_permissions"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.GuildChannel.set_permissions()</span></code></a> with <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> set to <code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">overwrite``된</span> <span class="pre">:meth:`abc.GuildChannel.set_permissions`</span> <span class="pre">는</span> <span class="pre">``None</span></code> 으로 설정되었습니다.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Client.delete_custom_emoji</span></code></p></td>
 <td><p><a class="reference internal" href="api.html#discord.Emoji.delete" title="discord.Emoji.delete"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Emoji.delete()</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Client.delete_invite</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.Invite.delete" title="discord.Invite.delete"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Invite.delete()</span></code></a> or <a class="reference internal" href="api.html#discord.Client.delete_invite" title="discord.Client.delete_invite"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.delete_invite()</span></code></a></p></td>
+<td><p><a class="reference internal" href="api.html#discord.Invite.delete" title="discord.Invite.delete"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Invite.delete()</span></code></a> 또는 <a class="reference internal" href="api.html#discord.Client.delete_invite" title="discord.Client.delete_invite"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.delete_invite()</span></code></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Client.delete_message</span></code></p></td>
 <td><p><a class="reference internal" href="api.html#discord.Message.delete" title="discord.Message.delete"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Message.delete()</span></code></a></p></td>
@@ -198,7 +189,7 @@ put into their respective <a class="reference internal" href="api.html#discord-a
 <td><p><a class="reference internal" href="api.html#discord.Guild.delete" title="discord.Guild.delete"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.delete()</span></code></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Client.edit_channel</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.TextChannel.edit" title="discord.TextChannel.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TextChannel.edit()</span></code></a> or <a class="reference internal" href="api.html#discord.VoiceChannel.edit" title="discord.VoiceChannel.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">VoiceChannel.edit()</span></code></a></p></td>
+<td><p><a class="reference internal" href="api.html#discord.TextChannel.edit" title="discord.TextChannel.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TextChannel.edit()</span></code></a> 또는 <a class="reference internal" href="api.html#discord.VoiceChannel.edit" title="discord.VoiceChannel.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">VoiceChannel.edit()</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Client.edit_channel_permissions</span></code></p></td>
 <td><p><a class="reference internal" href="api.html#discord.abc.GuildChannel.set_permissions" title="discord.abc.GuildChannel.set_permissions"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.GuildChannel.set_permissions()</span></code></a></p></td>
@@ -210,7 +201,7 @@ put into their respective <a class="reference internal" href="api.html#discord-a
 <td><p><a class="reference internal" href="api.html#discord.Message.edit" title="discord.Message.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Message.edit()</span></code></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Client.edit_profile</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.ClientUser.edit" title="discord.ClientUser.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ClientUser.edit()</span></code></a> (you get this from <a class="reference internal" href="api.html#discord.Client.user" title="discord.Client.user"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Client.user</span></code></a>)</p></td>
+<td><p><a class="reference internal" href="api.html#discord.ClientUser.edit" title="discord.ClientUser.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ClientUser.edit()</span></code></a> (<a class="reference internal" href="api.html#discord.Client.user" title="discord.Client.user"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Client.user</span></code></a> 에서 얻을 수 있습니다.)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Client.edit_role</span></code></p></td>
 <td><p><a class="reference internal" href="api.html#discord.Role.edit" title="discord.Role.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Role.edit()</span></code></a></p></td>
@@ -240,22 +231,22 @@ put into their respective <a class="reference internal" href="api.html#discord-a
 <td><p><a class="reference internal" href="api.html#discord.Client.fetch_user" title="discord.Client.fetch_user"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.fetch_user()</span></code></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Client.invites_from</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.abc.GuildChannel.invites" title="discord.abc.GuildChannel.invites"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.GuildChannel.invites()</span></code></a> or <a class="reference internal" href="api.html#discord.Guild.invites" title="discord.Guild.invites"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.invites()</span></code></a></p></td>
+<td><p><a class="reference internal" href="api.html#discord.abc.GuildChannel.invites" title="discord.abc.GuildChannel.invites"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.GuildChannel.invites()</span></code></a> 또는 <a class="reference internal" href="api.html#discord.Guild.invites" title="discord.Guild.invites"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.invites()</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Client.join_voice_channel</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.VoiceChannel.connect" title="discord.VoiceChannel.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">VoiceChannel.connect()</span></code></a> (see <a class="reference internal" href="#migrating-1-0-voice"><span class="std std-ref">Voice Changes</span></a>)</p></td>
+<td><p><a class="reference internal" href="api.html#discord.VoiceChannel.connect" title="discord.VoiceChannel.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">VoiceChannel.connect()</span></code></a> (<a class="reference internal" href="#migrating-1-0-voice"><span class="std std-ref">Voice Changes</span></a> 를 참고해주세요)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Client.kick</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.Guild.kick" title="discord.Guild.kick"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.kick()</span></code></a> or <a class="reference internal" href="api.html#discord.Member.kick" title="discord.Member.kick"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Member.kick()</span></code></a></p></td>
+<td><p><a class="reference internal" href="api.html#discord.Guild.kick" title="discord.Guild.kick"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.kick()</span></code></a> 또는 <a class="reference internal" href="api.html#discord.Member.kick" title="discord.Member.kick"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Member.kick()</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Client.leave_server</span></code></p></td>
 <td><p><a class="reference internal" href="api.html#discord.Guild.leave" title="discord.Guild.leave"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.leave()</span></code></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Client.logs_from</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.abc.Messageable.history" title="discord.abc.Messageable.history"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.history()</span></code></a> (see <a class="reference internal" href="#migrating-1-0-async-iter"><span class="std std-ref">Asynchronous Iterators</span></a>)</p></td>
+<td><p><a class="reference internal" href="api.html#discord.abc.Messageable.history" title="discord.abc.Messageable.history"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.history()</span></code></a> (<a class="reference internal" href="#migrating-1-0-async-iter"><span class="std std-ref">Asynchronous Iterators</span></a> 를 참고해주세요)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Client.move_channel</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.TextChannel.edit" title="discord.TextChannel.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TextChannel.edit()</span></code></a> or <a class="reference internal" href="api.html#discord.VoiceChannel.edit" title="discord.VoiceChannel.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">VoiceChannel.edit()</span></code></a></p></td>
+<td><p><a class="reference internal" href="api.html#discord.TextChannel.edit" title="discord.TextChannel.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TextChannel.edit()</span></code></a> 또는 <a class="reference internal" href="api.html#discord.VoiceChannel.edit" title="discord.VoiceChannel.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">VoiceChannel.edit()</span></code></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Client.move_member</span></code></p></td>
 <td><p><a class="reference internal" href="api.html#discord.Member.edit" title="discord.Member.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Member.edit()</span></code></a></p></td>
@@ -285,13 +276,13 @@ put into their respective <a class="reference internal" href="api.html#discord-a
 <td><p><a class="reference internal" href="api.html#discord.Member.edit" title="discord.Member.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Member.edit()</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Client.send_file</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.abc.Messageable.send" title="discord.abc.Messageable.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.send()</span></code></a> (see <a class="reference internal" href="#migrating-1-0-sending-messages"><span class="std std-ref">Sending Messages</span></a>)</p></td>
+<td><p><a class="reference internal" href="api.html#discord.abc.Messageable.send" title="discord.abc.Messageable.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.send()</span></code></a> (<a class="reference internal" href="#migrating-1-0-sending-messages"><span class="std std-ref">Sending Messages</span></a> 를 참고해주세요)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Client.send_message</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.abc.Messageable.send" title="discord.abc.Messageable.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.send()</span></code></a> (see <a class="reference internal" href="#migrating-1-0-sending-messages"><span class="std std-ref">Sending Messages</span></a>)</p></td>
+<td><p><a class="reference internal" href="api.html#discord.abc.Messageable.send" title="discord.abc.Messageable.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.send()</span></code></a> (<a class="reference internal" href="#migrating-1-0-sending-messages"><span class="std std-ref">Sending Messages</span></a> 를 참고해주세요)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Client.send_typing</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.abc.Messageable.trigger_typing" title="discord.abc.Messageable.trigger_typing"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.trigger_typing()</span></code></a> (use <a class="reference internal" href="api.html#discord.abc.Messageable.typing" title="discord.abc.Messageable.typing"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.typing()</span></code></a>)</p></td>
+<td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.trigger_typing`(:meth:`abc.Messageable.typing()</span></code> 를 사용합니다)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Client.server_voice_state</span></code></p></td>
 <td><p><a class="reference internal" href="api.html#discord.Member.edit" title="discord.Member.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Member.edit()</span></code></a></p></td>
@@ -300,30 +291,30 @@ put into their respective <a class="reference internal" href="api.html#discord-a
 <td><p><a class="reference internal" href="api.html#discord.User.create_dm" title="discord.User.create_dm"><code class="xref py py-meth docutils literal notranslate"><span class="pre">User.create_dm()</span></code></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Client.unban</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.Guild.unban" title="discord.Guild.unban"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.unban()</span></code></a> or <a class="reference internal" href="api.html#discord.Member.unban" title="discord.Member.unban"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Member.unban()</span></code></a></p></td>
+<td><p><a class="reference internal" href="api.html#discord.Guild.unban" title="discord.Guild.unban"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.unban()</span></code></a> 또는 <a class="reference internal" href="api.html#discord.Member.unban" title="discord.Member.unban"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Member.unban()</span></code></a></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Client.unpin_message</span></code></p></td>
 <td><p><a class="reference internal" href="api.html#discord.Message.unpin" title="discord.Message.unpin"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Message.unpin()</span></code></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Client.wait_for_message</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.Client.wait_for" title="discord.Client.wait_for"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.wait_for()</span></code></a> (see <a class="reference internal" href="#migrating-1-0-wait-for"><span class="std std-ref">Waiting For Events</span></a>)</p></td>
+<td><p><a class="reference internal" href="api.html#discord.Client.wait_for" title="discord.Client.wait_for"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.wait_for()</span></code></a> (<a class="reference internal" href="#migrating-1-0-wait-for"><span class="std std-ref">Waiting For Events</span></a> 를 참고해주세요)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Client.wait_for_reaction</span></code></p></td>
-<td><p><a class="reference internal" href="api.html#discord.Client.wait_for" title="discord.Client.wait_for"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.wait_for()</span></code></a> (see <a class="reference internal" href="#migrating-1-0-wait-for"><span class="std std-ref">Waiting For Events</span></a>)</p></td>
+<td><p><a class="reference internal" href="api.html#discord.Client.wait_for" title="discord.Client.wait_for"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.wait_for()</span></code></a> (<a class="reference internal" href="#migrating-1-0-wait-for"><span class="std std-ref">Waiting For Events</span></a> 를 참고해주세요)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Client.wait_until_login</span></code></p></td>
-<td><p>Removed</p></td>
+<td><p>제거됨</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Client.wait_until_ready</span></code></p></td>
-<td><p>No change</p></td>
+<td><p>변화 없음</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="property-changes">
-<h3>Property Changes<a class="headerlink" href="#property-changes" title="제목 주소">¶</a></h3>
-<p>In order to be a bit more consistent, certain things that were properties were changed to methods instead.</p>
-<p>The following are now methods instead of properties (requires parentheses):</p>
+<h3>프로퍼티 변화<a class="headerlink" href="#property-changes" title="제목 주소">¶</a></h3>
+<p>좀 더 일관되게 하기 위해서, 프로퍼티로 제공되던 특정 요소들은 메소드로 교체되었습니다.</p>
+<p>아래는 이제 프로퍼티가 아닌 메소드로 제공됩니다.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="api.html#discord.Role.is_default" title="discord.Role.is_default"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Role.is_default()</span></code></a></p></li>
 <li><p><a class="reference internal" href="api.html#discord.Client.is_ready" title="discord.Client.is_ready"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.is_ready()</span></code></a></p></li>
@@ -331,31 +322,28 @@ put into their respective <a class="reference internal" href="api.html#discord-a
 </ul>
 </div>
 <div class="section" id="dict-value-change">
-<h3>Dict Value Change<a class="headerlink" href="#dict-value-change" title="제목 주소">¶</a></h3>
-<p>Prior to v1.0 some aggregating properties that retrieved models would return 《dict view》 objects.</p>
-<p>As a consequence, when the dict would change size while you would iterate over it, a RuntimeError would
-be raised and crash the task. To alleviate this, the 《dict view》 objects were changed into lists.</p>
+<h3>딕셔너리 값 변화<a class="headerlink" href="#dict-value-change" title="제목 주소">¶</a></h3>
+<p>1.0 이전 버전에 모델들을 반환하던 총합 프로퍼티들은》딕셔너리 뷰》 객체를 반환하곤 했습니다.</p>
+<p>그 결과, 딕셔너리가 당신이 그것을 반복하는 동안 크기를 바꾸면, 런타임에러가 발생해 작업을 충돌시킵니다. 이것을완화시키기 위해, 《딕셔너리 뷰》 객체들은 리스트로 변경되었습니다.</p>
 <p>The following views were changed to a list:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="api.html#discord.Client.guilds" title="discord.Client.guilds"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Client.guilds</span></code></a></p></li>
 <li><p><a class="reference internal" href="api.html#discord.Client.users" title="discord.Client.users"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Client.users</span></code></a> (new in v1.0)</p></li>
 <li><p><a class="reference internal" href="api.html#discord.Client.emojis" title="discord.Client.emojis"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Client.emojis</span></code></a> (new in v1.0)</p></li>
 <li><p><a class="reference internal" href="api.html#discord.Guild.channels" title="discord.Guild.channels"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.channels</span></code></a></p></li>
-<li><p><a class="reference internal" href="api.html#discord.Guild.text_channels" title="discord.Guild.text_channels"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.text_channels</span></code></a> (new in v1.0)</p></li>
-<li><p><a class="reference internal" href="api.html#discord.Guild.voice_channels" title="discord.Guild.voice_channels"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.voice_channels</span></code></a> (new in v1.0)</p></li>
+<li><p>:attr:<a href="#id1"><span class="problematic" id="id2">`</span></a>Guild.text_channels (1.0버전에 새로 추가됨)</p></li>
+<li><p><a class="reference internal" href="api.html#discord.Guild.voice_channels" title="discord.Guild.voice_channels"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.voice_channels</span></code></a> (1.0버전에 새로 추가됨)</p></li>
 <li><p><a class="reference internal" href="api.html#discord.Guild.emojis" title="discord.Guild.emojis"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.emojis</span></code></a></p></li>
 <li><p><a class="reference internal" href="api.html#discord.Guild.members" title="discord.Guild.members"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.members</span></code></a></p></li>
 </ul>
 </div>
 <div class="section" id="voice-state-changes">
 <h3>Voice State Changes<a class="headerlink" href="#voice-state-changes" title="제목 주소">¶</a></h3>
-<p>Earlier, in v0.11.0 a <a class="reference internal" href="api.html#discord.VoiceState" title="discord.VoiceState"><code class="xref py py-class docutils literal notranslate"><span class="pre">VoiceState</span></code></a> class was added to refer to voice states along with a
-<a class="reference internal" href="api.html#discord.Member.voice" title="discord.Member.voice"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Member.voice</span></code></a> attribute to refer to it.</p>
-<p>However, it was transparent to the user. In an effort to make the library save more memory, the
-voice state change is now more visible.</p>
+<p>이전에, 0.11.0버전에서 <a class="reference internal" href="api.html#discord.VoiceState" title="discord.VoiceState"><code class="xref py py-class docutils literal notranslate"><span class="pre">VoiceState</span></code></a> 클래스는 <a class="reference internal" href="api.html#discord.Member.voice" title="discord.Member.voice"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Member.voice</span></code></a> 속성과 함께 음성 상태들을 참조하기 위해 추가되었습니다.</p>
+<p>그러나, 이것은 사용자에게 잘 드러나지 않았습니다. 라이브러리가 메모리를 절약하도록 하기 위해, 음성 상태의 변화는 이제 더 가시적입니다.</p>
 <p>The only way to access voice attributes is via the <a class="reference internal" href="api.html#discord.Member.voice" title="discord.Member.voice"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Member.voice</span></code></a> attribute. Note that if
 the member does not have a voice state this attribute can be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<p>Quick example:</p>
+<p>간단한 예제입니다:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># before</span>
 <span class="n">member</span><span class="o">.</span><span class="n">deaf</span>
 <span class="n">member</span><span class="o">.</span><span class="n">voice</span><span class="o">.</span><span class="n">voice_channel</span>
@@ -869,7 +857,7 @@ need to specify it unless turning it off.</p>
 </div>
 <div class="section" id="command-extension-changes">
 <span id="migrating-1-0-commands"></span><h2>Command Extension Changes<a class="headerlink" href="#command-extension-changes" title="제목 주소">¶</a></h2>
-<p>Due to the <a class="reference internal" href="#migrating-1-0-model-state"><span class="std std-ref">Models are Stateful</span></a> changes, some of the design of the extension module had to
+<p>Due to the <a class="reference internal" href="#migrating-1-0-model-state"><span class="std std-ref">모델들은</span></a> changes, some of the design of the extension module had to
 undergo some design changes as well.</p>
 <div class="section" id="context-changes">
 <h3>Context Changes<a class="headerlink" href="#context-changes" title="제목 주소">¶</a></h3>
@@ -954,8 +942,8 @@ provided one.</p>
 <col style="width: 78%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p>Before</p></td>
-<td><p>After</p></td>
+<tr class="row-odd"><td><p>이전</p></td>
+<td><p>이후</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Bot.say</span></code></p></td>
 <td><p><a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Context.send" title="discord.ext.commands.Context.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Context.send()</span></code></a></p></td>
@@ -1339,14 +1327,14 @@ always be a coroutine and will now take the two arguments as parameters.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">목차</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Migrating to v1.0</a><ul>
-<li><a class="reference internal" href="#python-version-change">Python Version Change</a></li>
-<li><a class="reference internal" href="#major-model-changes">Major Model Changes</a><ul>
-<li><a class="reference internal" href="#snowflakes-are-int">Snowflakes are int</a></li>
-<li><a class="reference internal" href="#server-is-now-guild">Server is now Guild</a></li>
-<li><a class="reference internal" href="#models-are-stateful">Models are Stateful</a></li>
-<li><a class="reference internal" href="#property-changes">Property Changes</a></li>
-<li><a class="reference internal" href="#dict-value-change">Dict Value Change</a></li>
+<li><a class="reference internal" href="#">1.0 버전으로 이전하기</a><ul>
+<li><a class="reference internal" href="#python-version-change">파이썬의 버전 변화</a></li>
+<li><a class="reference internal" href="#major-model-changes">주요 모델 변화</a><ul>
+<li><a class="reference internal" href="#snowflakes-are-int">Snowflake는 정수형입니다.</a></li>
+<li><a class="reference internal" href="#server-is-now-guild">Server는 이제 Guild입니다.</a></li>
+<li><a class="reference internal" href="#models-are-stateful">모델들은</a></li>
+<li><a class="reference internal" href="#property-changes">프로퍼티 변화</a></li>
+<li><a class="reference internal" href="#dict-value-change">딕셔너리 값 변화</a></li>
 <li><a class="reference internal" href="#voice-state-changes">Voice State Changes</a></li>
 <li><a class="reference internal" href="#user-and-member-type-split">User and Member Type Split</a></li>
 <li><a class="reference internal" href="#channel-type-split">Channel Type Split</a></li>

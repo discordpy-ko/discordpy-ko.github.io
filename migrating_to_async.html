@@ -4,7 +4,7 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <title>Migrating to v0.10.0 &#8212; discord.py 1.4.0a 문서</title>
+    <title>v0.10.0으로 이동 &#8212; discord.py 1.4.0a 문서</title>
     <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -39,53 +39,46 @@
           <div class="body" role="main">
             
   <div class="section" id="migrating-to-v0-10-0">
-<span id="migrating-to-async"></span><h1>Migrating to v0.10.0<a class="headerlink" href="#migrating-to-v0-10-0" title="제목 주소">¶</a></h1>
-<p>v0.10.0 is one of the biggest breaking changes in the library due to massive
-fundamental changes in how the library operates.</p>
-<p>The biggest major change is that the library has dropped support to all versions prior to
-Python 3.4.2. This was made to support <a class="reference external" href="https://docs.python.org/3/library/asyncio.html#module-asyncio" title="(in Python v3.8)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a>, in which more detail can be seen
-<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/50">in the corresponding issue</a>. To reiterate this, the implication is that
-<strong>python version 2.7 and 3.3 are no longer supported</strong>.</p>
-<p>Below are all the other major changes from v0.9.0 to v0.10.0.</p>
+<span id="migrating-to-async"></span><h1>v0.10.0으로 이동<a class="headerlink" href="#migrating-to-v0-10-0" title="제목 주소">¶</a></h1>
+<p>v0.10.0은 라이브러리가 작동하는 방식의 변화 때문에, 라이브러리에 가장 큰 변화가 이루어진 버전입니다.</p>
+<p>가장 큰 변화는 라이브러리가 Python 3.4.2 버전 밑의 버전들을 지원하지 않는다는것 입니다. 이것은 <code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio`를</span> <span class="pre">지원하기</span> <span class="pre">위함인데,</span> <span class="pre">더</span> <span class="pre">자세하게</span> <span class="pre">말하면,</span> <span class="pre">:issue:`통신,</span> <span class="pre">응답</span> <span class="pre">관련</span> <span class="pre">문제</span></code> 때문입니다. 다시 말하자면, 결론적으로, ** Python 2.7과 3.3은 더이상 지원을 하지 않는다는 것 입니다.</p>
+<p>아래에 있는 내용은 v0.9.0에서 v0.10.0 사이에 일어난 큰 변화들 입니다.</p>
 <div class="section" id="event-registration">
-<h2>Event Registration<a class="headerlink" href="#event-registration" title="제목 주소">¶</a></h2>
-<p>All events before were registered using <a class="reference internal" href="api.html#discord.Client.event" title="discord.Client.event"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.event()</span></code></a>. While this is still
-possible, the events must be decorated with <code class="docutils literal notranslate"><span class="pre">&#64;asyncio.coroutine</span></code>.</p>
-<p>Before:</p>
+<h2>이벤트 등록<a class="headerlink" href="#event-registration" title="제목 주소">¶</a></h2>
+<p>이벤트들은 <code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.event`로</span> <span class="pre">먼저</span> <span class="pre">등록이</span> <span class="pre">됩니다.</span> <span class="pre">그</span> <span class="pre">사이에</span> <span class="pre">이것은</span> <span class="pre">여전히</span> <span class="pre">가능합니다</span> <span class="pre">:</span> <span class="pre">이벤트들은</span> <span class="pre">``&#64;asyncio.coroutine`()</span></code> 으로 데코레이팅 되야 합니다.</p>
+<p>이전:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@client</span><span class="o">.</span><span class="n">event</span>
 <span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
-<p>After:</p>
+<p>이후:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@client</span><span class="o">.</span><span class="n">event</span>
 <span class="nd">@asyncio</span><span class="o">.</span><span class="n">coroutine</span>
 <span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
-<p>Or in Python 3.5+:</p>
+<p>또는 Python 3.5+ 에서:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@client</span><span class="o">.</span><span class="n">event</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
-<p>Because there is a lot of typing, a utility decorator (<code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.async_event()</span></code>) is provided
-for easier registration. For example:</p>
+<p>타이핑 해야할 것이 많이 때문에, 유틸리티 데코레이터인(<code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.async_event()</span></code>)가 편하게 등록을 하기 위해서 제공됩니다.예시 :</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@client</span><span class="o">.</span><span class="n">async_event</span>
 <span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
-<p>Be aware however, that this is still a coroutine and your other functions that are coroutines must
-be decorated with <code class="docutils literal notranslate"><span class="pre">&#64;asyncio.coroutine</span></code> or be <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">def</span></code>.</p>
+<p>하지만 조심하세요, 그것은 아직도 코루틴이고, 당신의 다른 코루틴 함수들은 반드시 <code class="docutils literal notranslate"><span class="pre">&#64;asyncio.coroutine``로</span> <span class="pre">데코레이팅</span> <span class="pre">되거나</span> <span class="pre">``async</span> <span class="pre">def</span></code> 형식이여야 합니다.</p>
 </div>
 <div class="section" id="event-changes">
-<h2>Event Changes<a class="headerlink" href="#event-changes" title="제목 주소">¶</a></h2>
+<h2>이벤트 변화들<a class="headerlink" href="#event-changes" title="제목 주소">¶</a></h2>
 <p>Some events in v0.9.0 were considered pretty useless due to having no separate states. The main
 events that were changed were the <code class="docutils literal notranslate"><span class="pre">_update</span></code> events since previously they had no context on what
 was changed.</p>
-<p>Before:</p>
+<p>이전:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_channel_update</span><span class="p">(</span><span class="n">channel</span><span class="p">):</span> <span class="k">pass</span>
 <span class="k">def</span> <span class="nf">on_member_update</span><span class="p">(</span><span class="n">member</span><span class="p">):</span> <span class="k">pass</span>
 <span class="k">def</span> <span class="nf">on_status</span><span class="p">(</span><span class="n">member</span><span class="p">):</span> <span class="k">pass</span>
@@ -94,7 +87,7 @@ was changed.</p>
 <span class="k">def</span> <span class="nf">on_socket_raw_send</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">is_binary</span><span class="p">):</span> <span class="k">pass</span>
 </pre></div>
 </div>
-<p>After:</p>
+<p>이후:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_channel_update</span><span class="p">(</span><span class="n">before</span><span class="p">,</span> <span class="n">after</span><span class="p">):</span> <span class="k">pass</span>
 <span class="k">def</span> <span class="nf">on_member_update</span><span class="p">(</span><span class="n">before</span><span class="p">,</span> <span class="n">after</span><span class="p">):</span> <span class="k">pass</span>
 <span class="k">def</span> <span class="nf">on_server_role_update</span><span class="p">(</span><span class="n">before</span><span class="p">,</span> <span class="n">after</span><span class="p">):</span> <span class="k">pass</span>
@@ -111,11 +104,11 @@ See <a class="reference internal" href="api.html#discord-api-events"><span class
 was changed to be a <a class="reference external" href="py:library/asyncio-task.html">coroutine</a>. Functions
 that are marked as a coroutine in the documentation must be awaited from or yielded from in order
 for the computation to be done. For example…</p>
-<p>Before:</p>
+<p>이전:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">channel</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>After:</p>
+<p>이후:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">yield from</span> <span class="n">client</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">channel</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
 
 <span class="c1"># or in python 3.5+</span>
@@ -160,13 +153,13 @@ is not in a guaranteed order.</p>
 <p>Due to dropping support for versions lower than Python 3.4.2, the library can now use
 <a class="reference external" href="https://docs.python.org/3/library/enum.html" title="(in Python v3.8)"><span>enum — Support for enumerations</span></a> in places where it makes sense.</p>
 <p>The common places where this was changed was in the server region, member status, and channel type.</p>
-<p>Before:</p>
+<p>이전:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">server</span><span class="o">.</span><span class="n">region</span> <span class="o">==</span> <span class="s1">&#39;us-west&#39;</span>
 <span class="n">member</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;online&#39;</span>
 <span class="n">channel</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;text&#39;</span>
 </pre></div>
 </div>
-<p>After:</p>
+<p>이후:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">server</span><span class="o">.</span><span class="n">region</span> <span class="o">==</span> <span class="n">discord</span><span class="o">.</span><span class="n">ServerRegion</span><span class="o">.</span><span class="n">us_west</span>
 <span class="n">member</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">discord</span><span class="o">.</span><span class="n">Status</span><span class="o">.</span><span class="n">online</span>
 <span class="n">channel</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">discord</span><span class="o">.</span><span class="n">ChannelType</span><span class="o">.</span><span class="n">text</span>
@@ -308,7 +301,7 @@ However, in order to do that you must pass in your credentials to <a class="refe
 <span class="n">client</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>After:</p>
+<p>이후:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;token&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -352,9 +345,9 @@ event loop then doing so is quite straightforward:</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">목차</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Migrating to v0.10.0</a><ul>
-<li><a class="reference internal" href="#event-registration">Event Registration</a></li>
-<li><a class="reference internal" href="#event-changes">Event Changes</a></li>
+<li><a class="reference internal" href="#">v0.10.0으로 이동</a><ul>
+<li><a class="reference internal" href="#event-registration">이벤트 등록</a></li>
+<li><a class="reference internal" href="#event-changes">이벤트 변화들</a></li>
 <li><a class="reference internal" href="#coroutines">Coroutines</a></li>
 <li><a class="reference internal" href="#iterables">Iterables</a></li>
 <li><a class="reference internal" href="#enumerations">Enumerations</a></li>
