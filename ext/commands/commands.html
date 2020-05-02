@@ -114,7 +114,7 @@
 </div>
 </div>
 <div class="section" id="variable">
-<h3>Variable<a class="headerlink" href="#variable" title="제목 주소">¶</a></h3>
+<h3>변수<a class="headerlink" href="#variable" title="제목 주소">¶</a></h3>
 <p>Sometimes you want users to pass in an undetermined number of parameters. The library supports this
 similar to how variable list parameters are done in Python:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@bot</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
@@ -642,11 +642,10 @@ raise a custom <a class="reference internal" href="api.html#discord.ext.commands
 <p>Since having a <code class="docutils literal notranslate"><span class="pre">guild_only</span></code> decorator is pretty common, it comes built-in via <a class="reference internal" href="api.html#discord.ext.commands.guild_only" title="discord.ext.commands.guild_only"><code class="xref py py-func docutils literal notranslate"><span class="pre">guild_only()</span></code></a>.</p>
 </div>
 <div class="section" id="global-checks">
-<h3>Global Checks<a class="headerlink" href="#global-checks" title="제목 주소">¶</a></h3>
-<p>Sometimes we want to apply a check to <strong>every</strong> command, not just certain commands. The library supports this as well
-using the global check concept.</p>
-<p>Global checks work similarly to regular checks except they are registered with the <code class="xref py py-func docutils literal notranslate"><span class="pre">Bot.check()</span></code> decorator.</p>
-<p>For example, to block all DMs we could do the following:</p>
+<h3>글로벌 체크<a class="headerlink" href="#global-checks" title="제목 주소">¶</a></h3>
+<p>가끔 우리는 특정 명령어 말고 <strong>모든</strong> 명령어에 체크를 적용하고 싶을때가 있습니다. 이 명령어는 글로벌 체크를 통해 이 기능을 지원합니다.</p>
+<p>글로벌 체크는 <code class="xref py py-func docutils literal notranslate"><span class="pre">Bot.check()</span></code> 데코레이터와 함께 등록된다는 것을 제외하면 기본 체크들과 동일하게 작동합니다.</p>
+<p>예를 들면, 모든 DM을 막기 위해 이렇게 할 수도 있습니다:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@bot</span><span class="o">.</span><span class="n">check</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">globally_block_dms</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">ctx</span><span class="o">.</span><span class="n">guild</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
@@ -654,7 +653,7 @@ using the global check concept.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">경고</p>
-<p>Be careful on how you write your global checks, as it could also lock you out of your own bot.</p>
+<p>당신이 당신의 봇을 사용 못하도록 만들 수도 있기 때문에 글로벌 체크를 작성할 때는 조심하세요.</p>
 </div>
 </div>
 </div>
@@ -671,7 +670,7 @@ using the global check concept.</p>
 <li><a class="reference internal" href="#">명령어</a><ul>
 <li><a class="reference internal" href="#parameters">매개변수</a><ul>
 <li><a class="reference internal" href="#positional">Positional</a></li>
-<li><a class="reference internal" href="#variable">Variable</a></li>
+<li><a class="reference internal" href="#variable">변수</a></li>
 <li><a class="reference internal" href="#keyword-only-arguments">Keyword-Only Arguments</a></li>
 </ul>
 </li>
@@ -694,7 +693,7 @@ using the global check concept.</p>
 </li>
 <li><a class="reference internal" href="#error-handling">Error Handling</a></li>
 <li><a class="reference internal" href="#checks">Checks</a><ul>
-<li><a class="reference internal" href="#global-checks">Global Checks</a></li>
+<li><a class="reference internal" href="#global-checks">글로벌 체크</a></li>
 </ul>
 </li>
 </ul>
