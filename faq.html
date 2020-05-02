@@ -48,7 +48,7 @@
             
   <div class="section" id="frequently-asked-questions">
 <span id="faq"></span><h1>자주 묻는 질문<a class="headerlink" href="#frequently-asked-questions" title="제목 주소">¶</a></h1>
-<p>이 페이지는 <code class="docutils literal notranslate"><span class="pre">discord.py</span></code> 와 추가적인 모듈의 자주 묻는 질문의 목록이 나열되어 있습니다. 언제든지 pull request를 통해 새로운 질문을 제안하거나 제출하세요</p>
+<p>이 페이지에는 <code class="docutils literal notranslate"><span class="pre">discord.py</span></code> 와 추가적인 모듈과 관련된 자주 묻는 질문의 목록이 나열되어 있습니다. 얼마든지 pull requests를 통해 질문해주세요.</p>
 <div class="contents local topic" id="questions">
 <p class="topic-title">질문</p>
 <ul class="simple">
@@ -63,23 +63,23 @@
 <ul>
 <li><p><a class="reference internal" href="#where-can-i-find-usage-examples" id="id6">예시들을 어디서 볼 수 있나요?</a></p></li>
 <li><p><a class="reference internal" href="#how-do-i-set-the-playing-status" id="id7">봇의 《하는 중》 상태 메시지를 어디서 설정할 수 있나요?</a></p></li>
-<li><p><a class="reference internal" href="#how-do-i-send-a-message-to-a-specific-channel" id="id8">어떻게 특정한 채널에 미시지를 보낼 수 있나요?</a></p></li>
-<li><p><a class="reference internal" href="#how-do-i-send-a-dm" id="id9">어떻게 DM(개인 메시지)을 보낼 수 있나요?</a></p></li>
+<li><p><a class="reference internal" href="#how-do-i-send-a-message-to-a-specific-channel" id="id8">어떻게 특정 채널에 메시지를 보내나요?</a></p></li>
+<li><p><a class="reference internal" href="#how-do-i-send-a-dm" id="id9">어떻게 DM(개인 메시지)을 보내나요?</a></p></li>
 <li><p><a class="reference internal" href="#how-do-i-get-the-id-of-a-sent-message" id="id10">어떻게 보낸 메시지의 ID를 얻을 수 있나요?</a></p></li>
-<li><p><a class="reference internal" href="#how-do-i-upload-an-image" id="id11">어떻게 이미지를 업로드할 수 있나요?</a></p></li>
-<li><p><a class="reference internal" href="#how-can-i-add-a-reaction-to-a-message" id="id12">어떻게 하면 메시지에 반응을 추가할 수 있나요?</a></p></li>
-<li><p><a class="reference internal" href="#how-do-i-pass-a-coroutine-to-the-player-s-after-function" id="id13">코루틴을 플레이어의 《after》 함수에 어떻게 전달하나요?</a></p></li>
-<li><p><a class="reference internal" href="#how-do-i-run-something-in-the-background" id="id14">어떻게 백그라운드에서 무언가를 돌릴 수 있나요?</a></p></li>
-<li><p><a class="reference internal" href="#how-do-i-get-a-specific-model" id="id15">특정한 모델은 어떻게 갖고오나요?</a></p></li>
-<li><p><a class="reference internal" href="#how-do-i-make-a-web-request" id="id16">웹 리퀘스트는 어떻게 만드나요?</a></p></li>
+<li><p><a class="reference internal" href="#how-do-i-upload-an-image" id="id11">어떻게 이미지를 올리나요?</a></p></li>
+<li><p><a class="reference internal" href="#how-can-i-add-a-reaction-to-a-message" id="id12">어떻게 메시지에 반응을 추가하나요?</a></p></li>
+<li><p><a class="reference internal" href="#how-do-i-pass-a-coroutine-to-the-player-s-after-function" id="id13">어떻게 코루틴을 플레이어의 《after》 함수에 전달하나요?</a></p></li>
+<li><p><a class="reference internal" href="#how-do-i-run-something-in-the-background" id="id14">어떻게 백그라운드에서 무언가를 실행시키나요?</a></p></li>
+<li><p><a class="reference internal" href="#how-do-i-get-a-specific-model" id="id15">어떻게 특정 모델을 갖고오나요?</a></p></li>
+<li><p><a class="reference internal" href="#how-do-i-make-a-web-request" id="id16">어떻게 웹 리퀘스트를 만드나요?</a></p></li>
 <li><p><a class="reference internal" href="#how-do-i-use-a-local-image-file-for-an-embed-image" id="id17">내장 이미지 파일을 어떻게 임베드 사진에 사용할 수 있나요?</a></p></li>
 <li><p><a class="reference internal" href="#is-there-an-event-for-audit-log-entries-being-created" id="id18">감사 로그를 생성하는 이벤트가 있나요?</a></p></li>
 </ul>
 </li>
 <li><p><a class="reference internal" href="#commands-extension" id="id19">명령어 확장</a></p>
 <ul>
-<li><p><a class="reference internal" href="#why-does-on-message-make-my-commands-stop-working" id="id20">왜 <code class="docutils literal notranslate"><span class="pre">on_message</span></code> 는 제 명령어를 멈추게 만들죠?</a></p></li>
-<li><p><a class="reference internal" href="#why-do-my-arguments-require-quotes" id="id21">왜 제 인자에 인용구(따옴표)가 필요하죠?</a></p></li>
+<li><p><a class="reference internal" href="#why-does-on-message-make-my-commands-stop-working" id="id20">왜 <code class="docutils literal notranslate"><span class="pre">on_message</span></code> 는 명령어를 멈추게 만들죠?</a></p></li>
+<li><p><a class="reference internal" href="#why-do-my-arguments-require-quotes" id="id21">왜 인자에 인용구(따옴표)가 필요하죠?</a></p></li>
 <li><p><a class="reference internal" href="#how-do-i-get-the-original-message" id="id22">원본 <code class="docutils literal notranslate"><span class="pre">message</span></code>를 어떻게 얻나요?</a></p></li>
 <li><p><a class="reference internal" href="#how-do-i-make-a-subcommand" id="id23">하위 명령어를 어떻게 만드나요?</a></p></li>
 </ul>
@@ -91,8 +91,8 @@
 <p>코루틴과 asyncio 관련 질문은 여기에 나열되어 있습니다.</p>
 <div class="section" id="what-is-a-coroutine">
 <h3><a class="toc-backref" href="#id2">코루틴이 뭔가요?</a><a class="headerlink" href="#what-is-a-coroutine" title="제목 주소">¶</a></h3>
-<p><a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a> 함수는 반드시 <code class="docutils literal notranslate"><span class="pre">await</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code> 과 함께 적용되어야 합니다. Python은 <code class="docutils literal notranslate"><span class="pre">await</span></code> 과 맞닥뜨릴 경우 해당 함수의 실행을 중지하고 다른 작업을 끝내고 다시 그 지점으로 돌아옵니다. 이것은 당신의 프로그램이 쓰레드나 복잡한 멀티프로세싱 없이 여러 작업을 동시에 할 수 있게 만들어줍니다.</p>
-<p><strong>만약 코루틴을 await 하는 것을 까먹었다면, 해당 코루틴은 실행되지 않습니다. 절대 코루틴을 await 하는 것을 잊지 마세요.</strong></p>
+<p><a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a> 함수는 반드시 <code class="docutils literal notranslate"><span class="pre">await</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code> 과 함께 적용되어야 합니다. Python은 <code class="docutils literal notranslate"><span class="pre">await</span></code> 과 맞닥뜨리면 해당 함수의 실행을 중지하고 다른 작업을 끝내고 다시 그 지점으로 돌아옵니다. 이것은 당신의 프로그램이 쓰레드나 복잡한 멀티프로세싱 없이 여러 작업을 동시에 할 수 있게 만들어줍니다.</p>
+<p><strong>만약 코루틴을 await 하지 않았다면, 해당 코루틴은 실행되지 않을 것입니다. 절대 코루틴을 await 하는 것을 잊지 마세요.</strong></p>
 </div>
 <div class="section" id="where-can-i-use-await">
 <h3><a class="toc-backref" href="#id3"><code class="docutils literal notranslate"><span class="pre">await</span></code>을 어디에 사용할 수 있나요?</a><a class="headerlink" href="#where-can-i-use-await" title="제목 주소">¶</a></h3>
@@ -100,9 +100,9 @@
 </div>
 <div class="section" id="what-does-blocking-mean">
 <h3><a class="toc-backref" href="#id4">《blocking》의 뜻이 뭔가요?</a><a class="headerlink" href="#what-does-blocking-mean" title="제목 주소">¶</a></h3>
-<p>비동기 프로그래밍에서 호출 차단은 <code class="docutils literal notranslate"><span class="pre">await</span></code> 이 아닌 모든 함수의 본질적인 부분입니다. 그래도 걱정하지 마세요. 호출 차단은 항상 나쁜 것은 아니랍니다. 호출 차단을 사용하는 것은 불가피하지만, 당신은 과도하게 함수의 호출을 차단하지 않도록 해야합니다. 기억하세요. 만약 너무 오랫동안 차단된다면 당신의 봇은 다른 일을 하기 위해 그 시점에서 함수의 실행을 중단하지 않았기 때문에 멈출 것입니다.</p>
-<p>로깅이 활성화되었다면, 이 라이브러리는 당신에게 메시지의 차단이 일어나고 있다고 경고를 할 것입니다: <code class="docutils literal notranslate"><span class="pre">Heartbeat</span> <span class="pre">blocked</span> <span class="pre">for</span> <span class="pre">more</span> <span class="pre">than</span> <span class="pre">N</span> <span class="pre">seconds.</span></code> <a class="reference internal" href="logging.html#logging-setup"><span class="std std-ref">로깅 설정</span></a> 을 참고하여 로깅을 활성화하는 방법에 대해 자세히 알아보세요.</p>
-<p>호출을 너무 오랫동안 차단하는 대표적인 원인은 <a class="reference external" href="https://docs.python.org/3/library/time.html#time.sleep" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.sleep()</span></code></a> 입니다.쓰지 마세요. <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.sleep" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.sleep()</span></code></a> 을 대신해서 쓰세요. 아래의 예시를 참고하세요:</p>
+<p>비동기 프로그래밍에서 호출 차단은 <code class="docutils literal notranslate"><span class="pre">await</span></code> 이 아닌 모든 함수의 본질적인 부분입니다. 그래도 걱정하지 마세요. 호출 차단은 항상 나쁜 것은 아니랍니다. 호출 차단을 사용하는 것은 불가피하지만, 당신은 과도하게 함수의 호출을 차단하지 않도록 해야 합니다. 기억하세요. 만약 너무 오랫동안 차단된다면 당신의 봇은 다른 일을 하기 위해 그 시점에서 함수의 실행을 중단하지 않았기 때문에 멈출 것입니다.</p>
+<p>로깅이 활성화되었다면, 이 라이브러리는 당신에게 메시지의 차단이 일어나고 있다고 경고할 것입니다: <code class="docutils literal notranslate"><span class="pre">Heartbeat</span> <span class="pre">blocked</span> <span class="pre">for</span> <span class="pre">more</span> <span class="pre">than</span> <span class="pre">N</span> <span class="pre">seconds.</span></code> <a class="reference internal" href="logging.html#logging-setup"><span class="std std-ref">로깅 설정</span></a> 을 참고하여 로깅을 활성화하는 방법에 대해 자세히 알아보세요.</p>
+<p>호출을 너무 오랫동안 차단하는 대표적인 원인은 <a class="reference external" href="https://docs.python.org/3/library/time.html#time.sleep" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.sleep()</span></code></a> 입니다.:func:<cite>asyncio.sleep</cite> 을 대신 사용하세요. 아래의 예시를 참고하세요:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># bad</span>
 <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
@@ -110,7 +110,7 @@
 <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>차단을 너무 오랫동안 하는 또 하나의 원인은 유명한 모듈인 <a class="reference external" href="http://docs.python-requests.org/en/latest/index.html#" title="(in Requests v2.21.0)"><span>requests</span></a> 의 HTTP 요청을 사용하는 것입니다. <a class="reference external" href="http://docs.python-requests.org/en/latest/index.html#" title="(in Requests v2.21.0)"><span>requests</span></a> 는 동기 프로그래밍에서는 엄청난 모듈이지만, <a class="reference external" href="https://docs.python.org/3/library/asyncio.html#module-asyncio" title="(in Python v3.8)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> 에게는 그리 좋은 선택은 아닙니다. 그 이유는 특정 요청은 이벤트 루프를 너무 오랫동안 차단할 수 있기 때문이죠. 대신에, 이 라이브러리와 함께 설치된 <a class="reference external" href="https://docs.aiohttp.org/en/stable/index.html" title="(in aiohttp v3.6)"><span class="xref std std-doc">aiohttp</span></a> 라이브러리를 사용하세요.</p>
+<p>차단을 너무 오랫동안 하는 또 하나의 원인은 유명한 모듈인 <a class="reference external" href="http://docs.python-requests.org/en/latest/index.html#" title="(in Requests v2.21.0)"><span>requests</span></a> 의 HTTP 요청을 사용하는 것입니다. <a class="reference external" href="http://docs.python-requests.org/en/latest/index.html#" title="(in Requests v2.21.0)"><span>requests</span></a> 는 동기 프로그래밍에서는 엄청난 모듈이지만, <a class="reference external" href="https://docs.python.org/3/library/asyncio.html#module-asyncio" title="(in Python v3.8)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> 와 함께 쓸 때는 좋은 선택이 아닙니다. 그 이유는 특정 요청은 이벤트 루프를 너무 오랫동안 차단할 수 있기 때문이죠. 대신에, 이 라이브러리와 함께 설치된 <a class="reference external" href="https://docs.aiohttp.org/en/stable/index.html" title="(in aiohttp v3.6)"><span class="xref std std-doc">aiohttp</span></a> 라이브러리를 사용하세요.</p>
 <p>다음의 예시를 고려해보세요:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># bad</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://aws.random.cat/meow&#39;</span><span class="p">)</span>
@@ -153,15 +153,15 @@
 </div>
 </div>
 <div class="section" id="how-do-i-send-a-message-to-a-specific-channel">
-<h3><a class="toc-backref" href="#id8">어떻게 특정한 채널에 미시지를 보낼 수 있나요?</a><a class="headerlink" href="#how-do-i-send-a-message-to-a-specific-channel" title="제목 주소">¶</a></h3>
-<p>채널의 정보(ID 등)을 바로 가져와 적절한 메서드를 호출해야 합니다.</p>
+<h3><a class="toc-backref" href="#id8">어떻게 특정 채널에 메시지를 보내나요?</a><a class="headerlink" href="#how-do-i-send-a-message-to-a-specific-channel" title="제목 주소">¶</a></h3>
+<p>채널의 정보(ID 등)를 바로 가져와 적절한 메서드를 호출해야 합니다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">channel</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_channel</span><span class="p">(</span><span class="mi">12324234183172</span><span class="p">)</span>
 <span class="k">await</span> <span class="n">channel</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="how-do-i-send-a-dm">
-<h3><a class="toc-backref" href="#id9">어떻게 DM(개인 메시지)을 보낼 수 있나요?</a><a class="headerlink" href="#how-do-i-send-a-dm" title="제목 주소">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">어떻게 DM(개인 메시지)을 보내나요?</a><a class="headerlink" href="#how-do-i-send-a-dm" title="제목 주소">¶</a></h3>
 <p><a class="reference internal" href="api.html#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a> 또는 <a class="reference internal" href="api.html#discord.Member" title="discord.Member"><code class="xref py py-class docutils literal notranslate"><span class="pre">Member</span></code></a> 오브젝트를 갖고 온 뒤 <a class="reference internal" href="api.html#discord.abc.Messageable.send" title="discord.abc.Messageable.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.send()</span></code></a> 를 호출하세요. 예를 들어:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_user</span><span class="p">(</span><span class="mi">381870129706958858</span><span class="p">)</span>
 <span class="k">await</span> <span class="n">user</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;👀&#39;</span><span class="p">)</span>
@@ -181,7 +181,7 @@
 </div>
 </div>
 <div class="section" id="how-do-i-upload-an-image">
-<h3><a class="toc-backref" href="#id11">어떻게 이미지를 업로드할 수 있나요?</a><a class="headerlink" href="#how-do-i-upload-an-image" title="제목 주소">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">어떻게 이미지를 올리나요?</a><a class="headerlink" href="#how-do-i-upload-an-image" title="제목 주소">¶</a></h3>
 <p>디스코드에 무언가를 업로드하기 위해서는 <a class="reference internal" href="api.html#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a> 오브젝트를 활용해야 합니다.</p>
 <p><a class="reference internal" href="api.html#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a> 은 두 개의 매개변수를 허용합니다. 파일 오브젝트 (또는 파일의 경로) 그리고 디스코드에 업로드할 때 사용될 파일의 이름이 있습니다.</p>
 <p>이미지의 업로드는 다음과 같이 매우 간단합니다:</p>
@@ -215,7 +215,7 @@
 </div>
 </div>
 <div class="section" id="how-can-i-add-a-reaction-to-a-message">
-<h3><a class="toc-backref" href="#id12">어떻게 하면 메시지에 반응을 추가할 수 있나요?</a><a class="headerlink" href="#how-can-i-add-a-reaction-to-a-message" title="제목 주소">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">어떻게 메시지에 반응을 추가하나요?</a><a class="headerlink" href="#how-can-i-add-a-reaction-to-a-message" title="제목 주소">¶</a></h3>
 <p><a class="reference internal" href="api.html#discord.Message.add_reaction" title="discord.Message.add_reaction"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Message.add_reaction()</span></code></a> 메서드를 활용하세요.</p>
 <p>만약 유니코드로 된 이모티콘을 사용하고 싶다면, 문자열에 유효한 유니코드 코드 포인트를 전달해야 합니다. 다음과 같은 방법으로 작성할 수 있습니다:</p>
 <ul class="simple">
@@ -231,7 +231,7 @@
 </div>
 <p>메시지에 있는 이모티콘을 사용하려는 경우, 이미 메시지의 내용에 코드 포인트가 있으므로 다른 것을 특별히 할 필요는 없습니다. <code class="docutils literal notranslate"><span class="pre">':thumbsup:'</span></code> 스타일로는 이모티콘을 <strong>전송할 수 없</strong>습니다.</p>
 <p>서버 이모티콘의 경우, <a class="reference internal" href="api.html#discord.Emoji" title="discord.Emoji"><code class="xref py py-class docutils literal notranslate"><span class="pre">Emoji</span></code></a> 인스턴스를 전달해야 합니다. <code class="docutils literal notranslate"><span class="pre">'&lt;:name:id&gt;'</span></code> 문자열로 전달하는 것도 가능하지만, 전송된 이모티콘을 사용하기 위해서는 이모티콘의 ID 또는 <a class="reference internal" href="api.html#discord.utils.find" title="discord.utils.find"><code class="xref py py-func docutils literal notranslate"><span class="pre">utils.find()</span></code></a>/ <a class="reference internal" href="api.html#discord.Client.emojis" title="discord.Client.emojis"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Client.emojis</span></code></a> 의 <a class="reference internal" href="api.html#discord.utils.get" title="discord.utils.get"><code class="xref py py-func docutils literal notranslate"><span class="pre">utils.get()</span></code></a> 또는 <a class="reference internal" href="api.html#discord.Guild.emojis" title="discord.Guild.emojis"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.emojis</span></code></a> 컬렉션을 통하여 <a class="reference internal" href="api.html#discord.Client.get_emoji" title="discord.Client.get_emoji"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.get_emoji()</span></code></a> 를 사용하는 방법도 알아야 합니다</p>
-<p>서버 이모티콘의 이름 또는 ID는 클라이언트가 역슬래시와 함께 <code class="docutils literal notranslate"><span class="pre">:custom_emoji:</span></code> 접두사를 붙이는 것으로 찾을 수 있습니다. 예를 들어, 클라이언트에  <code class="docutils literal notranslate"><span class="pre">\:python3:</span></code> 메시지를 전송하는 것은 <code class="docutils literal notranslate"><span class="pre">&lt;:python3:232720527448342530&gt;</span></code> 을 얻을 수 있습니다</p>
+<p>서버 이모티콘의 이름 또는 ID는 클라이언트가 역슬래시와 함께 <code class="docutils literal notranslate"><span class="pre">:custom_emoji:</span></code> 접두사를 붙이는 것으로 찾을 수 있습니다. 예를 들어, 클라이언트에 <code class="docutils literal notranslate"><span class="pre">\:python3:</span></code> 메시지를 전송하는 것은 <code class="docutils literal notranslate"><span class="pre">&lt;:python3:232720527448342530&gt;</span></code> 을 얻을 수 있습니다</p>
 <p>빠른 예시:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># if you have the ID already</span>
 <span class="n">emoji</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_emoji</span><span class="p">(</span><span class="mi">310177266011340803</span><span class="p">)</span>
@@ -249,10 +249,10 @@
 </div>
 </div>
 <div class="section" id="how-do-i-pass-a-coroutine-to-the-player-s-after-function">
-<h3><a class="toc-backref" href="#id13">코루틴을 플레이어의 《after》 함수에 어떻게 전달하나요?</a><a class="headerlink" href="#how-do-i-pass-a-coroutine-to-the-player-s-after-function" title="제목 주소">¶</a></h3>
-<p>라이브러리의 뮤직 플레이어는 분리된 쓰레드를 전송하므로 그것은 코루틴의 안에서 실행되지 않습니다. 이는 <code class="docutils literal notranslate"><span class="pre">after</span></code> 매개변수에 코루틴을 호출할 수 없다는 뜻이 아닙니다. 이를 하기 위해서는 반드시 몇가지 측면을 정리하여 호출 가능하게끔 전달해야 합니다</p>
-<p>첫 번째로 반드시 알아두어야 할 것은 코루틴을 호출하는 것은 쓰레드로부터 안전한 조작이 아닙니다. 기술적으로는 다른 쓰레드에 있으므로, 버그를 만들어내지 않기 위해서는 조심스럽게 쓰레드로부터 안전한 조작을 호출해야 합니다. 운이 좋게도, <a class="reference external" href="https://docs.python.org/3/library/asyncio.html#module-asyncio" title="(in Python v3.8)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> 는 다른 쓰레드에서 코루틴을 호출할 수 있는 <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.run_coroutine_threadsafe" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.run_coroutine_threadsafe()</span></code></a> 함수와 수반합니다.</p>
-<p>하지만, 이 함수는 <code class="xref py py-class docutils literal notranslate"><span class="pre">concurrent.Future</span></code> 를 반환하고 이를 실질적으로 호출하기 위해서는 결과를 가져(fetch)와야 합니다. 이를 모두 하기 위해서는다음을 따라야 합니다:</p>
+<h3><a class="toc-backref" href="#id13">어떻게 코루틴을 플레이어의 《after》 함수에 전달하나요?</a><a class="headerlink" href="#how-do-i-pass-a-coroutine-to-the-player-s-after-function" title="제목 주소">¶</a></h3>
+<p>라이브러리의 뮤직 플레이어는 분리된 쓰레드를 전송하므로 그것은 코루틴의 안에서 실행되지 않습니다. 이는 <code class="docutils literal notranslate"><span class="pre">after</span></code> 매개변수에 코루틴을 호출할 수 없다는 뜻이 아닙니다. 이를 하기 위해서는 반드시 몇 가지 측면을 정리하여 호출할 수 있게끔 전달해야 합니다</p>
+<p>첫 번째로 반드시 알아두어야 할 것은 코루틴을 호출하는 것은 쓰레드로부터 안전한 조작이 아닙니다. 기술적으로는 다른 쓰레드에 있으므로, 버그를 만들어내지 않기 위해서는 조심스럽게 쓰레드에서 안전한 조작을 호출해야 합니다. 운이 좋게도, <a class="reference external" href="https://docs.python.org/3/library/asyncio.html#module-asyncio" title="(in Python v3.8)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> 는 다른 쓰레드에서 코루틴을 호출할 수 있는 <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#asyncio.run_coroutine_threadsafe" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.run_coroutine_threadsafe()</span></code></a> 함수와 수반합니다.</p>
+<p>하지만, 이 함수는 <code class="xref py py-class docutils literal notranslate"><span class="pre">concurrent.Future</span></code> 를 반환하고 이를 실질적으로 호출하기 위해서는 결과를 가져(fetch)와야 합니다. 이를 모두 하기 위해서는 다음을 따라야 합니다:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_after</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
     <span class="n">coro</span> <span class="o">=</span> <span class="n">some_channel</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;Song is done!&#39;</span><span class="p">)</span>
     <span class="n">fut</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">run_coroutine_threadsafe</span><span class="p">(</span><span class="n">coro</span><span class="p">,</span> <span class="n">client</span><span class="o">.</span><span class="n">loop</span><span class="p">)</span>
@@ -267,12 +267,12 @@
 </div>
 </div>
 <div class="section" id="how-do-i-run-something-in-the-background">
-<h3><a class="toc-backref" href="#id14">어떻게 백그라운드에서 무언가를 돌릴 수 있나요?</a><a class="headerlink" href="#how-do-i-run-something-in-the-background" title="제목 주소">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">어떻게 백그라운드에서 무언가를 실행시키나요?</a><a class="headerlink" href="#how-do-i-run-something-in-the-background" title="제목 주소">¶</a></h3>
 <p><a class="reference external" href="https://github.com/Rapptz/discord.py/blob/master/examples/background_task.py">background_task.py 예시를 참고하세요.</a></p>
 </div>
 <div class="section" id="how-do-i-get-a-specific-model">
-<h3><a class="toc-backref" href="#id15">특정한 모델은 어떻게 갖고오나요?</a><a class="headerlink" href="#how-do-i-get-a-specific-model" title="제목 주소">¶</a></h3>
-<p>여러 방법을 통하여 갖고올 수 있습니다. 그 특정한 모델의 ID가 있는 경우, 아래의 함수 중 하나를 사용할 수 있습니다:</p>
+<h3><a class="toc-backref" href="#id15">어떻게 특정 모델을 갖고오나요?</a><a class="headerlink" href="#how-do-i-get-a-specific-model" title="제목 주소">¶</a></h3>
+<p>여러 방법을 통해 갖고올 수 있습니다. 그 특정한 모델의 ID가 있는 경우, 아래의 함수 중 하나를 사용할 수 있습니다:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="api.html#discord.Client.get_channel" title="discord.Client.get_channel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.get_channel()</span></code></a></p></li>
 <li><p><a class="reference internal" href="api.html#discord.Client.get_guild" title="discord.Client.get_guild"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.get_guild()</span></code></a></p></li>
@@ -305,7 +305,7 @@
 </div>
 </div>
 <div class="section" id="how-do-i-make-a-web-request">
-<h3><a class="toc-backref" href="#id16">웹 리퀘스트는 어떻게 만드나요?</a><a class="headerlink" href="#how-do-i-make-a-web-request" title="제목 주소">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">어떻게 웹 리퀘스트를 만드나요?</a><a class="headerlink" href="#how-do-i-make-a-web-request" title="제목 주소">¶</a></h3>
 <p>리퀘스트를 만들기 위해서는 차단되지 않는 라이브러리를 사용해야 합니다. 이 라이브러리는 이미 제3자 라이브러리인 <code class="docutils literal notranslate"><span class="pre">aiohttp</span></code> 를 사용하고 필요로 합니다</p>
 <p>빠른 예시:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">with</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientSession</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
@@ -341,7 +341,7 @@
 <h2><a class="toc-backref" href="#id19">명령어 확장</a><a class="headerlink" href="#commands-extension" title="제목 주소">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code> 와 관련된 질문은 여기에 있습니다.</p>
 <div class="section" id="why-does-on-message-make-my-commands-stop-working">
-<h3><a class="toc-backref" href="#id20">왜 <code class="docutils literal notranslate"><span class="pre">on_message</span></code> 는 제 명령어를 멈추게 만들죠?</a><a class="headerlink" href="#why-does-on-message-make-my-commands-stop-working" title="제목 주소">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">왜 <code class="docutils literal notranslate"><span class="pre">on_message</span></code> 는 명령어를 멈추게 만들죠?</a><a class="headerlink" href="#why-does-on-message-make-my-commands-stop-working" title="제목 주소">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">on_message</span></code> 에 제공된 기본값을 재정의하는 것은 추가 명령을 발생시키지 않습니다. 이를 해결하기 위해, <code class="docutils literal notranslate"><span class="pre">bot.process_commands(message)</span></code> 라인을 <code class="docutils literal notranslate"><span class="pre">on_message</span></code> 함수의 가장 끝에 배치하세요. 예를 들어:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@bot</span><span class="o">.</span><span class="n">event</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
@@ -352,7 +352,7 @@
 </div>
 </div>
 <div class="section" id="why-do-my-arguments-require-quotes">
-<h3><a class="toc-backref" href="#id21">왜 제 인자에 인용구(따옴표)가 필요하죠?</a><a class="headerlink" href="#why-do-my-arguments-require-quotes" title="제목 주소">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">왜 인자에 인용구(따옴표)가 필요하죠?</a><a class="headerlink" href="#why-do-my-arguments-require-quotes" title="제목 주소">¶</a></h3>
 <p>다음과 같이 정의된 간단한 명령어에는:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@bot</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">echo</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
@@ -414,22 +414,22 @@
 <li><a class="reference internal" href="#general">일반</a><ul>
 <li><a class="reference internal" href="#where-can-i-find-usage-examples">예시들을 어디서 볼 수 있나요?</a></li>
 <li><a class="reference internal" href="#how-do-i-set-the-playing-status">봇의 《하는 중》 상태 메시지를 어디서 설정할 수 있나요?</a></li>
-<li><a class="reference internal" href="#how-do-i-send-a-message-to-a-specific-channel">어떻게 특정한 채널에 미시지를 보낼 수 있나요?</a></li>
-<li><a class="reference internal" href="#how-do-i-send-a-dm">어떻게 DM(개인 메시지)을 보낼 수 있나요?</a></li>
+<li><a class="reference internal" href="#how-do-i-send-a-message-to-a-specific-channel">어떻게 특정 채널에 메시지를 보내나요?</a></li>
+<li><a class="reference internal" href="#how-do-i-send-a-dm">어떻게 DM(개인 메시지)을 보내나요?</a></li>
 <li><a class="reference internal" href="#how-do-i-get-the-id-of-a-sent-message">어떻게 보낸 메시지의 ID를 얻을 수 있나요?</a></li>
-<li><a class="reference internal" href="#how-do-i-upload-an-image">어떻게 이미지를 업로드할 수 있나요?</a></li>
-<li><a class="reference internal" href="#how-can-i-add-a-reaction-to-a-message">어떻게 하면 메시지에 반응을 추가할 수 있나요?</a></li>
-<li><a class="reference internal" href="#how-do-i-pass-a-coroutine-to-the-player-s-after-function">코루틴을 플레이어의 《after》 함수에 어떻게 전달하나요?</a></li>
-<li><a class="reference internal" href="#how-do-i-run-something-in-the-background">어떻게 백그라운드에서 무언가를 돌릴 수 있나요?</a></li>
-<li><a class="reference internal" href="#how-do-i-get-a-specific-model">특정한 모델은 어떻게 갖고오나요?</a></li>
-<li><a class="reference internal" href="#how-do-i-make-a-web-request">웹 리퀘스트는 어떻게 만드나요?</a></li>
+<li><a class="reference internal" href="#how-do-i-upload-an-image">어떻게 이미지를 올리나요?</a></li>
+<li><a class="reference internal" href="#how-can-i-add-a-reaction-to-a-message">어떻게 메시지에 반응을 추가하나요?</a></li>
+<li><a class="reference internal" href="#how-do-i-pass-a-coroutine-to-the-player-s-after-function">어떻게 코루틴을 플레이어의 《after》 함수에 전달하나요?</a></li>
+<li><a class="reference internal" href="#how-do-i-run-something-in-the-background">어떻게 백그라운드에서 무언가를 실행시키나요?</a></li>
+<li><a class="reference internal" href="#how-do-i-get-a-specific-model">어떻게 특정 모델을 갖고오나요?</a></li>
+<li><a class="reference internal" href="#how-do-i-make-a-web-request">어떻게 웹 리퀘스트를 만드나요?</a></li>
 <li><a class="reference internal" href="#how-do-i-use-a-local-image-file-for-an-embed-image">내장 이미지 파일을 어떻게 임베드 사진에 사용할 수 있나요?</a></li>
 <li><a class="reference internal" href="#is-there-an-event-for-audit-log-entries-being-created">감사 로그를 생성하는 이벤트가 있나요?</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#commands-extension">명령어 확장</a><ul>
-<li><a class="reference internal" href="#why-does-on-message-make-my-commands-stop-working">왜 <code class="docutils literal notranslate"><span class="pre">on_message</span></code> 는 제 명령어를 멈추게 만들죠?</a></li>
-<li><a class="reference internal" href="#why-do-my-arguments-require-quotes">왜 제 인자에 인용구(따옴표)가 필요하죠?</a></li>
+<li><a class="reference internal" href="#why-does-on-message-make-my-commands-stop-working">왜 <code class="docutils literal notranslate"><span class="pre">on_message</span></code> 는 명령어를 멈추게 만들죠?</a></li>
+<li><a class="reference internal" href="#why-do-my-arguments-require-quotes">왜 인자에 인용구(따옴표)가 필요하죠?</a></li>
 <li><a class="reference internal" href="#how-do-i-get-the-original-message">원본 <code class="docutils literal notranslate"><span class="pre">message</span></code>를 어떻게 얻나요?</a></li>
 <li><a class="reference internal" href="#how-do-i-make-a-subcommand">하위 명령어를 어떻게 만드나요?</a></li>
 </ul>
