@@ -4,7 +4,7 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <title>Commands &#8212; discord.py 1.4.0a 문서</title>
+    <title>명령어 &#8212; discord.py 1.4.0a 문서</title>
     <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -48,26 +48,22 @@
           <div class="body" role="main">
             
   <div class="section" id="commands">
-<span id="ext-commands-commands"></span><h1>Commands<a class="headerlink" href="#commands" title="제목 주소">¶</a></h1>
-<p>One of the most appealing aspect of the command extension is how easy it is to define commands and
-how you can arbitrarily nest groups and commands to have a rich sub-command system.</p>
-<p>Commands are defined by attaching it to a regular Python function. The command is then invoked by the user using a similar
-signature to the Python function.</p>
-<p>For example, in the given command definition:</p>
+<span id="ext-commands-commands"></span><h1>명령어<a class="headerlink" href="#commands" title="제목 주소">¶</a></h1>
+<p>명령어 확장자에서 가장 매력적인 것은 명령어를 정의하는 것이 매우 쉽고 당신 마음대로 그룹과 명령어를 묶어서 풍부한 서브커맨드 시스템을 가질 수 있다는 것입니다.</p>
+<p>명령어는 기본적인 Python 함수에 붙여서 정의됩니다. 그다음에 유저가 Python 함수처럼 비슷한 서명을 사용해서 실행됩니다.</p>
+<p>예를 들면, 주어진 명령어 정의에서:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@bot</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
     <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>With the following prefix (<code class="docutils literal notranslate"><span class="pre">$</span></code>), it would be invoked by the user via:</p>
+<p>프리픽스로 (<code class="docutils literal notranslate"><span class="pre">$</span></code>) 를 갖고 있을 때, 이 명령어는 이렇게 유저에 의해 실행됩니다:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$foo abc
 </pre></div>
 </div>
-<p>A command must always have at least one parameter, <code class="docutils literal notranslate"><span class="pre">ctx</span></code>, which is the <a class="reference internal" href="api.html#discord.ext.commands.Context" title="discord.ext.commands.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a> as the first one.</p>
-<p>There are two ways of registering a command. The first one is by using <a class="reference internal" href="api.html#discord.ext.commands.Bot.command" title="discord.ext.commands.Bot.command"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Bot.command()</span></code></a> decorator,
-as seen in the example above. The second is using the <a class="reference internal" href="api.html#discord.ext.commands.command" title="discord.ext.commands.command"><code class="xref py py-func docutils literal notranslate"><span class="pre">command()</span></code></a> decorator followed by
-<a class="reference internal" href="api.html#discord.ext.commands.Bot.add_command" title="discord.ext.commands.Bot.add_command"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Bot.add_command()</span></code></a> on the instance.</p>
-<p>Essentially, these two are equivalent:</p>
+<p>명령어는 항상 매개변수로 처음에 <a class="reference internal" href="api.html#discord.ext.commands.Context" title="discord.ext.commands.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>인 <code class="docutils literal notranslate"><span class="pre">ctx</span></code> 를 갖고 있어야 합니다.</p>
+<p>명령어를 등록하는 방법은 두가지가 있습니다. 첫번째는 위의 예시처럼 <a class="reference internal" href="api.html#discord.ext.commands.Bot.command" title="discord.ext.commands.Bot.command"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Bot.command()</span></code></a> 데코레이터를 사용하는 것입니다. 두번째는 인스턴스에서 <a class="reference internal" href="api.html#discord.ext.commands.Bot.add_command" title="discord.ext.commands.Bot.add_command"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Bot.add_command()</span></code></a> 다음에 오는 <a class="reference internal" href="api.html#discord.ext.commands.command" title="discord.ext.commands.command"><code class="xref py py-func docutils literal notranslate"><span class="pre">command()</span></code></a> 데코레이터를 사용하는 것입니다.</p>
+<p>기본적으로는, 이 둘은 같습니다:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discord.ext</span> <span class="kn">import</span> <span class="n">commands</span>
 
 <span class="n">bot</span> <span class="o">=</span> <span class="n">commands</span><span class="o">.</span><span class="n">Bot</span><span class="p">(</span><span class="n">command_prefix</span><span class="o">=</span><span class="s1">&#39;$&#39;</span><span class="p">)</span>
@@ -85,20 +81,17 @@ as seen in the example above. The second is using the <a class="reference intern
 <span class="n">bot</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Since the <a class="reference internal" href="api.html#discord.ext.commands.Bot.command" title="discord.ext.commands.Bot.command"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Bot.command()</span></code></a> decorator is shorter and easier to comprehend, it will be the one used throughout the
-documentation here.</p>
-<p>Any parameter that is accepted by the <a class="reference internal" href="api.html#discord.ext.commands.Command" title="discord.ext.commands.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">Command</span></code></a> constructor can be passed into the decorator. For example, to change
-the name to something other than the function would be as simple as doing this:</p>
+<p><a class="reference internal" href="api.html#discord.ext.commands.Bot.command" title="discord.ext.commands.Bot.command"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Bot.command()</span></code></a> 데코레이터가 더 짧고 이해하기 더 쉽기 때문에 이 문서에서 사용될 것입니다.</p>
+<p><a class="reference internal" href="api.html#discord.ext.commands.Command" title="discord.ext.commands.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">Command</span></code></a> 생성자에 의해 받아들여진 매개변수는 데코레이터로 들어갈 수 있습니다. 예를 들어서, 함수 이외의 이름으로 변경하는 것은 이렇게 하는 것처럼 간단합니다:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@bot</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;list&#39;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">_list</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
 <div class="section" id="parameters">
-<h2>Parameters<a class="headerlink" href="#parameters" title="제목 주소">¶</a></h2>
-<p>Since we define commands by making Python functions, we also define the argument passing behaviour by the function
-parameters.</p>
-<p>Certain parameter types do different things in the user side and most forms of parameter types are supported.</p>
+<h2>매개변수<a class="headerlink" href="#parameters" title="제목 주소">¶</a></h2>
+<p>우리는 명령어를 Python 함수를 만드는 것으로 정의하고 있기 때문에, 우리는 지나가는 전달인자도 함수 매개변수로 정의합니다.</p>
+<p>특정 매개변수 종류는 유저쪽에서 다른 것을 하고 대부분의 매개변수 형태는 지원됩니다.</p>
 <div class="section" id="positional">
 <h3>Positional<a class="headerlink" href="#positional" title="제목 주소">¶</a></h3>
 <p>The most basic form of parameter passing is the positional parameter. This is where we pass a parameter as-is:</p>
@@ -675,8 +668,8 @@ using the global check concept.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">목차</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Commands</a><ul>
-<li><a class="reference internal" href="#parameters">Parameters</a><ul>
+<li><a class="reference internal" href="#">명령어</a><ul>
+<li><a class="reference internal" href="#parameters">매개변수</a><ul>
 <li><a class="reference internal" href="#positional">Positional</a></li>
 <li><a class="reference internal" href="#variable">Variable</a></li>
 <li><a class="reference internal" href="#keyword-only-arguments">Keyword-Only Arguments</a></li>
