@@ -509,7 +509,7 @@ forbidden as parameters for the <a class="reference internal" href="api.html#dis
 </div>
 </div>
 <div class="section" id="error-handling">
-<span id="ext-commands-error-handler"></span><h2>Error Handling<a class="headerlink" href="#error-handling" title="제목 주소">¶</a></h2>
+<span id="ext-commands-error-handler"></span><h2>에러 다루기<a class="headerlink" href="#error-handling" title="제목 주소">¶</a></h2>
 <p>When our commands fail to parse we will, by default, receive a noisy error in <code class="docutils literal notranslate"><span class="pre">stderr</span></code> of our console that tells us
 that an error has happened and has been silently ignored.</p>
 <p>In order to handle our errors, we must use something called an error handler. There is a global error handler, called
@@ -533,7 +533,7 @@ handlers that allow us to do just that. First we decorate an error handler funct
 <a class="reference internal" href="api.html#discord.ext.commands.CommandError" title="discord.ext.commands.CommandError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">CommandError</span></code></a>. A list of errors is found in the <a class="reference internal" href="api.html#ext-commands-api-errors"><span class="std std-ref">Exceptions</span></a> page of the documentation.</p>
 </div>
 <div class="section" id="checks">
-<h2>Checks<a class="headerlink" href="#checks" title="제목 주소">¶</a></h2>
+<h2>체크<a class="headerlink" href="#checks" title="제목 주소">¶</a></h2>
 <p>There are cases when we don’t want a user to use our commands. They don’t have permissions to do so or maybe we blocked
 them from using our bot earlier. The commands extension comes with full support for these things in a concept called a
 <a class="reference internal" href="api.html#ext-commands-api-checks"><span class="std std-ref">Checks</span></a>.</p>
@@ -643,7 +643,7 @@ raise a custom <a class="reference internal" href="api.html#discord.ext.commands
 </div>
 <div class="section" id="global-checks">
 <h3>글로벌 체크<a class="headerlink" href="#global-checks" title="제목 주소">¶</a></h3>
-<p>가끔 우리는 특정 명령어 말고 <strong>모든</strong> 명령어에 체크를 적용하고 싶을때가 있습니다. 이 명령어는 글로벌 체크를 통해 이 기능을 지원합니다.</p>
+<p>가끔 우리는 특정 명령어 말고 <strong>모든</strong> 명령어에 체크를 적용하고 싶을때가 있습니다. 이 라이브러리는 글로벌 체크를 통해 이 기능을 지원합니다.</p>
 <p>글로벌 체크는 <code class="xref py py-func docutils literal notranslate"><span class="pre">Bot.check()</span></code> 데코레이터와 함께 등록된다는 것을 제외하면 기본 체크들과 동일하게 작동합니다.</p>
 <p>예를 들면, 모든 DM을 막기 위해 이렇게 할 수도 있습니다:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@bot</span><span class="o">.</span><span class="n">check</span>
@@ -691,8 +691,8 @@ raise a custom <a class="reference internal" href="api.html#discord.ext.commands
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#error-handling">Error Handling</a></li>
-<li><a class="reference internal" href="#checks">Checks</a><ul>
+<li><a class="reference internal" href="#error-handling">에러 다루기</a></li>
+<li><a class="reference internal" href="#checks">체크</a><ul>
 <li><a class="reference internal" href="#global-checks">글로벌 체크</a></li>
 </ul>
 </li>
