@@ -48,11 +48,11 @@
             
   <div class="section" id="creating-a-bot-account">
 <span id="discord-intro"></span><h1>봇 계정 생성<a class="headerlink" href="#creating-a-bot-account" title="제목 주소">¶</a></h1>
-<p>라이브러리와 디스코드 API를 사용하여 작업하기 위해서는,  우리는 제일 먼저 디스코드 봇 계정을 생성하여야 합니다.</p>
-<p>봇의 계정을 만드는 과정은 꽤나 간단합니다.</p>
+<p>라이브러리와 디스코드 API를 사용하여 작업하기 위해서 우리는 먼저 디스코드 봇 계정을 생성해야 합니다.</p>
+<p>봇의 계정을 만드는 과정은 꽤 간단합니다.</p>
 <ol class="arabic">
-<li><p><a class="reference external" href="https://discordapp.com">디스코드 웹사이트</a> 에 로그인 했는지 확인하세요.</p></li>
-<li><p><a class="reference external" href="https://discordapp.com/developers/applications">애플리케이션 페이지</a> 로 이동합니다.</p></li>
+<li><p><a class="reference external" href="https://discordapp.com">디스코드 웹사이트</a> 에 로그인했는지 확인하세요.</p></li>
+<li><p><a class="reference external" href="https://discordapp.com/developers/applications">애플리케이션 페이지</a> 로 이동합시다.</p></li>
 <li><p>《New Application》 버튼을 클릭합니다.</p>
 <blockquote>
 <div><img alt="The new application button." src="_images/discord_create_app_button.png" />
@@ -63,7 +63,7 @@
 <div><img alt="The new application form filled in." src="_images/discord_create_app_form.png" />
 </div></blockquote>
 </li>
-<li><p>《Bot》 탭으로 이동해 《Add Bot》 을 클릭하여 봇 유저를 생성합니다.</p>
+<li><p>《Bot》 탭으로 이동해 《Add Bot》 을 클릭하여 봇을 생성합니다.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>계속하기 위해서 《Yes, do it!》 을 클릭합니다.</p></li>
@@ -71,10 +71,10 @@
 <img alt="The Add Bot button." src="_images/discord_create_bot_user.png" />
 </div></blockquote>
 </li>
-<li><p>다른 사람들이 당신의 봇을 초대하는 것을 원한다면 <strong>Public Bot</strong> 이 체크되어 있는지 확인하세요.</p>
+<li><p>다른 사람들이 당신의 봇을 초대하길 원한다면 <strong>Public Bot</strong> 이 활성화되어 있는지 확인하세요.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>당신은 또한 <strong>Require OAuth2 Code Grant</strong> 를 필요로 하는게 아니라면 체크가 해제되어 있는지 확인해야 합니다. 확실하지 않다면 그냥 체크가 해제된 상태로 놔두세요.</p></li>
+<li><p>또한 <strong>Require OAuth2 Code Grant</strong> 가 필요하지 않다면 비활성화되어 있는지 확인해야 합니다. 잘 모르겠다면 그냥 비활성화 상태로 놔두세요.</p></li>
 </ul>
 <img alt="How the Bot User options should look like for most people." src="_images/discord_bot_user_options.png" />
 </div></blockquote>
@@ -82,41 +82,41 @@
 <li><p>《Copy》 버튼을 클릭하여 토큰을 복사합니다.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><strong>이것은 일반 정보 페이지의 클라이언트 암호가 아닙니다.</strong></p></li>
+<li><p><strong>이것은 General Information 페이지의 CLIENT SECRET 이 아닙니다.</strong></p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">경고</p>
-<p>토큰은 당신의 봇의 암호라고 해도 과언이 아닙니다. 당신은 <strong>절대로</strong> 이것을 다른 사람과 공유해서는 안됩니다. 만약 하게 된다면, 누군가가 당신의 봇에 로그인하여 악의적인 짓을 할 수 있습니다. 악의적인 행동에는 서버를 나가거나, 서버에 있는 모든 유저를 차단하거나, 악의적으로 모든 사람을 멘션하는 것 등이 있습니다.</p>
-<p>가능성은 끝이 없으므로, <strong>이 토큰을 공유하지 마세요.</strong></p>
-<p>만약 당신이 실수로 토큰을 유출하였다면, 가능한 빨리 《Regenerate》 버튼을 클릭하세요. 이것은 기존 토큰을 삭제하고 새로운 토큰을 생성합니다. 그리고 당신은 새로운 토큰을 사용해서 로그인해야 합니다.</p>
+<p>토큰은 당신의 봇의 암호라고 해도 과언이 아닙니다. 당신은 <strong>절대로</strong> 이것을 다른 사람과 공유해서는 안 됩니다. 만약 하게 된다면, 누군가가 당신의 봇에 로그인하여 악의적인 짓을 할 수 있습니다. 악의적인 행동에는 서버를 나가거나, 서버에 있는 모든 사용자를 차단하거나, 악의적으로 모든 사람을 멘션 하는 것 등이 있습니다.</p>
+<p>상상 이상의 많은 것들이 가능하므로, <strong>이 토큰을 공유하지 마세요.</strong></p>
+<p>만약 당신이 실수로 토큰을 유출하였다면, 최대한 빨리 《Regenerate》 버튼을 클릭하세요. 이것은 기존 토큰을 삭제하고 새로운 토큰을 생성합니다. 그리고 당신은 새로운 토큰을 사용해서 로그인해야 합니다.</p>
 </div>
 </div></blockquote>
 </li>
 </ol>
-<p>이게 끝입니다. 이제 당신은 봇 계정이 있고, 여기에 로그인할 수 있습니다.</p>
+<p>이게 끝입니다. 이제 봇 계정을 만들었고, 봇에 로그인할 수 있습니다.</p>
 <div class="section" id="inviting-your-bot">
 <span id="discord-invite-bot"></span><h2>봇 초대<a class="headerlink" href="#inviting-your-bot" title="제목 주소">¶</a></h2>
-<p>봇 유저는 만들었지만, 그 봇은 아무런 서버에도 접속하지 않았습니다.</p>
+<p>봇은 만들었지만, 아무런 서버에도 접속하지 않았습니다.</p>
 <p>당신이 봇을 초대하고 싶다면 반드시 초대 URL을 생성해야 합니다.</p>
 <ol class="arabic">
-<li><p><a class="reference external" href="https://discordapp.com">디스코드 웹사이트</a> 에 로그인 했는지 확인하세요.</p></li>
-<li><p><a class="reference external" href="https://discordapp.com/developers/applications">애플리케이션 페이지</a> 로 이동합니다.</p></li>
+<li><p><a class="reference external" href="https://discordapp.com">디스코드 웹사이트</a> 에 로그인했는지 확인하세요.</p></li>
+<li><p><a class="reference external" href="https://discordapp.com/developers/applications">애플리케이션 페이지</a> 로 이동합시다.</p></li>
 <li><p>봇 페이지를 클릭합니다.</p></li>
 <li><p>《OAuth2》 탭으로 이동합니다.</p>
 <blockquote>
 <div><img alt="How the OAuth2 page should look like." src="_images/discord_oauth2.png" />
 </div></blockquote>
 </li>
-<li><p>《scopes》 에서 《bot》 체크박스에 체크합니다.</p>
+<li><p>《scopes》 에서 《bot》 을 활성화합니다.</p>
 <blockquote>
 <div><img alt="The scopes checkbox with &quot;bot&quot; ticked." src="_images/discord_oauth2_scope.png" />
 </div></blockquote>
 </li>
-<li><p>《Bot Permissions》 에서 봇에 필요한 권한을 체크합니다.</p>
+<li><p>《Bot Permissions》 에서 봇이 필요한 권한을 활성화합니다.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>당신의 봇이 《관리자》 권한을 갖는 것에 대해 유의하십시오.</p></li>
-<li><p>봇의 소유자는 2FA가 활성화된 서버에 봇이 추가될 때 특정 작업 및 권한에 대해 2FA를 사용하도록 설정해야 합니다. <a class="reference external" href="https://support.discordapp.com/hc/en-us/articles/219576828-Setting-up-Two-Factor-Authentication">2FA 지원 페이지</a> 에서 자세한 정보를 확인하세요.</p></li>
+<li><p>봇의 소유자는 2FA가 활성화된 서버에 봇이 추가될 때 특정 작업 및 권한에 대해 2FA를 사용하도록 설정해야 합니다. <a class="reference external" href="https://support.discordapp.com/hc/ko/articles/219576828-2단계-인증-설정하기">2FA 지원 페이지</a> 에서 자세한 정보를 확인하세요.</p></li>
 </ul>
 <img alt="The permission checkboxes with some permissions checked." src="_images/discord_oauth2_perms.png" />
 </div></blockquote>
@@ -125,7 +125,7 @@
 </ol>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
-<p>봇을 추가하는 사람은 《서버 관리》 권한을 갖고 있어야 합니다.</p>
+<p>봇을 추가하기 위해선 《서버 관리》 권한을 갖고 있어야 합니다.</p>
 </div>
 <p>만약 <a class="reference internal" href="api.html#discord.Permissions" title="discord.Permissions"><code class="xref py py-class docutils literal notranslate"><span class="pre">discord.Permissions</span></code></a> 를 사용하여 봇의 런타임에서 동적 URL을 생성하고 싶다면 <a class="reference internal" href="api.html#discord.utils.oauth_url" title="discord.utils.oauth_url"><code class="xref py py-func docutils literal notranslate"><span class="pre">discord.utils.oauth_url()</span></code></a> 을 사용하세요.</p>
 </div>
