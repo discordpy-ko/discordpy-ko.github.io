@@ -50,7 +50,7 @@
 <span id="migrating-1-0"></span><h1>1.0 버전으로 이전하기<a class="headerlink" href="#migrating-to-v1-0" title="제목 주소">¶</a></h1>
 <p>1.0 버전은 전체적인 재설계로 인해 구버전과 크게 달라졌습니다.</p>
 <p>모든 의도와 목적들을 위한 변경 점들은 매우 방대하고 기므로,이것은 완전히 새로운 라이브러리가 되었습니다.</p>
-<p>재설계에는 여러 가지 요소들을 더 쉽게, 그리고 더 자연스럽게 만드는 것이 포함됩니다.이러한 작업은 어떤 일을 하기 위해 <a class="reference internal" href="api.html#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a> 의 객체를 요구하는 대신에:ref:<cite>models &lt;discord_api_models&gt;</cite> 위에서 완료됩니다.</p>
+<p>재설계에는 여러 가지 요소들을 더 쉽게, 그리고 더 자연스럽게 만드는 것이 포함됩니다.이러한 작업은 어떤 일을 하기 위해 <a class="reference internal" href="api.html#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a> 의 객체를 요구하는 대신에 <a class="reference internal" href="api.html#discord-api-models"><span class="std std-ref">models</span></a> 위에서 완료됩니다.</p>
 <div class="section" id="python-version-change">
 <h2>파이썬의 버전 변화<a class="headerlink" href="#python-version-change" title="제목 주소">¶</a></h2>
 <p>개발을 더 쉽게 만들기 위해, 그리고 우리가 의존하는 라이브러리들이3.7 이상의 버전들을 지원하는 것을 허락하기 위해 버전을 올리는 것을 허락하기 위해, discord.py는3.5.3 아래의 파이썬 버전들을 지원하지 않기로 했습니다. 이것은 본질적으로 <strong>파이썬 3.4버전을 지원하는 일이 취소되었음</strong> 을 의미합니다.</p>
@@ -126,7 +126,7 @@
 </div>
 <div class="section" id="models-are-stateful">
 <span id="migrating-1-0-model-state"></span><h3>모델들은<a class="headerlink" href="#models-are-stateful" title="제목 주소">¶</a></h3>
-<p>이전에 언급했듯이, 많은 기능이 <a class="reference internal" href="api.html#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a> 의 밖으로 이동해 각각의 :ref:<a href="#id1"><span class="problematic" id="id2">`</span></a>model &lt;discord_api_models&gt;`에 포함되었습니다.</p>
+<p>이전에 언급했듯이, 많은 기능이 <a class="reference internal" href="api.html#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a> 의 밖으로 이동해 각각의 <a class="reference internal" href="api.html#discord-api-models"><span class="std std-ref">model</span></a>에 포함되었습니다.</p>
 <p>변경된 항목들은 아래에 기재되어 있습니다.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -282,7 +282,7 @@
 <td><p><a class="reference internal" href="api.html#discord.abc.Messageable.send" title="discord.abc.Messageable.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.send()</span></code></a> (<a class="reference internal" href="#migrating-1-0-sending-messages"><span class="std std-ref">Sending Messages</span></a> 를 참고해주세요)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Client.send_typing</span></code></p></td>
-<td><p><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.trigger_typing`(:meth:`abc.Messageable.typing()</span></code> 를 사용합니다)</p></td>
+<td><p><a class="reference internal" href="api.html#discord.abc.Messageable.trigger_typing" title="discord.abc.Messageable.trigger_typing"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.trigger_typing()</span></code></a> (<a class="reference internal" href="api.html#discord.abc.Messageable.typing" title="discord.abc.Messageable.typing"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.typing()</span></code></a> 를 사용합니다)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Client.server_voice_state</span></code></p></td>
 <td><p><a class="reference internal" href="api.html#discord.Member.edit" title="discord.Member.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Member.edit()</span></code></a></p></td>
