@@ -168,7 +168,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">commands</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>만약 서브커맨드들 또한 얻고 싶으면, :meth:<a href="#id1"><span class="problematic" id="id2">`</span></a>.Cog.walk_commands`제너레이터 사용이 가능합니다.</p>
+<p>만약 서브커맨드들 또한 얻고 싶으면, <a class="reference internal" href="api.html#discord.ext.commands.Cog.walk_commands" title="discord.ext.commands.Cog.walk_commands"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cog.walk_commands()</span></code></a> 제너레이터 사용이 가능합니다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">qualified_name</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cog</span><span class="o">.</span><span class="n">walk_commands</span><span class="p">()])</span>
 </pre></div>
 </div>
