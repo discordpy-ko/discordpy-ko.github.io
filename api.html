@@ -2405,18 +2405,15 @@ message or <a class="reference external" href="https://docs.python.org/3/library
 <dl class="py function">
 <dt id="discord.on_typing">
 <code class="sig-prename descclassname">discord.</code><code class="sig-name descname">on_typing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">channel</span></em>, <em class="sig-param"><span class="n">user</span></em>, <em class="sig-param"><span class="n">when</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.on_typing" title="정의 주소">¶</a></dt>
-<dd><p>Called when someone begins typing a message.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">channel</span></code> parameter can be a <a class="reference internal" href="#discord.abc.Messageable" title="discord.abc.Messageable"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.Messageable</span></code></a> instance.
-Which could either be <a class="reference internal" href="#discord.TextChannel" title="discord.TextChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextChannel</span></code></a>, <a class="reference internal" href="#discord.GroupChannel" title="discord.GroupChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">GroupChannel</span></code></a>, or
-<a class="reference internal" href="#discord.DMChannel" title="discord.DMChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">DMChannel</span></code></a>.</p>
-<p>If the <code class="docutils literal notranslate"><span class="pre">channel</span></code> is a <a class="reference internal" href="#discord.TextChannel" title="discord.TextChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextChannel</span></code></a> then the <code class="docutils literal notranslate"><span class="pre">user</span></code> parameter
-is a <a class="reference internal" href="#discord.Member" title="discord.Member"><code class="xref py py-class docutils literal notranslate"><span class="pre">Member</span></code></a>, otherwise it is a <a class="reference internal" href="#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>.</p>
+<dd><p>유저가 메세지 작성을 시작하면 작동합니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">channel</span></code> 의 매개변수는 <a class="reference internal" href="#discord.abc.Messageable" title="discord.abc.Messageable"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.Messageable</span></code></a> 의 인스턴스입니다. 이것이 <a class="reference internal" href="#discord.TextChannel" title="discord.TextChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextChannel</span></code></a>, <a class="reference internal" href="#discord.GroupChannel" title="discord.GroupChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">GroupChannel</span></code></a>, 혹은 :class:<a href="#id1"><span class="problematic" id="id2">`</span></a>DMChannel`가 될수도 있습니다..</p>
+<p>만약에 <code class="docutils literal notranslate"><span class="pre">channel</span></code> 에 대한 <code class="xref py py-class docutils literal notranslate"><span class="pre">TextChannel`유저라면</span> <span class="pre">``user`</span></code> 매게변수값이 :class:<a href="#id1"><span class="problematic" id="id2">`</span></a>Member`로 반환되고, 아닐경우 :class:<a href="#id3"><span class="problematic" id="id4">`</span></a>User`로 반환됩니다..</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>channel</strong> (<a class="reference internal" href="#discord.abc.Messageable" title="discord.abc.Messageable"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.Messageable</span></code></a>) – The location where the typing originated from.</p></li>
-<li><p><strong>user</strong> (Union[<a class="reference internal" href="#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>, <a class="reference internal" href="#discord.Member" title="discord.Member"><code class="xref py py-class docutils literal notranslate"><span class="pre">Member</span></code></a>]) – The user that started typing.</p></li>
-<li><p><strong>when</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>) – When the typing started as a naive datetime in UTC.</p></li>
+<li><p><strong>channel</strong> (<a class="reference internal" href="#discord.abc.Messageable" title="discord.abc.Messageable"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.Messageable</span></code></a>) – 유저가 작성한 채널의 값을 불러옵니다.</p></li>
+<li><p><strong>user</strong> (Union[<a class="reference internal" href="#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>, <a class="reference internal" href="#discord.Member" title="discord.Member"><code class="xref py py-class docutils literal notranslate"><span class="pre">Member</span></code></a>]) – 작성 중인 유저의 값을 불러옵니다.</p></li>
+<li><p><strong>when</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>) – datetime형태로 작성을 시작한 시간을 UTC 기준으로 값을 불러옵니다.</p></li>
 </ul>
 </dd>
 </dl>
@@ -2425,18 +2422,14 @@ is a <a class="reference internal" href="#discord.Member" title="discord.Member"
 <dl class="py function">
 <dt id="discord.on_message">
 <code class="sig-prename descclassname">discord.</code><code class="sig-name descname">on_message</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">message</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.on_message" title="정의 주소">¶</a></dt>
-<dd><p>Called when a <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> is created and sent.</p>
+<dd><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 가 보내졌을때, 작동합니다.</p>
 <div class="admonition warning">
 <p class="admonition-title">경고</p>
-<p>Your bot’s own messages and private messages are sent through this
-event. This can lead cases of 〈recursion〉 depending on how your bot was
-programmed. If you want the bot to not reply to itself, consider
-checking the user IDs. Note that <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Bot" title="discord.ext.commands.Bot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bot</span></code></a> does not
-have this problem.</p>
+<p>봇의 메세지과 개인 이벤트는 이 이벤트를 통해 전송됩니다.봇이 프로그래밍된 방식에 따라, &lt;재귀&gt; 현상이 발생할 수 있습니다.따라서, 봇 자신에 응답하지 않게할려면, 사용자ID 확인을 해보시기 바랍니다.이 현상은 :class:<a href="#id1"><span class="problematic" id="id2">`</span></a>~ext.commands.Bot`에서 발생하지는 않습니다.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>message</strong> (<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>) – The current message.</p>
+<dd class="field-odd"><p><strong>message</strong> (<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>) – 현재의 메세지</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2444,15 +2437,11 @@ have this problem.</p>
 <dl class="py function">
 <dt id="discord.on_message_delete">
 <code class="sig-prename descclassname">discord.</code><code class="sig-name descname">on_message_delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">message</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.on_message_delete" title="정의 주소">¶</a></dt>
-<dd><p>Called when a message is deleted. If the message is not found in the
-internal message cache, then this event will not be called.
-Messages might not be in cache if the message is too old
-or the client is participating in high traffic guilds.</p>
-<p>If this occurs increase the <code class="xref py py-attr docutils literal notranslate"><span class="pre">Client.max_messages</span></code> attribute
-or use the <a class="reference internal" href="#discord.on_raw_message_delete" title="discord.on_raw_message_delete"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_raw_message_delete()</span></code></a> event instead.</p>
+<dd><p>메시지가 삭제 될 때 호출됩니다. 내부 메시지 캐시에서 메시지를 찾을 수 없으면이 이벤트가 호출되지 않습니다.메시지가 너무 오래되었거나 클라이언트가 트래픽 길드에 참여하는 경우 메시지가 캐시에 없을 수 있습니다.</p>
+<p>이럴 경우, <code class="xref py py-attr docutils literal notranslate"><span class="pre">Client.max_messages</span></code> 의 값을 늘리거나 해당 <a class="reference internal" href="#discord.on_raw_message_delete" title="discord.on_raw_message_delete"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_raw_message_delete()</span></code></a> 이벤트 사용을 해보시기 바랍니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>message</strong> (<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>) – The deleted message.</p>
+<dd class="field-odd"><p><strong>message</strong> (<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>) – 삭제된 메세지</p>
 </dd>
 </dl>
 </dd></dl>
