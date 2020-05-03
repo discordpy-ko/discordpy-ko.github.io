@@ -93,7 +93,7 @@
 <p>우리는 명령어를 Python 함수를 만드는 것으로 정의하고 있기 때문에, 우리는 지나가는 전달인자도 함수 매개변수로 정의합니다.</p>
 <p>특정 매개변수 종류는 유저쪽에서 다른 것을 하고 대부분의 매개변수 형태는 지원됩니다.</p>
 <div class="section" id="positional">
-<h3>Positional<a class="headerlink" href="#positional" title="제목 주소">¶</a></h3>
+<h3>위치<a class="headerlink" href="#positional" title="제목 주소">¶</a></h3>
 <p>The most basic form of parameter passing is the positional parameter. This is where we pass a parameter as-is:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@bot</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
@@ -135,7 +135,7 @@ at all:</p>
 you can do anything you would usually do with one.</p>
 </div>
 <div class="section" id="keyword-only-arguments">
-<h3>Keyword-Only Arguments<a class="headerlink" href="#keyword-only-arguments" title="제목 주소">¶</a></h3>
+<h3>키워드 전용 전달인자<a class="headerlink" href="#keyword-only-arguments" title="제목 주소">¶</a></h3>
 <p>When you want to handle parsing of the argument yourself or do not feel like you want to wrap multi-word user input into
 quotes, you can ask the library to give you the rest as a single argument. We do this by using a <strong>keyword-only argument</strong>,
 seen below:</p>
@@ -534,25 +534,20 @@ handlers that allow us to do just that. First we decorate an error handler funct
 </div>
 <div class="section" id="checks">
 <h2>체크<a class="headerlink" href="#checks" title="제목 주소">¶</a></h2>
-<p>There are cases when we don’t want a user to use our commands. They don’t have permissions to do so or maybe we blocked
-them from using our bot earlier. The commands extension comes with full support for these things in a concept called a
-<a class="reference internal" href="api.html#ext-commands-api-checks"><span class="std std-ref">Checks</span></a>.</p>
-<p>A check is a basic predicate that can take in a <a class="reference internal" href="api.html#discord.ext.commands.Context" title="discord.ext.commands.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a> as its sole parameter. Within it, you have the following
-options:</p>
+<p>우리가 유저들이 전용 명령어를 사용하지 못하게 막고 싶을 때가 있습니다. 그들에게 권한이 없거나 우리가 그들이 봇을 사용하지 못하도록 막았었을 수도 있습니다. 명령어 확장자는 이것들을 위한 완전한 지원이 <a class="reference internal" href="api.html#ext-commands-api-checks"><span class="std std-ref">Checks</span></a>로 함께 옵니다.</p>
+<p>체크는 <a class="reference internal" href="api.html#discord.ext.commands.Context" title="discord.ext.commands.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>에서 단독 매개 변수로 자리잡는 기본적인 서술자입니다. 이 안에서, 당신에게는 이런 옵션들이 있습니다:</p>
 <ul>
-<li><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> to signal that the person can run the command.</p></li>
-<li><p>Return <code class="docutils literal notranslate"><span class="pre">False</span></code> to signal that the person cannot run the command.</p></li>
-<li><p>Raise a <a class="reference internal" href="api.html#discord.ext.commands.CommandError" title="discord.ext.commands.CommandError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">CommandError</span></code></a> derived exception to signal the person cannot run the command.</p>
+<li><p>이 사람이 명령어를 사용할 수 있다고 <code class="docutils literal notranslate"><span class="pre">True</span></code>를 시그널에 반환.</p></li>
+<li><p>이 사람이 명령어를 사용할 수 없다고 <code class="docutils literal notranslate"><span class="pre">False</span></code>를 시그널에 반환.</p></li>
+<li><p>이 사람이 명령어를 사용할 수 없다고 <a class="reference internal" href="api.html#discord.ext.commands.CommandError" title="discord.ext.commands.CommandError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">CommandError</span></code></a> 예외를 일으키기.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>This allows you to have custom error messages for you to handle in the
-<a class="reference internal" href="#ext-commands-error-handler"><span class="std std-ref">error handlers</span></a>.</p></li>
+<li><p>이는 당신이 <a class="reference internal" href="#ext-commands-error-handler"><span class="std std-ref">error handlers</span></a>를 다루기 위해 당신만을 위한 커스텀 오류 메시지를 만들 수 있게 합니다.</p></li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
-<p>To register a check for a command, we would have two ways of doing so. The first is using the <a class="reference internal" href="api.html#discord.ext.commands.check" title="discord.ext.commands.check"><code class="xref py py-meth docutils literal notranslate"><span class="pre">check()</span></code></a>
-decorator. For example:</p>
+<p>명령어에 체크를 등록하기 위해, 우리는 2가지 방법으로 할 수 있습니다. 첫번째 방법은 <a class="reference internal" href="api.html#discord.ext.commands.check" title="discord.ext.commands.check"><code class="xref py py-meth docutils literal notranslate"><span class="pre">check()</span></code></a> 데코레이터를 사용하는 것입니다. 예를 들어:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">is_owner</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">ctx</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="mi">316026178463072268</span>
 
@@ -669,9 +664,9 @@ raise a custom <a class="reference internal" href="api.html#discord.ext.commands
   <ul>
 <li><a class="reference internal" href="#">명령어</a><ul>
 <li><a class="reference internal" href="#parameters">매개변수</a><ul>
-<li><a class="reference internal" href="#positional">Positional</a></li>
+<li><a class="reference internal" href="#positional">위치</a></li>
 <li><a class="reference internal" href="#variable">변수</a></li>
-<li><a class="reference internal" href="#keyword-only-arguments">Keyword-Only Arguments</a></li>
+<li><a class="reference internal" href="#keyword-only-arguments">키워드 전용 전달인자</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#invocation-context">Invocation Context</a></li>
