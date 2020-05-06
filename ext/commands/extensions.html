@@ -4,7 +4,7 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <title>확장자 &#8212; discord.py 1.4.0a 문서</title>
+    <title>확장 &#8212; discord.py 1.4.0a 문서</title>
     <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -48,12 +48,12 @@
           <div class="body" role="main">
             
   <div class="section" id="extensions">
-<span id="ext-commands-extensions"></span><h1>확장자<a class="headerlink" href="#extensions" title="제목 주소">¶</a></h1>
-<p>봇의 개발 단계에서는 런타임에 봇 기능을 확장하고 코드를 신속하게 언로드/리로드(핫 리로딩이라고도 불림) 하고 싶을 때가 옵니다. 커맨드 프레임워크에는 <strong>확장</strong>이라는 개념을 가진 능력이 내장되어 있습니다.</p>
+<span id="ext-commands-extensions"></span><h1>확장<a class="headerlink" href="#extensions" title="제목 주소">¶</a></h1>
+<p>봇의 개발 단계에서는 런타임에 봇 기능을 확장하고 코드를 신속하게 언로드/리로드(핫 리로딩이라고도 불림) 하고 싶을 때가 옵니다. 커맨드 프레임워크에는 <strong>확장</strong>이라는 기능이 내장되어 있습니다.</p>
 <div class="section" id="primer">
 <h2>기초<a class="headerlink" href="#primer" title="제목 주소">¶</a></h2>
-<p>확장자의 중심부인 파이썬 파일에는 <code class="docutils literal notranslate"><span class="pre">setup</span></code>이라고 불리우는 진입점이 있습니다. 이 셋업은 반드시 기본적인 Python 함수여야 합니다 (코루틴이 아닙니다). 이 함수는 하나의 매개변수를 가집니다 – 확장자를 로드하는 <a class="reference internal" href="api.html#discord.ext.commands.Bot" title="discord.ext.commands.Bot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bot</span></code></a>입니다.</p>
-<p>확장자의 예제는 다음과 같이 생겼습니다:</p>
+<p>확장의 중심부인 파이썬 파일에는 <code class="docutils literal notranslate"><span class="pre">setup</span></code>이라고 불리우는 진입점이 있습니다. 이 셋업은 반드시 기본적인 Python 함수여야 합니다 (코루틴이 아닙니다). 이 함수는 하나의 매개변수를 가집니다 – 확장자를 로드하는 <a class="reference internal" href="api.html#discord.ext.commands.Bot" title="discord.ext.commands.Bot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bot</span></code></a>입니다.</p>
+<p>확장의 예제는 다음과 같이 생겼습니다:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">hello.py</span><a class="headerlink" href="#id1" title="이 코드에 대한 퍼머링크">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discord.ext</span> <span class="kn">import</span> <span class="n">commands</span>
@@ -67,14 +67,14 @@
 </span></pre></div>
 </div>
 </div>
-<p>이 예시에서 우리는 간단한 명령어를 정의하였고, 확장자가 로드될 때 이 명령어는 봇에 추가됩니다. 이제 마지막 단계는 <a class="reference internal" href="api.html#discord.ext.commands.Bot.load_extension" title="discord.ext.commands.Bot.load_extension"><code class="xref py py-meth docutils literal notranslate"><span class="pre">commands.Bot.load_extension()</span></code></a>을 호출하는 것입니다. 이 확장자를 로드하기 위해서는 <code class="docutils literal notranslate"><span class="pre">bot.load_extension('hello')</span></code>을 호출합니다</p>
+<p>이 예시에서 우리는 간단한 명령어를 정의하였고, 확장이 로드될 때 이 명령어는 봇에 추가됩니다. 이제 마지막 단계는 <a class="reference internal" href="api.html#discord.ext.commands.Bot.load_extension" title="discord.ext.commands.Bot.load_extension"><code class="xref py py-meth docutils literal notranslate"><span class="pre">commands.Bot.load_extension()</span></code></a>을 호출하는 것입니다. 이 확장을 로드하기 위해서는 <code class="docutils literal notranslate"><span class="pre">bot.load_extension('hello')</span></code>을 호출합니다</p>
 <div class="helpful admonition">
 <p class="admonition-title">Cogs</p>
 <p>확장자는 보통 cogs와 함께 사용됩니다. 더 자세한 정보는 <a class="reference internal" href="cogs.html#ext-commands-cogs"><span class="std std-ref">Cogs</span></a> 문서를 확인하세요.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
-<p>확장자의 경로는 궁극적으로는 import 메커니즘과 비슷합니다. 이 뜻은 만약 폴더가 존재할 경우, 반드시 마침표로 구분되어야 합니다. 예를 들어, <code class="docutils literal notranslate"><span class="pre">plugins/hello.py</span></code>에 있는 확장자를 로드하는 경우, <code class="docutils literal notranslate"><span class="pre">plugins.hello</span></code>로 사용합니다.</p>
+<p>확장자의 경로는 궁극적으로는 import 메커니즘과 비슷합니다. 이 뜻은 만약 폴더가 존재할 경우, 반드시 마침표로 구분되어야 합니다. 예를 들어, <code class="docutils literal notranslate"><span class="pre">plugins/hello.py</span></code>에 있는 확장을 로드하는 경우, <code class="docutils literal notranslate"><span class="pre">plugins.hello</span></code>로 사용합니다.</p>
 </div>
 </div>
 <div class="section" id="reloading">
@@ -83,11 +83,11 @@
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bot</span><span class="o">.</span><span class="n">reload_extension</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Once the extension reloads, any changes that we did will be applied. This is useful if we want to add or remove functionality without restarting our bot. If an error occurred during the reloading process, the bot will pretend as if the reload never happened.</p>
+<p>확장이 리로드되면 확장에 포함된 모든 변경사항이 적용됩니다. 이는 봇을 재시작하지 않고 기능을 추가하거나 제거할 때유용합니다. 만약 리로딩 과정에 오류가 발생하면 봇에변경 사항이 적용되지 않습니다.</p>
 </div>
 <div class="section" id="cleaning-up">
-<h2>Cleaning Up<a class="headerlink" href="#cleaning-up" title="제목 주소">¶</a></h2>
-<p>Although rare, sometimes an extension needs to clean-up or know when it’s being unloaded. For cases like these, there is another entry point named <code class="docutils literal notranslate"><span class="pre">teardown</span></code> which is similar to <code class="docutils literal notranslate"><span class="pre">setup</span></code> except called when the extension is unloaded.</p>
+<h2>확장 정리하기<a class="headerlink" href="#cleaning-up" title="제목 주소">¶</a></h2>
+<p>가끔 확장을 정리하거나 언로드되었는지 확인해야 할 때가 있습니다. 이런 경우를 위해 <code class="docutils literal notranslate"><span class="pre">teardown</span></code> 진입점이 존재합니다. 이는 <a href="#id1"><span class="problematic" id="id2">``</span></a>setup``과 비슷하지만 확장이 언로드될 때 호출됩니다.</p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">basic_ext.py</span><a class="headerlink" href="#id2" title="이 코드에 대한 퍼머링크">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">bot</span><span class="p">):</span>
@@ -109,10 +109,10 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">목차</a></h3>
   <ul>
-<li><a class="reference internal" href="#">확장자</a><ul>
+<li><a class="reference internal" href="#">확장</a><ul>
 <li><a class="reference internal" href="#primer">기초</a></li>
 <li><a class="reference internal" href="#reloading">리로딩</a></li>
-<li><a class="reference internal" href="#cleaning-up">Cleaning Up</a></li>
+<li><a class="reference internal" href="#cleaning-up">확장 정리하기</a></li>
 </ul>
 </li>
 </ul>
