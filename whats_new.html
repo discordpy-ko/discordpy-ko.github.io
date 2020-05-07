@@ -68,13 +68,13 @@ in specific versions.</p>
 </div>
 <div class="section" id="v1-3-2">
 <span id="vp1p3p2"></span><h2>v1.3.2<a class="headerlink" href="#v1-3-2" title="제목 주소">¶</a></h2>
-<p>Another minor bug fix release.</p>
+<p>다른 버그 수정판도 배포되었습니다</p>
 <div class="section" id="id1">
 <h3>버그 수정<a class="headerlink" href="#id1" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Higher the wait time during the <code class="docutils literal notranslate"><span class="pre">GUILD_CREATE</span></code> stream before <code class="docutils literal notranslate"><span class="pre">on_ready</span></code> is fired for <a class="reference internal" href="api.html#discord.AutoShardedClient" title="discord.AutoShardedClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">AutoShardedClient</span></code></a>.</p></li>
 <li><p><a class="reference internal" href="api.html#discord.on_voice_state_update" title="discord.on_voice_state_update"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_voice_state_update()</span></code></a> now uses the inner <code class="docutils literal notranslate"><span class="pre">member</span></code> payload which should make it more reliable.</p></li>
-<li><p>Fix various Cloudflare handling errors (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2572">GH-2572</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2544">GH-2544</a>)</p></li>
+<li><p>다양한 Cloudflare 오류도 수정하였습니다. (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2572">GH-2572</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2544">GH-2544</a>)</p></li>
 <li><p>Fix crashes if <a class="reference internal" href="api.html#discord.Message.guild" title="discord.Message.guild"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.guild</span></code></a> is <a class="reference internal" href="api.html#discord.Object" title="discord.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">Object</span></code></a> instead of <a class="reference internal" href="api.html#discord.Guild" title="discord.Guild"><code class="xref py py-class docutils literal notranslate"><span class="pre">Guild</span></code></a>.</p></li>
 <li><p>Fix <a class="reference internal" href="api.html#discord.Webhook.send" title="discord.Webhook.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Webhook.send()</span></code></a> returning an empty string instead of <code class="docutils literal notranslate"><span class="pre">None</span></code> when <code class="docutils literal notranslate"><span class="pre">wait=False</span></code>.</p></li>
 <li><p>Fix invalid format specifier in webhook state (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2570">GH-2570</a>)</p></li>
