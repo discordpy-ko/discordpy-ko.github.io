@@ -9,10 +9,10 @@ In particular thanks to:
 */
 
 @import url('basic.css');
-@import url('https://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+@import url('https://cdn.jsdelivr.net/npm/font-kopubworld@1.0/css/all.min.css');
 
 body {
-  font-family: 'NanumGothic', sans-serif;
+  font-family: 'KoPubWorld Dotum', sans-serif;
   font-size: 16px;
   margin: 0;
   padding: 0;
