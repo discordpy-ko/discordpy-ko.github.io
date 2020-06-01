@@ -1172,7 +1172,7 @@ regular Python imports if accessing a sub-module. e.g.
 <div class="admonition warning">
 <p class="admonition-title">경고</p>
 <p>Logging on with a user token is against the Discord
-<a class="reference external" href="https://support.discordapp.com/hc/en-us/articles/115002192352">Terms of Service</a>
+<a class="reference external" href="https://support.discord.com/hc/en-us/articles/115002192352">Terms of Service</a>
 and doing so might potentially get your account banned.
 Use this at your own risk.</p>
 </div>
@@ -1763,7 +1763,7 @@ then the first line of the long help text is used instead.</p>
 <dd><p>The list of aliases the command can be invoked under.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></p>
+<dd class="field-odd"><p>Union[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2789,12 +2789,12 @@ for every command and subcommand in this cog.</p>
 
 <dl class="py method">
 <dt id="discord.ext.commands.Cog.cog_command_error">
-<code class="sig-name descname">cog_command_error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ctx</span></em>, <em class="sig-param"><span class="n">error</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Cog.cog_command_error" title="정의 주소">¶</a></dt>
+<em class="property">await </em><code class="sig-name descname">cog_command_error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ctx</span></em>, <em class="sig-param"><span class="n">error</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Cog.cog_command_error" title="정의 주소">¶</a></dt>
 <dd><p>A special method that is called whenever an error
 is dispatched inside this cog.</p>
 <p>This is similar to <a class="reference internal" href="#discord.on_command_error" title="discord.on_command_error"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_command_error()</span></code></a> except only applying
 to the commands inside this cog.</p>
-<p>This function <strong>can</strong> be a coroutine.</p>
+<p>This <strong>must</strong> be a coroutine.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">

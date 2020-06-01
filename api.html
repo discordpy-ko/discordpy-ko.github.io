@@ -314,7 +314,10 @@ if <a class="reference internal" href="#discord.Guild.large" title="discord.Guil
 <p>이 함수는 두 가지의 다른 방법으로 사용될 수 있습니다.</p>
 <div class="admonition warning">
 <p class="admonition-title">경고</p>
-<p>유저 토큰으로 로그인하는 것은 디스코드의 <a class="reference external" href="https://support.discordapp.com/hc/en-us/articles/115002192352">이용약관</a>에 위배됩니다. 이는 잠재적으로 당신의 계정이 차단될 수 있음을 뜻합니다. 위험을 감수하고 사용하세요.</p>
+<p>Logging on with a user token is against the Discord
+<a class="reference external" href="https://support.discord.com/hc/en-us/articles/115002192352">Terms of Service</a>
+and doing so might potentially get your account banned.
+Use this at your own risk.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
@@ -2533,7 +2536,7 @@ regardless of the state of the internal message cache.</p>
 <p>If the message is found in the message cache,
 it can be accessed via <a class="reference internal" href="#discord.RawMessageUpdateEvent.cached_message" title="discord.RawMessageUpdateEvent.cached_message"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RawMessageUpdateEvent.cached_message</span></code></a></p>
 <p>Due to the inherently raw nature of this event, the data parameter coincides with
-the raw data given by the <a class="reference external" href="https://discordapp.com/developers/docs/topics/gateway#message-update">gateway</a>.</p>
+the raw data given by the <a class="reference external" href="https://discord.com/developers/docs/topics/gateway#message-update">gateway</a>.</p>
 <p>Since the data payload can be partial, care must be taken when accessing stuff in the dictionary.
 One example of a common case of partial data is when the <code class="docutils literal notranslate"><span class="pre">'content'</span></code> key is inaccessible. This
 denotes an 《embed》 only edit, which is an edit in which only the embeds are updated by the Discord
@@ -3238,7 +3241,8 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">True</s
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>when</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>) – The timestamp in which to sleep until.</p></li>
+<li><p><strong>when</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>) – The timestamp in which to sleep until. If the datetime is naive then
+it is assumed to be in UTC.</p></li>
 <li><p><strong>result</strong> (<em>Any</em>) – If provided is returned to the caller when the coroutine completes.</p></li>
 </ul>
 </dd>
@@ -6271,7 +6275,8 @@ abstract base class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>max_age</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 초대의 지속 시간입니다. 0이면 초대가 만료되지 않습니다. 기본값은 0입니다.</p></li>
+<li><p><strong>max_age</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – How long the invite should last in seconds. If it’s 0 then the invite
+doesn’t expire. Defaults to 0.</p></li>
 <li><p><strong>max_uses</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 초대를 사용할 수 있는 횟수입니다. 0이면 무제한으로 사용할 수 있습니다. 기본값은 0입니다.</p></li>
 <li><p><strong>temporary</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 초대에 임시 회원 자격이 부여되는지를 나타냅니다. (즉, 연결이 끊어지면 추방됨.)기본값은 <code class="docutils literal notranslate"><span class="pre">False</span></code> 입니다.</p></li>
 <li><p><strong>unique</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 고유한 초대 URL을 생성해야 하는지 나타냅니다. 기본값은 <code class="docutils literal notranslate"><span class="pre">True</span></code> 입니다.</p></li>
@@ -6891,7 +6896,7 @@ Only applicable to user accounts.</p></li>
 <dt id="discord.ClientUser.color">
 <code class="sig-name descname">color</code><a class="headerlink" href="#discord.ClientUser.color" title="정의 주소">¶</a></dt>
 <dd><p>사용자의 렌더링 된 색상을 나타내는 색상을 리턴하는 속성입니다. 이것은 항상 <a class="reference internal" href="#discord.Colour.default" title="discord.Colour.default"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Colour.default()</span></code></a>를 리턴합니다.</p>
-<p><a class="reference internal" href="#discord.ClientUser.colour" title="discord.ClientUser.colour"><code class="xref py py-meth docutils literal notranslate"><span class="pre">colour()</span></code></a> 이라는 별칭이 있습니다.</p>
+<p>There is an alias for this named <a class="reference internal" href="#discord.ClientUser.colour" title="discord.ClientUser.colour"><code class="xref py py-attr docutils literal notranslate"><span class="pre">colour</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a></p>
@@ -6903,7 +6908,7 @@ Only applicable to user accounts.</p></li>
 <dt id="discord.ClientUser.colour">
 <code class="sig-name descname">colour</code><a class="headerlink" href="#discord.ClientUser.colour" title="정의 주소">¶</a></dt>
 <dd><p>사용자의 렌더링 된 색상을 나타내는 색상을 리턴하는 속성입니다. 이것은 항상 <a class="reference internal" href="#discord.Colour.default" title="discord.Colour.default"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Colour.default()</span></code></a>를 리턴합니다.</p>
-<p><a class="reference internal" href="#discord.ClientUser.color" title="discord.ClientUser.color"><code class="xref py py-meth docutils literal notranslate"><span class="pre">color()</span></code></a> 이라는 별칭이 있습니다.</p>
+<p>There is an alias for this named <a class="reference internal" href="#discord.ClientUser.color" title="discord.ClientUser.color"><code class="xref py py-attr docutils literal notranslate"><span class="pre">color</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a></p>
@@ -6996,6 +7001,17 @@ Only applicable to user accounts.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>channel</strong> (<a class="reference internal" href="#discord.abc.GuildChannel" title="discord.abc.GuildChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.GuildChannel</span></code></a>) – 권한을 확인할 채널입니다.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ClientUser.public_flags">
+<code class="sig-name descname">public_flags</code><a class="headerlink" href="#discord.ClientUser.public_flags" title="정의 주소">¶</a></dt>
+<dd><p>The publicly available flags the user has.</p>
+<dl class="field-list simple">
+<dt class="field-odd">타입</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">PublicFlags</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -7428,7 +7444,7 @@ Only applicable to user accounts.</p></li>
 <dt id="discord.User.color">
 <code class="sig-name descname">color</code><a class="headerlink" href="#discord.User.color" title="정의 주소">¶</a></dt>
 <dd><p>사용자의 렌더링 된 색상을 나타내는 색상을 리턴하는 속성입니다. 이것은 항상 <a class="reference internal" href="#discord.Colour.default" title="discord.Colour.default"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Colour.default()</span></code></a>를 리턴합니다.</p>
-<p><a class="reference internal" href="#discord.User.colour" title="discord.User.colour"><code class="xref py py-meth docutils literal notranslate"><span class="pre">colour()</span></code></a> 이라는 별칭이 있습니다.</p>
+<p>There is an alias for this named <a class="reference internal" href="#discord.User.colour" title="discord.User.colour"><code class="xref py py-attr docutils literal notranslate"><span class="pre">colour</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a></p>
@@ -7440,7 +7456,7 @@ Only applicable to user accounts.</p></li>
 <dt id="discord.User.colour">
 <code class="sig-name descname">colour</code><a class="headerlink" href="#discord.User.colour" title="정의 주소">¶</a></dt>
 <dd><p>사용자의 렌더링 된 색상을 나타내는 색상을 리턴하는 속성입니다. 이것은 항상 <a class="reference internal" href="#discord.Colour.default" title="discord.Colour.default"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Colour.default()</span></code></a>를 리턴합니다.</p>
-<p><a class="reference internal" href="#discord.User.color" title="discord.User.color"><code class="xref py py-meth docutils literal notranslate"><span class="pre">color()</span></code></a> 이라는 별칭이 있습니다.</p>
+<p>There is an alias for this named <a class="reference internal" href="#discord.User.color" title="discord.User.color"><code class="xref py py-attr docutils literal notranslate"><span class="pre">color</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a></p>
@@ -7581,6 +7597,17 @@ Only applicable to user accounts.</p></li>
 </dd>
 <dt class="field-odd">반환 형식</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.User.public_flags">
+<code class="sig-name descname">public_flags</code><a class="headerlink" href="#discord.User.public_flags" title="정의 주소">¶</a></dt>
+<dd><p>The publicly available flags the user has.</p>
+<dl class="field-list simple">
+<dt class="field-odd">타입</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">PublicFlags</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -7780,7 +7807,7 @@ Only applicable to user accounts.</p></li>
 
 <dl class="py method">
 <dt id="discord.Attachment.to_file">
-<em class="property">await </em><code class="sig-name descname">to_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">use_cached</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Attachment.to_file" title="정의 주소">¶</a></dt>
+<em class="property">await </em><code class="sig-name descname">to_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">use_cached</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">spoiler</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Attachment.to_file" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
 <p><a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a> 을 <a class="reference internal" href="#discord.abc.Messageable.send" title="discord.abc.Messageable.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.send()</span></code></a> 하기 적합한 파일로 변환합니다.</p>
 <div class="versionadded">
@@ -7788,7 +7815,18 @@ Only applicable to user accounts.</p></li>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>use_cached</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 첨부 파일을 다운로드할 때 <a class="reference internal" href="#discord.Attachment.url" title="discord.Attachment.url"><code class="xref py py-attr docutils literal notranslate"><span class="pre">url</span></code></a> 이 아닌 <a class="reference internal" href="#discord.Attachment.proxy_url" title="discord.Attachment.proxy_url"><code class="xref py py-attr docutils literal notranslate"><span class="pre">proxy_url</span></code></a> 을 사용할지 여부입니다. 일반적으로 메시지가 삭제된 직후 삭제되는 일반 URL에 비해, 삭제 후 첨부 파일을 더 자주 저장할 수 있습니다. 시간이 너무 많이 경과하여 일부 첨부 파일 형식에서는 작동하지 않는 경우에도 삭제된 첨부 파일을 다운로드하지 못할 수 있습니다.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>use_cached</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <p>첨부 파일을 다운로드할 때 <a class="reference internal" href="#discord.Attachment.url" title="discord.Attachment.url"><code class="xref py py-attr docutils literal notranslate"><span class="pre">url</span></code></a> 이 아닌 <a class="reference internal" href="#discord.Attachment.proxy_url" title="discord.Attachment.proxy_url"><code class="xref py py-attr docutils literal notranslate"><span class="pre">proxy_url</span></code></a> 을 사용할지 여부입니다. 일반적으로 메시지가 삭제된 직후 삭제되는 일반 URL에 비해, 삭제 후 첨부 파일을 더 자주 저장할 수 있습니다. 시간이 너무 많이 경과하여 일부 첨부 파일 형식에서는 작동하지 않는 경우에도 삭제된 첨부 파일을 다운로드하지 못할 수 있습니다.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
+</div>
+</p></li>
+<li><p><strong>spoiler</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <p>Whether the file is a spoiler.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
+</div>
+</p></li>
+</ul>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
@@ -8303,6 +8341,7 @@ Only applicable to user accounts.</p></li>
 <li><p><strong>embed</strong> (Optional[<a class="reference internal" href="#discord.Embed" title="discord.Embed"><code class="xref py py-class docutils literal notranslate"><span class="pre">Embed</span></code></a>]) – 임베드를 대체 할 새 임베드입니다. <code class="docutils literal notranslate"><span class="pre">None</span></code>으로 임베드를 제거 할 수 있습니다.</p></li>
 <li><p><strong>suppress</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 메시지에 대한 임베드를 억제할지 여부입니다. <code class="docutils literal notranslate"><span class="pre">True</span></code>로 설정하면 모든 임베드가 제거됩니다. <code class="docutils literal notranslate"><span class="pre">False</span></code>으로 설정된 경우 억제된 경우 임베드를 다시 가져옵니다. 이 매개 변수를 사용하려면 <a class="reference internal" href="#discord.Permissions.manage_messages" title="discord.Permissions.manage_messages"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_messages</span></code></a>가 필요합니다.</p></li>
 <li><p><strong>delete_after</strong> (Optional[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – 제공한 경우 방금 편집 한 메시지를 삭제하기 전에 백그라운드에서 대기하는 시간 (초)입니다. 삭제가 실패하면 자동으로 무시됩니다.</p></li>
+<li><p><strong>allowed_mentions</strong> (Optional[<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>]) – 이 메시지에서 처리되는 멘션을 제어합니다.</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
@@ -8987,6 +9026,20 @@ all be None. It is best to not do anything with the guild if it is unavailable.<
 </dd></dl>
 
 <dl class="py attribute">
+<dt id="discord.Guild.max_video_channel_users">
+<code class="sig-name descname">max_video_channel_users</code><a class="headerlink" href="#discord.Guild.max_video_channel_users" title="정의 주소">¶</a></dt>
+<dd><p>The maximum amount of users in a video channel.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">타입</dt>
+<dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt id="discord.Guild.banner">
 <code class="sig-name descname">banner</code><a class="headerlink" href="#discord.Guild.banner" title="정의 주소">¶</a></dt>
 <dd><p>The guild’s banner.</p>
@@ -9108,7 +9161,7 @@ The number goes from 0 to 3 inclusive.</p>
 <dl class="py attribute">
 <dt id="discord.Guild.premium_subscription_count">
 <code class="sig-name descname">premium_subscription_count</code><a class="headerlink" href="#discord.Guild.premium_subscription_count" title="정의 주소">¶</a></dt>
-<dd><p>How many users have currently 《boosted》 this guild.</p>
+<dd><p>The number of 《boosts》 this guild currently has.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
@@ -9327,6 +9380,23 @@ Must be a discoverable guild.</p>
 <p>If no channel is set, then this returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">버전 1.3에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">타입</dt>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="#discord.TextChannel" title="discord.TextChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextChannel</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.Guild.public_updates_channel">
+<code class="sig-name descname">public_updates_channel</code><a class="headerlink" href="#discord.Guild.public_updates_channel" title="정의 주소">¶</a></dt>
+<dd><p>Return’s the guild’s channel where admins and
+moderators of the guilds receive notices from Discord. This is only available to
+guilds that contain <code class="docutils literal notranslate"><span class="pre">PUBLIC</span></code> in <a class="reference internal" href="#discord.Guild.features" title="discord.Guild.features"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.features</span></code></a>.</p>
+<p>If no channel is set, then this returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
@@ -9818,21 +9888,24 @@ guild.</p>
 <p>Edits the guild.</p>
 <p>You must have the <a class="reference internal" href="#discord.Permissions.manage_guild" title="discord.Permissions.manage_guild"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_guild</span></code></a> permission
 to edit the guild.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">버전 1.4에서 변경: </span>The <cite>rules_channel</cite> and <cite>public_updates_channel</cite> keyword-only parameters were added.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The new name of the guild.</p></li>
 <li><p><strong>description</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The new description of the guild. This is only available to guilds that
-contain <cite>PUBLIC</cite> in <a class="reference internal" href="#discord.Guild.features" title="discord.Guild.features"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.features</span></code></a>.</p></li>
+contain <code class="docutils literal notranslate"><span class="pre">PUBLIC</span></code> in <a class="reference internal" href="#discord.Guild.features" title="discord.Guild.features"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.features</span></code></a>.</p></li>
 <li><p><strong>icon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>) – A <a class="reference external" href="https://docs.python.org/3/glossary.html#term-bytes-like-object" title="(in Python v3.8)"><span>bytes-like object</span></a> representing the icon. Only PNG/JPEG supported
-and GIF for guilds with <code class="docutils literal notranslate"><span class="pre">ANIMATED_ICON</span></code> feature.
+and GIF This is only available to guilds that contain <code class="docutils literal notranslate"><span class="pre">ANIMATED_ICON</span></code> in <a class="reference internal" href="#discord.Guild.features" title="discord.Guild.features"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.features</span></code></a>.
 Could be <code class="docutils literal notranslate"><span class="pre">None</span></code> to denote removal of the icon.</p></li>
 <li><p><strong>banner</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>) – A <a class="reference external" href="https://docs.python.org/3/glossary.html#term-bytes-like-object" title="(in Python v3.8)"><span>bytes-like object</span></a> representing the banner.
 Could be <code class="docutils literal notranslate"><span class="pre">None</span></code> to denote removal of the banner.</p></li>
 <li><p><strong>splash</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>) – A <a class="reference external" href="https://docs.python.org/3/glossary.html#term-bytes-like-object" title="(in Python v3.8)"><span>bytes-like object</span></a> representing the invite splash.
 Only PNG/JPEG supported. Could be <code class="docutils literal notranslate"><span class="pre">None</span></code> to denote removing the
-splash. Only available for partnered guilds with <code class="docutils literal notranslate"><span class="pre">INVITE_SPLASH</span></code>
-feature.</p></li>
+splash. This is only available to guilds that contain <code class="docutils literal notranslate"><span class="pre">INVITE_SPLASH</span></code>
+in <a class="reference internal" href="#discord.Guild.features" title="discord.Guild.features"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.features</span></code></a>.</p></li>
 <li><p><strong>region</strong> (<a class="reference internal" href="#discord.VoiceRegion" title="discord.VoiceRegion"><code class="xref py py-class docutils literal notranslate"><span class="pre">VoiceRegion</span></code></a>) – The new region for the guild’s voice communication.</p></li>
 <li><p><strong>afk_channel</strong> (Optional[<a class="reference internal" href="#discord.VoiceChannel" title="discord.VoiceChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">VoiceChannel</span></code></a>]) – The new channel that is the AFK channel. Could be <code class="docutils literal notranslate"><span class="pre">None</span></code> for no AFK channel.</p></li>
 <li><p><strong>afk_timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The number of seconds until someone is moved to the AFK channel.</p></li>
@@ -9844,6 +9917,12 @@ be owner of the guild to do this.</p></li>
 <li><p><strong>vanity_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The new vanity code for the guild.</p></li>
 <li><p><strong>system_channel</strong> (Optional[<a class="reference internal" href="#discord.TextChannel" title="discord.TextChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextChannel</span></code></a>]) – The new channel that is used for the system channel. Could be <code class="docutils literal notranslate"><span class="pre">None</span></code> for no system channel.</p></li>
 <li><p><strong>system_channel_flags</strong> (<a class="reference internal" href="#discord.SystemChannelFlags" title="discord.SystemChannelFlags"><code class="xref py py-class docutils literal notranslate"><span class="pre">SystemChannelFlags</span></code></a>) – The new system channel settings to use with the new system channel.</p></li>
+<li><p><strong>rules_channel</strong> (Optional[<a class="reference internal" href="#discord.TextChannel" title="discord.TextChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextChannel</span></code></a>]) – The new channel that is used for rules. This is only available to
+guilds that contain <code class="docutils literal notranslate"><span class="pre">PUBLIC</span></code> in <a class="reference internal" href="#discord.Guild.features" title="discord.Guild.features"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.features</span></code></a>. Could be <code class="docutils literal notranslate"><span class="pre">None</span></code> for no rules
+channel.</p></li>
+<li><p><strong>public_updates_channel</strong> (Optional[<a class="reference internal" href="#discord.TextChannel" title="discord.TextChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextChannel</span></code></a>]) – The new channel that is used for public updates from Discord. This is only available to
+guilds that contain <code class="docutils literal notranslate"><span class="pre">PUBLIC</span></code> in <a class="reference internal" href="#discord.Guild.features" title="discord.Guild.features"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.features</span></code></a>. Could be <code class="docutils literal notranslate"><span class="pre">None</span></code> for no
+public updates channel.</p></li>
 <li><p><strong>reason</strong> (Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – The reason for editing this guild. Shows up on the audit log.</p></li>
 </ul>
 </dd>
@@ -9945,7 +10024,7 @@ If a date is provided it must be a timezone-naive datetime representing UTC time
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
 <li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – You do not have access to the guild.</p></li>
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Getting the guild failed.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Fetching the member failed.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
@@ -10015,7 +10094,7 @@ to get this information.</p>
 
 <dl class="py method">
 <dt id="discord.Guild.prune_members">
-<em class="property">await </em><code class="sig-name descname">prune_members</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">days</span></em>, <em class="sig-param"><span class="n">compute_prune_count</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">reason</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Guild.prune_members" title="정의 주소">¶</a></dt>
+<em class="property">await </em><code class="sig-name descname">prune_members</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">days</span></em>, <em class="sig-param"><span class="n">compute_prune_count</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">roles</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reason</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Guild.prune_members" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
 <p>Prunes the guild from its inactive members.</p>
 <p>The inactive members are denoted if they have not logged on in
@@ -10024,6 +10103,10 @@ to get this information.</p>
 to use this.</p>
 <p>To check how many members you would prune without actually pruning,
 see the <a class="reference internal" href="#discord.Guild.estimate_pruned_members" title="discord.Guild.estimate_pruned_members"><code class="xref py py-meth docutils literal notranslate"><span class="pre">estimate_pruned_members()</span></code></a> function.</p>
+<p>To prune members that have specific roles see the <code class="docutils literal notranslate"><span class="pre">roles</span></code> parameter.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">버전 1.4에서 변경: </span>The <code class="docutils literal notranslate"><span class="pre">roles</span></code> keyword-only parameter was added.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
@@ -10033,6 +10116,8 @@ see the <a class="reference internal" href="#discord.Guild.estimate_pruned_membe
 which makes it prone to timeouts in very large guilds. In order
 to prevent timeouts, you must set this to <code class="docutils literal notranslate"><span class="pre">False</span></code>. If this is
 set to <code class="docutils literal notranslate"><span class="pre">False</span></code>, then this function will always return <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>roles</strong> (Optional[List[<a class="reference internal" href="#discord.abc.Snowflake" title="discord.abc.Snowflake"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.Snowflake</span></code></a>]]) – A list of <a class="reference internal" href="#discord.abc.Snowflake" title="discord.abc.Snowflake"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.Snowflake</span></code></a> that represent roles to include in the pruning process. If a member
+has a role that is not specified, they’ll be excluded.</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
@@ -10348,7 +10433,7 @@ do this.</p>
 <em class="property">await </em><code class="sig-name descname">vanity_invite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.Guild.vanity_invite" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
 <p>Returns the guild’s special vanity invite.</p>
-<p>The guild must have 〈VANITY_URL〉 in <a class="reference internal" href="#discord.Guild.features" title="discord.Guild.features"><code class="xref py py-attr docutils literal notranslate"><span class="pre">features</span></code></a>.</p>
+<p>The guild must have <code class="docutils literal notranslate"><span class="pre">VANITY_URL</span></code> in <a class="reference internal" href="#discord.Guild.features" title="discord.Guild.features"><code class="xref py py-attr docutils literal notranslate"><span class="pre">features</span></code></a>.</p>
 <p>You must have the <a class="reference internal" href="#discord.Permissions.manage_guild" title="discord.Permissions.manage_guild"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_guild</span></code></a> permission to use
 this as well.</p>
 <dl class="field-list simple">
@@ -10410,7 +10495,7 @@ this as well.</p>
 
 <dl class="py method">
 <dt id="discord.Guild.query_members">
-<em class="property">await </em><code class="sig-name descname">query_members</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">cache</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Guild.query_members" title="정의 주소">¶</a></dt>
+<em class="property">await </em><code class="sig-name descname">query_members</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">user_ids</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cache</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Guild.query_members" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
 <p>Request members that belong to this guild whose username starts with
 the query given.</p>
@@ -10432,6 +10517,11 @@ requests all members.</p></li>
 a number between 1 and 1000.</p></li>
 <li><p><strong>cache</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Whether to cache the members internally. This makes operations
 such as <a class="reference internal" href="#discord.Guild.get_member" title="discord.Guild.get_member"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_member()</span></code></a> work for those that matched.</p></li>
+<li><p><strong>user_ids</strong> (List[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]) – <p>List of user IDs to search for. If the user ID is not in the guild then it won’t be returned.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
+</div>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
@@ -10655,7 +10745,7 @@ Nitro boost on the guild, if available. This could be <code class="docutils lite
 <dd><p>A property that returns a colour denoting the rendered colour
 for the member. If the default colour is the one rendered then an instance
 of <a class="reference internal" href="#discord.Colour.default" title="discord.Colour.default"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Colour.default()</span></code></a> is returned.</p>
-<p><a class="reference internal" href="#discord.Member.color" title="discord.Member.color"><code class="xref py py-meth docutils literal notranslate"><span class="pre">color()</span></code></a> 이라는 별칭이 있습니다.</p>
+<p>There is an alias for this named <a class="reference internal" href="#discord.Member.color" title="discord.Member.color"><code class="xref py py-attr docutils literal notranslate"><span class="pre">color</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a></p>
@@ -10669,7 +10759,7 @@ of <a class="reference internal" href="#discord.Colour.default" title="discord.C
 <dd><p>A property that returns a color denoting the rendered color for
 the member. If the default color is the one rendered then an instance of <a class="reference internal" href="#discord.Colour.default" title="discord.Colour.default"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Colour.default()</span></code></a>
 is returned.</p>
-<p><a class="reference internal" href="#discord.Member.colour" title="discord.Member.colour"><code class="xref py py-meth docutils literal notranslate"><span class="pre">colour()</span></code></a> 이라는 별칭이 있습니다.</p>
+<p>There is an alias for this named <a class="reference internal" href="#discord.Member.colour" title="discord.Member.colour"><code class="xref py py-attr docutils literal notranslate"><span class="pre">colour</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a></p>
@@ -11156,6 +11246,12 @@ state of the cache.</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt id="discord.Member.public_flags">
+<code class="sig-name descname">public_flags</code><a class="headerlink" href="#discord.Member.public_flags" title="정의 주소">¶</a></dt>
+<dd><p>Equivalent to <a class="reference internal" href="#discord.User.public_flags" title="discord.User.public_flags"><code class="xref py py-attr docutils literal notranslate"><span class="pre">User.public_flags</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="discord.Member.relationship">
 <code class="sig-name descname">relationship</code><a class="headerlink" href="#discord.Member.relationship" title="정의 주소">¶</a></dt>
 <dd><p>Equivalent to <a class="reference internal" href="#discord.User.relationship" title="discord.User.relationship"><code class="xref py py-attr docutils literal notranslate"><span class="pre">User.relationship</span></code></a></p>
@@ -11356,14 +11452,14 @@ state of the cache.</p></li>
 <dt id="discord.Spotify.colour">
 <code class="sig-name descname">colour</code><a class="headerlink" href="#discord.Spotify.colour" title="정의 주소">¶</a></dt>
 <dd><p>Returns the Spotify integration colour, as a <a class="reference internal" href="#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a>.</p>
-<p>There is an alias for this named <a class="reference internal" href="#discord.Spotify.color" title="discord.Spotify.color"><code class="xref py py-meth docutils literal notranslate"><span class="pre">color()</span></code></a></p>
+<p>There is an alias for this named <a class="reference internal" href="#discord.Spotify.color" title="discord.Spotify.color"><code class="xref py py-attr docutils literal notranslate"><span class="pre">color</span></code></a></p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discord.Spotify.color">
 <code class="sig-name descname">color</code><a class="headerlink" href="#discord.Spotify.color" title="정의 주소">¶</a></dt>
 <dd><p>Returns the Spotify integration colour, as a <a class="reference internal" href="#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a>.</p>
-<p>There is an alias for this named <a class="reference internal" href="#discord.Spotify.colour" title="discord.Spotify.colour"><code class="xref py py-meth docutils literal notranslate"><span class="pre">colour()</span></code></a></p>
+<p>There is an alias for this named <a class="reference internal" href="#discord.Spotify.colour" title="discord.Spotify.colour"><code class="xref py py-attr docutils literal notranslate"><span class="pre">colour</span></code></a></p>
 </dd></dl>
 
 <dl class="py method">
@@ -12136,12 +12232,15 @@ integrations such as Twitch.</p>
 <p>Edits the role.</p>
 <p>이것을 사용하려면 <a class="reference internal" href="#discord.Permissions.manage_roles" title="discord.Permissions.manage_roles"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_roles</span></code></a> 권한이 있어야 합니다.</p>
 <p>All fields are optional.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">버전 1.4에서 변경: </span>Can now pass <code class="docutils literal notranslate"><span class="pre">int</span></code> to <code class="docutils literal notranslate"><span class="pre">colour</span></code> keyword-only parameter.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The new role name to change to.</p></li>
 <li><p><strong>permissions</strong> (<a class="reference internal" href="#discord.Permissions" title="discord.Permissions"><code class="xref py py-class docutils literal notranslate"><span class="pre">Permissions</span></code></a>) – The new permissions to change to.</p></li>
-<li><p><strong>colour</strong> (<a class="reference internal" href="#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a>) – The new colour to change to. (aliased to color as well)</p></li>
+<li><p><strong>colour</strong> (Union[<a class="reference internal" href="#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]) – The new colour to change to. (aliased to color as well)</p></li>
 <li><p><strong>hoist</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Indicates if the role should be shown separately in the member list.</p></li>
 <li><p><strong>mentionable</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Indicates if the role should be mentionable by others.</p></li>
 <li><p><strong>position</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The new role’s position. This must be below your top role’s
@@ -12446,6 +12545,9 @@ position or it will fail.</p></li>
 <div class="versionchanged">
 <p><span class="versionmodified changed">버전 1.3에서 변경: </span><code class="docutils literal notranslate"><span class="pre">overwrites</span></code> 키워드 전용 매개변수가 추가되었습니다.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">버전 1.4에서 변경: </span>The <code class="docutils literal notranslate"><span class="pre">type</span></code> keyword-only parameter was added.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
@@ -12456,6 +12558,9 @@ position or it will fail.</p></li>
 <li><p><strong>sync_permissions</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 채널의 새 카테고리 또는 기존 카테고리와 권한을 동기화할지 여부입니다. 기본값은 <code class="docutils literal notranslate"><span class="pre">False</span></code> 입니다.</p></li>
 <li><p><strong>category</strong> (Optional[<a class="reference internal" href="#discord.CategoryChannel" title="discord.CategoryChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CategoryChannel</span></code></a>]) – 이 채널의 새 카테고리입니다. 카테고리를 제거하려면 <code class="docutils literal notranslate"><span class="pre">None</span></code> 을 쓸 수 있습니다.</p></li>
 <li><p><strong>slowmode_delay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 이 채널의 사용자에 대한 슬로우 모드 속도 제한을 초 단위로 지정합니다. <cite>0</cite> 일 경우 슬로우 모드를 비활성화합니다. 가능한 최댓값은 <cite>21600</cite> 입니다.</p></li>
+<li><p><strong>type</strong> (<a class="reference internal" href="#discord.ChannelType" title="discord.ChannelType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChannelType</span></code></a>) – Change the type of this text channel. Currently, only conversion between
+<a class="reference internal" href="#discord.ChannelType.text" title="discord.ChannelType.text"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ChannelType.text</span></code></a> and <a class="reference internal" href="#discord.ChannelType.news" title="discord.ChannelType.news"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ChannelType.news</span></code></a> is supported. This
+is only available to guilds that contain <code class="docutils literal notranslate"><span class="pre">NEWS</span></code> in <a class="reference internal" href="#discord.Guild.features" title="discord.Guild.features"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.features</span></code></a>.</p></li>
 <li><p><strong>reason</strong> (Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – 채널을 변경하는 사유입니다. 감사 로그에 뜨게 됩니다.</p></li>
 <li><p><strong>overwrites</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – 채널에 적용할 <a class="reference internal" href="#discord.PermissionOverwrite" title="discord.PermissionOverwrite"><code class="xref py py-class docutils literal notranslate"><span class="pre">PermissionOverwrite</span></code></a> 에 대한 대상 (역할 또는 멤버) 의 <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> 입니다.</p></li>
 </ul>
@@ -12675,7 +12780,8 @@ position or it will fail.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>max_age</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 초대의 지속 시간입니다. 0이면 초대가 만료되지 않습니다. 기본값은 0입니다.</p></li>
+<li><p><strong>max_age</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – How long the invite should last in seconds. If it’s 0 then the invite
+doesn’t expire. Defaults to 0.</p></li>
 <li><p><strong>max_uses</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 초대를 사용할 수 있는 횟수입니다. 0이면 무제한으로 사용할 수 있습니다. 기본값은 0입니다.</p></li>
 <li><p><strong>temporary</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 초대에 임시 회원 자격이 부여되는지를 나타냅니다. (즉, 연결이 끊어지면 추방됨.)기본값은 <code class="docutils literal notranslate"><span class="pre">False</span></code> 입니다.</p></li>
 <li><p><strong>unique</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 고유한 초대 URL을 생성해야 하는지 나타냅니다. 기본값은 <code class="docutils literal notranslate"><span class="pre">True</span></code> 입니다.</p></li>
@@ -13243,7 +13349,8 @@ or the gateway goes down.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>max_age</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 초대의 지속 시간입니다. 0이면 초대가 만료되지 않습니다. 기본값은 0입니다.</p></li>
+<li><p><strong>max_age</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – How long the invite should last in seconds. If it’s 0 then the invite
+doesn’t expire. Defaults to 0.</p></li>
 <li><p><strong>max_uses</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 초대를 사용할 수 있는 횟수입니다. 0이면 무제한으로 사용할 수 있습니다. 기본값은 0입니다.</p></li>
 <li><p><strong>temporary</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 초대에 임시 회원 자격이 부여되는지를 나타냅니다. (즉, 연결이 끊어지면 추방됨.)기본값은 <code class="docutils literal notranslate"><span class="pre">False</span></code> 입니다.</p></li>
 <li><p><strong>unique</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 고유한 초대 URL을 생성해야 하는지 나타냅니다. 기본값은 <code class="docutils literal notranslate"><span class="pre">True</span></code> 입니다.</p></li>
@@ -13650,7 +13757,8 @@ top category is position 0.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>max_age</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 초대의 지속 시간입니다. 0이면 초대가 만료되지 않습니다. 기본값은 0입니다.</p></li>
+<li><p><strong>max_age</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – How long the invite should last in seconds. If it’s 0 then the invite
+doesn’t expire. Defaults to 0.</p></li>
 <li><p><strong>max_uses</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 초대를 사용할 수 있는 횟수입니다. 0이면 무제한으로 사용할 수 있습니다. 기본값은 0입니다.</p></li>
 <li><p><strong>temporary</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 초대에 임시 회원 자격이 부여되는지를 나타냅니다. (즉, 연결이 끊어지면 추방됨.)기본값은 <code class="docutils literal notranslate"><span class="pre">False</span></code> 입니다.</p></li>
 <li><p><strong>unique</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 고유한 초대 URL을 생성해야 하는지 나타냅니다. 기본값은 <code class="docutils literal notranslate"><span class="pre">True</span></code> 입니다.</p></li>
@@ -15322,7 +15430,7 @@ This includes idle, dnd, online, and invisible members. Offline members are excl
 <dt id="discord.WidgetMember.color">
 <code class="sig-name descname">color</code><a class="headerlink" href="#discord.WidgetMember.color" title="정의 주소">¶</a></dt>
 <dd><p>사용자의 렌더링 된 색상을 나타내는 색상을 리턴하는 속성입니다. 이것은 항상 <a class="reference internal" href="#discord.Colour.default" title="discord.Colour.default"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Colour.default()</span></code></a>를 리턴합니다.</p>
-<p><a class="reference internal" href="#discord.WidgetMember.colour" title="discord.WidgetMember.colour"><code class="xref py py-meth docutils literal notranslate"><span class="pre">colour()</span></code></a> 이라는 별칭이 있습니다.</p>
+<p>There is an alias for this named <a class="reference internal" href="#discord.WidgetMember.colour" title="discord.WidgetMember.colour"><code class="xref py py-attr docutils literal notranslate"><span class="pre">colour</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a></p>
@@ -15334,7 +15442,7 @@ This includes idle, dnd, online, and invisible members. Offline members are excl
 <dt id="discord.WidgetMember.colour">
 <code class="sig-name descname">colour</code><a class="headerlink" href="#discord.WidgetMember.colour" title="정의 주소">¶</a></dt>
 <dd><p>사용자의 렌더링 된 색상을 나타내는 색상을 리턴하는 속성입니다. 이것은 항상 <a class="reference internal" href="#discord.Colour.default" title="discord.Colour.default"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Colour.default()</span></code></a>를 리턴합니다.</p>
-<p><a class="reference internal" href="#discord.WidgetMember.color" title="discord.WidgetMember.color"><code class="xref py py-meth docutils literal notranslate"><span class="pre">color()</span></code></a> 이라는 별칭이 있습니다.</p>
+<p>There is an alias for this named <a class="reference internal" href="#discord.WidgetMember.color" title="discord.WidgetMember.color"><code class="xref py py-attr docutils literal notranslate"><span class="pre">color</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a></p>
@@ -15415,6 +15523,17 @@ This includes idle, dnd, online, and invisible members. Offline members are excl
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>channel</strong> (<a class="reference internal" href="#discord.abc.GuildChannel" title="discord.abc.GuildChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.GuildChannel</span></code></a>) – 권한을 확인할 채널입니다.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.WidgetMember.public_flags">
+<code class="sig-name descname">public_flags</code><a class="headerlink" href="#discord.WidgetMember.public_flags" title="정의 주소">¶</a></dt>
+<dd><p>The publicly available flags the user has.</p>
+<dl class="field-list simple">
+<dt class="field-odd">타입</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">PublicFlags</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -15528,7 +15647,7 @@ retrieved is capped.</p>
 <dd><p>The invite URL for the guild, if available.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
-<dd class="field-odd"><p>Optiona[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+<dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -15698,7 +15817,7 @@ fields.</p>
 <dl class="py attribute">
 <dt id="discord.RawMessageUpdateEvent.data">
 <code class="sig-name descname">data</code><a class="headerlink" href="#discord.RawMessageUpdateEvent.data" title="정의 주소">¶</a></dt>
-<dd><p>The raw data given by the <a class="reference external" href="https://discordapp.com/developers/docs/topics/gateway#message-update">gateway</a></p>
+<dd><p>The raw data given by the <a class="reference external" href="https://discord.com/developers/docs/topics/gateway#message-update">gateway</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
@@ -16087,7 +16206,7 @@ to denote that the value or attribute is empty.</p>
 <em class="property">classmethod </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Embed.from_dict" title="정의 주소">¶</a></dt>
 <dd><p>Converts a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> to a <a class="reference internal" href="#discord.Embed" title="discord.Embed"><code class="xref py py-class docutils literal notranslate"><span class="pre">Embed</span></code></a> provided it is in the
 format that Discord expects it to be in.</p>
-<p>You can find out about this format in the <a class="reference external" href="https://discordapp.com/developers/docs/resources/channel#embed-object">official Discord documentation</a>.</p>
+<p>You can find out about this format in the <a class="reference external" href="https://discord.com/developers/docs/resources/channel#embed-object">official Discord documentation</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – The dictionary to convert into an embed.</p>
@@ -16145,6 +16264,9 @@ chaining.</p>
 <dd><p>Sets the image for the embed content.</p>
 <p>This function returns the class instance to allow for fluent-style
 chaining.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">버전 1.4에서 변경: </span>Passing <a class="reference internal" href="#discord.Embed.Empty" title="discord.Embed.Empty"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Empty</span></code></a> removes the image.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The source URL for the image. Only HTTP(S) is supported.</p>
@@ -16172,6 +16294,9 @@ chaining.</p>
 <dd><p>Sets the thumbnail for the embed content.</p>
 <p>This function returns the class instance to allow for fluent-style
 chaining.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">버전 1.4에서 변경: </span>Passing <a class="reference internal" href="#discord.Embed.Empty" title="discord.Embed.Empty"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Empty</span></code></a> removes the thumbnail.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The source URL for the thumbnail. Only HTTP(S) is supported.</p>
@@ -16223,6 +16348,17 @@ chaining.</p>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.Embed.remove_author">
+<code class="sig-name descname">remove_author</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.Embed.remove_author" title="정의 주소">¶</a></dt>
+<dd><p>Clears embed’s author information.</p>
+<p>This function returns the class instance to allow for fluent-style
+chaining.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -18018,6 +18154,9 @@ flags via the properties rather than using this raw value.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="publicuserflags">
+<h3>PublicUserFlags<a class="headerlink" href="#publicuserflags" title="제목 주소">¶</a></h3>
+</div>
 </div>
 <div class="section" id="exceptions">
 <h2>Exceptions<a class="headerlink" href="#exceptions" title="제목 주소">¶</a></h2>
@@ -18323,6 +18462,7 @@ closed for reasons that could not be handled internally.</p>
 <li><a class="reference internal" href="#permissionoverwrite">PermissionOverwrite</a></li>
 <li><a class="reference internal" href="#systemchannelflags">SystemChannelFlags</a></li>
 <li><a class="reference internal" href="#messageflags">MessageFlags</a></li>
+<li><a class="reference internal" href="#publicuserflags">PublicUserFlags</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#exceptions">Exceptions</a><ul>
