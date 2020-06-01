@@ -712,7 +712,7 @@ for you in case you are actually idle and not lying.</p></li>
 <p>This method is an API call. For general usage, consider <a class="reference internal" href="#discord.Client.guilds" title="discord.Client.guilds"><code class="xref py py-attr docutils literal notranslate"><span class="pre">guilds</span></code></a> instead.</p>
 </div>
 <p class="rubric">예제</p>
-<p>Usage</p>
+<p>사용법</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">for</span> <span class="n">guild</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">fetch_guilds</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">150</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">guild</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
@@ -722,7 +722,7 @@ for you in case you are actually idle and not lying.</p></li>
 <span class="c1"># guilds is now a list of Guild...</span>
 </pre></div>
 </div>
-<p>All parameters are optional.</p>
+<p>모든 매개 변수는 선택 사항입니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3003,7 +3003,7 @@ attributes will be of <a class="reference internal" href="#discord.Object" title
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>invite</strong> (<a class="reference internal" href="#discord.Invite" title="discord.Invite"><code class="xref py py-class docutils literal notranslate"><span class="pre">Invite</span></code></a>) – The invite that was created.</p>
+<dd class="field-odd"><p><strong>invite</strong> (<a class="reference internal" href="#discord.Invite" title="discord.Invite"><code class="xref py py-class docutils literal notranslate"><span class="pre">Invite</span></code></a>) – 생성된 초대.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3025,7 +3025,7 @@ filled by the Discord gateway for this event is <a class="reference internal" hr
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>invite</strong> (<a class="reference internal" href="#discord.Invite" title="discord.Invite"><code class="xref py py-class docutils literal notranslate"><span class="pre">Invite</span></code></a>) – The invite that was deleted.</p>
+<dd class="field-odd"><p><strong>invite</strong> (<a class="reference internal" href="#discord.Invite" title="discord.Invite"><code class="xref py py-class docutils literal notranslate"><span class="pre">Invite</span></code></a>) – 삭제된 초대.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -5649,7 +5649,7 @@ it must be a rich embed type. You cannot mix the <code class="docutils literal n
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>content</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The content of the message to send.</p></li>
+<li><p><strong>content</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – 보낼 메시지의 내용(컨텐츠).</p></li>
 <li><p><strong>wait</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Whether the server should wait before sending a response. This essentially
 means that the return type of this function changes from <code class="docutils literal notranslate"><span class="pre">None</span></code> to
 a <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> if set to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
@@ -5657,7 +5657,7 @@ a <a class="reference internal" href="#discord.Message" title="discord.Message">
 then the default username for the webhook is used.</p></li>
 <li><p><strong>avatar_url</strong> (Union[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference internal" href="#discord.Asset" title="discord.Asset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Asset</span></code></a>]) – The avatar URL to send with this message. If no avatar URL is provided
 then the default avatar for the webhook is used.</p></li>
-<li><p><strong>tts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Indicates if the message should be sent using text-to-speech.</p></li>
+<li><p><strong>tts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 텍스트 음성 변환을 사용하여 메시지를 보내야 하는지 여부를 나타냅니다.</p></li>
 <li><p><strong>file</strong> (<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>) – The file to upload. This cannot be mixed with <code class="docutils literal notranslate"><span class="pre">files</span></code> parameter.</p></li>
 <li><p><strong>files</strong> (List[<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>]) – A list of files to send with the content. This cannot be mixed with the
 <code class="docutils literal notranslate"><span class="pre">file</span></code> parameter.</p></li>
@@ -5665,16 +5665,12 @@ then the default avatar for the webhook is used.</p></li>
 <code class="docutils literal notranslate"><span class="pre">embeds</span></code> parameter.</p></li>
 <li><p><strong>embeds</strong> (List[<a class="reference internal" href="#discord.Embed" title="discord.Embed"><code class="xref py py-class docutils literal notranslate"><span class="pre">Embed</span></code></a>]) – A list of embeds to send with the content. Maximum of 10. This cannot
 be mixed with the <code class="docutils literal notranslate"><span class="pre">embed</span></code> parameter.</p></li>
-<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – <p>Controls the mentions being processed in this message.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
-</div>
-</p></li>
+<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – 이 메시지에서 처리되는 멘션을 제어합니다.</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Sending the message failed.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 전송에 실패했습니다.</p></li>
 <li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – This webhook was not found.</p></li>
 <li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – The authorization token for the webhook is incorrect.</p></li>
 <li><p><a class="reference internal" href="#discord.InvalidArgument" title="discord.InvalidArgument"><strong>InvalidArgument</strong></a> – You specified both <code class="docutils literal notranslate"><span class="pre">embed</span></code> and <code class="docutils literal notranslate"><span class="pre">embeds</span></code> or the length of
@@ -5683,7 +5679,7 @@ be mixed with the <code class="docutils literal notranslate"><span class="pre">e
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The message that was sent.</p>
+<dd class="field-odd"><p>전송한 메시지.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p>Optional[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
@@ -6286,7 +6282,7 @@ abstract base class.</p>
 <dd class="field-even"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 초대 생성에 실패했습니다.</p>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The invite that was created.</p>
+<dd class="field-odd"><p>생성된 초대.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Invite" title="discord.Invite"><code class="xref py py-class docutils literal notranslate"><span class="pre">Invite</span></code></a></p>
@@ -6337,7 +6333,7 @@ abstract base class.</p>
 <dd><p>대상의 메시지 기록을 받을 수 있는 <a class="reference internal" href="#discord.AsyncIterator" title="discord.AsyncIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncIterator</span></code></a> 를 반환합니다.</p>
 <p>이것을 사용하려면 <code class="xref py py-attr docutils literal notranslate"><span class="pre">read_message_history</span></code> 권한이 있어야 합니다.</p>
 <p class="rubric">예제</p>
-<p>Usage</p>
+<p>사용법</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">async</span> <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">channel</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">author</span> <span class="o">==</span> <span class="n">client</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
@@ -6349,7 +6345,7 @@ abstract base class.</p>
 <span class="c1"># messages is now a list of Message...</span>
 </pre></div>
 </div>
-<p>All parameters are optional.</p>
+<p>모든 매개 변수는 선택 사항입니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
@@ -6400,29 +6396,25 @@ abstract base class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>content</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The content of the message to send.</p></li>
-<li><p><strong>tts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Indicates if the message should be sent using text-to-speech.</p></li>
+<li><p><strong>content</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – 보낼 메시지의 내용(컨텐츠).</p></li>
+<li><p><strong>tts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 텍스트 음성 변환을 사용하여 메시지를 보내야 하는지 여부를 나타냅니다.</p></li>
 <li><p><strong>embed</strong> (<a class="reference internal" href="#discord.Embed" title="discord.Embed"><code class="xref py py-class docutils literal notranslate"><span class="pre">Embed</span></code></a>) – 콘텐츠의 리치 임베드.</p></li>
 <li><p><strong>file</strong> (<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>) – 업로드할 파일.</p></li>
 <li><p><strong>files</strong> (List[<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>]) – 업로드할 파일들의 리스트. 최대 10개여야 합니다.</p></li>
 <li><p><strong>nonce</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 이 메시지를 전송할 때 사용할 논스입니다. 메시지가 성공적으로 보내졌다면, 그 메시지에 이 값을 가진 논스가 있습니다.</p></li>
 <li><p><strong>delete_after</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 제공된 경우 방금 보낸 메시지를 삭제할 때 까지 백그라운드에서 대기하는 시간(초) 입니다. 삭제가 실패하면 자동으로 무시됩니다.</p></li>
-<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – <p>Controls the mentions being processed in this message.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
-</div>
-</p></li>
+<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – 이 메시지에서 처리되는 멘션을 제어합니다.</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Sending the message failed.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 전송에 실패했습니다.</p></li>
 <li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지를 보낼 권한이 없습니다.</p></li>
 <li><p><a class="reference internal" href="#discord.InvalidArgument" title="discord.InvalidArgument"><strong>InvalidArgument</strong></a> – <code class="docutils literal notranslate"><span class="pre">files</span></code> 리스트의 길이가 적당하지 않거나 <code class="docutils literal notranslate"><span class="pre">file</span></code> 과 <code class="docutils literal notranslate"><span class="pre">files</span></code> 를 모두 지정했습니다.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The message that was sent.</p>
+<dd class="field-odd"><p>전송한 메시지.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
@@ -7173,7 +7165,7 @@ Only applicable to user accounts.</p></li>
 <dd><p>대상의 메시지 기록을 받을 수 있는 <a class="reference internal" href="#discord.AsyncIterator" title="discord.AsyncIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncIterator</span></code></a> 를 반환합니다.</p>
 <p>이것을 사용하려면 <a class="reference internal" href="#discord.Permissions.read_message_history" title="discord.Permissions.read_message_history"><code class="xref py py-attr docutils literal notranslate"><span class="pre">read_message_history</span></code></a> 권한이 있어야 합니다.</p>
 <p class="rubric">예제</p>
-<p>Usage</p>
+<p>사용법</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">async</span> <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">channel</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">author</span> <span class="o">==</span> <span class="n">client</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
@@ -7185,7 +7177,7 @@ Only applicable to user accounts.</p></li>
 <span class="c1"># messages is now a list of Message...</span>
 </pre></div>
 </div>
-<p>All parameters are optional.</p>
+<p>모든 매개 변수는 선택 사항입니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
@@ -7608,29 +7600,25 @@ objects returned by this method do not contain complete
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>content</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The content of the message to send.</p></li>
-<li><p><strong>tts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Indicates if the message should be sent using text-to-speech.</p></li>
+<li><p><strong>content</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – 보낼 메시지의 내용(컨텐츠).</p></li>
+<li><p><strong>tts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 텍스트 음성 변환을 사용하여 메시지를 보내야 하는지 여부를 나타냅니다.</p></li>
 <li><p><strong>embed</strong> (<a class="reference internal" href="#discord.Embed" title="discord.Embed"><code class="xref py py-class docutils literal notranslate"><span class="pre">Embed</span></code></a>) – 콘텐츠의 리치 임베드.</p></li>
 <li><p><strong>file</strong> (<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>) – 업로드할 파일.</p></li>
 <li><p><strong>files</strong> (List[<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>]) – 업로드할 파일들의 리스트. 최대 10개여야 합니다.</p></li>
 <li><p><strong>nonce</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 이 메시지를 전송할 때 사용할 논스입니다. 메시지가 성공적으로 보내졌다면, 그 메시지에 이 값을 가진 논스가 있습니다.</p></li>
 <li><p><strong>delete_after</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 제공된 경우 방금 보낸 메시지를 삭제할 때 까지 백그라운드에서 대기하는 시간(초) 입니다. 삭제가 실패하면 자동으로 무시됩니다.</p></li>
-<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – <p>Controls the mentions being processed in this message.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
-</div>
-</p></li>
+<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – 이 메시지에서 처리되는 멘션을 제어합니다.</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Sending the message failed.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 전송에 실패했습니다.</p></li>
 <li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지를 보낼 권한이 없습니다.</p></li>
 <li><p><a class="reference internal" href="#discord.InvalidArgument" title="discord.InvalidArgument"><strong>InvalidArgument</strong></a> – <code class="docutils literal notranslate"><span class="pre">files</span></code> 리스트의 길이가 적당하지 않거나 <code class="docutils literal notranslate"><span class="pre">file</span></code> 과 <code class="docutils literal notranslate"><span class="pre">files</span></code> 를 모두 지정했습니다.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The message that was sent.</p>
+<dd class="field-odd"><p>전송한 메시지.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
@@ -8575,7 +8563,7 @@ is the same. So two messages with the same reaction will be considered
 <p>The <code class="docutils literal notranslate"><span class="pre">after</span></code> parameter must represent a member
 and meet the <a class="reference internal" href="#discord.abc.Snowflake" title="discord.abc.Snowflake"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.Snowflake</span></code></a> abc.</p>
 <p class="rubric">예제</p>
-<p>Usage</p>
+<p>사용법</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># I do not actually recommend doing this.</span>
 <span class="k">async</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">reaction</span><span class="o">.</span><span class="n">users</span><span class="p">():</span>
     <span class="k">await</span> <span class="n">channel</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1"> has reacted with </span><span class="si">{1.emoji}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">reaction</span><span class="p">))</span>
@@ -9731,7 +9719,7 @@ Useful for creating secret channels.</p></li>
 The permissions will be automatically synced to category if no
 overwrites are provided.</p></li>
 <li><p><strong>position</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 채널 목록에서의 위치. 이는 0부터 시작하는 숫자입니다. 예를 들어, 맨 위의 채널의 위치는 0입니다.</p></li>
-<li><p><strong>topic</strong> (Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – The new channel’s topic.</p></li>
+<li><p><strong>topic</strong> (Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – 채널의 새 주제.</p></li>
 <li><p><strong>slowmode_delay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Specifies the slowmode rate limit for user in this channel, in seconds.
 The maximum value possible is <cite>21600</cite>.</p></li>
 <li><p><strong>nsfw</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – To mark the channel as NSFW or not.</p></li>
@@ -9915,7 +9903,7 @@ be owner of the guild to do this.</p></li>
 <div class="versionadded">
 <p><span class="versionmodified added">버전 1.3에 추가.</span></p>
 </div>
-<p>All parameters are optional.</p>
+<p>모든 매개 변수는 선택 사항입니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
@@ -9933,7 +9921,7 @@ If a date is provided it must be a timezone-naive datetime representing UTC time
 </dd>
 </dl>
 <p class="rubric">예제</p>
-<p>Usage</p>
+<p>사용법</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">guild</span><span class="o">.</span><span class="n">fetch_members</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">150</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">member</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
@@ -10073,10 +10061,10 @@ then this returns <code class="docutils literal notranslate"><span class="pre">N
 <em class="property">await </em><code class="sig-name descname">webhooks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.Guild.webhooks" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
 <p>Gets the list of webhooks from this guild.</p>
-<p>Requires <a class="reference internal" href="#discord.Permissions.manage_webhooks" title="discord.Permissions.manage_webhooks"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_webhooks</span></code></a> permissions.</p>
+<p><a class="reference internal" href="#discord.Permissions.manage_webhooks" title="discord.Permissions.manage_webhooks"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_webhooks</span></code></a> 권한이 필요합니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">예외</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – You don’t have permissions to get the webhooks.</p>
+<dd class="field-odd"><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 웹후크를 가져올 권한이 없습니다.</p>
 </dd>
 <dt class="field-even">반환값</dt>
 <dd class="field-even"><p>The webhooks for this guild.</p>
@@ -10563,7 +10551,7 @@ Nitro boost on the guild, if available. This could be <code class="docutils lite
 <dd><p>대상의 메시지 기록을 받을 수 있는 <a class="reference internal" href="#discord.AsyncIterator" title="discord.AsyncIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncIterator</span></code></a> 를 반환합니다.</p>
 <p>이것을 사용하려면 <a class="reference internal" href="#discord.Permissions.read_message_history" title="discord.Permissions.read_message_history"><code class="xref py py-attr docutils literal notranslate"><span class="pre">read_message_history</span></code></a> 권한이 있어야 합니다.</p>
 <p class="rubric">예제</p>
-<p>Usage</p>
+<p>사용법</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">async</span> <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">channel</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">author</span> <span class="o">==</span> <span class="n">client</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
@@ -10575,7 +10563,7 @@ Nitro boost on the guild, if available. This could be <code class="docutils lite
 <span class="c1"># messages is now a list of Message...</span>
 </pre></div>
 </div>
-<p>All parameters are optional.</p>
+<p>모든 매개 변수는 선택 사항입니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
@@ -10862,7 +10850,7 @@ administrator implication.</p>
 </tr>
 </tbody>
 </table>
-<p>All parameters are optional.</p>
+<p>모든 매개 변수는 선택 사항입니다.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">버전 1.1에서 변경: </span>Can now pass <code class="docutils literal notranslate"><span class="pre">None</span></code> to <code class="docutils literal notranslate"><span class="pre">voice_channel</span></code> to kick a member from voice.</p>
 </div>
@@ -11235,29 +11223,25 @@ state of the cache.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>content</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The content of the message to send.</p></li>
-<li><p><strong>tts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Indicates if the message should be sent using text-to-speech.</p></li>
+<li><p><strong>content</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – 보낼 메시지의 내용(컨텐츠).</p></li>
+<li><p><strong>tts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 텍스트 음성 변환을 사용하여 메시지를 보내야 하는지 여부를 나타냅니다.</p></li>
 <li><p><strong>embed</strong> (<a class="reference internal" href="#discord.Embed" title="discord.Embed"><code class="xref py py-class docutils literal notranslate"><span class="pre">Embed</span></code></a>) – 콘텐츠의 리치 임베드.</p></li>
 <li><p><strong>file</strong> (<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>) – 업로드할 파일.</p></li>
 <li><p><strong>files</strong> (List[<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>]) – 업로드할 파일들의 리스트. 최대 10개여야 합니다.</p></li>
 <li><p><strong>nonce</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 이 메시지를 전송할 때 사용할 논스입니다. 메시지가 성공적으로 보내졌다면, 그 메시지에 이 값을 가진 논스가 있습니다.</p></li>
 <li><p><strong>delete_after</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 제공된 경우 방금 보낸 메시지를 삭제할 때 까지 백그라운드에서 대기하는 시간(초) 입니다. 삭제가 실패하면 자동으로 무시됩니다.</p></li>
-<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – <p>Controls the mentions being processed in this message.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
-</div>
-</p></li>
+<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – 이 메시지에서 처리되는 멘션을 제어합니다.</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Sending the message failed.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 전송에 실패했습니다.</p></li>
 <li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지를 보낼 권한이 없습니다.</p></li>
 <li><p><a class="reference internal" href="#discord.InvalidArgument" title="discord.InvalidArgument"><strong>InvalidArgument</strong></a> – <code class="docutils literal notranslate"><span class="pre">files</span></code> 리스트의 길이가 적당하지 않거나 <code class="docutils literal notranslate"><span class="pre">file</span></code> 과 <code class="docutils literal notranslate"><span class="pre">files</span></code> 를 모두 지정했습니다.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The message that was sent.</p>
+<dd class="field-odd"><p>전송한 메시지.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
@@ -12330,7 +12314,7 @@ position or it will fail.</p></li>
 <dd><p>대상의 메시지 기록을 받을 수 있는 <a class="reference internal" href="#discord.AsyncIterator" title="discord.AsyncIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncIterator</span></code></a> 를 반환합니다.</p>
 <p>이것을 사용하려면 <a class="reference internal" href="#discord.Permissions.read_message_history" title="discord.Permissions.read_message_history"><code class="xref py py-attr docutils literal notranslate"><span class="pre">read_message_history</span></code></a> 권한이 있어야 합니다.</p>
 <p class="rubric">예제</p>
-<p>Usage</p>
+<p>사용법</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">async</span> <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">channel</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">author</span> <span class="o">==</span> <span class="n">client</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
@@ -12342,7 +12326,7 @@ position or it will fail.</p></li>
 <span class="c1"># messages is now a list of Message...</span>
 </pre></div>
 </div>
-<p>All parameters are optional.</p>
+<p>모든 매개 변수는 선택 사항입니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
@@ -12472,7 +12456,7 @@ position or it will fail.</p></li>
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – 채널의 새 이름.</p></li>
-<li><p><strong>topic</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The new channel’s topic.</p></li>
+<li><p><strong>topic</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – 채널의 새 주제.</p></li>
 <li><p><strong>position</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 채널의 새 위치.</p></li>
 <li><p><strong>nsfw</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – To mark the channel as NSFW or not.</p></li>
 <li><p><strong>sync_permissions</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 채널의 새 카테고리 또는 기존 카테고리와 권한을 동기화할지 여부입니다. 기본값은 <code class="docutils literal notranslate"><span class="pre">False</span></code> 입니다.</p></li>
@@ -12588,10 +12572,10 @@ position or it will fail.</p></li>
 <em class="property">await </em><code class="sig-name descname">webhooks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.TextChannel.webhooks" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
 <p>이 채널의 웹후크 리스트를 가져옵니다.</p>
-<p>Requires <a class="reference internal" href="#discord.Permissions.manage_webhooks" title="discord.Permissions.manage_webhooks"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_webhooks</span></code></a> permissions.</p>
+<p><a class="reference internal" href="#discord.Permissions.manage_webhooks" title="discord.Permissions.manage_webhooks"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_webhooks</span></code></a> 권한이 필요합니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">예외</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – You don’t have permissions to get the webhooks.</p>
+<dd class="field-odd"><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 웹후크를 가져올 권한이 없습니다.</p>
 </dd>
 <dt class="field-even">반환값</dt>
 <dd class="field-even"><p>이 채널의 웹후크들.</p>
@@ -12607,7 +12591,7 @@ position or it will fail.</p></li>
 <em class="property">await </em><code class="sig-name descname">create_webhook</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">avatar</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reason</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.TextChannel.create_webhook" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
 <p>이 채널의 웹후크을 생성합니다.</p>
-<p>Requires <a class="reference internal" href="#discord.Permissions.manage_webhooks" title="discord.Permissions.manage_webhooks"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_webhooks</span></code></a> permissions.</p>
+<p><a class="reference internal" href="#discord.Permissions.manage_webhooks" title="discord.Permissions.manage_webhooks"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_webhooks</span></code></a> 권한이 필요합니다.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">버전 1.1에서 변경: </span><code class="docutils literal notranslate"><span class="pre">reason</span></code> 키워드 전용 매개변수를 추가했습니다.</p>
 </div>
@@ -12708,7 +12692,7 @@ position or it will fail.</p></li>
 <dd class="field-even"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 초대 생성에 실패했습니다.</p>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The invite that was created.</p>
+<dd class="field-odd"><p>생성된 초대.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Invite" title="discord.Invite"><code class="xref py py-class docutils literal notranslate"><span class="pre">Invite</span></code></a></p>
@@ -12888,29 +12872,25 @@ objects returned by this method do not contain complete
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>content</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The content of the message to send.</p></li>
-<li><p><strong>tts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Indicates if the message should be sent using text-to-speech.</p></li>
+<li><p><strong>content</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – 보낼 메시지의 내용(컨텐츠).</p></li>
+<li><p><strong>tts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 텍스트 음성 변환을 사용하여 메시지를 보내야 하는지 여부를 나타냅니다.</p></li>
 <li><p><strong>embed</strong> (<a class="reference internal" href="#discord.Embed" title="discord.Embed"><code class="xref py py-class docutils literal notranslate"><span class="pre">Embed</span></code></a>) – 콘텐츠의 리치 임베드.</p></li>
 <li><p><strong>file</strong> (<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>) – 업로드할 파일.</p></li>
 <li><p><strong>files</strong> (List[<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>]) – 업로드할 파일들의 리스트. 최대 10개여야 합니다.</p></li>
 <li><p><strong>nonce</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 이 메시지를 전송할 때 사용할 논스입니다. 메시지가 성공적으로 보내졌다면, 그 메시지에 이 값을 가진 논스가 있습니다.</p></li>
 <li><p><strong>delete_after</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 제공된 경우 방금 보낸 메시지를 삭제할 때 까지 백그라운드에서 대기하는 시간(초) 입니다. 삭제가 실패하면 자동으로 무시됩니다.</p></li>
-<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – <p>Controls the mentions being processed in this message.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
-</div>
-</p></li>
+<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – 이 메시지에서 처리되는 멘션을 제어합니다.</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Sending the message failed.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 전송에 실패했습니다.</p></li>
 <li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지를 보낼 권한이 없습니다.</p></li>
 <li><p><a class="reference internal" href="#discord.InvalidArgument" title="discord.InvalidArgument"><strong>InvalidArgument</strong></a> – <code class="docutils literal notranslate"><span class="pre">files</span></code> 리스트의 길이가 적당하지 않거나 <code class="docutils literal notranslate"><span class="pre">file</span></code> 과 <code class="docutils literal notranslate"><span class="pre">files</span></code> 를 모두 지정했습니다.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The message that was sent.</p>
+<dd class="field-odd"><p>전송한 메시지.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
@@ -13282,7 +13262,7 @@ or the gateway goes down.</p></li>
 <dd class="field-even"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 초대 생성에 실패했습니다.</p>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The invite that was created.</p>
+<dd class="field-odd"><p>생성된 초대.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Invite" title="discord.Invite"><code class="xref py py-class docutils literal notranslate"><span class="pre">Invite</span></code></a></p>
@@ -13689,7 +13669,7 @@ top category is position 0.</p>
 <dd class="field-even"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 초대 생성에 실패했습니다.</p>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The invite that was created.</p>
+<dd class="field-odd"><p>생성된 초대.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Invite" title="discord.Invite"><code class="xref py py-class docutils literal notranslate"><span class="pre">Invite</span></code></a></p>
@@ -13952,7 +13932,7 @@ top category is position 0.</p>
 <dd><p>대상의 메시지 기록을 받을 수 있는 <a class="reference internal" href="#discord.AsyncIterator" title="discord.AsyncIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncIterator</span></code></a> 를 반환합니다.</p>
 <p>이것을 사용하려면 <a class="reference internal" href="#discord.Permissions.read_message_history" title="discord.Permissions.read_message_history"><code class="xref py py-attr docutils literal notranslate"><span class="pre">read_message_history</span></code></a> 권한이 있어야 합니다.</p>
 <p class="rubric">예제</p>
-<p>Usage</p>
+<p>사용법</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">async</span> <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">channel</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">author</span> <span class="o">==</span> <span class="n">client</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
@@ -13964,7 +13944,7 @@ top category is position 0.</p>
 <span class="c1"># messages is now a list of Message...</span>
 </pre></div>
 </div>
-<p>All parameters are optional.</p>
+<p>모든 매개 변수는 선택 사항입니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
@@ -14107,29 +14087,25 @@ objects returned by this method do not contain complete
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>content</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The content of the message to send.</p></li>
-<li><p><strong>tts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Indicates if the message should be sent using text-to-speech.</p></li>
+<li><p><strong>content</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – 보낼 메시지의 내용(컨텐츠).</p></li>
+<li><p><strong>tts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 텍스트 음성 변환을 사용하여 메시지를 보내야 하는지 여부를 나타냅니다.</p></li>
 <li><p><strong>embed</strong> (<a class="reference internal" href="#discord.Embed" title="discord.Embed"><code class="xref py py-class docutils literal notranslate"><span class="pre">Embed</span></code></a>) – 콘텐츠의 리치 임베드.</p></li>
 <li><p><strong>file</strong> (<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>) – 업로드할 파일.</p></li>
 <li><p><strong>files</strong> (List[<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>]) – 업로드할 파일들의 리스트. 최대 10개여야 합니다.</p></li>
 <li><p><strong>nonce</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 이 메시지를 전송할 때 사용할 논스입니다. 메시지가 성공적으로 보내졌다면, 그 메시지에 이 값을 가진 논스가 있습니다.</p></li>
 <li><p><strong>delete_after</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 제공된 경우 방금 보낸 메시지를 삭제할 때 까지 백그라운드에서 대기하는 시간(초) 입니다. 삭제가 실패하면 자동으로 무시됩니다.</p></li>
-<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – <p>Controls the mentions being processed in this message.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
-</div>
-</p></li>
+<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – 이 메시지에서 처리되는 멘션을 제어합니다.</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Sending the message failed.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 전송에 실패했습니다.</p></li>
 <li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지를 보낼 권한이 없습니다.</p></li>
 <li><p><a class="reference internal" href="#discord.InvalidArgument" title="discord.InvalidArgument"><strong>InvalidArgument</strong></a> – <code class="docutils literal notranslate"><span class="pre">files</span></code> 리스트의 길이가 적당하지 않거나 <code class="docutils literal notranslate"><span class="pre">file</span></code> 과 <code class="docutils literal notranslate"><span class="pre">files</span></code> 를 모두 지정했습니다.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The message that was sent.</p>
+<dd class="field-odd"><p>전송한 메시지.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
@@ -14252,7 +14228,7 @@ objects returned by this method do not contain complete
 <dd><p>대상의 메시지 기록을 받을 수 있는 <a class="reference internal" href="#discord.AsyncIterator" title="discord.AsyncIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncIterator</span></code></a> 를 반환합니다.</p>
 <p>이것을 사용하려면 <a class="reference internal" href="#discord.Permissions.read_message_history" title="discord.Permissions.read_message_history"><code class="xref py py-attr docutils literal notranslate"><span class="pre">read_message_history</span></code></a> 권한이 있어야 합니다.</p>
 <p class="rubric">예제</p>
-<p>Usage</p>
+<p>사용법</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">async</span> <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">channel</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">author</span> <span class="o">==</span> <span class="n">client</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
@@ -14264,7 +14240,7 @@ objects returned by this method do not contain complete
 <span class="c1"># messages is now a list of Message...</span>
 </pre></div>
 </div>
-<p>All parameters are optional.</p>
+<p>모든 매개 변수는 선택 사항입니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
@@ -14490,29 +14466,25 @@ objects returned by this method do not contain complete
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>content</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The content of the message to send.</p></li>
-<li><p><strong>tts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Indicates if the message should be sent using text-to-speech.</p></li>
+<li><p><strong>content</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – 보낼 메시지의 내용(컨텐츠).</p></li>
+<li><p><strong>tts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 텍스트 음성 변환을 사용하여 메시지를 보내야 하는지 여부를 나타냅니다.</p></li>
 <li><p><strong>embed</strong> (<a class="reference internal" href="#discord.Embed" title="discord.Embed"><code class="xref py py-class docutils literal notranslate"><span class="pre">Embed</span></code></a>) – 콘텐츠의 리치 임베드.</p></li>
 <li><p><strong>file</strong> (<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>) – 업로드할 파일.</p></li>
 <li><p><strong>files</strong> (List[<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>]) – 업로드할 파일들의 리스트. 최대 10개여야 합니다.</p></li>
 <li><p><strong>nonce</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 이 메시지를 전송할 때 사용할 논스입니다. 메시지가 성공적으로 보내졌다면, 그 메시지에 이 값을 가진 논스가 있습니다.</p></li>
 <li><p><strong>delete_after</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 제공된 경우 방금 보낸 메시지를 삭제할 때 까지 백그라운드에서 대기하는 시간(초) 입니다. 삭제가 실패하면 자동으로 무시됩니다.</p></li>
-<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – <p>Controls the mentions being processed in this message.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
-</div>
-</p></li>
+<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – 이 메시지에서 처리되는 멘션을 제어합니다.</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Sending the message failed.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 전송에 실패했습니다.</p></li>
 <li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지를 보낼 권한이 없습니다.</p></li>
 <li><p><a class="reference internal" href="#discord.InvalidArgument" title="discord.InvalidArgument"><strong>InvalidArgument</strong></a> – <code class="docutils literal notranslate"><span class="pre">files</span></code> 리스트의 길이가 적당하지 않거나 <code class="docutils literal notranslate"><span class="pre">file</span></code> 과 <code class="docutils literal notranslate"><span class="pre">files</span></code> 를 모두 지정했습니다.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The message that was sent.</p>
+<dd class="field-odd"><p>전송한 메시지.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
