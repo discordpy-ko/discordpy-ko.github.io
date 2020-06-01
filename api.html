@@ -6426,29 +6426,29 @@ abstract base class.</p>
 <dt id="discord.abc.Messageable.trigger_typing">
 <em class="property">await </em><code class="sig-name descname">trigger_typing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.abc.Messageable.trigger_typing" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Triggers a <em>typing</em> indicator to the destination.</p>
-<p><em>Typing</em> indicator will go away after 10 seconds, or after a message is sent.</p>
+<p>대상에 <em>입력 중</em> 표시기를 트리거합니다.</p>
+<p><em>입력 중</em> 표시기는 10초 후에 또는 메시지가 전송 된 후에 사라집니다.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discord.abc.Messageable.fetch_message">
 <em class="property">await </em><code class="sig-name descname">fetch_message</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.abc.Messageable.fetch_message" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Retrieves a single <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> from the destination.</p>
-<p>This can only be used by bot accounts.</p>
+<p>대상에서 단일 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 를 검색합니다.</p>
+<p>오직 봇 계정에서만 사용할 수 있습니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The message ID to look for.</p>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – The specified message was not found.</p></li>
-<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – You do not have the permissions required to get a message.</p></li>
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Retrieving the message failed.</p></li>
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – 지정된 메시지를 찾을 수 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지를 가져올 권한이 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 가져오기에 실패했습니다.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The message asked for.</p>
+<dd class="field-odd"><p>요청한 메시지.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
@@ -6460,19 +6460,17 @@ abstract base class.</p>
 <dt id="discord.abc.Messageable.pins">
 <em class="property">await </em><code class="sig-name descname">pins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.abc.Messageable.pins" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Retrieves all messages that are currently pinned in the channel.</p>
+<p>채널에 현재 고정되어 있는 모든 메시지를 검색합니다.</p>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
-<p>Due to a limitation with the Discord API, the <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>
-objects returned by this method do not contain complete
-<a class="reference internal" href="#discord.Message.reactions" title="discord.Message.reactions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.reactions</span></code></a> data.</p>
+<p>Discord API 제한으로 인해 이 메소드가 리턴한 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 객체는 완전한 <a class="reference internal" href="#discord.Message.reactions" title="discord.Message.reactions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.reactions</span></code></a> 데이터를 포함하지 않습니다.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">예외</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Retrieving the pinned messages failed.</p>
+<dd class="field-odd"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 고정된 메시지를 가져오는 데 실패했습니다.</p>
 </dd>
 <dt class="field-even">반환값</dt>
-<dd class="field-even"><p>The messages that are currently pinned.</p>
+<dd class="field-even"><p>현재 고정되어 있는 메시지들.</p>
 </dd>
 <dt class="field-odd">반환 형식</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
@@ -7500,21 +7498,21 @@ Only applicable to user accounts.</p></li>
 <dt id="discord.User.fetch_message">
 <em class="property">await </em><code class="sig-name descname">fetch_message</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.User.fetch_message" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Retrieves a single <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> from the destination.</p>
-<p>This can only be used by bot accounts.</p>
+<p>대상에서 단일 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 를 검색합니다.</p>
+<p>오직 봇 계정에서만 사용할 수 있습니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The message ID to look for.</p>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – The specified message was not found.</p></li>
-<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – You do not have the permissions required to get a message.</p></li>
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Retrieving the message failed.</p></li>
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – 지정된 메시지를 찾을 수 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지를 가져올 권한이 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 가져오기에 실패했습니다.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The message asked for.</p>
+<dd class="field-odd"><p>요청한 메시지.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
@@ -7569,19 +7567,17 @@ Only applicable to user accounts.</p></li>
 <dt id="discord.User.pins">
 <em class="property">await </em><code class="sig-name descname">pins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.User.pins" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Retrieves all messages that are currently pinned in the channel.</p>
+<p>채널에 현재 고정되어 있는 모든 메시지를 검색합니다.</p>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
-<p>Due to a limitation with the Discord API, the <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>
-objects returned by this method do not contain complete
-<a class="reference internal" href="#discord.Message.reactions" title="discord.Message.reactions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.reactions</span></code></a> data.</p>
+<p>Discord API 제한으로 인해 이 메소드가 리턴한 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 객체는 완전한 <a class="reference internal" href="#discord.Message.reactions" title="discord.Message.reactions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.reactions</span></code></a> 데이터를 포함하지 않습니다.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">예외</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Retrieving the pinned messages failed.</p>
+<dd class="field-odd"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 고정된 메시지를 가져오는 데 실패했습니다.</p>
 </dd>
 <dt class="field-even">반환값</dt>
-<dd class="field-even"><p>The messages that are currently pinned.</p>
+<dd class="field-even"><p>현재 고정되어 있는 메시지들.</p>
 </dd>
 <dt class="field-odd">반환 형식</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
@@ -7630,8 +7626,8 @@ objects returned by this method do not contain complete
 <dt id="discord.User.trigger_typing">
 <em class="property">await </em><code class="sig-name descname">trigger_typing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.User.trigger_typing" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Triggers a <em>typing</em> indicator to the destination.</p>
-<p><em>Typing</em> indicator will go away after 10 seconds, or after a message is sent.</p>
+<p>대상에 <em>입력 중</em> 표시기를 트리거합니다.</p>
+<p><em>입력 중</em> 표시기는 10초 후에 또는 메시지가 전송 된 후에 사라집니다.</p>
 </dd></dl>
 
 </dd></dl>
@@ -11027,21 +11023,21 @@ state of the cache.</p></li>
 <dt id="discord.Member.fetch_message">
 <em class="property">await </em><code class="sig-name descname">fetch_message</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Member.fetch_message" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Retrieves a single <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> from the destination.</p>
-<p>This can only be used by bot accounts.</p>
+<p>대상에서 단일 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 를 검색합니다.</p>
+<p>오직 봇 계정에서만 사용할 수 있습니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The message ID to look for.</p>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – The specified message was not found.</p></li>
-<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – You do not have the permissions required to get a message.</p></li>
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Retrieving the message failed.</p></li>
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – 지정된 메시지를 찾을 수 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지를 가져올 권한이 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 가져오기에 실패했습니다.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The message asked for.</p>
+<dd class="field-odd"><p>요청한 메시지.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
@@ -11116,19 +11112,17 @@ state of the cache.</p></li>
 <dt id="discord.Member.pins">
 <em class="property">await </em><code class="sig-name descname">pins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.Member.pins" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Retrieves all messages that are currently pinned in the channel.</p>
+<p>채널에 현재 고정되어 있는 모든 메시지를 검색합니다.</p>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
-<p>Due to a limitation with the Discord API, the <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>
-objects returned by this method do not contain complete
-<a class="reference internal" href="#discord.Message.reactions" title="discord.Message.reactions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.reactions</span></code></a> data.</p>
+<p>Discord API 제한으로 인해 이 메소드가 리턴한 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 객체는 완전한 <a class="reference internal" href="#discord.Message.reactions" title="discord.Message.reactions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.reactions</span></code></a> 데이터를 포함하지 않습니다.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">예외</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Retrieving the pinned messages failed.</p>
+<dd class="field-odd"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 고정된 메시지를 가져오는 데 실패했습니다.</p>
 </dd>
 <dt class="field-even">반환값</dt>
-<dd class="field-even"><p>The messages that are currently pinned.</p>
+<dd class="field-even"><p>현재 고정되어 있는 메시지들.</p>
 </dd>
 <dt class="field-odd">반환 형식</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
@@ -11278,8 +11272,8 @@ state of the cache.</p></li>
 <dt id="discord.Member.trigger_typing">
 <em class="property">await </em><code class="sig-name descname">trigger_typing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.Member.trigger_typing" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Triggers a <em>typing</em> indicator to the destination.</p>
-<p><em>Typing</em> indicator will go away after 10 seconds, or after a message is sent.</p>
+<p>대상에 <em>입력 중</em> 표시기를 트리거합니다.</p>
+<p><em>입력 중</em> 표시기는 10초 후에 또는 메시지가 전송 된 후에 사라집니다.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -12590,7 +12584,7 @@ position or it will fail.</p></li>
 <dt id="discord.TextChannel.create_webhook">
 <em class="property">await </em><code class="sig-name descname">create_webhook</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">avatar</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reason</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.TextChannel.create_webhook" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>이 채널의 웹후크을 생성합니다.</p>
+<p>이 채널의 웹후크를 생성합니다.</p>
 <p><a class="reference internal" href="#discord.Permissions.manage_webhooks" title="discord.Permissions.manage_webhooks"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_webhooks</span></code></a> 권한이 필요합니다.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">버전 1.1에서 변경: </span><code class="docutils literal notranslate"><span class="pre">reason</span></code> 키워드 전용 매개변수를 추가했습니다.</p>
@@ -12735,21 +12729,21 @@ position or it will fail.</p></li>
 <dt id="discord.TextChannel.fetch_message">
 <em class="property">await </em><code class="sig-name descname">fetch_message</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.TextChannel.fetch_message" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Retrieves a single <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> from the destination.</p>
-<p>This can only be used by bot accounts.</p>
+<p>대상에서 단일 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 를 검색합니다.</p>
+<p>오직 봇 계정에서만 사용할 수 있습니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The message ID to look for.</p>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – The specified message was not found.</p></li>
-<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – You do not have the permissions required to get a message.</p></li>
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Retrieving the message failed.</p></li>
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – 지정된 메시지를 찾을 수 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지를 가져올 권한이 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 가져오기에 실패했습니다.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The message asked for.</p>
+<dd class="field-odd"><p>요청한 메시지.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
@@ -12841,19 +12835,17 @@ position or it will fail.</p></li>
 <dt id="discord.TextChannel.pins">
 <em class="property">await </em><code class="sig-name descname">pins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.TextChannel.pins" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Retrieves all messages that are currently pinned in the channel.</p>
+<p>채널에 현재 고정되어 있는 모든 메시지를 검색합니다.</p>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
-<p>Due to a limitation with the Discord API, the <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>
-objects returned by this method do not contain complete
-<a class="reference internal" href="#discord.Message.reactions" title="discord.Message.reactions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.reactions</span></code></a> data.</p>
+<p>Discord API 제한으로 인해 이 메소드가 리턴한 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 객체는 완전한 <a class="reference internal" href="#discord.Message.reactions" title="discord.Message.reactions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.reactions</span></code></a> 데이터를 포함하지 않습니다.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">예외</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Retrieving the pinned messages failed.</p>
+<dd class="field-odd"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 고정된 메시지를 가져오는 데 실패했습니다.</p>
 </dd>
 <dt class="field-even">반환값</dt>
-<dd class="field-even"><p>The messages that are currently pinned.</p>
+<dd class="field-even"><p>현재 고정되어 있는 메시지들.</p>
 </dd>
 <dt class="field-odd">반환 형식</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
@@ -12948,8 +12940,8 @@ objects returned by this method do not contain complete
 <dt id="discord.TextChannel.trigger_typing">
 <em class="property">await </em><code class="sig-name descname">trigger_typing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.TextChannel.trigger_typing" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Triggers a <em>typing</em> indicator to the destination.</p>
-<p><em>Typing</em> indicator will go away after 10 seconds, or after a message is sent.</p>
+<p>대상에 <em>입력 중</em> 표시기를 트리거합니다.</p>
+<p><em>입력 중</em> 표시기는 10초 후에 또는 메시지가 전송 된 후에 사라집니다.</p>
 </dd></dl>
 
 </dd></dl>
@@ -14030,21 +14022,21 @@ but kept for compatibility.</p>
 <dt id="discord.DMChannel.fetch_message">
 <em class="property">await </em><code class="sig-name descname">fetch_message</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.DMChannel.fetch_message" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Retrieves a single <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> from the destination.</p>
-<p>This can only be used by bot accounts.</p>
+<p>대상에서 단일 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 를 검색합니다.</p>
+<p>오직 봇 계정에서만 사용할 수 있습니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The message ID to look for.</p>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – The specified message was not found.</p></li>
-<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – You do not have the permissions required to get a message.</p></li>
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Retrieving the message failed.</p></li>
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – 지정된 메시지를 찾을 수 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지를 가져올 권한이 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 가져오기에 실패했습니다.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The message asked for.</p>
+<dd class="field-odd"><p>요청한 메시지.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
@@ -14056,19 +14048,17 @@ but kept for compatibility.</p>
 <dt id="discord.DMChannel.pins">
 <em class="property">await </em><code class="sig-name descname">pins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.DMChannel.pins" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Retrieves all messages that are currently pinned in the channel.</p>
+<p>채널에 현재 고정되어 있는 모든 메시지를 검색합니다.</p>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
-<p>Due to a limitation with the Discord API, the <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>
-objects returned by this method do not contain complete
-<a class="reference internal" href="#discord.Message.reactions" title="discord.Message.reactions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.reactions</span></code></a> data.</p>
+<p>Discord API 제한으로 인해 이 메소드가 리턴한 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 객체는 완전한 <a class="reference internal" href="#discord.Message.reactions" title="discord.Message.reactions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.reactions</span></code></a> 데이터를 포함하지 않습니다.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">예외</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Retrieving the pinned messages failed.</p>
+<dd class="field-odd"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 고정된 메시지를 가져오는 데 실패했습니다.</p>
 </dd>
 <dt class="field-even">반환값</dt>
-<dd class="field-even"><p>The messages that are currently pinned.</p>
+<dd class="field-even"><p>현재 고정되어 있는 메시지들.</p>
 </dd>
 <dt class="field-odd">반환 형식</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
@@ -14117,8 +14107,8 @@ objects returned by this method do not contain complete
 <dt id="discord.DMChannel.trigger_typing">
 <em class="property">await </em><code class="sig-name descname">trigger_typing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.DMChannel.trigger_typing" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Triggers a <em>typing</em> indicator to the destination.</p>
-<p><em>Typing</em> indicator will go away after 10 seconds, or after a message is sent.</p>
+<p>대상에 <em>입력 중</em> 표시기를 트리거합니다.</p>
+<p><em>입력 중</em> 표시기는 10초 후에 또는 메시지가 전송 된 후에 사라집니다.</p>
 </dd></dl>
 
 </dd></dl>
@@ -14409,21 +14399,21 @@ Could be <code class="docutils literal notranslate"><span class="pre">None</span
 <dt id="discord.GroupChannel.fetch_message">
 <em class="property">await </em><code class="sig-name descname">fetch_message</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.GroupChannel.fetch_message" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Retrieves a single <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> from the destination.</p>
-<p>This can only be used by bot accounts.</p>
+<p>대상에서 단일 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 를 검색합니다.</p>
+<p>오직 봇 계정에서만 사용할 수 있습니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The message ID to look for.</p>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – The specified message was not found.</p></li>
-<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – You do not have the permissions required to get a message.</p></li>
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Retrieving the message failed.</p></li>
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – 지정된 메시지를 찾을 수 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지를 가져올 권한이 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 가져오기에 실패했습니다.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The message asked for.</p>
+<dd class="field-odd"><p>요청한 메시지.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
@@ -14435,19 +14425,17 @@ Could be <code class="docutils literal notranslate"><span class="pre">None</span
 <dt id="discord.GroupChannel.pins">
 <em class="property">await </em><code class="sig-name descname">pins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.GroupChannel.pins" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Retrieves all messages that are currently pinned in the channel.</p>
+<p>채널에 현재 고정되어 있는 모든 메시지를 검색합니다.</p>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
-<p>Due to a limitation with the Discord API, the <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>
-objects returned by this method do not contain complete
-<a class="reference internal" href="#discord.Message.reactions" title="discord.Message.reactions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.reactions</span></code></a> data.</p>
+<p>Discord API 제한으로 인해 이 메소드가 리턴한 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 객체는 완전한 <a class="reference internal" href="#discord.Message.reactions" title="discord.Message.reactions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.reactions</span></code></a> 데이터를 포함하지 않습니다.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">예외</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Retrieving the pinned messages failed.</p>
+<dd class="field-odd"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 고정된 메시지를 가져오는 데 실패했습니다.</p>
 </dd>
 <dt class="field-even">반환값</dt>
-<dd class="field-even"><p>The messages that are currently pinned.</p>
+<dd class="field-even"><p>현재 고정되어 있는 메시지들.</p>
 </dd>
 <dt class="field-odd">반환 형식</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
@@ -14496,8 +14484,8 @@ objects returned by this method do not contain complete
 <dt id="discord.GroupChannel.trigger_typing">
 <em class="property">await </em><code class="sig-name descname">trigger_typing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.GroupChannel.trigger_typing" title="정의 주소">¶</a></dt>
 <dd><p>This function is a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
-<p>Triggers a <em>typing</em> indicator to the destination.</p>
-<p><em>Typing</em> indicator will go away after 10 seconds, or after a message is sent.</p>
+<p>대상에 <em>입력 중</em> 표시기를 트리거합니다.</p>
+<p><em>입력 중</em> 표시기는 10초 후에 또는 메시지가 전송 된 후에 사라집니다.</p>
 </dd></dl>
 
 </dd></dl>
