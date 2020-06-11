@@ -861,9 +861,9 @@ the associated guild to do this.</p>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – You do not have permissions to revoke invites.</p></li>
-<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – The invite is invalid or expired.</p></li>
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Revoking the invite failed.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 초대를 삭제할 권한이 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – 초대가 유효하지 않거나 만료되었습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 초대 삭제에 실패했습니다.</p></li>
 </ul>
 </dd>
 </dl>
@@ -8516,8 +8516,7 @@ Only applicable to user accounts.</p></li>
 <dt id="discord.Reaction">
 <em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">Reaction</code><a class="headerlink" href="#discord.Reaction" title="정의 주소">¶</a></dt>
 <dd><p>Represents a reaction to a message.</p>
-<p>Depending on the way this object was created, some of the attributes can
-have a value of <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>이 객체가 작성된 방식에 따라 일부 속성의 값은 <code class="docutils literal notranslate"><span class="pre">None</span></code> 일 수 있습니다.</p>
 <div class="operations docutils container">
 <dl class="describe">
 <dt>
@@ -11694,8 +11693,7 @@ is not currently in a voice channel.</p>
 <dt id="discord.Emoji">
 <em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">Emoji</code><a class="headerlink" href="#discord.Emoji" title="정의 주소">¶</a></dt>
 <dd><p>Represents a custom emoji.</p>
-<p>Depending on the way this object was created, some of the attributes can
-have a value of <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>이 객체가 작성된 방식에 따라 일부 속성의 값은 <code class="docutils literal notranslate"><span class="pre">None</span></code> 일 수 있습니다.</p>
 <div class="operations docutils container">
 <dl class="describe">
 <dt>
@@ -14862,48 +14860,47 @@ guild the <a class="reference internal" href="#discord.Invite" title="discord.In
 
 </div>
 <div class="section" id="invite">
-<h3>Invite<a class="headerlink" href="#invite" title="제목 주소">¶</a></h3>
+<h3>초대<a class="headerlink" href="#invite" title="제목 주소">¶</a></h3>
 <dl class="py class">
 <dt id="discord.Invite">
 <em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">Invite</code><a class="headerlink" href="#discord.Invite" title="정의 주소">¶</a></dt>
-<dd><p>Represents a Discord <a class="reference internal" href="#discord.Guild" title="discord.Guild"><code class="xref py py-class docutils literal notranslate"><span class="pre">Guild</span></code></a> or <a class="reference internal" href="#discord.abc.GuildChannel" title="discord.abc.GuildChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.GuildChannel</span></code></a> invite.</p>
-<p>Depending on the way this object was created, some of the attributes can
-have a value of <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<dd><p>디스코드 <a class="reference internal" href="#discord.Guild" title="discord.Guild"><code class="xref py py-class docutils literal notranslate"><span class="pre">Guild</span></code></a> 또는 <a class="reference internal" href="#discord.abc.GuildChannel" title="discord.abc.GuildChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.GuildChannel</span></code></a> 의 초대를 나타냅니다.</p>
+<p>이 객체가 작성된 방식에 따라 일부 속성의 값은 <code class="docutils literal notranslate"><span class="pre">None</span></code> 일 수 있습니다.</p>
 <div class="operations docutils container">
 <dl class="describe">
 <dt>
 <code class="sig-name descname">x == y</code></dt>
-<dd><p>Checks if two invites are equal.</p>
+<dd><p>두 초대가 같은지 확인합니다.</p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <code class="sig-name descname">x != y</code></dt>
-<dd><p>Checks if two invites are not equal.</p>
+<dd><p>두 초대가 다른지 확인합니다.</p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <code class="sig-name descname">hash(x)</code></dt>
-<dd><p>Returns the invite hash.</p>
+<dd><p>초대의 해시를 리턴합니다.</p>
 </dd></dl>
 
 <dl class="describe">
 <dt>
 <code class="sig-name descname">str(x)</code></dt>
-<dd><p>Returns the invite URL.</p>
+<dd><p>초대의 URL을 리턴합니다.</p>
 </dd></dl>
 
 </div>
-<p>The following table illustrates what methods will obtain the attributes:</p>
+<p>다음 표는 속성을 얻는 메소드를 보여줍니다:</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 38%" />
 <col style="width: 62%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p>Attribute</p></th>
-<th class="head"><p>Method</p></th>
+<tr class="row-odd"><th class="head"><p>속성</p></th>
+<th class="head"><p>메소드</p></th>
 </tr>
 </thead>
 <tbody>
@@ -14930,11 +14927,11 @@ have a value of <code class="docutils literal notranslate"><span class="pre">Non
 </tr>
 </tbody>
 </table>
-<p>If it’s not in the table above then it is available by all methods.</p>
+<p>위 표에 없으면 모든 메소드에서 사용할 수 있습니다.</p>
 <dl class="py attribute">
 <dt id="discord.Invite.max_age">
 <code class="sig-name descname">max_age</code><a class="headerlink" href="#discord.Invite.max_age" title="정의 주소">¶</a></dt>
-<dd><p>How long the before the invite expires in seconds. A value of 0 indicates that it doesn’t expire.</p>
+<dd><p>초대가 만료되기까지의 시간(초). 값이 0이면 만료되지 않음을 나타냅니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
@@ -14945,7 +14942,7 @@ have a value of <code class="docutils literal notranslate"><span class="pre">Non
 <dl class="py attribute">
 <dt id="discord.Invite.code">
 <code class="sig-name descname">code</code><a class="headerlink" href="#discord.Invite.code" title="정의 주소">¶</a></dt>
-<dd><p>The URL fragment used for the invite.</p>
+<dd><p>초대에 사용된 URL 조각입니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
@@ -14956,7 +14953,7 @@ have a value of <code class="docutils literal notranslate"><span class="pre">Non
 <dl class="py attribute">
 <dt id="discord.Invite.guild">
 <code class="sig-name descname">guild</code><a class="headerlink" href="#discord.Invite.guild" title="정의 주소">¶</a></dt>
-<dd><p>The guild the invite is for. Can be <code class="docutils literal notranslate"><span class="pre">None</span></code> if it’s from a group direct message.</p>
+<dd><p>초대의 길드입니다. 그룹 개인 메시지일 경우 <code class="docutils literal notranslate"><span class="pre">None</span></code> 이 될 수 있습니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p>Optional[Union[<a class="reference internal" href="#discord.Guild" title="discord.Guild"><code class="xref py py-class docutils literal notranslate"><span class="pre">Guild</span></code></a>, <a class="reference internal" href="#discord.Object" title="discord.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">Object</span></code></a>, <a class="reference internal" href="#discord.PartialInviteGuild" title="discord.PartialInviteGuild"><code class="xref py py-class docutils literal notranslate"><span class="pre">PartialInviteGuild</span></code></a>]]</p>
@@ -14967,7 +14964,7 @@ have a value of <code class="docutils literal notranslate"><span class="pre">Non
 <dl class="py attribute">
 <dt id="discord.Invite.revoked">
 <code class="sig-name descname">revoked</code><a class="headerlink" href="#discord.Invite.revoked" title="정의 주소">¶</a></dt>
-<dd><p>Indicates if the invite has been revoked.</p>
+<dd><p>초대가 삭제되었는지 여부를 나타냅니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
@@ -14978,7 +14975,7 @@ have a value of <code class="docutils literal notranslate"><span class="pre">Non
 <dl class="py attribute">
 <dt id="discord.Invite.created_at">
 <code class="sig-name descname">created_at</code><a class="headerlink" href="#discord.Invite.created_at" title="정의 주소">¶</a></dt>
-<dd><p>A datetime object denoting the time the invite was created.</p>
+<dd><p>초대가 생성된 시간을 나타내는 datetime 객체입니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a></p>
@@ -14989,8 +14986,7 @@ have a value of <code class="docutils literal notranslate"><span class="pre">Non
 <dl class="py attribute">
 <dt id="discord.Invite.temporary">
 <code class="sig-name descname">temporary</code><a class="headerlink" href="#discord.Invite.temporary" title="정의 주소">¶</a></dt>
-<dd><p>Indicates that the invite grants temporary membership.
-If <code class="docutils literal notranslate"><span class="pre">True</span></code>, members who joined via this invite will be kicked upon disconnect.</p>
+<dd><p>초대가 임시 멤버 자격을 부여하는지 여부입니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
@@ -15001,7 +14997,7 @@ If <code class="docutils literal notranslate"><span class="pre">True</span></cod
 <dl class="py attribute">
 <dt id="discord.Invite.uses">
 <code class="sig-name descname">uses</code><a class="headerlink" href="#discord.Invite.uses" title="정의 주소">¶</a></dt>
-<dd><p>How many times the invite has been used.</p>
+<dd><p>초대가 몇 번이나 사용되었는지 나타냅니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
@@ -15012,7 +15008,7 @@ If <code class="docutils literal notranslate"><span class="pre">True</span></cod
 <dl class="py attribute">
 <dt id="discord.Invite.max_uses">
 <code class="sig-name descname">max_uses</code><a class="headerlink" href="#discord.Invite.max_uses" title="정의 주소">¶</a></dt>
-<dd><p>How many times the invite can be used.</p>
+<dd><p>초대를 최대 몇 번이나 사용할 수 있는지 나타냅니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
@@ -15023,7 +15019,7 @@ If <code class="docutils literal notranslate"><span class="pre">True</span></cod
 <dl class="py attribute">
 <dt id="discord.Invite.inviter">
 <code class="sig-name descname">inviter</code><a class="headerlink" href="#discord.Invite.inviter" title="정의 주소">¶</a></dt>
-<dd><p>The user who created the invite.</p>
+<dd><p>초대를 만든 사용자.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a></p>
@@ -15034,7 +15030,7 @@ If <code class="docutils literal notranslate"><span class="pre">True</span></cod
 <dl class="py attribute">
 <dt id="discord.Invite.approximate_member_count">
 <code class="sig-name descname">approximate_member_count</code><a class="headerlink" href="#discord.Invite.approximate_member_count" title="정의 주소">¶</a></dt>
-<dd><p>The approximate number of members in the guild.</p>
+<dd><p>길드 멤버의 대략적인 수.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</p>
@@ -15045,8 +15041,7 @@ If <code class="docutils literal notranslate"><span class="pre">True</span></cod
 <dl class="py attribute">
 <dt id="discord.Invite.approximate_presence_count">
 <code class="sig-name descname">approximate_presence_count</code><a class="headerlink" href="#discord.Invite.approximate_presence_count" title="정의 주소">¶</a></dt>
-<dd><p>The approximate number of members currently active in the guild.
-This includes idle, dnd, online, and invisible members. Offline members are excluded.</p>
+<dd><p>현재 길드에서 활동중인 회원의 대략적인 수. 여기에는 자리 비움, 방해 금지, 온라인, 보이지 않는 멤버가 포함됩니다. 오프라인 멤버는 제외됩니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</p>
@@ -15057,7 +15052,7 @@ This includes idle, dnd, online, and invisible members. Offline members are excl
 <dl class="py attribute">
 <dt id="discord.Invite.channel">
 <code class="sig-name descname">channel</code><a class="headerlink" href="#discord.Invite.channel" title="정의 주소">¶</a></dt>
-<dd><p>The channel the invite is for.</p>
+<dd><p>초대의 채널입니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p>Union[<a class="reference internal" href="#discord.abc.GuildChannel" title="discord.abc.GuildChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.GuildChannel</span></code></a>, <a class="reference internal" href="#discord.Object" title="discord.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">Object</span></code></a>, <a class="reference internal" href="#discord.PartialInviteChannel" title="discord.PartialInviteChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">PartialInviteChannel</span></code></a>]</p>
@@ -15068,7 +15063,7 @@ This includes idle, dnd, online, and invisible members. Offline members are excl
 <dl class="py method">
 <dt id="discord.Invite.id">
 <code class="sig-name descname">id</code><a class="headerlink" href="#discord.Invite.id" title="정의 주소">¶</a></dt>
-<dd><p>Returns the proper code portion of the invite.</p>
+<dd><p>초대의 적절한 코드 부분을 리턴합니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
@@ -15079,7 +15074,7 @@ This includes idle, dnd, online, and invisible members. Offline members are excl
 <dl class="py method">
 <dt id="discord.Invite.url">
 <code class="sig-name descname">url</code><a class="headerlink" href="#discord.Invite.url" title="정의 주소">¶</a></dt>
-<dd><p>A property that retrieves the invite URL.</p>
+<dd><p>초대 URL을 가져오는 프로퍼티.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
@@ -15091,17 +15086,17 @@ This includes idle, dnd, online, and invisible members. Offline members are excl
 <dt id="discord.Invite.delete">
 <em class="property">await </em><code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">reason</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Invite.delete" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
-<p>Revokes the instant invite.</p>
-<p>You must have the <a class="reference internal" href="#discord.Permissions.manage_channels" title="discord.Permissions.manage_channels"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_channels</span></code></a> permission to do this.</p>
+<p>인스턴트 초대를 삭제합니다.</p>
+<p>사용하려면 <a class="reference internal" href="#discord.Permissions.manage_channels" title="discord.Permissions.manage_channels"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_channels</span></code></a> 권한이 필요합니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>reason</strong> (Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – The reason for deleting this invite. Shows up on the audit log.</p>
+<dd class="field-odd"><p><strong>reason</strong> (Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – 이 초대를 삭제하는 사유입니다. 감사 로그에 뜨게 됩니다.</p>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – You do not have permissions to revoke invites.</p></li>
-<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – The invite is invalid or expired.</p></li>
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Revoking the invite failed.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 초대를 삭제할 권한이 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – 초대가 유효하지 않거나 만료되었습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 초대 삭제에 실패했습니다.</p></li>
 </ul>
 </dd>
 </dl>
@@ -18418,7 +18413,7 @@ closed for reasons that could not be handled internally.</p>
 <li><a class="reference internal" href="#groupchannel">그룹 채널</a></li>
 <li><a class="reference internal" href="#partialinviteguild">PartialInviteGuild</a></li>
 <li><a class="reference internal" href="#partialinvitechannel">PartialInviteChannel</a></li>
-<li><a class="reference internal" href="#invite">Invite</a></li>
+<li><a class="reference internal" href="#invite">초대</a></li>
 <li><a class="reference internal" href="#widgetchannel">WidgetChannel</a></li>
 <li><a class="reference internal" href="#widgetmember">WidgetMember</a></li>
 <li><a class="reference internal" href="#widget">Widget</a></li>
