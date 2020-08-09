@@ -4,7 +4,7 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <title>바뀐 것에 대한 기록 &#8212; discord.py 1.4.0a 문서</title>
+    <title>바뀐 것에 대한 기록 &#8212; discord.py 1.4.0 문서</title>
     <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -37,7 +37,7 @@
         <li class="right" >
           <a href="faq.html" title="자주 묻는 질문"
              accesskey="P">이전</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.4.0a 문서</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.4.0 문서</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -49,10 +49,147 @@
   <div class="section" id="changelog">
 <span id="whats-new"></span><h1>바뀐 것에 대한 기록<a class="headerlink" href="#changelog" title="제목 주소">¶</a></h1>
 <p>이 페이지는 새로운 것과 새로운 것에 대해 자세히 서술하여줍니다.</p>
-<div class="section" id="v1-3-3">
-<span id="vp1p3p3"></span><h2>v1.3.3<a class="headerlink" href="#v1-3-3" title="제목 주소">¶</a></h2>
+<div class="section" id="v1-4-0">
+<span id="vp1p4p0"></span><h2>v1.4.0<a class="headerlink" href="#v1-4-0" title="제목 주소">¶</a></h2>
+<p>Another version with a long development time. Features like Intents are slated to be released in a v1.5 release. Thank you for your patience!</p>
+<div class="section" id="new-features">
+<h3>New Features<a class="headerlink" href="#new-features" title="제목 주소">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Add support for <a class="reference internal" href="api.html#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a> to have more control over what gets mentioned.</dt><dd><ul>
+<li><p>This can be set globally through <a class="reference internal" href="api.html#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Client.allowed_mentions</span></code></a></p></li>
+<li><p>This can also be set on a per message basis via <a class="reference internal" href="api.html#discord.abc.Messageable.send" title="discord.abc.Messageable.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.send()</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="api.html#discord.AutoShardedClient" title="discord.AutoShardedClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">AutoShardedClient</span></code></a> has been completely redesigned from the ground up to better suit multi-process clusters (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2654">GH-2654</a>)</dt><dd><ul>
+<li><p>Add <a class="reference internal" href="api.html#discord.ShardInfo" title="discord.ShardInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShardInfo</span></code></a> which allows fetching specific information about a shard.</p></li>
+<li><p>The <a class="reference internal" href="api.html#discord.ShardInfo" title="discord.ShardInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShardInfo</span></code></a> allows for reconnecting and disconnecting of a specific shard as well.</p></li>
+<li><p>Add <a class="reference internal" href="api.html#discord.AutoShardedClient.get_shard" title="discord.AutoShardedClient.get_shard"><code class="xref py py-meth docutils literal notranslate"><span class="pre">AutoShardedClient.get_shard()</span></code></a> and <a class="reference internal" href="api.html#discord.AutoShardedClient.shards" title="discord.AutoShardedClient.shards"><code class="xref py py-attr docutils literal notranslate"><span class="pre">AutoShardedClient.shards</span></code></a> to get information about shards.</p></li>
+<li><p>Rework the entire connection flow to better facilitate the <code class="docutils literal notranslate"><span class="pre">IDENTIFY</span></code> rate limits.</p></li>
+<li><p>Add a hook <a class="reference internal" href="api.html#discord.Client.before_identify_hook" title="discord.Client.before_identify_hook"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.before_identify_hook()</span></code></a> to have better control over what happens before an <code class="docutils literal notranslate"><span class="pre">IDENTIFY</span></code> is done.</p></li>
+<li><p>Add more shard related events such as <a class="reference internal" href="api.html#discord.on_shard_connect" title="discord.on_shard_connect"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_shard_connect()</span></code></a>, <a class="reference internal" href="api.html#discord.on_shard_disconnect" title="discord.on_shard_disconnect"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_shard_disconnect()</span></code></a> and <a class="reference internal" href="api.html#discord.on_shard_resumed" title="discord.on_shard_resumed"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_shard_resumed()</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Add support for guild templates (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2652">GH-2652</a>)</dt><dd><ul>
+<li><p>This adds <a class="reference internal" href="api.html#discord.Template" title="discord.Template"><code class="xref py py-class docutils literal notranslate"><span class="pre">Template</span></code></a> to read a template’s information.</p></li>
+<li><p><a class="reference internal" href="api.html#discord.Client.fetch_template" title="discord.Client.fetch_template"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.fetch_template()</span></code></a> can be used to fetch a template’s information from the API.</p></li>
+<li><p><a class="reference internal" href="api.html#discord.Client.create_guild" title="discord.Client.create_guild"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.create_guild()</span></code></a> can now take an optional template to base the creation from.</p></li>
+<li><p>Note that fetching a guild’s template is currently restricted for bot accounts.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Add support for guild integrations (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2051">GH-2051</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/1083">GH-1083</a>)</dt><dd><ul>
+<li><p><a class="reference internal" href="api.html#discord.Integration" title="discord.Integration"><code class="xref py py-class docutils literal notranslate"><span class="pre">Integration</span></code></a> is used to read integration information.</p></li>
+<li><p><a class="reference internal" href="api.html#discord.IntegrationAccount" title="discord.IntegrationAccount"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntegrationAccount</span></code></a> is used to read integration account information.</p></li>
+<li><p><a class="reference internal" href="api.html#discord.Guild.integrations" title="discord.Guild.integrations"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.integrations()</span></code></a> will fetch all integrations in a guild.</p></li>
+<li><p><a class="reference internal" href="api.html#discord.Guild.create_integration" title="discord.Guild.create_integration"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.create_integration()</span></code></a> will create an integration.</p></li>
+<li><p><a class="reference internal" href="api.html#discord.Integration.edit" title="discord.Integration.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Integration.edit()</span></code></a> will edit an existing integration.</p></li>
+<li><p><a class="reference internal" href="api.html#discord.Integration.delete" title="discord.Integration.delete"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Integration.delete()</span></code></a> will delete an integration.</p></li>
+<li><p><a class="reference internal" href="api.html#discord.Integration.sync" title="discord.Integration.sync"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Integration.sync()</span></code></a> will sync an integration.</p></li>
+<li><p>There is currently no support in the audit log for this.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Add an alias for <a class="reference internal" href="api.html#discord.VerificationLevel.extreme" title="discord.VerificationLevel.extreme"><code class="xref py py-attr docutils literal notranslate"><span class="pre">VerificationLevel.extreme</span></code></a> under <a class="reference internal" href="api.html#discord.VerificationLevel.very_high" title="discord.VerificationLevel.very_high"><code class="xref py py-attr docutils literal notranslate"><span class="pre">VerificationLevel.very_high</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2650">GH-2650</a>)</p></li>
+<li><p>Add various grey to gray aliases for <a class="reference internal" href="api.html#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/5130">GH-5130</a>)</p></li>
+<li><p>Added <a class="reference internal" href="api.html#discord.VoiceClient.latency" title="discord.VoiceClient.latency"><code class="xref py py-attr docutils literal notranslate"><span class="pre">VoiceClient.latency</span></code></a> and <a class="reference internal" href="api.html#discord.VoiceClient.average_latency" title="discord.VoiceClient.average_latency"><code class="xref py py-attr docutils literal notranslate"><span class="pre">VoiceClient.average_latency</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2535">GH-2535</a>)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">use_cached</span></code> and <code class="docutils literal notranslate"><span class="pre">spoiler</span></code> parameters to <a class="reference internal" href="api.html#discord.Attachment.to_file" title="discord.Attachment.to_file"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Attachment.to_file()</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2577">GH-2577</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4095">GH-4095</a>)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">position</span></code> parameter support to <a class="reference internal" href="api.html#discord.Guild.create_category" title="discord.Guild.create_category"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.create_category()</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2623">GH-2623</a>)</p></li>
+<li><p>Allow passing <code class="docutils literal notranslate"><span class="pre">int</span></code> for the colour in <a class="reference internal" href="api.html#discord.Role.edit" title="discord.Role.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Role.edit()</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4057">GH-4057</a>)</p></li>
+<li><p>Add <a class="reference internal" href="api.html#discord.Embed.remove_author" title="discord.Embed.remove_author"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Embed.remove_author()</span></code></a> to clear author information from an embed (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4068">GH-4068</a>)</p></li>
+<li><p>Add the ability to clear images and thumbnails in embeds using <a class="reference internal" href="api.html#discord.Embed.Empty" title="discord.Embed.Empty"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Embed.Empty</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4053">GH-4053</a>)</p></li>
+<li><p>Add <a class="reference internal" href="api.html#discord.Guild.max_video_channel_users" title="discord.Guild.max_video_channel_users"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.max_video_channel_users</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4120">GH-4120</a>)</p></li>
+<li><p>Add <a class="reference internal" href="api.html#discord.Guild.public_updates_channel" title="discord.Guild.public_updates_channel"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.public_updates_channel</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4120">GH-4120</a>)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">guild_ready_timeout</span></code> parameter to <a class="reference internal" href="api.html#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a> and subclasses to control timeouts when the <code class="docutils literal notranslate"><span class="pre">GUILD_CREATE</span></code> stream takes too long (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4112">GH-4112</a>)</p></li>
+<li><p>Add support for public user flags via <a class="reference internal" href="api.html#discord.User.public_flags" title="discord.User.public_flags"><code class="xref py py-attr docutils literal notranslate"><span class="pre">User.public_flags</span></code></a> and <a class="reference internal" href="api.html#discord.PublicUserFlags" title="discord.PublicUserFlags"><code class="xref py py-class docutils literal notranslate"><span class="pre">PublicUserFlags</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/3999">GH-3999</a>)</p></li>
+<li><p>Allow changing of channel types via <a class="reference internal" href="api.html#discord.TextChannel.edit" title="discord.TextChannel.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TextChannel.edit()</span></code></a> to and from a news channel (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4121">GH-4121</a>)</p></li>
+<li><p>Add <a class="reference internal" href="api.html#discord.Guild.edit_role_positions" title="discord.Guild.edit_role_positions"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.edit_role_positions()</span></code></a> to bulk edit role positions in a single API call (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2501">GH-2501</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2143">GH-2143</a>)</p></li>
+<li><p>Add <a class="reference internal" href="api.html#discord.Guild.change_voice_state" title="discord.Guild.change_voice_state"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.change_voice_state()</span></code></a> to change your voice state in a guild (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/5088">GH-5088</a>)</p></li>
+<li><p>Add <a class="reference internal" href="api.html#discord.PartialInviteGuild.is_icon_animated" title="discord.PartialInviteGuild.is_icon_animated"><code class="xref py py-meth docutils literal notranslate"><span class="pre">PartialInviteGuild.is_icon_animated()</span></code></a> for checking if the invite guild has animated icon (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4180">GH-4180</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4181">GH-4181</a>)</p></li>
+<li><p>Add <a class="reference internal" href="api.html#discord.PartialInviteGuild.icon_url_as" title="discord.PartialInviteGuild.icon_url_as"><code class="xref py py-meth docutils literal notranslate"><span class="pre">PartialInviteGuild.icon_url_as()</span></code></a> now supports <code class="docutils literal notranslate"><span class="pre">static_format</span></code> for consistency (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4180">GH-4180</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4181">GH-4181</a>)</p></li>
+<li><p>Add support for <code class="docutils literal notranslate"><span class="pre">user_ids</span></code> in <a class="reference internal" href="api.html#discord.Guild.query_members" title="discord.Guild.query_members"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.query_members()</span></code></a></p></li>
+<li><p>Add support for pruning members by roles in <a class="reference internal" href="api.html#discord.Guild.prune_members" title="discord.Guild.prune_members"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.prune_members()</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4043">GH-4043</a>)</p></li>
+<li><p>[<a class="reference internal" href="ext/commands/index.html#discord-ext-commands"><span class="std std-ref">ext.commands</span></a>] Implement <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.before_invoke" title="discord.ext.commands.before_invoke"><code class="xref py py-func docutils literal notranslate"><span class="pre">before_invoke()</span></code></a> and <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.after_invoke" title="discord.ext.commands.after_invoke"><code class="xref py py-func docutils literal notranslate"><span class="pre">after_invoke()</span></code></a> decorators (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/1986">GH-1986</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2502">GH-2502</a>)</p></li>
+<li><p>[<a class="reference internal" href="ext/commands/index.html#discord-ext-commands"><span class="std std-ref">ext.commands</span></a>] Add a way to retrieve <code class="docutils literal notranslate"><span class="pre">retry_after</span></code> from a cooldown in a command via <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Command.get_cooldown_retry_after" title="discord.ext.commands.Command.get_cooldown_retry_after"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Command.get_cooldown_retry_after</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/5195">GH-5195</a>)</p></li>
+<li><p>[<a class="reference internal" href="ext/commands/index.html#discord-ext-commands"><span class="std std-ref">ext.commands</span></a>] Add a way to dynamically add and remove checks from a <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.HelpCommand" title="discord.ext.commands.HelpCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">HelpCommand</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/5197">GH-5197</a>)</p></li>
+<li><p>[<a class="reference internal" href="ext/tasks/index.html#discord-ext-tasks"><span class="std std-ref">ext.tasks</span></a>] Add <a class="reference internal" href="ext/tasks/index.html#discord.ext.tasks.Loop.is_running" title="discord.ext.tasks.Loop.is_running"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Loop.is_running</span></code></a> method to the task objects (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2540">GH-2540</a>)</p></li>
+<li><p>[<a class="reference internal" href="ext/tasks/index.html#discord-ext-tasks"><span class="std std-ref">ext.tasks</span></a>] Allow usage of custom error handlers similar to the command extensions to tasks using <a class="reference internal" href="ext/tasks/index.html#discord.ext.tasks.Loop.error" title="discord.ext.tasks.Loop.error"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Loop.error</span></code></a> decorator (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2621">GH-2621</a>)</p></li>
+</ul>
+</div>
 <div class="section" id="bug-fixes">
 <h3>버그 수정<a class="headerlink" href="#bug-fixes" title="제목 주소">¶</a></h3>
+<ul class="simple">
+<li><p>Fix issue with <a class="reference internal" href="api.html#discord.PartialEmoji.url" title="discord.PartialEmoji.url"><code class="xref py py-attr docutils literal notranslate"><span class="pre">PartialEmoji.url</span></code></a> reads leading to a failure (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4015">GH-4015</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4016">GH-4016</a>)</p></li>
+<li><p>Allow <a class="reference internal" href="api.html#discord.abc.Messageable.history" title="discord.abc.Messageable.history"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.history()</span></code></a> to take a limit of <code class="docutils literal notranslate"><span class="pre">1</span></code> even if <code class="docutils literal notranslate"><span class="pre">around</span></code> is passed (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4019">GH-4019</a>)</p></li>
+<li><p>Fix <a class="reference internal" href="api.html#discord.Guild.member_count" title="discord.Guild.member_count"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.member_count</span></code></a> not updating in certain cases when a member has left the guild (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4021">GH-4021</a>)</p></li>
+<li><p>Fix the type of <a class="reference internal" href="api.html#discord.Object.id" title="discord.Object.id"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Object.id</span></code></a> not being validated. For backwards compatibility <code class="docutils literal notranslate"><span class="pre">str</span></code> is still allowed but is converted to <code class="docutils literal notranslate"><span class="pre">int</span></code> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4002">GH-4002</a>)</p></li>
+<li><p>Fix <a class="reference internal" href="api.html#discord.Guild.edit" title="discord.Guild.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.edit()</span></code></a> not allowing editing of notification settings (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4074">GH-4074</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4047">GH-4047</a>)</p></li>
+<li><p>Fix crash when the guild widget contains channels that aren’t in the payload (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4114">GH-4114</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4115">GH-4115</a>)</p></li>
+<li><p>Close ffmpeg stdin handling from spawned processes with <a class="reference internal" href="api.html#discord.FFmpegOpusAudio" title="discord.FFmpegOpusAudio"><code class="xref py py-class docutils literal notranslate"><span class="pre">FFmpegOpusAudio</span></code></a> and <a class="reference internal" href="api.html#discord.FFmpegPCMAudio" title="discord.FFmpegPCMAudio"><code class="xref py py-class docutils literal notranslate"><span class="pre">FFmpegPCMAudio</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4036">GH-4036</a>)</p></li>
+<li><p>Fix <a class="reference internal" href="api.html#discord.utils.escape_markdown" title="discord.utils.escape_markdown"><code class="xref py py-func docutils literal notranslate"><span class="pre">utils.escape_markdown()</span></code></a> not escaping masked links (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4206">GH-4206</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4207">GH-4207</a>)</p></li>
+<li><p>Fix reconnect loop due to failed handshake on region change (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4210">GH-4210</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/3996">GH-3996</a>)</p></li>
+<li><p>Fix <a class="reference internal" href="api.html#discord.Guild.by_category" title="discord.Guild.by_category"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.by_category()</span></code></a> not returning empty categories (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4186">GH-4186</a>)</p></li>
+<li><p>Fix certain JPEG images not being identified as JPEG (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/5143">GH-5143</a>)</p></li>
+<li><p>Fix a crash when an incomplete guild object is used when fetching reaction information (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/5181">GH-5181</a>)</p></li>
+<li><p>Fix a timeout issue when fetching members using <a class="reference internal" href="api.html#discord.Guild.query_members" title="discord.Guild.query_members"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.query_members()</span></code></a></p></li>
+<li><p>Fix an issue with domain resolution in voice (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/5188">GH-5188</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/5191">GH-5191</a>)</p></li>
+<li><p>Fix an issue where <a class="reference internal" href="api.html#discord.PartialEmoji.id" title="discord.PartialEmoji.id"><code class="xref py py-attr docutils literal notranslate"><span class="pre">PartialEmoji.id</span></code></a> could be a string (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4153">GH-4153</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4152">GH-4152</a>)</p></li>
+<li><p>Fix regression where <a class="reference internal" href="api.html#discord.Member.activities" title="discord.Member.activities"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Member.activities</span></code></a> would not clear.</p></li>
+<li><p>[<a class="reference internal" href="ext/commands/index.html#discord-ext-commands"><span class="std std-ref">ext.commands</span></a>] A <a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> is now raised when <a class="reference external" href="https://docs.python.org/ko/3/library/typing.html#typing.Optional" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">typing.Optional</span></code></a> is used within <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Greedy" title="discord.ext.commands.Greedy"><code class="xref py py-data docutils literal notranslate"><span class="pre">commands.Greedy</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2253">GH-2253</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/5068">GH-5068</a>)</p></li>
+<li><p>[<a class="reference internal" href="ext/commands/index.html#discord-ext-commands"><span class="std std-ref">ext.commands</span></a>] <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Bot.walk_commands" title="discord.ext.commands.Bot.walk_commands"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Bot.walk_commands</span></code></a> no longer yields duplicate commands due to aliases (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2591">GH-2591</a>)</p></li>
+<li><p>[<a class="reference internal" href="ext/commands/index.html#discord-ext-commands"><span class="std std-ref">ext.commands</span></a>] Fix regex characters not being escaped in <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.HelpCommand.clean_prefix" title="discord.ext.commands.HelpCommand.clean_prefix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">HelpCommand.clean_prefix</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4058">GH-4058</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4071">GH-4071</a>)</p></li>
+<li><p>[<a class="reference internal" href="ext/commands/index.html#discord-ext-commands"><span class="std std-ref">ext.commands</span></a>] Fix <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Bot.get_command" title="discord.ext.commands.Bot.get_command"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Bot.get_command</span></code></a> from raising errors when a name only has whitespace (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/5124">GH-5124</a>)</p></li>
+<li><p>[<a class="reference internal" href="ext/commands/index.html#discord-ext-commands"><span class="std std-ref">ext.commands</span></a>] Fix issue with <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Context.subcommand_passed" title="discord.ext.commands.Context.subcommand_passed"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Context.subcommand_passed</span></code></a> not functioning as expected (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/5198">GH-5198</a>)</p></li>
+<li><p>[<a class="reference internal" href="ext/tasks/index.html#discord-ext-tasks"><span class="std std-ref">ext.tasks</span></a>] Task objects are no longer stored globally so two class instances can now start two separate tasks (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2294">GH-2294</a>)</p></li>
+<li><p>[<a class="reference internal" href="ext/tasks/index.html#discord-ext-tasks"><span class="std std-ref">ext.tasks</span></a>] Allow cancelling the loop within <a class="reference internal" href="ext/tasks/index.html#discord.ext.tasks.Loop.before_loop" title="discord.ext.tasks.Loop.before_loop"><code class="xref py py-meth docutils literal notranslate"><span class="pre">before_loop</span></code></a> (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4082">GH-4082</a>)</p></li>
+</ul>
+</div>
+<div class="section" id="miscellaneous">
+<h3>잡다한 것들<a class="headerlink" href="#miscellaneous" title="제목 주소">¶</a></h3>
+<ul class="simple">
+<li><p>The <a class="reference internal" href="api.html#discord.Member.roles" title="discord.Member.roles"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Member.roles</span></code></a> cache introduced in v1.3 was reverted due to issues caused (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4087">GH-4087</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4157">GH-4157</a>)</p></li>
+<li><p><a class="reference internal" href="api.html#discord.Webhook" title="discord.Webhook"><code class="xref py py-class docutils literal notranslate"><span class="pre">Webhook</span></code></a> objects are now comparable and hashable (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4182">GH-4182</a>)</p></li>
+<li><dl class="simple">
+<dt>Some more API requests got a <code class="docutils literal notranslate"><span class="pre">reason</span></code> parameter for audit logs (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/5086">GH-5086</a>)</dt><dd><ul>
+<li><p><a class="reference internal" href="api.html#discord.TextChannel.follow" title="discord.TextChannel.follow"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TextChannel.follow()</span></code></a></p></li>
+<li><p><a class="reference internal" href="api.html#discord.Message.pin" title="discord.Message.pin"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Message.pin()</span></code></a> and <a class="reference internal" href="api.html#discord.Message.unpin" title="discord.Message.unpin"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Message.unpin()</span></code></a></p></li>
+<li><p><a class="reference internal" href="api.html#discord.Webhook.delete" title="discord.Webhook.delete"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Webhook.delete()</span></code></a> and <a class="reference internal" href="api.html#discord.Webhook.edit" title="discord.Webhook.edit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Webhook.edit()</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>For performance reasons <code class="docutils literal notranslate"><span class="pre">websockets</span></code> has been dropped in favour of <code class="docutils literal notranslate"><span class="pre">aiohttp.ws</span></code>.</p></li>
+<li><p>The blocking logging message now shows the stack trace of where the main thread was blocking</p></li>
+<li><p>The domain name was changed from <code class="docutils literal notranslate"><span class="pre">discordapp.com</span></code> to <code class="docutils literal notranslate"><span class="pre">discord.com</span></code> to prepare for the required domain migration</p></li>
+<li><p>Reduce memory usage when reconnecting due to stale references being held by the message cache (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/5133">GH-5133</a>)</p></li>
+<li><p>Optimize <a class="reference internal" href="api.html#discord.abc.GuildChannel.permissions_for" title="discord.abc.GuildChannel.permissions_for"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.GuildChannel.permissions_for()</span></code></a> by not creating as many temporary objects (20-32% savings).</p></li>
+<li><p>[<a class="reference internal" href="ext/commands/index.html#discord-ext-commands"><span class="std std-ref">ext.commands</span></a>] Raise <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.CommandRegistrationError" title="discord.ext.commands.CommandRegistrationError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">CommandRegistrationError</span></code></a> instead of <a class="reference internal" href="api.html#discord.ClientException" title="discord.ClientException"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ClientException</span></code></a> when a duplicate error is registered (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/4217">GH-4217</a>)</p></li>
+<li><p>[<a class="reference internal" href="ext/tasks/index.html#discord-ext-tasks"><span class="std std-ref">ext.tasks</span></a>] No longer handle <a class="reference internal" href="api.html#discord.HTTPException" title="discord.HTTPException"><code class="xref py py-exc docutils literal notranslate"><span class="pre">HTTPException</span></code></a> by default in the task reconnect loop (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/5193">GH-5193</a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-3-4">
+<span id="vp1p3p4"></span><h2>v1.3.4<a class="headerlink" href="#v1-3-4" title="제목 주소">¶</a></h2>
+<div class="section" id="id1">
+<h3>버그 수정<a class="headerlink" href="#id1" title="제목 주소">¶</a></h3>
+<ul class="simple">
+<li><p>Fix an issue with channel overwrites causing multiple issues including crashes (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/5109">GH-5109</a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-3-3">
+<span id="vp1p3p3"></span><h2>v1.3.3<a class="headerlink" href="#v1-3-3" title="제목 주소">¶</a></h2>
+<div class="section" id="id2">
+<h3>버그 수정<a class="headerlink" href="#id2" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
 <dt>기본 WS를 1000대신 4000으로 바꿉니다</dt><dd><ul>
@@ -68,8 +205,8 @@
 <div class="section" id="v1-3-2">
 <span id="vp1p3p2"></span><h2>v1.3.2<a class="headerlink" href="#v1-3-2" title="제목 주소">¶</a></h2>
 <p>다른 버그 수정판도 배포되었습니다</p>
-<div class="section" id="id1">
-<h3>버그 수정<a class="headerlink" href="#id1" title="제목 주소">¶</a></h3>
+<div class="section" id="id3">
+<h3>버그 수정<a class="headerlink" href="#id3" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Higher the wait time during the <code class="docutils literal notranslate"><span class="pre">GUILD_CREATE</span></code> stream before <code class="docutils literal notranslate"><span class="pre">on_ready</span></code> is fired for <a class="reference internal" href="api.html#discord.AutoShardedClient" title="discord.AutoShardedClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">AutoShardedClient</span></code></a>.</p></li>
 <li><p><a class="reference internal" href="api.html#discord.on_voice_state_update" title="discord.on_voice_state_update"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_voice_state_update()</span></code></a> now uses the inner <code class="docutils literal notranslate"><span class="pre">member</span></code> payload which should make it more reliable.</p></li>
@@ -84,15 +221,15 @@
 <div class="section" id="v1-3-1">
 <span id="vp1p3p1"></span><h2>v1.3.1<a class="headerlink" href="#v1-3-1" title="제목 주소">¶</a></h2>
 <p>사소한 버그들이 수정되었습니다.</p>
-<div class="section" id="id2">
-<h3>버그 수정<a class="headerlink" href="#id2" title="제목 주소">¶</a></h3>
+<div class="section" id="id4">
+<h3>버그 수정<a class="headerlink" href="#id4" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>사용자가 없는 서버에서 초대를 가져오는 버그를 수정하였습니다.</p></li>
 <li><p>Fix the channel returned from <a class="reference internal" href="api.html#discord.Client.fetch_channel" title="discord.Client.fetch_channel"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.fetch_channel()</span></code></a> raising when sending messages. (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2531">GH-2531</a>)</p></li>
 </ul>
 </div>
-<div class="section" id="miscellaneous">
-<h3>잡다한 것들<a class="headerlink" href="#miscellaneous" title="제목 주소">¶</a></h3>
+<div class="section" id="id5">
+<h3>잡다한 것들<a class="headerlink" href="#id5" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Python 3.9 알파버전 사용시의 호환성 경고를 수정하였습니다.</p></li>
 <li><p>스트레스를 줄이려면 로깅 이벤트를 WARNING에서 DEBUG로 바꾸십시오.</p></li>
@@ -102,8 +239,8 @@
 <div class="section" id="v1-3-0">
 <span id="vp1p3p0"></span><h2>v1.3.0<a class="headerlink" href="#v1-3-0" title="제목 주소">¶</a></h2>
 <p>This version comes with a lot of bug fixes and new features. It’s been in development for a lot longer than was anticipated!</p>
-<div class="section" id="new-features">
-<h3>New Features<a class="headerlink" href="#new-features" title="제목 주소">¶</a></h3>
+<div class="section" id="id6">
+<h3>New Features<a class="headerlink" href="#id6" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Add <a class="reference internal" href="api.html#discord.Guild.fetch_members" title="discord.Guild.fetch_members"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.fetch_members()</span></code></a> to fetch members from the HTTP API. (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2204">GH-2204</a>)</p></li>
 <li><p>Add <a class="reference internal" href="api.html#discord.Guild.fetch_roles" title="discord.Guild.fetch_roles"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.fetch_roles()</span></code></a> to fetch roles from the HTTP API. (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2208">GH-2208</a>)</p></li>
@@ -189,8 +326,8 @@
 <li><p>[<a class="reference internal" href="ext/tasks/index.html#discord-ext-tasks"><span class="std std-ref">ext.tasks</span></a>] Add <a class="reference internal" href="ext/tasks/index.html#discord.ext.tasks.Loop.next_iteration" title="discord.ext.tasks.Loop.next_iteration"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Loop.next_iteration</span></code></a> property. (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2305">GH-2305</a>)</p></li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h3>버그 수정<a class="headerlink" href="#id3" title="제목 주소">¶</a></h3>
+<div class="section" id="id7">
+<h3>버그 수정<a class="headerlink" href="#id7" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Fix issue with permission resolution sometimes failing for guilds with no owner.</p></li>
 <li><p>Tokens are now stripped upon use. (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2135">GH-2135</a>)</p></li>
@@ -214,8 +351,8 @@
 <li><p>[<a class="reference internal" href="ext/commands/index.html#discord-ext-commands"><span class="std std-ref">ext.commands</span></a>] <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Context.send_help" title="discord.ext.commands.Context.send_help"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Context.send_help</span></code></a> now properly propagates to the <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.HelpCommand.on_help_command_error" title="discord.ext.commands.HelpCommand.on_help_command_error"><code class="xref py py-meth docutils literal notranslate"><span class="pre">HelpCommand.on_help_command_error</span></code></a> handler.</p></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h3>잡다한 것들<a class="headerlink" href="#id4" title="제목 주소">¶</a></h3>
+<div class="section" id="id8">
+<h3>잡다한 것들<a class="headerlink" href="#id8" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>The library now fully supports Python 3.8 without warnings.</p></li>
 <li><p>Bump the dependency of <code class="docutils literal notranslate"><span class="pre">websockets</span></code> to 8.0 for those who can use it. (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2453">GH-2453</a>)</p></li>
@@ -244,8 +381,8 @@
 </div>
 <div class="section" id="v1-2-5">
 <span id="vp1p2p5"></span><h2>v1.2.5<a class="headerlink" href="#v1-2-5" title="제목 주소">¶</a></h2>
-<div class="section" id="id5">
-<h3>버그 수정<a class="headerlink" href="#id5" title="제목 주소">¶</a></h3>
+<div class="section" id="id9">
+<h3>버그 수정<a class="headerlink" href="#id9" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Fix a bug that caused crashes due to missing <code class="docutils literal notranslate"><span class="pre">animated</span></code> field in Emoji structures in reactions.</p></li>
 </ul>
@@ -253,8 +390,8 @@
 </div>
 <div class="section" id="v1-2-4">
 <span id="vp1p2p4"></span><h2>v1.2.4<a class="headerlink" href="#v1-2-4" title="제목 주소">¶</a></h2>
-<div class="section" id="id6">
-<h3>버그 수정<a class="headerlink" href="#id6" title="제목 주소">¶</a></h3>
+<div class="section" id="id10">
+<h3>버그 수정<a class="headerlink" href="#id10" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Fix a regression when <a class="reference internal" href="api.html#discord.Message.channel" title="discord.Message.channel"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.channel</span></code></a> would be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 <li><p>Fix a regression where <a class="reference internal" href="api.html#discord.Message.edited_at" title="discord.Message.edited_at"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.edited_at</span></code></a> would not update during edits.</p></li>
@@ -267,11 +404,11 @@
 </div>
 <div class="section" id="v1-2-3">
 <span id="vp1p2p3"></span><h2>v1.2.3<a class="headerlink" href="#v1-2-3" title="제목 주소">¶</a></h2>
-<div class="section" id="id7">
-<h3>버그 수정<a class="headerlink" href="#id7" title="제목 주소">¶</a></h3>
+<div class="section" id="id11">
+<h3>버그 수정<a class="headerlink" href="#id11" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Fix an AttributeError when accessing <a class="reference internal" href="api.html#discord.Member.premium_since" title="discord.Member.premium_since"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Member.premium_since</span></code></a> in <a class="reference internal" href="api.html#discord.on_member_update" title="discord.on_member_update"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_member_update()</span></code></a>. (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2213">GH-2213</a>)</p></li>
-<li><p>Handle <a class="reference external" href="https://docs.python.org/3/library/asyncio-exceptions.html#asyncio.CancelledError" title="(in Python v3.8)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code></a> in <a class="reference internal" href="api.html#discord.abc.Messageable.typing" title="discord.abc.Messageable.typing"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.typing()</span></code></a> context manager. (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2218">GH-2218</a>)</p></li>
+<li><p>Handle <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-exceptions.html#asyncio.CancelledError" title="(in Python v3.8)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code></a> in <a class="reference internal" href="api.html#discord.abc.Messageable.typing" title="discord.abc.Messageable.typing"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.typing()</span></code></a> context manager. (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2218">GH-2218</a>)</p></li>
 <li><p>Raise the max encoder bitrate to 512kbps to account for nitro boosting. (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2232">GH-2232</a>)</p></li>
 <li><p>Properly propagate exceptions in <a class="reference internal" href="api.html#discord.Client.run" title="discord.Client.run"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.run()</span></code></a>. (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2237">GH-2237</a>)</p></li>
 <li><p>[<a class="reference internal" href="ext/commands/index.html#discord-ext-commands"><span class="std std-ref">ext.commands</span></a>] Ensure cooldowns are properly copied when used in cog level <code class="docutils literal notranslate"><span class="pre">command_attrs</span></code>.</p></li>
@@ -280,8 +417,8 @@
 </div>
 <div class="section" id="v1-2-2">
 <span id="vp1p2p2"></span><h2>v1.2.2<a class="headerlink" href="#v1-2-2" title="제목 주소">¶</a></h2>
-<div class="section" id="id8">
-<h3>버그 수정<a class="headerlink" href="#id8" title="제목 주소">¶</a></h3>
+<div class="section" id="id12">
+<h3>버그 수정<a class="headerlink" href="#id12" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Audit log related attribute access have been fixed to not error out when they shouldn’t have.</p></li>
 </ul>
@@ -289,8 +426,8 @@
 </div>
 <div class="section" id="v1-2-1">
 <span id="vp1p2p1"></span><h2>v1.2.1<a class="headerlink" href="#v1-2-1" title="제목 주소">¶</a></h2>
-<div class="section" id="id9">
-<h3>버그 수정<a class="headerlink" href="#id9" title="제목 주소">¶</a></h3>
+<div class="section" id="id13">
+<h3>버그 수정<a class="headerlink" href="#id13" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="api.html#discord.User.avatar_url" title="discord.User.avatar_url"><code class="xref py py-attr docutils literal notranslate"><span class="pre">User.avatar_url</span></code></a> and related attributes no longer raise an error.</p></li>
 <li><p>More compatibility shims with the <code class="docutils literal notranslate"><span class="pre">enum.Enum</span></code> code.</p></li>
@@ -300,8 +437,8 @@
 <div class="section" id="v1-2-0">
 <span id="vp1p2p0"></span><h2>v1.2.0<a class="headerlink" href="#v1-2-0" title="제목 주소">¶</a></h2>
 <p>This update mainly brings performance improvements and various nitro boosting attributes (referred to in the API as 《premium guilds》).</p>
-<div class="section" id="id10">
-<h3>New Features<a class="headerlink" href="#id10" title="제목 주소">¶</a></h3>
+<div class="section" id="id14">
+<h3>New Features<a class="headerlink" href="#id14" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Add <a class="reference internal" href="api.html#discord.Guild.premium_tier" title="discord.Guild.premium_tier"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.premium_tier</span></code></a> to query the guild’s current nitro boost level.</p></li>
 <li><p>Add <a class="reference internal" href="api.html#discord.Guild.emoji_limit" title="discord.Guild.emoji_limit"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.emoji_limit</span></code></a>, <a class="reference internal" href="api.html#discord.Guild.bitrate_limit" title="discord.Guild.bitrate_limit"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.bitrate_limit</span></code></a>, <a class="reference internal" href="api.html#discord.Guild.filesize_limit" title="discord.Guild.filesize_limit"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.filesize_limit</span></code></a> to query the new limits of a guild when taking into consideration boosting.</p></li>
@@ -329,8 +466,8 @@
 <li><p>[<a class="reference internal" href="ext/tasks/index.html#discord-ext-tasks"><span class="std std-ref">ext.tasks</span></a>] Add <a class="reference internal" href="ext/tasks/index.html#discord.ext.tasks.Loop.change_interval" title="discord.ext.tasks.Loop.change_interval"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Loop.change_interval</span></code></a> to change the sleep interval at runtime (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2158">GH-2158</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2162">GH-2162</a>)</p></li>
 </ul>
 </div>
-<div class="section" id="id11">
-<h3>버그 수정<a class="headerlink" href="#id11" title="제목 주소">¶</a></h3>
+<div class="section" id="id15">
+<h3>버그 수정<a class="headerlink" href="#id15" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Fix internal error when using <a class="reference internal" href="api.html#discord.Guild.prune_members" title="discord.Guild.prune_members"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.prune_members()</span></code></a>.</p></li>
 <li><p>[<a class="reference internal" href="ext/commands/index.html#discord-ext-commands"><span class="std std-ref">ext.commands</span></a>] Fix <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Command.invoked_subcommand" title="discord.ext.commands.Command.invoked_subcommand"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Command.invoked_subcommand</span></code></a> being invalid in many cases.</p></li>
@@ -338,8 +475,8 @@
 <li><p>[<a class="reference internal" href="ext/tasks/index.html#discord-ext-tasks"><span class="std std-ref">ext.tasks</span></a>] The decorator interface now works as expected when stacking (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2154">GH-2154</a>)</p></li>
 </ul>
 </div>
-<div class="section" id="id12">
-<h3>잡다한 것들<a class="headerlink" href="#id12" title="제목 주소">¶</a></h3>
+<div class="section" id="id16">
+<h3>잡다한 것들<a class="headerlink" href="#id16" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Improve performance of all Enum related code significantly.</dt><dd><ul>
@@ -358,20 +495,20 @@
 <li><p>The Discord error code is now shown in the exception message for <a class="reference internal" href="api.html#discord.HTTPException" title="discord.HTTPException"><code class="xref py py-exc docutils literal notranslate"><span class="pre">HTTPException</span></code></a>.</p></li>
 <li><p>Internal tasks launched by the library will now have their own custom <code class="docutils literal notranslate"><span class="pre">__repr__</span></code>.</p></li>
 <li><p>All public facing types should now have a proper and more detailed <code class="docutils literal notranslate"><span class="pre">__repr__</span></code>.</p></li>
-<li><p>[<a class="reference internal" href="ext/tasks/index.html#discord-ext-tasks"><span class="std std-ref">ext.tasks</span></a>] Errors are now logged via the standard <a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">logging</span></code></a> module.</p></li>
+<li><p>[<a class="reference internal" href="ext/tasks/index.html#discord-ext-tasks"><span class="std std-ref">ext.tasks</span></a>] Errors are now logged via the standard <a class="reference external" href="https://docs.python.org/ko/3/library/logging.html#module-logging" title="(in Python v3.8)"><code class="docutils literal notranslate"><span class="pre">logging</span></code></a> module.</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="v1-1-1">
 <span id="vp1p1p1"></span><h2>v1.1.1<a class="headerlink" href="#v1-1-1" title="제목 주소">¶</a></h2>
-<div class="section" id="id13">
-<h3>버그 수정<a class="headerlink" href="#id13" title="제목 주소">¶</a></h3>
+<div class="section" id="id17">
+<h3>버그 수정<a class="headerlink" href="#id17" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Webhooks do not overwrite data on retrying their HTTP requests (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2140">GH-2140</a>)</p></li>
 </ul>
 </div>
-<div class="section" id="id14">
-<h3>잡다한 것들<a class="headerlink" href="#id14" title="제목 주소">¶</a></h3>
+<div class="section" id="id18">
+<h3>잡다한 것들<a class="headerlink" href="#id18" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Add back signal handling to <a class="reference internal" href="api.html#discord.Client.run" title="discord.Client.run"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.run()</span></code></a> due to issues some users had with proper cleanup.</p></li>
 </ul>
@@ -379,8 +516,8 @@
 </div>
 <div class="section" id="v1-1-0">
 <span id="vp1p1p0"></span><h2>v1.1.0<a class="headerlink" href="#v1-1-0" title="제목 주소">¶</a></h2>
-<div class="section" id="id15">
-<h3>New Features<a class="headerlink" href="#id15" title="제목 주소">¶</a></h3>
+<div class="section" id="id19">
+<h3>New Features<a class="headerlink" href="#id19" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>There is a new extension dedicated to making background tasks easier.</strong></dt><dd><ul>
@@ -417,18 +554,18 @@
 </ul>
 </div>
 </div>
-<div class="section" id="id16">
-<h3>버그 수정<a class="headerlink" href="#id16" title="제목 주소">¶</a></h3>
+<div class="section" id="id20">
+<h3>버그 수정<a class="headerlink" href="#id20" title="제목 주소">¶</a></h3>
 <ul class="simple">
-<li><p>Fix <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AttributeError" title="(in Python v3.8)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a> when using <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> on <a class="reference internal" href="api.html#discord.Widget" title="discord.Widget"><code class="xref py py-class docutils literal notranslate"><span class="pre">Widget</span></code></a>.</p></li>
+<li><p>Fix <a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#AttributeError" title="(in Python v3.8)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a> when using <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> on <a class="reference internal" href="api.html#discord.Widget" title="discord.Widget"><code class="xref py py-class docutils literal notranslate"><span class="pre">Widget</span></code></a>.</p></li>
 <li><p>Fix issue with <a class="reference internal" href="api.html#discord.abc.GuildChannel.overwrites" title="discord.abc.GuildChannel.overwrites"><code class="xref py py-attr docutils literal notranslate"><span class="pre">abc.GuildChannel.overwrites</span></code></a> returning <code class="docutils literal notranslate"><span class="pre">None</span></code> for keys.</p></li>
 <li><p>Remove incorrect legacy NSFW checks in e.g. <a class="reference internal" href="api.html#discord.TextChannel.is_nsfw" title="discord.TextChannel.is_nsfw"><code class="xref py py-meth docutils literal notranslate"><span class="pre">TextChannel.is_nsfw()</span></code></a>.</p></li>
-<li><p>Fix <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#UnboundLocalError" title="(in Python v3.8)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnboundLocalError</span></code></a> when <a class="reference internal" href="api.html#discord.RequestsWebhookAdapter" title="discord.RequestsWebhookAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">RequestsWebhookAdapter</span></code></a> raises an error.</p></li>
+<li><p>Fix <a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#UnboundLocalError" title="(in Python v3.8)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UnboundLocalError</span></code></a> when <a class="reference internal" href="api.html#discord.RequestsWebhookAdapter" title="discord.RequestsWebhookAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">RequestsWebhookAdapter</span></code></a> raises an error.</p></li>
 <li><p>Fix bug where updating your own user did not update your member instances.</p></li>
 <li><p>Tighten constraints of <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> in <a class="reference internal" href="api.html#discord.Spotify" title="discord.Spotify"><code class="xref py py-class docutils literal notranslate"><span class="pre">Spotify</span></code></a> objects (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2113">GH-2113</a>, <a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2117">GH-2117</a>)</p></li>
 </ul>
-<div class="section" id="id17">
-<h4><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code><a class="headerlink" href="#id17" title="제목 주소">¶</a></h4>
+<div class="section" id="id21">
+<h4><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code><a class="headerlink" href="#id21" title="제목 주소">¶</a></h4>
 <ul class="simple">
 <li><p>Fix lambda converters in a non-module context (e.g. <code class="docutils literal notranslate"><span class="pre">eval</span></code>).</p></li>
 <li><dl class="simple">
@@ -445,16 +582,16 @@
 </ul>
 </div>
 </div>
-<div class="section" id="id18">
-<h3>잡다한 것들<a class="headerlink" href="#id18" title="제목 주소">¶</a></h3>
+<div class="section" id="id22">
+<h3>잡다한 것들<a class="headerlink" href="#id22" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Improve the performance of internal enum creation in the library by about 5x.</p></li>
 <li><p>Make the output of <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">discord</span> <span class="pre">--version</span></code> a bit more useful.</p></li>
 <li><p>The loop cleanup facility has been rewritten again.</p></li>
 <li><p>The signal handling in <a class="reference internal" href="api.html#discord.Client.run" title="discord.Client.run"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.run()</span></code></a> has been removed.</p></li>
 </ul>
-<div class="section" id="id19">
-<h4><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code><a class="headerlink" href="#id19" title="제목 주소">¶</a></h4>
+<div class="section" id="id23">
+<h4><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code><a class="headerlink" href="#id23" title="제목 주소">¶</a></h4>
 <ul class="simple">
 <li><p>Custom exception classes are now used for all default checks in the library (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/2101">GH-2101</a>)</p></li>
 </ul>
@@ -463,8 +600,8 @@
 </div>
 <div class="section" id="v1-0-1">
 <span id="vp1p0p1"></span><h2>v1.0.1<a class="headerlink" href="#v1-0-1" title="제목 주소">¶</a></h2>
-<div class="section" id="id20">
-<h3>버그 수정<a class="headerlink" href="#id20" title="제목 주소">¶</a></h3>
+<div class="section" id="id24">
+<h3>버그 수정<a class="headerlink" href="#id24" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Fix issue with speaking state being cast to <code class="docutils literal notranslate"><span class="pre">int</span></code> when it was invalid.</p></li>
 <li><p>Fix some issues with loop cleanup that some users experienced on Linux machines.</p></li>
@@ -479,8 +616,8 @@ see <a class="reference internal" href="migrating.html#migrating-1-0"><span clas
 </div>
 <div class="section" id="v0-16-6">
 <span id="vp0p16p6"></span><h2>v0.16.6<a class="headerlink" href="#v0-16-6" title="제목 주소">¶</a></h2>
-<div class="section" id="id21">
-<h3>버그 수정<a class="headerlink" href="#id21" title="제목 주소">¶</a></h3>
+<div class="section" id="id25">
+<h3>버그 수정<a class="headerlink" href="#id25" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Fix issue with <code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.create_server()</span></code> that made it stop working.</p></li>
 <li><p>Fix main thread being blocked upon calling <code class="docutils literal notranslate"><span class="pre">StreamPlayer.stop</span></code>.</p></li>
@@ -493,8 +630,8 @@ see <a class="reference internal" href="migrating.html#migrating-1-0"><span clas
 <div class="section" id="v0-16-1">
 <span id="vp0p16p1"></span><h2>v0.16.1<a class="headerlink" href="#v0-16-1" title="제목 주소">¶</a></h2>
 <p>This release is just a bug fix release with some better rate limit implementation.</p>
-<div class="section" id="id22">
-<h3>버그 수정<a class="headerlink" href="#id22" title="제목 주소">¶</a></h3>
+<div class="section" id="id26">
+<h3>버그 수정<a class="headerlink" href="#id26" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Servers are now properly chunked for user bots.</p></li>
 <li><p>The CDN URL is now used instead of the API URL for assets.</p></li>
@@ -506,15 +643,15 @@ see <a class="reference internal" href="migrating.html#migrating-1-0"><span clas
 </div>
 <div class="section" id="v0-16-0">
 <span id="vp0p16p0"></span><h2>v0.16.0<a class="headerlink" href="#v0-16-0" title="제목 주소">¶</a></h2>
-<div class="section" id="id23">
-<h3>New Features<a class="headerlink" href="#id23" title="제목 주소">¶</a></h3>
+<div class="section" id="id27">
+<h3>New Features<a class="headerlink" href="#id27" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Add <code class="xref py py-attr docutils literal notranslate"><span class="pre">Channel.overwrites</span></code> to get all the permission overwrites of a channel.</p></li>
 <li><p>Add <code class="xref py py-attr docutils literal notranslate"><span class="pre">Server.features</span></code> to get information about partnered servers.</p></li>
 </ul>
 </div>
-<div class="section" id="id24">
-<h3>버그 수정<a class="headerlink" href="#id24" title="제목 주소">¶</a></h3>
+<div class="section" id="id28">
+<h3>버그 수정<a class="headerlink" href="#id28" title="제목 주소">¶</a></h3>
 <ul>
 <li><p>Timeout when waiting for offline members while triggering <a class="reference internal" href="api.html#discord.on_ready" title="discord.on_ready"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_ready()</span></code></a>.</p>
 <blockquote>
@@ -544,8 +681,8 @@ called once or twice with <a class="reference internal" href="api.html#discord.o
 </div>
 <div class="section" id="v0-15-0">
 <span id="vp0p15p0"></span><h2>v0.15.0<a class="headerlink" href="#v0-15-0" title="제목 주소">¶</a></h2>
-<div class="section" id="id25">
-<h3>New Features<a class="headerlink" href="#id25" title="제목 주소">¶</a></h3>
+<div class="section" id="id29">
+<h3>New Features<a class="headerlink" href="#id29" title="제목 주소">¶</a></h3>
 <ul>
 <li><p>Rich Embeds for messages are now supported.</p>
 <blockquote>
@@ -573,8 +710,8 @@ called once or twice with <a class="reference internal" href="api.html#discord.o
 </div>
 <div class="section" id="v0-14-3">
 <span id="vp0p14p3"></span><h2>v0.14.3<a class="headerlink" href="#v0-14-3" title="제목 주소">¶</a></h2>
-<div class="section" id="id26">
-<h3>버그 수정<a class="headerlink" href="#id26" title="제목 주소">¶</a></h3>
+<div class="section" id="id30">
+<h3>버그 수정<a class="headerlink" href="#id30" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Fix crash when dealing with MESSAGE_REACTION_REMOVE</p></li>
 <li><p>Fix incorrect buckets for reactions.</p></li>
@@ -583,8 +720,8 @@ called once or twice with <a class="reference internal" href="api.html#discord.o
 </div>
 <div class="section" id="v0-14-2">
 <span id="v0p14p2"></span><h2>v0.14.2<a class="headerlink" href="#v0-14-2" title="제목 주소">¶</a></h2>
-<div class="section" id="id27">
-<h3>New Features<a class="headerlink" href="#id27" title="제목 주소">¶</a></h3>
+<div class="section" id="id31">
+<h3>New Features<a class="headerlink" href="#id31" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
 <dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.wait_for_reaction()</span></code> now returns a namedtuple with <code class="docutils literal notranslate"><span class="pre">reaction</span></code> and <code class="docutils literal notranslate"><span class="pre">user</span></code> attributes.</dt><dd><ul>
@@ -595,8 +732,8 @@ called once or twice with <a class="reference internal" href="api.html#discord.o
 </li>
 </ul>
 </div>
-<div class="section" id="id28">
-<h3>버그 수정<a class="headerlink" href="#id28" title="제목 주소">¶</a></h3>
+<div class="section" id="id32">
+<h3>버그 수정<a class="headerlink" href="#id32" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Fix bug that disallowed <code class="docutils literal notranslate"><span class="pre">None</span></code> to be passed for <code class="docutils literal notranslate"><span class="pre">emoji</span></code> parameter in <code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.wait_for_reaction()</span></code>.</p></li>
 </ul>
@@ -604,8 +741,8 @@ called once or twice with <a class="reference internal" href="api.html#discord.o
 </div>
 <div class="section" id="v0-14-1">
 <span id="v0p14p1"></span><h2>v0.14.1<a class="headerlink" href="#v0-14-1" title="제목 주소">¶</a></h2>
-<div class="section" id="id29">
-<h3>Bug fixes<a class="headerlink" href="#id29" title="제목 주소">¶</a></h3>
+<div class="section" id="id33">
+<h3>Bug fixes<a class="headerlink" href="#id33" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Fix bug with <cite>Reaction</cite> not being visible at import.</dt><dd><ul>
@@ -620,8 +757,8 @@ called once or twice with <a class="reference internal" href="api.html#discord.o
 <div class="section" id="v0-14-0">
 <span id="v0p14p0"></span><h2>v0.14.0<a class="headerlink" href="#v0-14-0" title="제목 주소">¶</a></h2>
 <p>This update adds new API features and a couple of bug fixes.</p>
-<div class="section" id="id30">
-<h3>New Features<a class="headerlink" href="#id30" title="제목 주소">¶</a></h3>
+<div class="section" id="id34">
+<h3>New Features<a class="headerlink" href="#id34" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Add support for Manage Webhooks permission under <a class="reference internal" href="api.html#discord.Permissions.manage_webhooks" title="discord.Permissions.manage_webhooks"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Permissions.manage_webhooks</span></code></a></p></li>
 <li><p>Add support for <code class="docutils literal notranslate"><span class="pre">around</span></code> argument in 3.5+ <code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.logs_from()</span></code>.</p></li>
@@ -640,8 +777,8 @@ called once or twice with <a class="reference internal" href="api.html#discord.o
 </li>
 </ul>
 </div>
-<div class="section" id="id31">
-<h3>버그 수정<a class="headerlink" href="#id31" title="제목 주소">¶</a></h3>
+<div class="section" id="id35">
+<h3>버그 수정<a class="headerlink" href="#id35" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Fix bug with Paginator still allowing lines that are too long.</p></li>
 <li><p>Fix the <a class="reference internal" href="api.html#discord.Permissions.manage_emojis" title="discord.Permissions.manage_emojis"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Permissions.manage_emojis</span></code></a> bit being incorrect.</p></li>
@@ -651,8 +788,8 @@ called once or twice with <a class="reference internal" href="api.html#discord.o
 <div class="section" id="v0-13-0">
 <span id="v0p13p0"></span><h2>v0.13.0<a class="headerlink" href="#v0-13-0" title="제목 주소">¶</a></h2>
 <p>This is a backwards compatible update with new features.</p>
-<div class="section" id="id32">
-<h3>New Features<a class="headerlink" href="#id32" title="제목 주소">¶</a></h3>
+<div class="section" id="id36">
+<h3>New Features<a class="headerlink" href="#id36" title="제목 주소">¶</a></h3>
 <ul>
 <li><p>Add the ability to manage emojis.</p>
 <blockquote>
@@ -695,8 +832,8 @@ called once or twice with <a class="reference internal" href="api.html#discord.o
 </li>
 </ul>
 </div>
-<div class="section" id="id33">
-<h3>버그 수정<a class="headerlink" href="#id33" title="제목 주소">¶</a></h3>
+<div class="section" id="id37">
+<h3>버그 수정<a class="headerlink" href="#id37" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Paginator pages do not exceed their max_size anymore (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/340">GH-340</a>)</p></li>
 <li><p>Do Not Disturb users no longer show up offline due to the new <a class="reference internal" href="api.html#discord.Status" title="discord.Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">Status</span></code></a> changes.</p></li>
@@ -706,8 +843,8 @@ called once or twice with <a class="reference internal" href="api.html#discord.o
 <div class="section" id="v0-12-0">
 <span id="v0p12p0"></span><h2>v0.12.0<a class="headerlink" href="#v0-12-0" title="제목 주소">¶</a></h2>
 <p>This is a bug fix update that also comes with new features.</p>
-<div class="section" id="id34">
-<h3>New Features<a class="headerlink" href="#id34" title="제목 주소">¶</a></h3>
+<div class="section" id="id38">
+<h3>New Features<a class="headerlink" href="#id38" title="제목 주소">¶</a></h3>
 <ul>
 <li><p>Add custom emoji support.</p>
 <blockquote>
@@ -769,8 +906,8 @@ called once or twice with <a class="reference internal" href="api.html#discord.o
 <li><p>Add a method to reset command cooldown.</p></li>
 </ul>
 </div>
-<div class="section" id="id35">
-<h3>버그 수정<a class="headerlink" href="#id35" title="제목 주소">¶</a></h3>
+<div class="section" id="id39">
+<h3>버그 수정<a class="headerlink" href="#id39" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Fix bug that caused the library to not work with the latest <code class="docutils literal notranslate"><span class="pre">websockets</span></code> library.</p></li>
 <li><p>Fix bug that leaked keep alive threads (<a class="reference external" href="https://github.com/Rapptz/discord.py/issues/309">GH-309</a>)</p></li>
@@ -789,8 +926,8 @@ called once or twice with <a class="reference internal" href="api.html#discord.o
 <li><p><code class="docutils literal notranslate"><span class="pre">Permissions.change_nicknames</span></code> has been renamed to <a class="reference internal" href="api.html#discord.Permissions.change_nickname" title="discord.Permissions.change_nickname"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Permissions.change_nickname</span></code></a> to match the UI.</p></li>
 </ul>
 </div>
-<div class="section" id="id36">
-<h3>New Features<a class="headerlink" href="#id36" title="제목 주소">¶</a></h3>
+<div class="section" id="id40">
+<h3>New Features<a class="headerlink" href="#id40" title="제목 주소">¶</a></h3>
 <ul>
 <li><p>Add the ability to prune members via <code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.prune_members()</span></code>.</p></li>
 <li><p>Switch the websocket gateway version to v6 from v5. This allows the library to work with group DMs and 1-on-1 calls.</p></li>
@@ -817,8 +954,8 @@ called once or twice with <a class="reference internal" href="api.html#discord.o
 <li><p><code class="docutils literal notranslate"><span class="pre">UserInputError</span></code> exception for the hierarchy for user input related errors.</p></li>
 </ul>
 </div>
-<div class="section" id="id37">
-<h3>버그 수정<a class="headerlink" href="#id37" title="제목 주소">¶</a></h3>
+<div class="section" id="id41">
+<h3>버그 수정<a class="headerlink" href="#id41" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">Client.email</span></code> is now saved when using a token for user accounts.</p></li>
 <li><p>Fix issue when removing roles out of order.</p></li>
@@ -838,8 +975,8 @@ called once or twice with <a class="reference internal" href="api.html#discord.o
 <div class="section" id="v0-10-0">
 <span id="v0p10p0"></span><h2>v0.10.0<a class="headerlink" href="#v0-10-0" title="제목 주소">¶</a></h2>
 <p>For breaking changes, see <a class="reference internal" href="migrating_to_async.html#migrating-to-async"><span class="std std-ref">v0.10.0으로 이동</span></a>. The breaking changes listed there will not be enumerated below. Since this version is rather a big departure from v0.9.2, this change log will be non-exhaustive.</p>
-<div class="section" id="id38">
-<h3>New Features<a class="headerlink" href="#id38" title="제목 주소">¶</a></h3>
+<div class="section" id="id42">
+<h3>New Features<a class="headerlink" href="#id42" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>The library is now fully <code class="docutils literal notranslate"><span class="pre">asyncio</span></code> compatible, allowing you to write non-blocking code a lot more easily.</p></li>
 <li><p>The library now fully handles 429s and unconditionally retries on 502s.</p></li>
@@ -883,8 +1020,8 @@ receive performance improvements by having to download and process less data.</p
 <li><p>While minor, change regex from <code class="docutils literal notranslate"><span class="pre">\d+</span></code> to <code class="docutils literal notranslate"><span class="pre">[0-9]+</span></code> to avoid unnecessary unicode character lookups.</p></li>
 </ul>
 </div>
-<div class="section" id="id39">
-<h3>버그 수정<a class="headerlink" href="#id39" title="제목 주소">¶</a></h3>
+<div class="section" id="id43">
+<h3>버그 수정<a class="headerlink" href="#id43" title="제목 주소">¶</a></h3>
 <ul class="simple">
 <li><p>Fix bug where guilds being updated did not edit the items in cache.</p></li>
 <li><p>Fix bug where <code class="docutils literal notranslate"><span class="pre">member.roles</span></code> were empty upon joining instead of having the <code class="docutils literal notranslate"><span class="pre">&#64;everyone</span></code> role.</p></li>
@@ -910,132 +1047,142 @@ a <a class="reference internal" href="api.html#discord.Object" title="discord.Ob
   <h3><a href="index.html">목차</a></h3>
   <ul>
 <li><a class="reference internal" href="#">바뀐 것에 대한 기록</a><ul>
-<li><a class="reference internal" href="#v1-3-3">v1.3.3</a><ul>
+<li><a class="reference internal" href="#v1-4-0">v1.4.0</a><ul>
+<li><a class="reference internal" href="#new-features">New Features</a></li>
 <li><a class="reference internal" href="#bug-fixes">버그 수정</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#v1-3-2">v1.3.2</a><ul>
-<li><a class="reference internal" href="#id1">버그 수정</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#v1-3-1">v1.3.1</a><ul>
-<li><a class="reference internal" href="#id2">버그 수정</a></li>
 <li><a class="reference internal" href="#miscellaneous">잡다한 것들</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#v1-3-0">v1.3.0</a><ul>
-<li><a class="reference internal" href="#new-features">New Features</a></li>
+<li><a class="reference internal" href="#v1-3-4">v1.3.4</a><ul>
+<li><a class="reference internal" href="#id1">버그 수정</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-3-3">v1.3.3</a><ul>
+<li><a class="reference internal" href="#id2">버그 수정</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-3-2">v1.3.2</a><ul>
 <li><a class="reference internal" href="#id3">버그 수정</a></li>
-<li><a class="reference internal" href="#id4">잡다한 것들</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-3-1">v1.3.1</a><ul>
+<li><a class="reference internal" href="#id4">버그 수정</a></li>
+<li><a class="reference internal" href="#id5">잡다한 것들</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-3-0">v1.3.0</a><ul>
+<li><a class="reference internal" href="#id6">New Features</a></li>
+<li><a class="reference internal" href="#id7">버그 수정</a></li>
+<li><a class="reference internal" href="#id8">잡다한 것들</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#v1-2-5">v1.2.5</a><ul>
-<li><a class="reference internal" href="#id5">버그 수정</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#v1-2-4">v1.2.4</a><ul>
-<li><a class="reference internal" href="#id6">버그 수정</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#v1-2-3">v1.2.3</a><ul>
-<li><a class="reference internal" href="#id7">버그 수정</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#v1-2-2">v1.2.2</a><ul>
-<li><a class="reference internal" href="#id8">버그 수정</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#v1-2-1">v1.2.1</a><ul>
 <li><a class="reference internal" href="#id9">버그 수정</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#v1-2-0">v1.2.0</a><ul>
-<li><a class="reference internal" href="#id10">New Features</a></li>
+<li><a class="reference internal" href="#v1-2-4">v1.2.4</a><ul>
+<li><a class="reference internal" href="#id10">버그 수정</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-2-3">v1.2.3</a><ul>
 <li><a class="reference internal" href="#id11">버그 수정</a></li>
-<li><a class="reference internal" href="#id12">잡다한 것들</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-2-2">v1.2.2</a><ul>
+<li><a class="reference internal" href="#id12">버그 수정</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-2-1">v1.2.1</a><ul>
+<li><a class="reference internal" href="#id13">버그 수정</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-2-0">v1.2.0</a><ul>
+<li><a class="reference internal" href="#id14">New Features</a></li>
+<li><a class="reference internal" href="#id15">버그 수정</a></li>
+<li><a class="reference internal" href="#id16">잡다한 것들</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#v1-1-1">v1.1.1</a><ul>
-<li><a class="reference internal" href="#id13">버그 수정</a></li>
-<li><a class="reference internal" href="#id14">잡다한 것들</a></li>
+<li><a class="reference internal" href="#id17">버그 수정</a></li>
+<li><a class="reference internal" href="#id18">잡다한 것들</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#v1-1-0">v1.1.0</a><ul>
-<li><a class="reference internal" href="#id15">New Features</a><ul>
+<li><a class="reference internal" href="#id19">New Features</a><ul>
 <li><a class="reference internal" href="#discord-ext-commands"><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id16">버그 수정</a><ul>
-<li><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code></a></li>
+<li><a class="reference internal" href="#id20">버그 수정</a><ul>
+<li><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id18">잡다한 것들</a><ul>
-<li><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code></a></li>
+<li><a class="reference internal" href="#id22">잡다한 것들</a><ul>
+<li><a class="reference internal" href="#id23"><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a class="reference internal" href="#v1-0-1">v1.0.1</a><ul>
-<li><a class="reference internal" href="#id20">버그 수정</a></li>
+<li><a class="reference internal" href="#id24">버그 수정</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#v1-0-0">v1.0.0</a></li>
 <li><a class="reference internal" href="#v0-16-6">v0.16.6</a><ul>
-<li><a class="reference internal" href="#id21">버그 수정</a></li>
+<li><a class="reference internal" href="#id25">버그 수정</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#v0-16-1">v0.16.1</a><ul>
-<li><a class="reference internal" href="#id22">버그 수정</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#v0-16-0">v0.16.0</a><ul>
-<li><a class="reference internal" href="#id23">New Features</a></li>
-<li><a class="reference internal" href="#id24">버그 수정</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#v0-15-1">v0.15.1</a></li>
-<li><a class="reference internal" href="#v0-15-0">v0.15.0</a><ul>
-<li><a class="reference internal" href="#id25">New Features</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#v0-14-3">v0.14.3</a><ul>
 <li><a class="reference internal" href="#id26">버그 수정</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#v0-14-2">v0.14.2</a><ul>
+<li><a class="reference internal" href="#v0-16-0">v0.16.0</a><ul>
 <li><a class="reference internal" href="#id27">New Features</a></li>
 <li><a class="reference internal" href="#id28">버그 수정</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#v0-15-1">v0.15.1</a></li>
+<li><a class="reference internal" href="#v0-15-0">v0.15.0</a><ul>
+<li><a class="reference internal" href="#id29">New Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-14-3">v0.14.3</a><ul>
+<li><a class="reference internal" href="#id30">버그 수정</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-14-2">v0.14.2</a><ul>
+<li><a class="reference internal" href="#id31">New Features</a></li>
+<li><a class="reference internal" href="#id32">버그 수정</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#v0-14-1">v0.14.1</a><ul>
-<li><a class="reference internal" href="#id29">Bug fixes</a></li>
+<li><a class="reference internal" href="#id33">Bug fixes</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#v0-14-0">v0.14.0</a><ul>
-<li><a class="reference internal" href="#id30">New Features</a></li>
-<li><a class="reference internal" href="#id31">버그 수정</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#v0-13-0">v0.13.0</a><ul>
-<li><a class="reference internal" href="#id32">New Features</a></li>
-<li><a class="reference internal" href="#id33">버그 수정</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#v0-12-0">v0.12.0</a><ul>
 <li><a class="reference internal" href="#id34">New Features</a></li>
 <li><a class="reference internal" href="#id35">버그 수정</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#v0-11-0">v0.11.0</a><ul>
-<li><a class="reference internal" href="#breaking-changes">Breaking Changes</a></li>
+<li><a class="reference internal" href="#v0-13-0">v0.13.0</a><ul>
 <li><a class="reference internal" href="#id36">New Features</a></li>
 <li><a class="reference internal" href="#id37">버그 수정</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#v0-10-0">v0.10.0</a><ul>
+<li><a class="reference internal" href="#v0-12-0">v0.12.0</a><ul>
 <li><a class="reference internal" href="#id38">New Features</a></li>
-<li><a class="reference internal" href="#performance-improvements">Performance Improvements</a></li>
 <li><a class="reference internal" href="#id39">버그 수정</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-11-0">v0.11.0</a><ul>
+<li><a class="reference internal" href="#breaking-changes">Breaking Changes</a></li>
+<li><a class="reference internal" href="#id40">New Features</a></li>
+<li><a class="reference internal" href="#id41">버그 수정</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v0-10-0">v0.10.0</a><ul>
+<li><a class="reference internal" href="#id42">New Features</a></li>
+<li><a class="reference internal" href="#performance-improvements">Performance Improvements</a></li>
+<li><a class="reference internal" href="#id43">버그 수정</a></li>
 </ul>
 </li>
 </ul>
