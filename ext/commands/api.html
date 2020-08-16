@@ -4550,8 +4550,8 @@ If no valid subcommand was invoked then this is equal to <code class="docutils l
 <dl class="py method">
 <dt id="discord.ext.commands.Context.history">
 <em class="property">async for ... in </em><code class="sig-name descname">history</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">100</span></em>, <em class="sig-param"><span class="n">before</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">after</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">around</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">oldest_first</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Context.history" title="정의 주소">¶</a></dt>
-<dd><p>Returns an <a class="reference internal" href="../../api.html#discord.AsyncIterator" title="discord.AsyncIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncIterator</span></code></a> that enables receiving the destination’s message history.</p>
-<p>You must have <code class="xref py py-attr docutils literal notranslate"><span class="pre">read_message_history</span></code> permissions to use this.</p>
+<dd><p>목적지의 메시지 역사를 받을 수 있도록 활성화해주는 <a class="reference internal" href="../../api.html#discord.AsyncIterator" title="discord.AsyncIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncIterator</span></code></a>를 반환.</p>
+<p>이것을 사용하기 위해서는 <code class="xref py py-attr docutils literal notranslate"><span class="pre">read_message_history</span></code> 권한이 필요합니다.</p>
 <p class="rubric">예제</p>
 <p>Usage</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
@@ -4560,7 +4560,7 @@ If no valid subcommand was invoked then this is equal to <code class="docutils l
         <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<p>Flattening into a list:</p>
+<p>리스트로 압축하기:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">messages</span> <span class="o">=</span> <span class="k">await</span> <span class="n">channel</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 <span class="c1"># messages is now a list of Message...</span>
 </pre></div>
@@ -4569,25 +4569,17 @@ If no valid subcommand was invoked then this is equal to <code class="docutils l
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>limit</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]) – The number of messages to retrieve.
-If <code class="docutils literal notranslate"><span class="pre">None</span></code>, retrieves every message in the channel. Note, however,
-that this would make it a slow operation.</p></li>
-<li><p><strong>before</strong> (Optional[Union[<a class="reference internal" href="../../api.html#discord.abc.Snowflake" title="discord.abc.Snowflake"><code class="xref py py-class docutils literal notranslate"><span class="pre">Snowflake</span></code></a>, <a class="reference external" href="https://docs.python.org/ko/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]]) – Retrieve messages before this date or message.
-If a date is provided it must be a timezone-naive datetime representing UTC time.</p></li>
-<li><p><strong>after</strong> (Optional[Union[<a class="reference internal" href="../../api.html#discord.abc.Snowflake" title="discord.abc.Snowflake"><code class="xref py py-class docutils literal notranslate"><span class="pre">Snowflake</span></code></a>, <a class="reference external" href="https://docs.python.org/ko/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]]) – Retrieve messages after this date or message.
-If a date is provided it must be a timezone-naive datetime representing UTC time.</p></li>
-<li><p><strong>around</strong> (Optional[Union[<a class="reference internal" href="../../api.html#discord.abc.Snowflake" title="discord.abc.Snowflake"><code class="xref py py-class docutils literal notranslate"><span class="pre">Snowflake</span></code></a>, <a class="reference external" href="https://docs.python.org/ko/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]]) – Retrieve messages around this date or message.
-If a date is provided it must be a timezone-naive datetime representing UTC time.
-When using this argument, the maximum limit is 101. Note that if the limit is an
-even number then this will return at most limit + 1 messages.</p></li>
-<li><p><strong>oldest_first</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]) – If set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, return messages in oldest-&gt;newest order. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code> if
-<code class="docutils literal notranslate"><span class="pre">after</span></code> is specified, otherwise <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><strong>limit</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]) – 검색할 메시지의 개수. 만약에 <code class="docutils literal notranslate"><span class="pre">None</span></code> 이라면, 이 채널의 모든 메시지를 검색합니다. 그러나, 참고로, 그렇게 한다면 느리게 작동할 수 있습니다.</p></li>
+<li><p><strong>before</strong> (Optional[Union[<a class="reference internal" href="../../api.html#discord.abc.Snowflake" title="discord.abc.Snowflake"><code class="xref py py-class docutils literal notranslate"><span class="pre">Snowflake</span></code></a>, <a class="reference external" href="https://docs.python.org/ko/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]]) – 이 시간이나 메시지 이전의 메시지들을 검색. 만약에 시간이라면 UTC 시간대인 timezone-naive datetime 이어야 합니다.</p></li>
+<li><p><strong>after</strong> (Optional[Union[<a class="reference internal" href="../../api.html#discord.abc.Snowflake" title="discord.abc.Snowflake"><code class="xref py py-class docutils literal notranslate"><span class="pre">Snowflake</span></code></a>, <a class="reference external" href="https://docs.python.org/ko/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]]) – 이 시간이나 메시지 이후의 메시지들을 검색. 만약에 시간이라면 UTC 시간대인 timezone-naive datetime 이어야 합니다.</p></li>
+<li><p><strong>around</strong> (Optional[Union[<a class="reference internal" href="../../api.html#discord.abc.Snowflake" title="discord.abc.Snowflake"><code class="xref py py-class docutils literal notranslate"><span class="pre">Snowflake</span></code></a>, <a class="reference external" href="https://docs.python.org/ko/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]]) – 이 시간이나 메시지 근처의 메시지들을 검색. 만약에 시간이라면 UTC 시간대인 timezone-naive datetime 이어야 합니다. 이 전달인자를 사용할 때에는, 최대 제한이 101 입니다. 참고로 제한이 짝수라면 제한 + 1개 메시지들을 반환합니다.</p></li>
+<li><p><strong>oldest_first</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]) – 만약에 <code class="docutils literal notranslate"><span class="pre">True</span></code>로 설정되었다면 메시지를 오래된-&gt;최신 순으로 반환합니다. 기본값은 <code class="docutils literal notranslate"><span class="pre">after</span></code>가 설정되있다면 <code class="docutils literal notranslate"><span class="pre">True</span></code>이고, 아니라면 <code class="docutils literal notranslate"><span class="pre">False</span></code> 입니다.</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="../../api.html#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – You do not have permissions to get channel message history.</p></li>
-<li><p><a class="reference internal" href="../../api.html#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – The request to get message history failed.</p></li>
+<li><p><a class="reference internal" href="../../api.html#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 채널 메시지 역사를 가져올 권한이 없습니다.</p></li>
+<li><p><a class="reference internal" href="../../api.html#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 역사 요청이 실패했습니다.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Yields</dt>
