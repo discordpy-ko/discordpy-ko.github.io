@@ -4,7 +4,7 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <title>자주 묻는 질문 &#8212; discord.py 1.4.1 문서</title>
+    <title>자주 묻는 질문 &#8212; discord.py 1.5.0a 문서</title>
     <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -37,7 +37,7 @@
         <li class="right" >
           <a href="discord.html" title="봇 계정 생성"
              accesskey="P">이전</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.4.1 문서</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.5.0a 문서</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -91,7 +91,7 @@
 <p>코루틴과 asyncio 관련 질문은 여기에 나열되어 있습니다.</p>
 <div class="section" id="what-is-a-coroutine">
 <h3><a class="toc-backref" href="#id2">코루틴이 뭔가요?</a><a class="headerlink" href="#what-is-a-coroutine" title="제목 주소">¶</a></h3>
-<p><a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a> 함수는 반드시 <code class="docutils literal notranslate"><span class="pre">await</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code> 과 함께 적용되어야 합니다. Python은 <code class="docutils literal notranslate"><span class="pre">await</span></code> 과 맞닥뜨리면 해당 함수의 실행을 중지하고 다른 작업을 끝내고 다시 그 지점으로 돌아옵니다. 이것은 당신의 프로그램이 쓰레드나 복잡한 멀티프로세싱 없이 여러 작업을 동시에 할 수 있게 만들어줍니다.</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a> 함수는 반드시 <code class="docutils literal notranslate"><span class="pre">await</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code> 과 함께 적용되어야 합니다. Python은 <code class="docutils literal notranslate"><span class="pre">await</span></code> 과 맞닥뜨리면 해당 함수의 실행을 중지하고 다른 작업을 끝내고 다시 그 지점으로 돌아옵니다. 이것은 당신의 프로그램이 쓰레드나 복잡한 멀티프로세싱 없이 여러 작업을 동시에 할 수 있게 만들어줍니다.</p>
 <p><strong>만약 코루틴을 await 하지 않았다면, 해당 코루틴은 실행되지 않을 것입니다. 절대 코루틴을 await 하는 것을 잊지 마세요.</strong></p>
 </div>
 <div class="section" id="where-can-i-use-await">

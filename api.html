@@ -4,7 +4,7 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <title>API 레퍼런스 &#8212; discord.py 1.4.1 문서</title>
+    <title>API 레퍼런스 &#8212; discord.py 1.5.0a 문서</title>
     <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -37,7 +37,7 @@
         <li class="right" >
           <a href="logging.html" title="로깅 설정"
              accesskey="P">이전</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.4.1 문서</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.5.0a 문서</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -1145,7 +1145,7 @@ latency of every shard’s latency. To get a list of shard latency, check the
 <dd><p>Optional[<a class="reference internal" href="#discord.ShardInfo" title="discord.ShardInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShardInfo</span></code></a>]: Gets the shard information at a given shard ID or <code class="docutils literal notranslate"><span class="pre">None</span></code> if not found.</p>
 </dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="discord.AutoShardedClient.shards">
 <code class="sig-name descname">shards</code><a class="headerlink" href="#discord.AutoShardedClient.shards" title="정의 주소">¶</a></dt>
 <dd><p>Returns a mapping of shard IDs to their respective info object.</p>
@@ -2385,7 +2385,7 @@ overriding the specific events. For example:</p>
 to handle it, which defaults to print a traceback and ignoring the exception.</p>
 <div class="admonition warning">
 <p class="admonition-title">경고</p>
-<p>All the events must be a <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>. If they aren’t, then you might get unexpected
+<p>All the events must be a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>. If they aren’t, then you might get unexpected
 errors. In order to turn a function into a coroutine they must be <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">def</span></code>
 functions.</p>
 </div>
@@ -2497,6 +2497,13 @@ be retrieved with a standard call to <a class="reference external" href="https:/
 you can define an <code class="docutils literal notranslate"><span class="pre">on_error</span></code> handler consisting of a single empty
 <a class="reference external" href="https://docs.python.org/ko/3/reference/simple_stmts.html#raise" title="(in Python v3.8)"><span>raise 문</span></a>.  Exceptions raised by <code class="docutils literal notranslate"><span class="pre">on_error</span></code> will not be
 handled in any way by <a class="reference internal" href="#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">참고</p>
+<p><code class="docutils literal notranslate"><span class="pre">on_error</span></code> will only be dispatched to <a class="reference internal" href="#discord.Client.event" title="discord.Client.event"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.event()</span></code></a>.</p>
+<p>It will not be received by <a class="reference internal" href="#discord.Client.wait_for" title="discord.Client.wait_for"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.wait_for()</span></code></a>, or, if used,
+<a class="reference internal" href="ext/commands/api.html#ext-commands-api-bot"><span class="std std-ref">Bot</span></a> listeners such as
+<a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Bot.listen" title="discord.ext.commands.Bot.listen"><code class="xref py py-meth docutils literal notranslate"><span class="pre">listen()</span></code></a> or <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Cog.listener" title="discord.ext.commands.Cog.listener"><code class="xref py py-meth docutils literal notranslate"><span class="pre">listener()</span></code></a>.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3667,6 +3674,20 @@ of <a class="reference external" href="https://docs.python.org/ko/3/library/enum
 <em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">MessageType</code><a class="headerlink" href="#discord.MessageType" title="정의 주소">¶</a></dt>
 <dd><p>Specifies the type of <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>. This is used to denote if a message
 is to be interpreted as a system message or a regular message.</p>
+<div class="operations docutils container">
+<dl class="describe">
+<dt>
+<code class="sig-name descname">x == y</code></dt>
+<dd><p>Checks if two messages are equal.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<code class="sig-name descname">x != y</code></dt>
+<dd><p>Checks if two messages are not equal.</p>
+</dd></dl>
+
+</div>
 <dl class="py attribute">
 <dt id="discord.MessageType.default">
 <code class="sig-name descname">default</code><a class="headerlink" href="#discord.MessageType.default" title="정의 주소">¶</a></dt>
@@ -3918,6 +3939,12 @@ interpret the activity itself.</p>
 <dt id="discord.VoiceRegion.southafrica">
 <code class="sig-name descname">southafrica</code><a class="headerlink" href="#discord.VoiceRegion.southafrica" title="정의 주소">¶</a></dt>
 <dd><p>The South Africa region.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="discord.VoiceRegion.south_korea">
+<code class="sig-name descname">south_korea</code><a class="headerlink" href="#discord.VoiceRegion.south_korea" title="정의 주소">¶</a></dt>
+<dd><p>The South Korea region.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -5067,7 +5094,7 @@ then this raises <a class="reference internal" href="#discord.NoMoreItems" title
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
 <p>Similar to <a class="reference internal" href="#discord.utils.find" title="discord.utils.find"><code class="xref py py-func docutils literal notranslate"><span class="pre">utils.find()</span></code></a> except run over the async iterator.</p>
 <p>Unlike <a class="reference internal" href="#discord.utils.find" title="discord.utils.find"><code class="xref py py-func docutils literal notranslate"><span class="pre">utils.find()</span></code></a>, the predicate provided can be a
-<a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
+<a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
 <p>Getting the last audit log with a reason or <code class="docutils literal notranslate"><span class="pre">None</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predicate</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">event</span><span class="o">.</span><span class="n">reason</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
@@ -5077,7 +5104,7 @@ then this raises <a class="reference internal" href="#discord.NoMoreItems" title
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>predicate</strong> – The predicate to use. Could be a <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
+<dd class="field-odd"><p><strong>predicate</strong> – The predicate to use. Could be a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
 </dd>
 <dt class="field-even">반환값</dt>
 <dd class="field-even"><p>The first element that returns <code class="docutils literal notranslate"><span class="pre">True</span></code> for the predicate or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
@@ -5106,7 +5133,7 @@ then this raises <a class="reference internal" href="#discord.NoMoreItems" title
 <dd><p>This is similar to the built-in <a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#map" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">map</span></code></a> function. Another
 <a class="reference internal" href="#discord.AsyncIterator" title="discord.AsyncIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncIterator</span></code></a> is returned that executes the function on
 every element it is iterating over. This function can either be a
-regular function or a <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
+regular function or a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
 <p>Creating a content iterator:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">message</span><span class="o">.</span><span class="n">content</span>
@@ -5117,7 +5144,7 @@ regular function or a <a class="reference external" href="https://docs.python.or
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>func</strong> – The function to call on every element. Could be a <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
+<dd class="field-odd"><p><strong>func</strong> – The function to call on every element. Could be a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.AsyncIterator" title="discord.AsyncIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncIterator</span></code></a></p>
@@ -5130,7 +5157,7 @@ regular function or a <a class="reference external" href="https://docs.python.or
 <code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">predicate</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.AsyncIterator.filter" title="정의 주소">¶</a></dt>
 <dd><p>This is similar to the built-in <a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#filter" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">filter</span></code></a> function. Another
 <a class="reference internal" href="#discord.AsyncIterator" title="discord.AsyncIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncIterator</span></code></a> is returned that filters over the original
-async iterator. This predicate can be a regular function or a <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
+async iterator. This predicate can be a regular function or a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
 <p>Getting messages by non-bot accounts:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predicate</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
     <span class="k">return</span> <span class="ow">not</span> <span class="n">message</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">bot</span>
@@ -5141,7 +5168,7 @@ async iterator. This predicate can be a regular function or a <a class="referenc
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>predicate</strong> – The predicate to call on every element. Could be a <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
+<dd class="field-odd"><p><strong>predicate</strong> – The predicate to call on every element. Could be a <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.AsyncIterator" title="discord.AsyncIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncIterator</span></code></a></p>
@@ -6167,7 +6194,7 @@ If the format is <code class="docutils literal notranslate"><span class="pre">No
 <dl class="py method">
 <dt id="discord.Webhook.delete">
 <code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">reason</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Webhook.delete" title="정의 주소">¶</a></dt>
-<dd><p>This function <em>could be a</em> <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
+<dd><p>This function <em>could be a</em> <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
 <p>Deletes this Webhook.</p>
 <p>If the webhook is constructed with a <a class="reference internal" href="#discord.RequestsWebhookAdapter" title="discord.RequestsWebhookAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">RequestsWebhookAdapter</span></code></a> then this is
 not a coroutine.</p>
@@ -6193,7 +6220,7 @@ not a coroutine.</p>
 <dl class="py method">
 <dt id="discord.Webhook.edit">
 <code class="sig-name descname">edit</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">reason</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Webhook.edit" title="정의 주소">¶</a></dt>
-<dd><p>This function <em>could be a</em> <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
+<dd><p>This function <em>could be a</em> <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
 <p>Edits this Webhook.</p>
 <p>If the webhook is constructed with a <a class="reference internal" href="#discord.RequestsWebhookAdapter" title="discord.RequestsWebhookAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">RequestsWebhookAdapter</span></code></a> then this is
 not a coroutine.</p>
@@ -6222,7 +6249,7 @@ not a coroutine.</p>
 <dl class="py method">
 <dt id="discord.Webhook.send">
 <code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">content</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">wait</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">username</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">avatar_url</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tts</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">files</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">embed</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">embeds</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">allowed_mentions</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Webhook.send" title="정의 주소">¶</a></dt>
-<dd><p>This function <em>could be a</em> <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
+<dd><p>This function <em>could be a</em> <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#coroutine"><em>coroutine</em></a>.</p>
 <p>Sends a message using the webhook.</p>
 <p>If the webhook is constructed with a <a class="reference internal" href="#discord.RequestsWebhookAdapter" title="discord.RequestsWebhookAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">RequestsWebhookAdapter</span></code></a> then this is
 not a coroutine.</p>
@@ -6830,6 +6857,8 @@ delete the overwrite.</p></li>
 <em class="property">await </em><code class="sig-name descname">clone</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reason</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.abc.GuildChannel.clone" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
 <p>이 채널을 복제합니다. 이 채널과 동일한 속성을 가진 채널을 만듭니다.</p>
+<p>You must have the <a class="reference internal" href="#discord.Permissions.manage_channels" title="discord.Permissions.manage_channels"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_channels</span></code></a> permission to
+do this.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">버전 1.1에 추가.</span></p>
 </div>
@@ -6992,7 +7021,16 @@ are unlimited uses. Defaults to <code class="docutils literal notranslate"><span
 <li><p><strong>files</strong> (List[<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>]) – 업로드할 파일들의 리스트. 최대 10개여야 합니다.</p></li>
 <li><p><strong>nonce</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 이 메시지를 전송할 때 사용할 논스입니다. 메시지가 성공적으로 보내졌다면, 그 메시지에 이 값을 가진 논스가 있습니다.</p></li>
 <li><p><strong>delete_after</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 제공된 경우 방금 보낸 메시지를 삭제할 때 까지 백그라운드에서 대기하는 시간(초) 입니다. 삭제가 실패하면 자동으로 무시됩니다.</p></li>
-<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – 이 메시지에서 처리되는 멘션을 제어합니다.</p></li>
+<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – <p>Controls the mentions being processed in this message. If this is
+passed, then the object is merged with <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>.
+The merging behaviour only overrides attributes that have been explicitly passed
+to the object, otherwise it uses the attributes set in <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>.
+If no object is passed at all then the defaults given by <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>
+are used instead.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
+</div>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
@@ -7025,6 +7063,7 @@ are unlimited uses. Defaults to <code class="docutils literal notranslate"><span
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
 <p>대상에서 단일 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 를 검색합니다.</p>
 <p>오직 봇 계정에서만 사용할 수 있습니다.</p>
+<p>Prefer using <a class="reference internal" href="#discord.abc.Messageable.fetch_message_fast" title="discord.abc.Messageable.fetch_message_fast"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fetch_message_fast()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
@@ -7041,6 +7080,35 @@ are unlimited uses. Defaults to <code class="docutils literal notranslate"><span
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.abc.Messageable.fetch_message_fast">
+<em class="property">await </em><code class="sig-name descname">fetch_message_fast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.abc.Messageable.fetch_message_fast" title="정의 주소">¶</a></dt>
+<dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
+<p>Retrieves a single <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> from the destination, using
+the history endpoint.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.5에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
+</dd>
+<dt class="field-even">예외</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – The specified channel was not found.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지 기록을 볼 권한이 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 기록 가져오기에 실패했습니다.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">반환값</dt>
+<dd class="field-odd"><p>The message asked for, or None if there is no match.</p>
+</dd>
+<dt class="field-even">반환 형식</dt>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -8115,6 +8183,7 @@ Only applicable to user accounts.</p></li>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
 <p>대상에서 단일 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 를 검색합니다.</p>
 <p>오직 봇 계정에서만 사용할 수 있습니다.</p>
+<p>Prefer using <a class="reference internal" href="#discord.User.fetch_message_fast" title="discord.User.fetch_message_fast"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fetch_message_fast()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
@@ -8131,6 +8200,35 @@ Only applicable to user accounts.</p></li>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.User.fetch_message_fast">
+<em class="property">await </em><code class="sig-name descname">fetch_message_fast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.User.fetch_message_fast" title="정의 주소">¶</a></dt>
+<dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
+<p>Retrieves a single <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> from the destination, using
+the history endpoint.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.5에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
+</dd>
+<dt class="field-even">예외</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – The specified channel was not found.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지 기록을 볼 권한이 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 기록 가져오기에 실패했습니다.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">반환값</dt>
+<dd class="field-odd"><p>The message asked for, or None if there is no match.</p>
+</dd>
+<dt class="field-even">반환 형식</dt>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -8229,7 +8327,16 @@ Only applicable to user accounts.</p></li>
 <li><p><strong>files</strong> (List[<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>]) – 업로드할 파일들의 리스트. 최대 10개여야 합니다.</p></li>
 <li><p><strong>nonce</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 이 메시지를 전송할 때 사용할 논스입니다. 메시지가 성공적으로 보내졌다면, 그 메시지에 이 값을 가진 논스가 있습니다.</p></li>
 <li><p><strong>delete_after</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 제공된 경우 방금 보낸 메시지를 삭제할 때 까지 백그라운드에서 대기하는 시간(초) 입니다. 삭제가 실패하면 자동으로 무시됩니다.</p></li>
-<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – 이 메시지에서 처리되는 멘션을 제어합니다.</p></li>
+<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – <p>Controls the mentions being processed in this message. If this is
+passed, then the object is merged with <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>.
+The merging behaviour only overrides attributes that have been explicitly passed
+to the object, otherwise it uses the attributes set in <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>.
+If no object is passed at all then the defaults given by <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>
+are used instead.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
+</div>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
@@ -9741,6 +9848,7 @@ the guild does not require 2FA for their administrative members. If the value is
 <li><p><code class="docutils literal notranslate"><span class="pre">MORE_EMOJI</span></code>: Guild is allowed to have more than 50 custom emoji.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DISCOVERABLE</span></code>: Guild shows up in Server Discovery.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">FEATURABLE</span></code>: Guild is able to be featured in Server Discovery.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COMMUNITY</span></code>: Guild is a community server.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">COMMERCE</span></code>: Guild can sell things using store channels.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PUBLIC</span></code>: Guild is a public guild.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">NEWS</span></code>: Guild can create news channels.</p></li>
@@ -11631,8 +11739,8 @@ Note that this works with <a class="reference internal" href="#discord.User" tit
 <dl class="py attribute">
 <dt id="discord.Member.joined_at">
 <code class="sig-name descname">joined_at</code><a class="headerlink" href="#discord.Member.joined_at" title="정의 주소">¶</a></dt>
-<dd><p>A datetime object that specifies the date and time in UTC that the member joined the guild for
-the first time. In certain cases, this can be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<dd><p>A datetime object that specifies the date and time in UTC that the member joined the guild.
+If the member left and rejoined the guild, this will be the latest date. In certain cases, this can be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]</p>
@@ -12180,6 +12288,7 @@ state of the cache.</p></li>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
 <p>대상에서 단일 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 를 검색합니다.</p>
 <p>오직 봇 계정에서만 사용할 수 있습니다.</p>
+<p>Prefer using <a class="reference internal" href="#discord.Member.fetch_message_fast" title="discord.Member.fetch_message_fast"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fetch_message_fast()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
@@ -12196,6 +12305,35 @@ state of the cache.</p></li>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.Member.fetch_message_fast">
+<em class="property">await </em><code class="sig-name descname">fetch_message_fast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Member.fetch_message_fast" title="정의 주소">¶</a></dt>
+<dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
+<p>Retrieves a single <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> from the destination, using
+the history endpoint.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.5에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
+</dd>
+<dt class="field-even">예외</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – The specified channel was not found.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지 기록을 볼 권한이 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 기록 가져오기에 실패했습니다.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">반환값</dt>
+<dd class="field-odd"><p>The message asked for, or None if there is no match.</p>
+</dd>
+<dt class="field-even">반환 형식</dt>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -12385,7 +12523,16 @@ state of the cache.</p></li>
 <li><p><strong>files</strong> (List[<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>]) – 업로드할 파일들의 리스트. 최대 10개여야 합니다.</p></li>
 <li><p><strong>nonce</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 이 메시지를 전송할 때 사용할 논스입니다. 메시지가 성공적으로 보내졌다면, 그 메시지에 이 값을 가진 논스가 있습니다.</p></li>
 <li><p><strong>delete_after</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 제공된 경우 방금 보낸 메시지를 삭제할 때 까지 백그라운드에서 대기하는 시간(초) 입니다. 삭제가 실패하면 자동으로 무시됩니다.</p></li>
-<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – 이 메시지에서 처리되는 멘션을 제어합니다.</p></li>
+<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – <p>Controls the mentions being processed in this message. If this is
+passed, then the object is merged with <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>.
+The merging behaviour only overrides attributes that have been explicitly passed
+to the object, otherwise it uses the attributes set in <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>.
+If no object is passed at all then the defaults given by <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>
+are used instead.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
+</div>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
@@ -13657,6 +13804,8 @@ position or it will fail.</p></li>
 <em class="property">await </em><code class="sig-name descname">clone</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reason</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.TextChannel.clone" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
 <p>이 채널을 복제합니다. 이 채널과 동일한 속성을 가진 채널을 만듭니다.</p>
+<p>You must have the <a class="reference internal" href="#discord.Permissions.manage_channels" title="discord.Permissions.manage_channels"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_channels</span></code></a> permission to
+do this.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">버전 1.1에 추가.</span></p>
 </div>
@@ -13922,6 +14071,7 @@ are unlimited uses. Defaults to <code class="docutils literal notranslate"><span
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
 <p>대상에서 단일 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 를 검색합니다.</p>
 <p>오직 봇 계정에서만 사용할 수 있습니다.</p>
+<p>Prefer using <a class="reference internal" href="#discord.TextChannel.fetch_message_fast" title="discord.TextChannel.fetch_message_fast"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fetch_message_fast()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
@@ -13938,6 +14088,35 @@ are unlimited uses. Defaults to <code class="docutils literal notranslate"><span
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.TextChannel.fetch_message_fast">
+<em class="property">await </em><code class="sig-name descname">fetch_message_fast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.TextChannel.fetch_message_fast" title="정의 주소">¶</a></dt>
+<dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
+<p>Retrieves a single <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> from the destination, using
+the history endpoint.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.5에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
+</dd>
+<dt class="field-even">예외</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – The specified channel was not found.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지 기록을 볼 권한이 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 기록 가져오기에 실패했습니다.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">반환값</dt>
+<dd class="field-odd"><p>The message asked for, or None if there is no match.</p>
+</dd>
+<dt class="field-even">반환 형식</dt>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -14062,7 +14241,16 @@ are unlimited uses. Defaults to <code class="docutils literal notranslate"><span
 <li><p><strong>files</strong> (List[<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>]) – 업로드할 파일들의 리스트. 최대 10개여야 합니다.</p></li>
 <li><p><strong>nonce</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 이 메시지를 전송할 때 사용할 논스입니다. 메시지가 성공적으로 보내졌다면, 그 메시지에 이 값을 가진 논스가 있습니다.</p></li>
 <li><p><strong>delete_after</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 제공된 경우 방금 보낸 메시지를 삭제할 때 까지 백그라운드에서 대기하는 시간(초) 입니다. 삭제가 실패하면 자동으로 무시됩니다.</p></li>
-<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – 이 메시지에서 처리되는 멘션을 제어합니다.</p></li>
+<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – <p>Controls the mentions being processed in this message. If this is
+passed, then the object is merged with <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>.
+The merging behaviour only overrides attributes that have been explicitly passed
+to the object, otherwise it uses the attributes set in <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>.
+If no object is passed at all then the defaults given by <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>
+are used instead.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
+</div>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
@@ -14320,6 +14508,8 @@ delete the overwrite.</p></li>
 <em class="property">await </em><code class="sig-name descname">clone</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reason</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.VoiceChannel.clone" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
 <p>이 채널을 복제합니다. 이 채널과 동일한 속성을 가진 채널을 만듭니다.</p>
+<p>You must have the <a class="reference internal" href="#discord.Permissions.manage_channels" title="discord.Permissions.manage_channels"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_channels</span></code></a> permission to
+do this.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">버전 1.1에 추가.</span></p>
 </div>
@@ -14712,6 +14902,8 @@ delete the overwrite.</p></li>
 <em class="property">await </em><code class="sig-name descname">clone</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reason</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.CategoryChannel.clone" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
 <p>이 채널을 복제합니다. 이 채널과 동일한 속성을 가진 채널을 만듭니다.</p>
+<p>You must have the <a class="reference internal" href="#discord.Permissions.manage_channels" title="discord.Permissions.manage_channels"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_channels</span></code></a> permission to
+do this.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">버전 1.1에 추가.</span></p>
 </div>
@@ -15237,6 +15429,7 @@ delete the overwrite.</p></li>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
 <p>대상에서 단일 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 를 검색합니다.</p>
 <p>오직 봇 계정에서만 사용할 수 있습니다.</p>
+<p>Prefer using <a class="reference internal" href="#discord.DMChannel.fetch_message_fast" title="discord.DMChannel.fetch_message_fast"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fetch_message_fast()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
@@ -15253,6 +15446,35 @@ delete the overwrite.</p></li>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.DMChannel.fetch_message_fast">
+<em class="property">await </em><code class="sig-name descname">fetch_message_fast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.DMChannel.fetch_message_fast" title="정의 주소">¶</a></dt>
+<dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
+<p>Retrieves a single <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> from the destination, using
+the history endpoint.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.5에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
+</dd>
+<dt class="field-even">예외</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – The specified channel was not found.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지 기록을 볼 권한이 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 기록 가져오기에 실패했습니다.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">반환값</dt>
+<dd class="field-odd"><p>The message asked for, or None if there is no match.</p>
+</dd>
+<dt class="field-even">반환 형식</dt>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -15297,7 +15519,16 @@ delete the overwrite.</p></li>
 <li><p><strong>files</strong> (List[<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>]) – 업로드할 파일들의 리스트. 최대 10개여야 합니다.</p></li>
 <li><p><strong>nonce</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 이 메시지를 전송할 때 사용할 논스입니다. 메시지가 성공적으로 보내졌다면, 그 메시지에 이 값을 가진 논스가 있습니다.</p></li>
 <li><p><strong>delete_after</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 제공된 경우 방금 보낸 메시지를 삭제할 때 까지 백그라운드에서 대기하는 시간(초) 입니다. 삭제가 실패하면 자동으로 무시됩니다.</p></li>
-<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – 이 메시지에서 처리되는 멘션을 제어합니다.</p></li>
+<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – <p>Controls the mentions being processed in this message. If this is
+passed, then the object is merged with <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>.
+The merging behaviour only overrides attributes that have been explicitly passed
+to the object, otherwise it uses the attributes set in <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>.
+If no object is passed at all then the defaults given by <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>
+are used instead.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
+</div>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
@@ -15609,6 +15840,7 @@ delete the overwrite.</p></li>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
 <p>대상에서 단일 <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> 를 검색합니다.</p>
 <p>오직 봇 계정에서만 사용할 수 있습니다.</p>
+<p>Prefer using <a class="reference internal" href="#discord.GroupChannel.fetch_message_fast" title="discord.GroupChannel.fetch_message_fast"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fetch_message_fast()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
@@ -15625,6 +15857,35 @@ delete the overwrite.</p></li>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.GroupChannel.fetch_message_fast">
+<em class="property">await </em><code class="sig-name descname">fetch_message_fast</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.GroupChannel.fetch_message_fast" title="정의 주소">¶</a></dt>
+<dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">코루틴</span></a> 입니다.</p>
+<p>Retrieves a single <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> from the destination, using
+the history endpoint.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.5에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 찾을 메시지 ID.</p>
+</dd>
+<dt class="field-even">예외</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – The specified channel was not found.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지 기록을 볼 권한이 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 기록 가져오기에 실패했습니다.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">반환값</dt>
+<dd class="field-odd"><p>The message asked for, or None if there is no match.</p>
+</dd>
+<dt class="field-even">반환 형식</dt>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -15669,7 +15930,16 @@ delete the overwrite.</p></li>
 <li><p><strong>files</strong> (List[<a class="reference internal" href="#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a>]) – 업로드할 파일들의 리스트. 최대 10개여야 합니다.</p></li>
 <li><p><strong>nonce</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 이 메시지를 전송할 때 사용할 논스입니다. 메시지가 성공적으로 보내졌다면, 그 메시지에 이 값을 가진 논스가 있습니다.</p></li>
 <li><p><strong>delete_after</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 제공된 경우 방금 보낸 메시지를 삭제할 때 까지 백그라운드에서 대기하는 시간(초) 입니다. 삭제가 실패하면 자동으로 무시됩니다.</p></li>
-<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – 이 메시지에서 처리되는 멘션을 제어합니다.</p></li>
+<li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – <p>Controls the mentions being processed in this message. If this is
+passed, then the object is merged with <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>.
+The merging behaviour only overrides attributes that have been explicitly passed
+to the object, otherwise it uses the attributes set in <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>.
+If no object is passed at all then the defaults given by <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>
+are used instead.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
+</div>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
@@ -17171,7 +17441,7 @@ fields.</p>
 <dl class="py attribute">
 <dt id="discord.RawReactionActionEvent.member">
 <code class="sig-name descname">member</code><a class="headerlink" href="#discord.RawReactionActionEvent.member" title="정의 주소">¶</a></dt>
-<dd><p>The member who added the reaction. Only available if <cite>event_type</cite> is <cite>REACTION_ADD</cite>.</p>
+<dd><p>The member who added the reaction. Only available if <cite>event_type</cite> is <cite>REACTION_ADD</cite> and the reaction is inside a guild.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">버전 1.3에 추가.</span></p>
 </div>
@@ -17770,7 +18040,7 @@ chaining.</p>
 <dt id="discord.AllowedMentions">
 <em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">AllowedMentions</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">everyone</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">users</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">roles</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.AllowedMentions" title="정의 주소">¶</a></dt>
 <dd><p>A class that represents what mentions are allowed in a message.</p>
-<p>This class can be set during <a class="reference internal" href="#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a> initialization to apply
+<p>This class can be set during <a class="reference internal" href="#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a> initialisation to apply
 to every message sent. It can also be applied on a per message basis
 via <a class="reference internal" href="#discord.abc.Messageable.send" title="discord.abc.Messageable.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.send()</span></code></a> for more fine-grained control.</p>
 <dl class="py attribute">
@@ -17812,6 +18082,24 @@ roles are in the message content.</p>
 <dd class="field-odd"><p>Union[<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, List[<a class="reference internal" href="#discord.abc.Snowflake" title="discord.abc.Snowflake"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.Snowflake</span></code></a>]]</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.AllowedMentions.all">
+<em class="property">classmethod </em><code class="sig-name descname">all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.AllowedMentions.all" title="정의 주소">¶</a></dt>
+<dd><p>A factory method that returns a <a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a> with all fields explicitly set to <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.5에 추가.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.AllowedMentions.none">
+<em class="property">classmethod </em><code class="sig-name descname">none</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.AllowedMentions.none" title="정의 주소">¶</a></dt>
+<dd><p>A factory method that returns a <a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a> with all fields set to <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.5에 추가.</span></p>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -18131,6 +18419,16 @@ to a (red, green, blue) <a class="reference external" href="https://docs.python.
 <dt id="discord.Colour.greyple">
 <em class="property">classmethod </em><code class="sig-name descname">greyple</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.Colour.greyple" title="정의 주소">¶</a></dt>
 <dd><p>A factory method that returns a <a class="reference internal" href="#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a> with a value of <code class="docutils literal notranslate"><span class="pre">0x99aab5</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.Colour.dark_theme">
+<em class="property">classmethod </em><code class="sig-name descname">dark_theme</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.Colour.dark_theme" title="정의 주소">¶</a></dt>
+<dd><p>A factory method that returns a :class:〉Colour〉 with a value of <code class="docutils literal notranslate"><span class="pre">0x36393F</span></code>.
+Will appear transparent on Discord’s dark theme and be the text colour on Discord’s light theme.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.5에 추가.</span></p>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -19869,6 +20167,16 @@ this could also be a <a class="reference external" href="http://docs.python-requ
 </dd></dl>
 
 <dl class="py exception">
+<dt id="discord.DiscordServerError">
+<em class="property">exception </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">DiscordServerError</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">response</span></em>, <em class="sig-param"><span class="n">message</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.DiscordServerError" title="정의 주소">¶</a></dt>
+<dd><p>Exception that’s thrown for when a 500 range status code occurs.</p>
+<p>Subclass of <a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><code class="xref py py-exc docutils literal notranslate"><span class="pre">HTTPException</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.5에 추가.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
 <dt id="discord.InvalidData">
 <em class="property">exception </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">InvalidData</code><a class="headerlink" href="#discord.InvalidData" title="정의 주소">¶</a></dt>
 <dd><p>Exception that’s raised when the library encounters unknown
@@ -19979,6 +20287,7 @@ closed for reasons that could not be handled internally.</p>
 <dt><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><code class="xref py py-exc docutils literal notranslate"><span class="pre">HTTPException</span></code></a></dt><dd><ul>
 <li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Forbidden</span></code></a></p></li>
 <li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotFound</span></code></a></p></li>
+<li><p><a class="reference internal" href="#discord.DiscordServerError" title="discord.DiscordServerError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">DiscordServerError</span></code></a></p></li>
 </ul>
 </dd>
 </dl>
