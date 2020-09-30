@@ -4687,13 +4687,11 @@ If no valid subcommand was invoked then this is equal to <code class="docutils l
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>call_hooks</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 명령어 실행 이전 또는 이후의 후크를 호출할 것인지의 여부.</p></li>
-<li><p><strong>restart</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Whether to start the call chain from the very beginning
-or where we left off (i.e. the command that caused the error).
-The default is to start where we left off.</p></li>
+<li><p><strong>restart</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 콜 체인을 완전 처음부터 또는 멈춘 시점부터(예를 들면 오류를 일으킨 명령어) 시작할 것인지의 여부. 기본값은 멈춘 시점부터 입니다.</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – The context to reinvoke is not valid.</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – 재실행할 컨텍스트가 잘못되었습니다.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -4701,7 +4699,7 @@ The default is to start where we left off.</p></li>
 <dl class="py method">
 <dt id="discord.ext.commands.Context.valid">
 <code class="sig-name descname">valid</code><a class="headerlink" href="#discord.ext.commands.Context.valid" title="정의 주소">¶</a></dt>
-<dd><p>Checks if the invocation context is valid to be invoked with.</p>
+<dd><p>실행 컨텍스트가 실행될 수 있는지 확인.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
@@ -4712,7 +4710,7 @@ The default is to start where we left off.</p></li>
 <dl class="py method">
 <dt id="discord.ext.commands.Context.cog">
 <code class="sig-name descname">cog</code><a class="headerlink" href="#discord.ext.commands.Context.cog" title="정의 주소">¶</a></dt>
-<dd><p>Returns the cog associated with this context’s command. None if it does not exist.</p>
+<dd><p>이 컨텍스트의 명령어와 연관된 Cog를 반환. 존재하지 않는다면 None 입니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#discord.ext.commands.Cog" title="discord.ext.commands.Cog"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cog</span></code></a></p>
@@ -4723,7 +4721,7 @@ The default is to start where we left off.</p></li>
 <dl class="py attribute">
 <dt id="discord.ext.commands.Context.guild">
 <code class="sig-name descname">guild</code><a class="headerlink" href="#discord.ext.commands.Context.guild" title="정의 주소">¶</a></dt>
-<dd><p>Returns the guild associated with this context’s command. None if not available.</p>
+<dd><p>이 컨텍스트의 명령어와 연관된 길드를 반환. 사용할 수 없다면 None 입니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p>Optional[<a class="reference internal" href="../../api.html#discord.Guild" title="discord.Guild"><code class="xref py py-class docutils literal notranslate"><span class="pre">Guild</span></code></a>]</p>
@@ -4734,28 +4732,25 @@ The default is to start where we left off.</p></li>
 <dl class="py attribute">
 <dt id="discord.ext.commands.Context.channel">
 <code class="sig-name descname">channel</code><a class="headerlink" href="#discord.ext.commands.Context.channel" title="정의 주소">¶</a></dt>
-<dd><p><a class="reference internal" href="../../api.html#discord.TextChannel" title="discord.TextChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextChannel</span></code></a>:
-Returns the channel associated with this context’s command. Shorthand for <a class="reference internal" href="../../api.html#discord.Message.channel" title="discord.Message.channel"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.channel</span></code></a>.</p>
+<dd><p><a class="reference internal" href="../../api.html#discord.TextChannel" title="discord.TextChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextChannel</span></code></a>: 이 컨텍스트의 명령어와 연관된 채널을 반환. <a class="reference internal" href="../../api.html#discord.Message.channel" title="discord.Message.channel"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.channel</span></code></a>을 단축한 것입니다.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discord.ext.commands.Context.author">
 <code class="sig-name descname">author</code><a class="headerlink" href="#discord.ext.commands.Context.author" title="정의 주소">¶</a></dt>
-<dd><p>Union[<a class="reference internal" href="../../api.html#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>, <a class="reference internal" href="../../api.html#discord.Member" title="discord.Member"><code class="xref py py-class docutils literal notranslate"><span class="pre">Member</span></code></a>]:
-Returns the author associated with this context’s command. Shorthand for <a class="reference internal" href="../../api.html#discord.Message.author" title="discord.Message.author"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.author</span></code></a></p>
+<dd><p>Union[<a class="reference internal" href="../../api.html#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>, <a class="reference internal" href="../../api.html#discord.Member" title="discord.Member"><code class="xref py py-class docutils literal notranslate"><span class="pre">Member</span></code></a>]: 이 컨텍스트의 명령어와 연관된 메시지 작성자를 반환. <a class="reference internal" href="../../api.html#discord.Message.author" title="discord.Message.author"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.author</span></code></a>를 단축한 것입니다.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt id="discord.ext.commands.Context.me">
 <code class="sig-name descname">me</code><a class="headerlink" href="#discord.ext.commands.Context.me" title="정의 주소">¶</a></dt>
-<dd><p>Union[<a class="reference internal" href="../../api.html#discord.Member" title="discord.Member"><code class="xref py py-class docutils literal notranslate"><span class="pre">Member</span></code></a>, <a class="reference internal" href="../../api.html#discord.ClientUser" title="discord.ClientUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">ClientUser</span></code></a>]:
-Similar to <a class="reference internal" href="../../api.html#discord.Guild.me" title="discord.Guild.me"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.me</span></code></a> except it may return the <a class="reference internal" href="../../api.html#discord.ClientUser" title="discord.ClientUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">ClientUser</span></code></a> in private message contexts.</p>
+<dd><p>Union[<a class="reference internal" href="../../api.html#discord.Member" title="discord.Member"><code class="xref py py-class docutils literal notranslate"><span class="pre">Member</span></code></a>, <a class="reference internal" href="../../api.html#discord.ClientUser" title="discord.ClientUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">ClientUser</span></code></a>]: 개인 메시지 컨텍스트일 경우 <a class="reference internal" href="../../api.html#discord.ClientUser" title="discord.ClientUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">ClientUser</span></code></a>를 반환할 수 있다는 점만 제외한다면 <a class="reference internal" href="../../api.html#discord.Guild.me" title="discord.Guild.me"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.me</span></code></a>와 비슷합니다.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discord.ext.commands.Context.voice_client">
 <code class="sig-name descname">voice_client</code><a class="headerlink" href="#discord.ext.commands.Context.voice_client" title="정의 주소">¶</a></dt>
-<dd><p>A shortcut to <a class="reference internal" href="../../api.html#discord.Guild.voice_client" title="discord.Guild.voice_client"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.voice_client</span></code></a>, if applicable.</p>
+<dd><p>사용할 수 있다면 <a class="reference internal" href="../../api.html#discord.Guild.voice_client" title="discord.Guild.voice_client"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.voice_client</span></code></a>의 단축입니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p>Optional[<a class="reference internal" href="../../api.html#discord.VoiceClient" title="discord.VoiceClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">VoiceClient</span></code></a>]</p>
