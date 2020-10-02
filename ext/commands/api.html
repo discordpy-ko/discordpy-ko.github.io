@@ -4,6 +4,7 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API Reference &#8212; discord.py 1.5.0 문서</title>
     <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -38,7 +39,8 @@
           <a href="extensions.html" title="확장"
              accesskey="P">이전</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">discord.py 1.5.0 문서</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code> – Bot commands 프레임워크</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code> – Bot commands 프레임워크</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">API Reference</a></li> 
       </ul>
     </div>  
 
@@ -1011,7 +1013,7 @@ invoked under <a class="reference internal" href="#discord.ext.commands.Bot.invo
 <li><p><strong>message</strong> (<a class="reference internal" href="../../api.html#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">discord.Message</span></code></a>) – The message to get the invocation context from.</p></li>
 <li><p><strong>cls</strong> – The factory class that will be used to create the context.
 By default, this is <a class="reference internal" href="#discord.ext.commands.Context" title="discord.ext.commands.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>. Should a custom
-class be provided, it must be similar enough to <a class="reference internal" href="#discord.ext.commands.Context" title="discord.ext.commands.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>’s
+class be provided, it must be similar enough to <a class="reference internal" href="#discord.ext.commands.Context" title="discord.ext.commands.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>'s
 interface.</p></li>
 </ul>
 </dd>
@@ -1795,7 +1797,7 @@ parameter is set to <a class="reference internal" href="#discord.ext.commands.Gr
 
 <dl class="py class">
 <dt id="discord.ext.commands.Command">
-<em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">Command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Command" title="정의 주소">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">Command</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Command" title="정의 주소">¶</a></dt>
 <dd><p>A class that implements the protocol for a bot text command.</p>
 <p>These are not created manually, instead they are created via the
 decorator or functional interface.</p>
@@ -2315,7 +2317,7 @@ command is disabled.</p>
 
 <dl class="py class">
 <dt id="discord.ext.commands.Group">
-<em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">Group</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">attrs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Group" title="정의 주소">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">Group</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Group" title="정의 주소">¶</a></dt>
 <dd><p>A class that implements a grouping protocol for commands to be
 executed as subcommands.</p>
 <p>This class is a subclass of <a class="reference internal" href="#discord.ext.commands.Command" title="discord.ext.commands.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">Command</span></code></a> and thus all options
@@ -2910,7 +2912,7 @@ the internal command list via <a class="reference internal" href="#discord.ext.c
 <span id="ext-commands-api-cogs"></span><h2>Cogs<a class="headerlink" href="#cogs" title="제목 주소">¶</a></h2>
 <dl class="py class">
 <dt id="discord.ext.commands.Cog">
-<em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">Cog</code><a class="headerlink" href="#discord.ext.commands.Cog" title="정의 주소">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">Cog</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Cog" title="정의 주소">¶</a></dt>
 <dd><p>The base class that all cogs must inherit from.</p>
 <p>A cog is a collection of commands, listeners, and optional state to
 help group commands together. More information on them can be found on
@@ -3154,7 +3156,7 @@ override the one specified inside this attribute. For example:</p>
 <span id="ext-commands-help-command"></span><h2>Help Commands<a class="headerlink" href="#help-commands" title="제목 주소">¶</a></h2>
 <dl class="py class">
 <dt id="discord.ext.commands.HelpCommand">
-<em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">HelpCommand</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.HelpCommand" title="정의 주소">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">HelpCommand</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.HelpCommand" title="정의 주소">¶</a></dt>
 <dd><p>The base implementation for help command formatting.</p>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
@@ -3651,7 +3653,7 @@ the behaviour through the methods that actually get dispatched.</p>
 
 <dl class="py class">
 <dt id="discord.ext.commands.DefaultHelpCommand">
-<em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">DefaultHelpCommand</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.DefaultHelpCommand" title="정의 주소">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">DefaultHelpCommand</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.DefaultHelpCommand" title="정의 주소">¶</a></dt>
 <dd><p>The implementation of the default help command.</p>
 <p>This inherits from <a class="reference internal" href="#discord.ext.commands.HelpCommand" title="discord.ext.commands.HelpCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">HelpCommand</span></code></a>.</p>
 <p>It extends it with the following attributes.</p>
@@ -3824,7 +3826,7 @@ commands parameter.</p></li>
 
 <dl class="py class">
 <dt id="discord.ext.commands.MinimalHelpCommand">
-<em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">MinimalHelpCommand</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.MinimalHelpCommand" title="정의 주소">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">MinimalHelpCommand</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.MinimalHelpCommand" title="정의 주소">¶</a></dt>
 <dd><p>An implementation of a help command with minimal output.</p>
 <p>This inherits from <a class="reference internal" href="#discord.ext.commands.HelpCommand" title="discord.ext.commands.HelpCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">HelpCommand</span></code></a>.</p>
 <dl class="py attribute">
@@ -6527,6 +6529,7 @@ because the name is already taken by a different command.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -6568,7 +6571,7 @@ because the name is already taken by a different command.</p>
     </div>
   <div class="footer">
     &copy; Copyright 2015-2020, Rapptz.
-    <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 버전으로 생성되었습니다.
+    <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 버전으로 생성되었습니다.
   </div>
   
   </body>
