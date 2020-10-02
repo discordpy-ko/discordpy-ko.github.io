@@ -4,8 +4,7 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>확장 &#8212; discord.py 1.5.0a 문서</title>
+    <title>확장 &#8212; discord.py 1.5.0 문서</title>
     <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -38,9 +37,8 @@
         <li class="right" >
           <a href="cogs.html" title="Cogs"
              accesskey="P">이전</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">discord.py 1.5.0a 문서</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code> – Bot commands 프레임워크</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">확장</a></li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">discord.py 1.5.0 문서</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code> – Bot commands 프레임워크</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -56,8 +54,8 @@
 <h2>기초<a class="headerlink" href="#primer" title="제목 주소">¶</a></h2>
 <p>확장의 중심부인 파이썬 파일에는 <code class="docutils literal notranslate"><span class="pre">setup</span></code>이라고 불리우는 진입점이 있습니다. 이 셋업은 반드시 기본적인 Python 함수여야 합니다 (코루틴이 아닙니다). 이 함수는 하나의 매개변수를 가집니다 – 확장자를 로드하는 <a class="reference internal" href="api.html#discord.ext.commands.Bot" title="discord.ext.commands.Bot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bot</span></code></a>입니다.</p>
 <p>확장의 예제는 다음과 같이 생겼습니다:</p>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">hello.py</span><a class="headerlink" href="#id1" title="이 코드에 대한 퍼머링크">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">hello.py</span><a class="headerlink" href="#id3" title="이 코드에 대한 퍼머링크">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discord.ext</span> <span class="kn">import</span> <span class="n">commands</span>
 
 <span class="nd">@commands</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
@@ -90,8 +88,8 @@
 <div class="section" id="cleaning-up">
 <h2>확장 정리하기<a class="headerlink" href="#cleaning-up" title="제목 주소">¶</a></h2>
 <p>가끔 확장을 정리하거나 언로드되었는지 확인해야 할 때가 있습니다. 이런 경우를 위해 <code class="docutils literal notranslate"><span class="pre">teardown</span></code> 진입점이 존재합니다. 이는 <code class="docutils literal notranslate"><span class="pre">setup</span></code>과 비슷하지만 확장이 언로드될 때 호출됩니다.</p>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">basic_ext.py</span><a class="headerlink" href="#id2" title="이 코드에 대한 퍼머링크">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">basic_ext.py</span><a class="headerlink" href="#id4" title="이 코드에 대한 퍼머링크">¶</a></div>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">bot</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I am being loaded!&#39;</span><span class="p">)</span>
 
@@ -104,7 +102,6 @@
 </div>
 
 
-            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -136,7 +133,7 @@
     </div>
   <div class="footer">
     &copy; Copyright 2015-2020, Rapptz.
-    <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 버전으로 생성되었습니다.
+    <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3 버전으로 생성되었습니다.
   </div>
   
   </body>
