@@ -138,7 +138,7 @@ sequence functions.</p>
     <span class="c1"># do something</span>
 </pre></div>
 </div>
-<p>Since they are no longer <a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#list" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>s, they no longer support indexing or any operation other than iterating.
+<p>Since they are no longer <a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a>s, they no longer support indexing or any operation other than iterating.
 In order to get the old behaviour you should explicitly cast it to a list.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">servers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">servers</span><span class="p">)</span>
 <span class="c1"># work with servers</span>
@@ -153,7 +153,7 @@ is not in a guaranteed order.</p>
 <div class="section" id="enumerations">
 <h2>Enumerations<a class="headerlink" href="#enumerations" title="제목 주소">¶</a></h2>
 <p>Due to dropping support for versions lower than Python 3.4.2, the library can now use
-<a class="reference external" href="https://docs.python.org/ko/3/library/enum.html" title="(in Python v3.8)"><span>enum — Support for enumerations</span></a> in places where it makes sense.</p>
+<a class="reference external" href="https://docs.python.org/ko/3/library/enum.html" title="(in Python v3.9)"><span>enum — Support for enumerations</span></a> in places where it makes sense.</p>
 <p>The common places where this was changed was in the server region, member status, and channel type.</p>
 <p>이전:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">server</span><span class="o">.</span><span class="n">region</span> <span class="o">==</span> <span class="s1">&#39;us-west&#39;</span>

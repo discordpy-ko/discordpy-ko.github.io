@@ -55,7 +55,7 @@
 </div>
 <p>봇을 만들 때 하는 가장 흔한 작업은 특정한 간격으로 백그라운드에서 돌아가는 루프를 갖는 것입니다. 이 패턴은 매우 흔하지만 당신이 조심해야할 많은 것들이 있습니다:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-exceptions.html#asyncio.CancelledError" title="(in Python v3.8)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code></a> 는 어떻게 다루나요?</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-exceptions.html#asyncio.CancelledError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">asyncio.CancelledError</span></code></a> 는 어떻게 다루나요?</p></li>
 <li><p>만약에 인터넷이 끊기면 어떻게 해야하나요?</p></li>
 <li><p>아무튼 제가 잘 수 있는 최고 시간은 몇초인가요?</p></li>
 </ul>
@@ -179,7 +179,7 @@
 <dd><p>루프의 현재 반복 중인 곳.</p>
 <dl class="field-list simple">
 <dt class="field-odd">형식</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -193,7 +193,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">형식</dt>
-<dd class="field-odd"><p>옵션[<a class="reference external" href="https://docs.python.org/ko/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]</p>
+<dd class="field-odd"><p>옵션[<a class="reference external" href="https://docs.python.org/ko/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -210,13 +210,13 @@
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#RuntimeError" title="(in Python v3.8)"><strong>RuntimeError</strong></a> – 태스크가 이미 시작되었고 실행되는 중입니다.</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#RuntimeError" title="(in Python v3.9)"><strong>RuntimeError</strong></a> – 태스크가 이미 시작되었고 실행되는 중입니다.</p>
 </dd>
 <dt class="field-odd">반환값</dt>
 <dd class="field-odd"><p>생성된 태스크.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#asyncio.Task" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Task</span></code></a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#asyncio.Task" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Task</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -268,10 +268,10 @@
 <p>만약에 자기만의 예외 집합을 일으키는 제 3자 라이브러리와 상호 작용하고 있다면 이 함수는 유용합니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>*exceptions</strong> (Type[<a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#BaseException" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a>]) – 처리해야 할 예외 클래스들의 전달인자 리스트.</p>
+<dd class="field-odd"><p><strong>*exceptions</strong> (Type[<a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#BaseException" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a>]) – 처리해야 할 예외 클래스들의 전달인자 리스트.</p>
 </dd>
 <dt class="field-even">예외</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – 지나간 예외는 클래스가 아니거나 <a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#BaseException" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a>에서 상속되지 않았습니다.</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><strong>TypeError</strong></a> – 지나간 예외는 클래스가 아니거나 <a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#BaseException" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a>에서 상속되지 않았습니다.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -292,13 +292,13 @@
 <dd><p>재연결 로직 도중 처리돼야 하는 예외 형식들을 삭제합니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>*exceptions</strong> (Type[<a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#BaseException" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a>]) – 처리해야 할 예외 클래스들의 전달인자 리스트.</p>
+<dd class="field-odd"><p><strong>*exceptions</strong> (Type[<a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#BaseException" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a>]) – 처리해야 할 예외 클래스들의 전달인자 리스트.</p>
 </dd>
 <dt class="field-even">반환값</dt>
 <dd class="field-even"><p>모든 예외가 성공적으로 삭제되었는지의 여부.</p>
 </dd>
 <dt class="field-odd">반환 형식</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -306,7 +306,7 @@
 <dl class="py method">
 <dt id="discord.ext.tasks.Loop.get_task">
 <code class="sig-name descname">get_task</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.get_task" title="정의 주소">¶</a></dt>
-<dd><p>옵션[<a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#asyncio.Task" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Task</span></code></a>]: 내부 테스크를 가져오거나 아무것도 돌아가고 있지 않는다면 <code class="docutils literal notranslate"><span class="pre">None</span></code>을 반환합니다.</p>
+<dd><p>옵션[<a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#asyncio.Task" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.Task</span></code></a>]: 내부 테스크를 가져오거나 아무것도 돌아가고 있지 않는다면 <code class="docutils literal notranslate"><span class="pre">None</span></code>을 반환합니다.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -318,7 +318,7 @@
 <dl class="py method">
 <dt id="discord.ext.tasks.Loop.failed">
 <code class="sig-name descname">failed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.failed" title="정의 주소">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>: 내부 테스크가 실패했는지의 여부.</p>
+<dd><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>: 내부 테스크가 실패했는지의 여부.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">버전 1.2에 추가.</span></p>
 </div>
@@ -327,7 +327,7 @@
 <dl class="py method">
 <dt id="discord.ext.tasks.Loop.is_running">
 <code class="sig-name descname">is_running</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.is_running" title="정의 주소">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>: 태스크가 돌아가고 있는지 확인합니다.</p>
+<dd><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>: 태스크가 돌아가고 있는지 확인합니다.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">버전 1.4에 추가.</span></p>
 </div>
@@ -341,10 +341,10 @@
 <p>코루틴은 (클래스 컨택스트 내부에 있는 <code class="docutils literal notranslate"><span class="pre">self</span></code>를 제외하고) 그 어떤 전달인자도 갖고 있으면 안됩니다.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>coro</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">coroutine</span></a>) – 루프가 시작되기 전에 등록할 코루틴.</p>
+<dd class="field-odd"><p><strong>coro</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.9)"><span class="xref std std-ref">coroutine</span></a>) – 루프가 시작되기 전에 등록할 코루틴.</p>
 </dd>
 <dt class="field-even">예외</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – 함수가 코루틴이 아닙니다.</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><strong>TypeError</strong></a> – 함수가 코루틴이 아닙니다.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -360,10 +360,10 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>coro</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">coroutine</span></a>) – 루프가 끝난 후 등록할 코루틴.</p>
+<dd class="field-odd"><p><strong>coro</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.9)"><span class="xref std std-ref">coroutine</span></a>) – 루프가 끝난 후 등록할 코루틴.</p>
 </dd>
 <dt class="field-even">예외</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – 함수가 코루틴이 아닙니다.</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><strong>TypeError</strong></a> – 함수가 코루틴이 아닙니다.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -373,16 +373,16 @@
 <code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coro</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.error" title="정의 주소">¶</a></dt>
 <dd><p>만약 테스크가 처리되지 않은 예외를 만났을 경우 호출될 코루틴을 등록하는 데코레이터.</p>
 <p>코루틴은 (클래스 컨택스트 내부에 있는 <code class="docutils literal notranslate"><span class="pre">self</span></code>를 제외하고) 발생한 예외 전달인자 하나만을 가져야 합니다.</p>
-<p>기본 상태에서는 <a class="reference external" href="https://docs.python.org/ko/3/library/sys.html#sys.stderr" title="(in Python v3.8)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stderr</span></code></a>로 출력하지만 다른 구현을 가지기 위해 무시될 수 있습니다.</p>
+<p>기본 상태에서는 <a class="reference external" href="https://docs.python.org/ko/3/library/sys.html#sys.stderr" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stderr</span></code></a>로 출력하지만 다른 구현을 가지기 위해 무시될 수 있습니다.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">버전 1.4에 추가.</span></p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><p><strong>coro</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.8)"><span class="xref std std-ref">coroutine</span></a>) – 처리되지 않은 예외 이벤트에서 등록할 코루틴.</p>
+<dd class="field-odd"><p><strong>coro</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine" title="(in Python v3.9)"><span class="xref std std-ref">coroutine</span></a>) – 처리되지 않은 예외 이벤트에서 등록할 코루틴.</p>
 </dd>
 <dt class="field-even">예외</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – 함수가 코루틴이 아닙니다.</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><strong>TypeError</strong></a> – 함수가 코루틴이 아닙니다.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -401,13 +401,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>seconds</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 모든 반복 사이의 초.</p></li>
-<li><p><strong>minutes</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 모든 반복 사이의 분.</p></li>
-<li><p><strong>hours</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 모든 반복 사이의 시간.</p></li>
+<li><p><strong>seconds</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 모든 반복 사이의 초.</p></li>
+<li><p><strong>minutes</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 모든 반복 사이의 분.</p></li>
+<li><p><strong>hours</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 모든 반복 사이의 시간.</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – 잘못된 값이 주어졌습니다.</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><strong>ValueError</strong></a> – 잘못된 값이 주어졌습니다.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -421,18 +421,18 @@
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>seconds</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 모든 반복 사이의 초.</p></li>
-<li><p><strong>minutes</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 모든 반복 사이의 분.</p></li>
-<li><p><strong>hours</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 모든 반복 사이의 시간.</p></li>
-<li><p><strong>count</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]) – 루프의 반복 횟수, 만약에 무한 반복이어야 한다면 <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
-<li><p><strong>reconnect</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <a class="reference internal" href="../../api.html#discord.Client.connect" title="discord.Client.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">discord.Client.connect()</span></code></a>에 사용된 것처럼 기하급수적인 백오프 알고리즘으로 오류를 처리하거나 태스크를 재시작할지의 여부</p></li>
-<li><p><strong>loop</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-eventloop.html#asyncio.AbstractEventLoop" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.AbstractEventLoop</span></code></a>) – 태스크를 등록하기 위해 사용하는 루프, 만약에 주어지지 않았다면 기본으로 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-eventloop.html#asyncio.get_event_loop" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.get_event_loop()</span></code></a>.</p></li>
+<li><p><strong>seconds</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 모든 반복 사이의 초.</p></li>
+<li><p><strong>minutes</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 모든 반복 사이의 분.</p></li>
+<li><p><strong>hours</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 모든 반복 사이의 시간.</p></li>
+<li><p><strong>count</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]) – 루프의 반복 횟수, 만약에 무한 반복이어야 한다면 <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>reconnect</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <a class="reference internal" href="../../api.html#discord.Client.connect" title="discord.Client.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">discord.Client.connect()</span></code></a>에 사용된 것처럼 기하급수적인 백오프 알고리즘으로 오류를 처리하거나 태스크를 재시작할지의 여부</p></li>
+<li><p><strong>loop</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-eventloop.html#asyncio.AbstractEventLoop" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">asyncio.AbstractEventLoop</span></code></a>) – 태스크를 등록하기 위해 사용하는 루프, 만약에 주어지지 않았다면 기본으로 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-eventloop.html#asyncio.get_event_loop" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">asyncio.get_event_loop()</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – 잘못된 값이 주어졌습니다.</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#TypeError" title="(in Python v3.8)"><strong>TypeError</strong></a> – 함수가 코루틴이 아닙니다.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><strong>ValueError</strong></a> – 잘못된 값이 주어졌습니다.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#TypeError" title="(in Python v3.9)"><strong>TypeError</strong></a> – 함수가 코루틴이 아닙니다.</p></li>
 </ul>
 </dd>
 </dl>
