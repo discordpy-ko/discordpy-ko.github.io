@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Primer to Gateway Intents &#8212; discord.py 1.5.0 문서</title>
+    <title>A Primer to Gateway Intents &#8212; discord.py 1.5.1 문서</title>
     <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="discord.html" title="봇 계정 생성"
              accesskey="P">이전</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.5.0 문서</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.5.1 문서</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">A Primer to Gateway Intents</a></li> 
       </ul>
     </div>  
@@ -196,7 +196,7 @@ through code as well.</p>
 <p>Due to an <a class="reference internal" href="#intents-member-cache"><span class="std std-ref">API change</span></a> Discord is now forcing developers who want member caching to explicitly opt-in to it. This is a Discord mandated change and there is no way to bypass it. In order to get members back you have to explicitly enable the <a class="reference internal" href="#privileged-intents"><span class="std std-ref">members privileged intent</span></a> and change the <a class="reference internal" href="api.html#discord.Intents.members" title="discord.Intents.members"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Intents.members</span></code></a> attribute to true.</p>
 <p>For example:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discord</span>
-<span class="n">intents</span> <span class="o">=</span> <span class="n">discord</span><span class="o">.</span><span class="n">Intents</span><span class="p">()</span>
+<span class="n">intents</span> <span class="o">=</span> <span class="n">discord</span><span class="o">.</span><span class="n">Intents</span><span class="o">.</span><span class="n">default</span><span class="p">()</span>
 <span class="n">intents</span><span class="o">.</span><span class="n">members</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="c1"># Somewhere else:</span>

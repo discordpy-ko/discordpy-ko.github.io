@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API 레퍼런스 &#8212; discord.py 1.5.0 문서</title>
+    <title>API 레퍼런스 &#8212; discord.py 1.5.1 문서</title>
     <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="logging.html" title="로깅 설정"
              accesskey="P">이전</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.5.0 문서</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.5.1 문서</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">API 레퍼런스</a></li> 
       </ul>
     </div>  
@@ -3320,7 +3320,7 @@ been part of the guild to begin with. (i.e. it is part of <a class="reference in
 <code class="sig-prename descclassname">discord.</code><code class="sig-name descname">on_guild_unavailable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">guild</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.on_guild_unavailable" title="정의 주소">¶</a></dt>
 <dd><p>Called when a guild becomes available or unavailable. The guild must have
 existed in the <a class="reference internal" href="#discord.Client.guilds" title="discord.Client.guilds"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Client.guilds</span></code></a> cache.</p>
-<p>This requires <a class="reference internal" href="#discord.Intents.emojis" title="discord.Intents.emojis"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Intents.emojis</span></code></a> to be enabled.</p>
+<p>This requires <a class="reference internal" href="#discord.Intents.guilds" title="discord.Intents.guilds"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Intents.guilds</span></code></a> to be enabled.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>guild</strong> – The <a class="reference internal" href="#discord.Guild" title="discord.Guild"><code class="xref py py-class docutils literal notranslate"><span class="pre">Guild</span></code></a> that has changed availability.</p>
@@ -3608,6 +3608,12 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">True</s
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This does not include channel mentions.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">참고</p>
+<p>For more granular control over what mentions should be escaped
+within messages, refer to the <a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>
+class.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
@@ -19302,8 +19308,8 @@ to a (red, green, blue) <a class="reference external" href="https://docs.python.
 <dl class="py method">
 <dt id="discord.Colour.dark_theme">
 <em class="property">classmethod </em><code class="sig-name descname">dark_theme</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.Colour.dark_theme" title="정의 주소">¶</a></dt>
-<dd><p>A factory method that returns a :class:〉Colour〉 with a value of <code class="docutils literal notranslate"><span class="pre">0x36393F</span></code>.
-Will appear transparent on Discord’s dark theme and be the text colour on Discord’s light theme.</p>
+<dd><p>A factory method that returns a <a class="reference internal" href="#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a> with a value of <code class="docutils literal notranslate"><span class="pre">0x36393F</span></code>.
+This will appear transparent on Discord’s dark theme.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">버전 1.5에 추가.</span></p>
 </div>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API Reference &#8212; discord.py 1.5.0 문서</title>
+    <title>API Reference &#8212; discord.py 1.5.1 문서</title>
     <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="extensions.html" title="확장"
              accesskey="P">이전</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">discord.py 1.5.0 문서</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">discord.py 1.5.1 문서</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code> – Bot commands 프레임워크</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">API Reference</a></li> 
       </ul>
@@ -5061,6 +5061,10 @@ is done by the global cache.</p>
 </ol>
 <div class="versionchanged">
 <p><span class="versionmodified changed">버전 1.5에서 변경: </span>Raise <a class="reference internal" href="#discord.ext.commands.MemberNotFound" title="discord.ext.commands.MemberNotFound"><code class="xref py py-exc docutils literal notranslate"><span class="pre">MemberNotFound</span></code></a> instead of generic <a class="reference internal" href="#discord.ext.commands.BadArgument" title="discord.ext.commands.BadArgument"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BadArgument</span></code></a></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">버전 1.5.1에서 변경: </span>This converter now lazily fetches members from the gateway and HTTP APIs,
+optionally caching the result if <a class="reference internal" href="../../api.html#discord.MemberCacheFlags.joined" title="discord.MemberCacheFlags.joined"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MemberCacheFlags.joined</span></code></a> is enabled.</p>
 </div>
 <dl class="py method">
 <dt id="discord.ext.commands.MemberConverter.convert">

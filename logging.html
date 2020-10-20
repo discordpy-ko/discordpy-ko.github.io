@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>로깅 설정 &#8212; discord.py 1.5.0 문서</title>
+    <title>로깅 설정 &#8212; discord.py 1.5.1 문서</title>
     <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="migrating.html" title="1.0 버전으로 이전하기"
              accesskey="P">이전</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.5.0 문서</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.5.1 문서</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">로깅 설정</a></li> 
       </ul>
     </div>  
@@ -59,9 +59,15 @@
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>애플리케이션의 시작 부분에 배치하세요. 이는 디스코드 뿐만 아니라 <code class="docutils literal notranslate"><span class="pre">logging</span></code> 모듈을 사용하는 다른 라이브러리의 로그를 콘솔에 출력할 것입니다.</p>
-<p>선택적 <code class="docutils literal notranslate"><span class="pre">level</span></code> 인수는 <code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code>, <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, <code class="docutils literal notranslate"><span class="pre">WARNING</span></code>, <code class="docutils literal notranslate"><span class="pre">INFO</span></code>, <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> 레벨에서 기록할 이벤트의 수준을 지정합니다. 만약 지정되지 않은 경우 <code class="docutils literal notranslate"><span class="pre">WARNING</span></code> 을 기본값으로 지정합니다.</p>
-<p><a class="reference external" href="https://docs.python.org/ko/3/library/logging.html#module-logging" title="(in Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> 모듈을 사용하면 더욱 많은 고급 설정이 가능합니다. 예를 들어, 콘솔에 모든 로그를 출력하는 것 대신 <code class="docutils literal notranslate"><span class="pre">discord.log</span></code> 파일에 로그를 작성하기 위해서는 다음과 같은 코드가 쓰일 수 있습니다:</p>
+<p>Placed at the start of the application. This will output the logs from
+discord as well as other libraries that use the <code class="docutils literal notranslate"><span class="pre">logging</span></code> module
+directly to the console.</p>
+<p>The optional <code class="docutils literal notranslate"><span class="pre">level</span></code> argument specifies what level of events to log
+out and can be any of <code class="docutils literal notranslate"><span class="pre">CRITICAL</span></code>, <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, <code class="docutils literal notranslate"><span class="pre">WARNING</span></code>, <code class="docutils literal notranslate"><span class="pre">INFO</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> and if not specified defaults to <code class="docutils literal notranslate"><span class="pre">WARNING</span></code>.</p>
+<p>More advanced setups are possible with the <a class="reference external" href="https://docs.python.org/ko/3/library/logging.html#module-logging" title="(in Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> module. For
+example to write the logs to a file called <code class="docutils literal notranslate"><span class="pre">discord.log</span></code> instead of
+outputting them to the console the following snippet can be used:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discord</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 
@@ -72,7 +78,9 @@
 <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">INFO</span></code>, <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> 등과 같은 상세한 수준에서 많은 이벤트가 기록되고당신의 표준 스트림을 망가뜨릴 것이기 때문에 이 방법이 권장됩니다.</p>
+<p>This is recommended, especially at verbose levels such as <code class="docutils literal notranslate"><span class="pre">INFO</span></code>
+and <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, as there are a lot of events logged and it would clog the
+stdout of your program.</p>
 <p><a class="reference external" href="https://docs.python.org/ko/3/library/logging.html#module-logging" title="(in Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> 모듈의 문서와 튜토리얼을 확인하여 더 자세한 정보를 확인하세요.</p>
 </div>
 
