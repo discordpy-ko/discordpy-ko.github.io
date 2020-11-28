@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Primer to Gateway Intents &#8212; discord.py 1.5.1 문서</title>
+    <title>게이트웨이 인텐트의 시작 &#8212; discord.py 1.5.1 문서</title>
     <link rel="stylesheet" href="_static/style.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -39,7 +39,7 @@
           <a href="discord.html" title="봇 계정 생성"
              accesskey="P">이전</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.5.1 문서</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">A Primer to Gateway Intents</a></li> 
+        <li class="nav-item nav-item-this"><a href="">게이트웨이 인텐트의 시작</a></li> 
       </ul>
     </div>  
 
@@ -52,14 +52,14 @@
 <p><span class="versionmodified added">버전 1.5에 추가.</span></p>
 </div>
 <div class="section" id="a-primer-to-gateway-intents">
-<span id="intents-primer"></span><h1>A Primer to Gateway Intents<a class="headerlink" href="#a-primer-to-gateway-intents" title="제목 주소">¶</a></h1>
-<p>In version 1.5 comes the introduction of <a class="reference internal" href="api.html#discord.Intents" title="discord.Intents"><code class="xref py py-class docutils literal notranslate"><span class="pre">Intents</span></code></a>. This is a radical change in how bots are written. An intent basically allows a bot to subscribe into specific buckets of events. The events that correspond to each intent is documented in the individual attribute of the <a class="reference internal" href="api.html#discord.Intents" title="discord.Intents"><code class="xref py py-class docutils literal notranslate"><span class="pre">Intents</span></code></a> documentation.</p>
-<p>These intents are passed to the constructor of <a class="reference internal" href="api.html#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a> or its subclasses (<a class="reference internal" href="api.html#discord.AutoShardedClient" title="discord.AutoShardedClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">AutoShardedClient</span></code></a>, <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.AutoShardedBot" title="discord.ext.commands.AutoShardedBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">AutoShardedBot</span></code></a>, <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Bot" title="discord.ext.commands.Bot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bot</span></code></a>) with the <code class="docutils literal notranslate"><span class="pre">intents</span></code> argument.</p>
-<p>If intents are not passed, then the library defaults to every intent being enabled except the privileged intents, currently <a class="reference internal" href="api.html#discord.Intents.members" title="discord.Intents.members"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Intents.members</span></code></a> and <a class="reference internal" href="api.html#discord.Intents.presences" title="discord.Intents.presences"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Intents.presences</span></code></a>.</p>
+<span id="intents-primer"></span><h1>게이트웨이 인텐트의 시작<a class="headerlink" href="#a-primer-to-gateway-intents" title="제목 주소">¶</a></h1>
+<p>버전 1.5에서 <a class="reference internal" href="api.html#discord.Intents" title="discord.Intents"><code class="xref py py-class docutils literal notranslate"><span class="pre">Intents</span></code></a>가 소개되었습니다. 이것은 봇을 작성하는 것에서의 급진적인 변화입니다. 인텐트는 기본적으로 봇이 특정 버킷이나 이벤트를 받도록 해줍니다. 각각의 인텐트에 해당하는 이벤트들은 <a class="reference internal" href="api.html#discord.Intents" title="discord.Intents"><code class="xref py py-class docutils literal notranslate"><span class="pre">Intents</span></code></a> 문서의 개인 속성에 문서화되어있습니다.</p>
+<p>이 인텐트들은 <a class="reference internal" href="api.html#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a>나 이것의 서브클래스(<a class="reference internal" href="api.html#discord.AutoShardedClient" title="discord.AutoShardedClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">AutoShardedClient</span></code></a>,</p>
+<p>만약에 인텐트가 전달되지 않았다면, 이 라이브러리는 기본으로 현재 Privileged Intent(제한된 인텐트)인 <a class="reference internal" href="api.html#discord.Intents.members" title="discord.Intents.members"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Intents.members</span></code></a>와 <a class="reference internal" href="api.html#discord.Intents.presences" title="discord.Intents.presences"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Intents.presences</span></code></a>를 제외한 모든 인텐트를 켭니다.</p>
 <div class="section" id="what-intents-are-needed">
-<h2>What intents are needed?<a class="headerlink" href="#what-intents-are-needed" title="제목 주소">¶</a></h2>
-<p>The intents that are necessary for your bot can only be dictated by yourself. Each attribute in the <a class="reference internal" href="api.html#discord.Intents" title="discord.Intents"><code class="xref py py-class docutils literal notranslate"><span class="pre">Intents</span></code></a> class documents what <a class="reference internal" href="api.html#discord-api-events"><span class="std std-ref">events</span></a> it corresponds to and what kind of cache it enables.</p>
-<p>For example, if you want a bot that functions without spammy events like presences or typing then we could do the following:</p>
+<h2>어떤 인텐트가 필요한가요?<a class="headerlink" href="#what-intents-are-needed" title="제목 주소">¶</a></h2>
+<p>당신의 봇에 필요한 인텐트는 당신만이 알 수 있습니다. <a class="reference internal" href="api.html#discord.Intents" title="discord.Intents"><code class="xref py py-class docutils literal notranslate"><span class="pre">Intents</span></code></a> 클래스의 각각의 속성들은 어떤 <a class="reference internal" href="api.html#discord-api-events"><span class="std std-ref">events</span></a>와 일치하는지와 어떤 캐시를 활성화하는지 문서화합니다.</p>
+<p>예를 들면, 만약에 presences와 typing과 같은 대량의 이벤트 없이 작동하는 봇을 원한다면 이렇게 할 수 있습니다:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discord</span>
 <span class="n">intents</span> <span class="o">=</span> <span class="n">discord</span><span class="o">.</span><span class="n">Intents</span><span class="o">.</span><span class="n">default</span><span class="p">()</span>
 <span class="n">intents</span><span class="o">.</span><span class="n">typing</span> <span class="o">=</span> <span class="kc">False</span>
@@ -72,8 +72,8 @@
 <span class="c1"># bot = commands.Bot(command_prefix=&#39;!&#39;, intents=intents)</span>
 </pre></div>
 </div>
-<p>Note that this doesn’t enable <a class="reference internal" href="api.html#discord.Intents.members" title="discord.Intents.members"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Intents.members</span></code></a> since it’s a privileged intent.</p>
-<p>Another example showing a bot that only deals with messages and guild information:</p>
+<p>참고로 <a class="reference internal" href="api.html#discord.Intents.members" title="discord.Intents.members"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Intents.members</span></code></a>는 Privileged Intent(제한된 인텐트) 이므로 켜지지 않습니다.</p>
+<p>또다른 예시로 메시지와 길드 정보만 처리하는 봇은 다음과 같습니다:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">discord</span>
 <span class="n">intents</span> <span class="o">=</span> <span class="n">discord</span><span class="o">.</span><span class="n">Intents</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">guilds</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># If you also want reaction events enable the following:</span>
@@ -88,19 +88,19 @@
 </div>
 </div>
 <div class="section" id="privileged-intents">
-<span id="id1"></span><h2>Privileged Intents<a class="headerlink" href="#privileged-intents" title="제목 주소">¶</a></h2>
-<p>With the API change requiring bot authors to specify intents, some intents were restricted further and require more manual steps. These intents are called <strong>privileged intents</strong>.</p>
-<p>A privileged intent is one that requires you to go to the developer portal and manually enable it. To enable privileged intents do the following:</p>
+<span id="id1"></span><h2>Privileged Intent(제한된 인텐트)<a class="headerlink" href="#privileged-intents" title="제목 주소">¶</a></h2>
+<p>봇 소유자가 인텐트를 특정시켜야 하는 API 변경과 함께, 일부 인텐트는 더 추가 제한이 있고 추가적인 절차가 필요합니다. 이런 인텐트들을 <strong>Privileged Intent(제한된 인텐트)</strong>라고 합니다.</p>
+<p>Privileged Intent(제한된 인텐트)는 Developer Portal에서 수동으로 활성화를 해주어야 합니다. 활성화를 위해서는 다음과 같이 해야 합니다:</p>
 <ol class="arabic">
-<li><p>Make sure you’re logged on to the <a class="reference external" href="https://discord.com">Discord website</a>.</p></li>
-<li><p>Navigate to the <a class="reference external" href="https://discord.com/developers/applications">application page</a></p></li>
-<li><p>Click on the bot you want to enable privileged intents for.</p></li>
-<li><p>Navigate to the bot tab on the left side of the screen.</p>
+<li><p><a class="reference external" href="https://discord.com">디스코드 웹사이트</a> 에 로그인했는지 확인하세요.</p></li>
+<li><p><a class="reference external" href="https://discord.com/developers/applications">애플리케이션 페이지</a> 로 이동합니다.</p></li>
+<li><p>Privileged Intent(제한된 인텐트)를 활성화 할 봇을 클릭하세요.</p></li>
+<li><p>화면 왼쪽의 Bot 탭으로 이동합니다.</p>
 <blockquote>
 <div><img alt="The bot tab in the application page." src="_images/discord_bot_tab.png" />
 </div></blockquote>
 </li>
-<li><p>Scroll down to the 《Privileged Gateway Intents》 section and enable the ones you want.</p>
+<li><p>《Privileged Gateway Intents》 부분으로 스크롤하고 원하는 인텐트를 활성화하세요.</p>
 <blockquote>
 <div><img alt="The privileged gateway intents selector." src="_images/discord_privileged_intents.png" />
 </div></blockquote>
@@ -108,25 +108,24 @@
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">경고</p>
-<p>Enabling privileged intents when your bot is in over 100 guilds requires going through <a class="reference external" href="https://support.discord.com/hc/en-us/articles/360040720412">bot verification</a>. If your bot is already verified and you would like to enable a privileged intent you must go through <a class="reference external" href="https://dis.gd/contact">discord support</a> and talk to them about it.</p>
+<p>봇의 길드수가 100을 넘었을 때 Privileged Intent(제한된 인텐트)를 활성화하기 위해서는 <a class="reference external" href="https://support.discord.com/hc/en-us/articles/360040720412">봇 인증</a> 과정을 거쳐야 합니다. 만약에 봇이 이미 인증되었고 Privileged Intent(제한된 인텐트)를 활성화하고 싶다면 <a class="reference external" href="https://dis.gd/contact">디스코드 문의</a> 에 문의해서 인텐트 활성화에 대해 말해야 합니다.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
-<p>Even if you enable intents through the developer portal, you still have to enable the intents
-through code as well.</p>
+<p>Developer Portal에서 인텐트를 활성화하더라도, 봇 코드에서도 이 인텐트들을 활성화 해야합니다.</p>
 </div>
 <div class="section" id="do-i-need-privileged-intents">
-<h3>Do I need privileged intents?<a class="headerlink" href="#do-i-need-privileged-intents" title="제목 주소">¶</a></h3>
-<p>This is a quick checklist to see if you need specific privileged intents.</p>
+<h3>Privileged Intent(제한된 인텐트)가 꼭 필요한가요?<a class="headerlink" href="#do-i-need-privileged-intents" title="제목 주소">¶</a></h3>
+<p>다음은 특정한 Privileged Intent(제한된 인텐트)가 필요한지 볼 수 있는 간단한 체크리스트입니다.</p>
 <div class="section" id="presence-intent">
-<span id="need-presence-intent"></span><h4>Presence Intent<a class="headerlink" href="#presence-intent" title="제목 주소">¶</a></h4>
+<span id="need-presence-intent"></span><h4>Presence 인텐트<a class="headerlink" href="#presence-intent" title="제목 주소">¶</a></h4>
 <ul class="simple">
-<li><p>Whether you use <a class="reference internal" href="api.html#discord.Member.status" title="discord.Member.status"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Member.status</span></code></a> at all to track member statuses.</p></li>
-<li><p>Whether you use <a class="reference internal" href="api.html#discord.Member.activity" title="discord.Member.activity"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Member.activity</span></code></a> or <a class="reference internal" href="api.html#discord.Member.activities" title="discord.Member.activities"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Member.activities</span></code></a> to check member’s activities.</p></li>
+<li><p>맴버의 상태를 추척하기 위해 <a class="reference internal" href="api.html#discord.Member.status" title="discord.Member.status"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Member.status</span></code></a>를 사용하나요?</p></li>
+<li><p>맴버의 활동을 확인하기 위해 <a class="reference internal" href="api.html#discord.Member.activity" title="discord.Member.activity"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Member.activity</span></code></a> 또는 <a class="reference internal" href="api.html#discord.Member.activities" title="discord.Member.activities"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Member.activities</span></code></a>를 사용하나요?</p></li>
 </ul>
 </div>
 <div class="section" id="member-intent">
-<span id="need-members-intent"></span><h4>Member Intent<a class="headerlink" href="#member-intent" title="제목 주소">¶</a></h4>
+<span id="need-members-intent"></span><h4>Member 인텐트<a class="headerlink" href="#member-intent" title="제목 주소">¶</a></h4>
 <ul class="simple">
 <li><p>Whether you track member joins or member leaves, corresponds to <a class="reference internal" href="api.html#discord.on_member_join" title="discord.on_member_join"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_member_join()</span></code></a> and <a class="reference internal" href="api.html#discord.on_member_remove" title="discord.on_member_remove"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_member_remove()</span></code></a> events.</p></li>
 <li><p>Whether you want to track member updates such as nickname or role changes.</p></li>
@@ -243,12 +242,12 @@ through code as well.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">목차</a></h3>
   <ul>
-<li><a class="reference internal" href="#">A Primer to Gateway Intents</a><ul>
-<li><a class="reference internal" href="#what-intents-are-needed">What intents are needed?</a></li>
-<li><a class="reference internal" href="#privileged-intents">Privileged Intents</a><ul>
-<li><a class="reference internal" href="#do-i-need-privileged-intents">Do I need privileged intents?</a><ul>
-<li><a class="reference internal" href="#presence-intent">Presence Intent</a></li>
-<li><a class="reference internal" href="#member-intent">Member Intent</a></li>
+<li><a class="reference internal" href="#">게이트웨이 인텐트의 시작</a><ul>
+<li><a class="reference internal" href="#what-intents-are-needed">어떤 인텐트가 필요한가요?</a></li>
+<li><a class="reference internal" href="#privileged-intents">Privileged Intent(제한된 인텐트)</a><ul>
+<li><a class="reference internal" href="#do-i-need-privileged-intents">Privileged Intent(제한된 인텐트)가 꼭 필요한가요?</a><ul>
+<li><a class="reference internal" href="#presence-intent">Presence 인텐트</a></li>
+<li><a class="reference internal" href="#member-intent">Member 인텐트</a></li>
 </ul>
 </li>
 </ul>

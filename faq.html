@@ -18,7 +18,7 @@
     <link rel="index" title="색인" href="genindex.html" />
     <link rel="search" title="검색" href="search.html" />
     <link rel="next" title="바뀐 것에 대한 기록" href="whats_new.html" />
-    <link rel="prev" title="A Primer to Gateway Intents" href="intents.html" />
+    <link rel="prev" title="게이트웨이 인텐트의 시작" href="intents.html" />
    
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
 
@@ -36,7 +36,7 @@
           <a href="whats_new.html" title="바뀐 것에 대한 기록"
              accesskey="N">다음</a> |</li>
         <li class="right" >
-          <a href="intents.html" title="A Primer to Gateway Intents"
+          <a href="intents.html" title="게이트웨이 인텐트의 시작"
              accesskey="P">이전</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.5.1 문서</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">자주 묻는 질문</a></li> 
@@ -112,7 +112,7 @@
 <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>차단을 너무 오랫동안 하는 또 하나의 원인은 유명한 모듈인 <a class="reference external" href="http://docs.python-requests.org/en/latest/index.html#" title="(in Requests v2.21.0)"><span>requests</span></a> 의 HTTP 요청을 사용하는 것입니다. <a class="reference external" href="http://docs.python-requests.org/en/latest/index.html#" title="(in Requests v2.21.0)"><span>requests</span></a> 는 동기 프로그래밍에서는 엄청난 모듈이지만, <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio.html#module-asyncio" title="(in Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> 와 함께 쓸 때는 좋은 선택이 아닙니다. 그 이유는 특정 요청은 이벤트 루프를 너무 오랫동안 차단할 수 있기 때문이죠. 대신에, 이 라이브러리와 함께 설치된 <a class="reference external" href="https://docs.aiohttp.org/en/stable/index.html" title="(in aiohttp v3.6)"><span class="xref std std-doc">aiohttp</span></a> 라이브러리를 사용하세요.</p>
+<p>차단을 너무 오랫동안 하는 또 하나의 원인은 유명한 모듈인 <a class="reference external" href="http://docs.python-requests.org/en/latest/index.html#" title="(in Requests v2.21.0)"><span>requests</span></a> 의 HTTP 요청을 사용하는 것입니다. <a class="reference external" href="http://docs.python-requests.org/en/latest/index.html#" title="(in Requests v2.21.0)"><span>requests</span></a> 는 동기 프로그래밍에서는 엄청난 모듈이지만, <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio.html#module-asyncio" title="(in Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio</span></code></a> 와 함께 쓸 때는 좋은 선택이 아닙니다. 그 이유는 특정 요청은 이벤트 루프를 너무 오랫동안 차단할 수 있기 때문이죠. 대신에, 이 라이브러리와 함께 설치된 <a class="reference external" href="https://docs.aiohttp.org/en/stable/index.html" title="(in aiohttp v3.7)"><span class="xref std std-doc">aiohttp</span></a> 라이브러리를 사용하세요.</p>
 <p>다음의 예시를 고려해보세요:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># bad</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://aws.random.cat/meow&#39;</span><span class="p">)</span>
@@ -203,7 +203,7 @@
 <span class="k">await</span> <span class="n">channel</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">files</span><span class="o">=</span><span class="n">my_files</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>만약 URL을 통해 무언가를 업로드하고 싶다면, <a class="reference external" href="https://docs.aiohttp.org/en/stable/index.html" title="(in aiohttp v3.6)"><span class="xref std std-doc">aiohttp</span></a> 를 사용한 HTTP 요청을 한 뒤, <a class="reference external" href="https://docs.python.org/ko/3/library/io.html#io.BytesIO" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.BytesIO</span></code></a> 인스턴스에서 <a class="reference internal" href="api.html#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a> 로 다음과 같이 변환하세요:</p>
+<p>만약 URL을 통해 무언가를 업로드하고 싶다면, <a class="reference external" href="https://docs.aiohttp.org/en/stable/index.html" title="(in aiohttp v3.7)"><span class="xref std std-doc">aiohttp</span></a> 를 사용한 HTTP 요청을 한 뒤, <a class="reference external" href="https://docs.python.org/ko/3/library/io.html#io.BytesIO" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.BytesIO</span></code></a> 인스턴스에서 <a class="reference internal" href="api.html#discord.File" title="discord.File"><code class="xref py py-class docutils literal notranslate"><span class="pre">File</span></code></a> 로 다음과 같이 변환하세요:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
 <span class="kn">import</span> <span class="nn">aiohttp</span>
 
