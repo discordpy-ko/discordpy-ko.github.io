@@ -1,51 +1,102 @@
-
 <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v0.10.0으로 이동</title> 
+  <!-- end extra head -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="_static/codeblocks.css" type="text/css" />
+  <link rel="stylesheet" href="_static/icons.css" type="text/css" />
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  <script src="_static/jquery.js"></script>
+  <script src="_static/underscore.js"></script>
+  <script src="_static/doctools.js"></script>
+  <script src="_static/language_data.js"></script>
+  <script src="_static/custom.js"></script>
+  <script src="_static/settings.js"></script>
+  <script src="_static/copy.js"></script>
+  <script src="_static/sidebar.js"></script>
+  <script src="_static/translations.js"></script>
+  <link rel="shortcut icon" href="_static/discord_py_logo.ico"/>
+  <link rel="index" title="색인" href="genindex.html" />
+  <link rel="search" title="검색" href="search.html" />
+</head>
+<body>
+  <div class="main-grid">
+    <header class="grid-item">
+      <nav>
+        <a href="index.html" class="main-heading">discord.py</a>
+        <a href="https://github.com/Rapptz/discord.py" title="GitHub"><span class="material-icons custom-icons">github</span></a>
+        <a href="https://discord.gg/YbfbxpX" title="Discord"><span class="material-icons custom-icons">discord</span></a>
+        <a href="faq.html" title="FAQ"><span class="material-icons">help_center</span></a>
+        <a onclick="mobileSearch.open();" title="검색" id="open-search" class="mobile-only"><span class="material-icons">search</span></a>
+        <a onclick="mobileSearch.close();" title="Close" id="close-search" class="mobile-only" hidden><span class="material-icons">close</span></a>
+      </nav>
+      <nav class="mobile-only">
+        <form role="search" class="search" action="search.html" method="get">
+          <div class="search-wrapper">
+            <input type="search" name="q" placeholder="Search documentation" />
+            <button type="submit">
+              <span class="material-icons">search</span>
+            </button>
+          </div>
+        </form>
+      </nav>
+    </header>
+    <div class="sub-header grid-item">
+      <label for="documentation_select">View Documentation For</label>
+      <select id="documentation_select" onchange="window.location = this.value;">
+        <option value="#" selected>discord</option>
+        <option value="ext/commands/index.html" >discord.ext.commands</option>
+        <option value="ext/tasks/index.html" >discord.ext.tasks</option>
+      </select>
+      <form role="search" class="search" action="search.html" method="get">
+        <div class="search-wrapper">
+          <input type="search" name="q" placeholder="Search documentation" />
+          <button type="submit">
+            <span class="material-icons">search</span>
+          </button>
+        </div>
+      </form>
+      <a accesskey="S" class="settings" onclick="settingsModal.open();"><span class="material-icons">settings</span></a>
+    </div>
+    <aside class="grid-item">
+      <span id="hamburger-toggle">
+        <span class="material-icons">menu</span>
+      </span>
+      <span id="settings-toggle" class="settings" onclick="settingsModal.open();">
+        <span class="material-icons">settings</span>
+      </span>
+      <div id="sidebar">
+  <h3><a href="index.html">목차</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">v0.10.0으로 이동</a><ul>
+<li><a class="reference internal" href="#event-registration">이벤트 등록</a></li>
+<li><a class="reference internal" href="#event-changes">이벤트 변화들</a></li>
+<li><a class="reference internal" href="#coroutines">Coroutines</a></li>
+<li><a class="reference internal" href="#iterables">Iterables</a></li>
+<li><a class="reference internal" href="#enumerations">Enumerations</a></li>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#member-management">Member Management</a></li>
+<li><a class="reference internal" href="#renamed-functions">Renamed Functions</a></li>
+<li><a class="reference internal" href="#forced-keyword-arguments">Forced Keyword Arguments</a></li>
+<li><a class="reference internal" href="#running-the-client">Running the Client</a></li>
+</ul>
+</li>
+</ul>
 
-<html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>v0.10.0으로 이동 &#8212; discord.py 1.5.1 문서</title>
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
-    <script src="_static/custom.js"></script>
-    <script src="_static/translations.js"></script>
-    <link rel="index" title="색인" href="genindex.html" />
-    <link rel="search" title="검색" href="search.html" />
-   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
-
-  </head><body>
-  
-  
-
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>탐색</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="전체 색인"
-             accesskey="I">색인</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.5.1 문서</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">v0.10.0으로 이동</a></li> 
-      </ul>
-    </div>  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="migrating-to-v0-10-0">
+      </div>
+    </aside>
+    <main class="grid-item">
+      
+  <section id="migrating-to-v0-10-0">
 <span id="migrating-to-async"></span><h1>v0.10.0으로 이동<a class="headerlink" href="#migrating-to-v0-10-0" title="제목 주소">¶</a></h1>
 <p>v0.10.0은 라이브러리가 작동하는 방식의 변화 때문에, 라이브러리에 가장 큰 변화가 이루어진 버전입니다.</p>
 <p>가장 큰 변화는 라이브러리가 Python 3.4.2 버전 밑의 버전들을 지원하지 않는다는것 입니다. 이것은 <code class="xref py py-mod docutils literal notranslate"><span class="pre">asyncio`를</span> <span class="pre">지원하기</span> <span class="pre">위함인데,</span> <span class="pre">더</span> <span class="pre">자세하게</span> <span class="pre">말하면,</span> <span class="pre">:issue:`통신,</span> <span class="pre">응답</span> <span class="pre">관련</span> <span class="pre">문제</span></code> 때문입니다. 다시 말하자면, 결론적으로, ** Python 2.7과 3.3은 더이상 지원을 하지 않는다는 것 입니다.</p>
 <p>아래에 있는 내용은 v0.9.0에서 v0.10.0 사이에 일어난 큰 변화들 입니다.</p>
-<div class="section" id="event-registration">
+<section id="event-registration">
 <h2>이벤트 등록<a class="headerlink" href="#event-registration" title="제목 주소">¶</a></h2>
 <p>이벤트들은 <code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.event`로</span> <span class="pre">먼저</span> <span class="pre">등록이</span> <span class="pre">됩니다.</span> <span class="pre">그</span> <span class="pre">사이에</span> <span class="pre">이것은</span> <span class="pre">여전히</span> <span class="pre">가능합니다</span> <span class="pre">:</span> <span class="pre">이벤트들은</span> <span class="pre">``&#64;asyncio.coroutine`()</span></code> 으로 데코레이팅 되야 합니다.</p>
 <p>이전:</p>
@@ -74,8 +125,8 @@
 </pre></div>
 </div>
 <p>하지만 조심하세요, 그것은 아직도 코루틴이고, 당신의 다른 코루틴 함수들은 반드시 <code class="docutils literal notranslate"><span class="pre">&#64;asyncio.coroutine``로</span> <span class="pre">데코레이팅</span> <span class="pre">되거나</span> <span class="pre">``async</span> <span class="pre">def</span></code> 형식이여야 합니다.</p>
-</div>
-<div class="section" id="event-changes">
+</section>
+<section id="event-changes">
 <h2>이벤트 변화들<a class="headerlink" href="#event-changes" title="제목 주소">¶</a></h2>
 <p>Some events in v0.9.0 were considered pretty useless due to having no separate states. The main
 events that were changed were the <code class="docutils literal notranslate"><span class="pre">_update</span></code> events since previously they had no context on what
@@ -99,8 +150,8 @@ was changed.</p>
 </div>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">on_status</span></code> was removed. If you want its functionality, use <a class="reference internal" href="api.html#discord.on_member_update" title="discord.on_member_update"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_member_update()</span></code></a>.
 See <a class="reference internal" href="api.html#discord-api-events"><span class="std std-ref">Event Reference</span></a> for more information. Other removed events include <code class="docutils literal notranslate"><span class="pre">on_socket_closed</span></code>, <code class="docutils literal notranslate"><span class="pre">on_socket_receive</span></code>, and <code class="docutils literal notranslate"><span class="pre">on_socket_opened</span></code>.</p>
-</div>
-<div class="section" id="coroutines">
+</section>
+<section id="coroutines">
 <h2>Coroutines<a class="headerlink" href="#coroutines" title="제목 주소">¶</a></h2>
 <p>The biggest change that the library went through is that almost every function in <a class="reference internal" href="api.html#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a>
 was changed to be a <a class="reference external" href="py:library/asyncio-task.html">coroutine</a>. Functions
@@ -119,8 +170,8 @@ for the computation to be done. For example…</p>
 </div>
 <p>In order for you to <code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code> or <code class="docutils literal notranslate"><span class="pre">await</span></code> a coroutine then your function must be decorated
 with <code class="docutils literal notranslate"><span class="pre">&#64;asyncio.coroutine</span></code> or <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">def</span></code>.</p>
-</div>
-<div class="section" id="iterables">
+</section>
+<section id="iterables">
 <h2>Iterables<a class="headerlink" href="#iterables" title="제목 주소">¶</a></h2>
 <p>For performance reasons, many of the internal data structures were changed into a dictionary to support faster
 lookup. As a consequence, this meant that some lists that were exposed via the API have changed into iterables
@@ -149,8 +200,8 @@ In order to get the old behaviour you should explicitly cast it to a list.</p>
 <p>Due to internal changes of the structure, the order you receive the data in
 is not in a guaranteed order.</p>
 </div>
-</div>
-<div class="section" id="enumerations">
+</section>
+<section id="enumerations">
 <h2>Enumerations<a class="headerlink" href="#enumerations" title="제목 주소">¶</a></h2>
 <p>Due to dropping support for versions lower than Python 3.4.2, the library can now use
 <a class="reference external" href="https://docs.python.org/ko/3/library/enum.html" title="(in Python v3.9)"><span>enum — Support for enumerations</span></a> in places where it makes sense.</p>
@@ -169,13 +220,13 @@ is not in a guaranteed order.</p>
 </div>
 <p>The main reason for this change was to reduce the use of finicky strings in the API as this
 could give users a false sense of power. More information can be found in the <a class="reference internal" href="api.html#discord-api-enums"><span class="std std-ref">Enumerations</span></a> page.</p>
-</div>
-<div class="section" id="properties">
+</section>
+<section id="properties">
 <h2>Properties<a class="headerlink" href="#properties" title="제목 주소">¶</a></h2>
 <p>A lot of function calls that returned constant values were changed into Python properties for ease of use
 in format strings.</p>
 <p>The following functions were changed into properties:</p>
-<table class="docutils align-default">
+<div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
 <col style="width: 51%" />
 <col style="width: 49%" />
@@ -216,11 +267,11 @@ in format strings.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="member-management">
+</div></section>
+<section id="member-management">
 <h2>Member Management<a class="headerlink" href="#member-management" title="제목 주소">¶</a></h2>
 <p>Functions that involved banning and kicking were changed.</p>
-<table class="docutils align-default">
+<div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
 <col style="width: 55%" />
 <col style="width: 45%" />
@@ -237,11 +288,11 @@ in format strings.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="renamed-functions">
+</div></section>
+<section id="renamed-functions">
 <h2>Renamed Functions<a class="headerlink" href="#renamed-functions" title="제목 주소">¶</a></h2>
 <p>Functions have been renamed.</p>
-<table class="docutils align-default">
+<div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
 <col style="width: 46%" />
 <col style="width: 54%" />
@@ -255,10 +306,10 @@ in format strings.</p>
 </tr>
 </tbody>
 </table>
-<p>All the <a class="reference internal" href="api.html#discord.Permissions" title="discord.Permissions"><code class="xref py py-class docutils literal notranslate"><span class="pre">Permissions</span></code></a> related attributes have been renamed and the <cite>can_</cite> prefix has been
+</div><p>All the <a class="reference internal" href="api.html#discord.Permissions" title="discord.Permissions"><code class="xref py py-class docutils literal notranslate"><span class="pre">Permissions</span></code></a> related attributes have been renamed and the <cite>can_</cite> prefix has been
 dropped. So for example, <code class="docutils literal notranslate"><span class="pre">can_manage_messages</span></code> has become <code class="docutils literal notranslate"><span class="pre">manage_messages</span></code>.</p>
-</div>
-<div class="section" id="forced-keyword-arguments">
+</section>
+<section id="forced-keyword-arguments">
 <h2>Forced Keyword Arguments<a class="headerlink" href="#forced-keyword-arguments" title="제목 주소">¶</a></h2>
 <p>Since 3.0+ of Python, we can now force questions to take in forced keyword arguments. A keyword argument is when you
 explicitly specify the name of the variable and assign to it, for example: <code class="docutils literal notranslate"><span class="pre">foo(name='test')</span></code>. Due to this support,
@@ -292,8 +343,8 @@ knowing the argument order and the issues that could arise from them.</p>
 </ul>
 <p>In the documentation you can tell if a function parameter is a forced keyword argument if it is after <code class="docutils literal notranslate"><span class="pre">\*,</span></code>
 in the function signature.</p>
-</div>
-<div class="section" id="running-the-client">
+</section>
+<section id="running-the-client">
 <span id="migrating-running"></span><h2>Running the Client<a class="headerlink" href="#running-the-client" title="제목 주소">¶</a></h2>
 <p>In earlier versions of discord.py, <code class="docutils literal notranslate"><span class="pre">client.run()</span></code> was a blocking call to the main thread
 that called it. In v0.10.0 it is still a blocking call but it handles the event loop for you.
@@ -336,51 +387,59 @@ event loop then doing so is quite straightforward:</p>
     <span class="n">loop</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">목차</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">v0.10.0으로 이동</a><ul>
-<li><a class="reference internal" href="#event-registration">이벤트 등록</a></li>
-<li><a class="reference internal" href="#event-changes">이벤트 변화들</a></li>
-<li><a class="reference internal" href="#coroutines">Coroutines</a></li>
-<li><a class="reference internal" href="#iterables">Iterables</a></li>
-<li><a class="reference internal" href="#enumerations">Enumerations</a></li>
-<li><a class="reference internal" href="#properties">Properties</a></li>
-<li><a class="reference internal" href="#member-management">Member Management</a></li>
-<li><a class="reference internal" href="#renamed-functions">Renamed Functions</a></li>
-<li><a class="reference internal" href="#forced-keyword-arguments">Forced Keyword Arguments</a></li>
-<li><a class="reference internal" href="#running-the-client">Running the Client</a></li>
-</ul>
-</li>
-</ul>
-<!-- purposefully empty -->
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">빠른 검색</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="이동" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-  <div class="footer">
-    &copy; Copyright 2015-2020, Rapptz.
-    <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 버전으로 생성되었습니다.
+    </main>
+    <footer class="grid-item">
+        &#169; Copyright 2015-2020, Rapptz.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </footer>
   </div>
-  
-  </body>
+
+  <div id="settings" class="modal" onclick="if (event.target == this){ settingsModal.close(); }" hidden>
+    <div class="modal-content">
+      <span class="close" onclick="settingsModal.close();" title="Close">
+        <span class="material-icons">close</span>
+      </span>
+      <h1>Settings</h1>
+
+      <h2>Font</h2>
+      <div class="setting">
+        <h3>Use a serif font:
+          <label class="toggle"
+            title="Use a serif font? Your system font will be used, falling back to serif.">
+            <input type="checkbox" name="useSerifFont" onclick="updateSetting(this);">
+            <span class="toggle-slider"></span>
+          </label>
+        </h3>
+      </div>
+
+      <h2>Theme</h2>
+      <div class="setting">
+        <h3>
+          <label class="toggle" title="Set your theme based on your system preferences">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="automatic" checked>
+          </label>
+          Automatic
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to light theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="light">
+          </label>
+          Light
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to dark theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="dark">
+          </label>
+          Dark
+        </h3>
+      </div>
+
+    </div>
+  </div>
+
+</body>
 </html>

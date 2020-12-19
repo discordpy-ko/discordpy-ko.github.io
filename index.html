@@ -1,55 +1,95 @@
-
 <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>discord.py에 오신 것을 환영합니다</title> 
+  <!-- end extra head -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="_static/codeblocks.css" type="text/css" />
+  <link rel="stylesheet" href="_static/icons.css" type="text/css" />
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  <script src="_static/jquery.js"></script>
+  <script src="_static/underscore.js"></script>
+  <script src="_static/doctools.js"></script>
+  <script src="_static/language_data.js"></script>
+  <script src="_static/custom.js"></script>
+  <script src="_static/settings.js"></script>
+  <script src="_static/copy.js"></script>
+  <script src="_static/sidebar.js"></script>
+  <script src="_static/translations.js"></script>
+  <link rel="shortcut icon" href="_static/discord_py_logo.ico"/>
+  <link rel="index" title="색인" href="genindex.html" />
+  <link rel="search" title="검색" href="search.html" />
+  <link rel="next" title="discord.ext.commands – Bot commands 프레임워크" href="ext/commands/index.html" />
+</head>
+<body>
+  <div class="main-grid">
+    <header class="grid-item">
+      <nav>
+        <a href="#" class="main-heading">discord.py</a>
+        <a href="https://github.com/Rapptz/discord.py" title="GitHub"><span class="material-icons custom-icons">github</span></a>
+        <a href="https://discord.gg/YbfbxpX" title="Discord"><span class="material-icons custom-icons">discord</span></a>
+        <a href="faq.html" title="FAQ"><span class="material-icons">help_center</span></a>
+        <a onclick="mobileSearch.open();" title="검색" id="open-search" class="mobile-only"><span class="material-icons">search</span></a>
+        <a onclick="mobileSearch.close();" title="Close" id="close-search" class="mobile-only" hidden><span class="material-icons">close</span></a>
+      </nav>
+      <nav class="mobile-only">
+        <form role="search" class="search" action="search.html" method="get">
+          <div class="search-wrapper">
+            <input type="search" name="q" placeholder="Search documentation" />
+            <button type="submit">
+              <span class="material-icons">search</span>
+            </button>
+          </div>
+        </form>
+      </nav>
+    </header>
+    <div class="sub-header grid-item">
+      <label for="documentation_select">View Documentation For</label>
+      <select id="documentation_select" onchange="window.location = this.value;">
+        <option value="#" selected>discord</option>
+        <option value="ext/commands/index.html" >discord.ext.commands</option>
+        <option value="ext/tasks/index.html" >discord.ext.tasks</option>
+      </select>
+      <form role="search" class="search" action="search.html" method="get">
+        <div class="search-wrapper">
+          <input type="search" name="q" placeholder="Search documentation" />
+          <button type="submit">
+            <span class="material-icons">search</span>
+          </button>
+        </div>
+      </form>
+      <a accesskey="S" class="settings" onclick="settingsModal.open();"><span class="material-icons">settings</span></a>
+    </div>
+    <aside class="grid-item">
+      <span id="hamburger-toggle">
+        <span class="material-icons">menu</span>
+      </span>
+      <span id="settings-toggle" class="settings" onclick="settingsModal.open();">
+        <span class="material-icons">settings</span>
+      </span>
+      <div id="sidebar">
+  <h3><a href="#">목차</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">discord.py에 오신 것을 환영합니다</a><ul>
+<li><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li><a class="reference internal" href="#getting-help">Getting help</a></li>
+<li><a class="reference internal" href="#extensions">확장</a></li>
+<li><a class="reference internal" href="#manuals">Manuals</a></li>
+<li><a class="reference internal" href="#meta">Meta</a></li>
+</ul>
+</li>
+</ul>
 
-<html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>discord.py에 오신 것을 환영합니다 &#8212; discord.py 1.5.1 문서</title>
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
-    <script src="_static/custom.js"></script>
-    <script src="_static/translations.js"></script>
-    <link rel="index" title="색인" href="genindex.html" />
-    <link rel="search" title="검색" href="search.html" />
-    <link rel="next" title="소개" href="intro.html" />
-   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
-
-  </head><body>
-  
-  
-  <div class="indexwrapper">
-  
-
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>탐색</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="전체 색인"
-             accesskey="I">색인</a></li>
-        <li class="right" >
-          <a href="intro.html" title="소개"
-             accesskey="N">다음</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">discord.py 1.5.1 문서</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">discord.py에 오신 것을 환영합니다</a></li> 
-      </ul>
-    </div>  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="welcome-to-discord-py">
+      </div>
+    </aside>
+    <main class="grid-item">
+      
+  <section id="welcome-to-discord-py">
 <h1>discord.py에 오신 것을 환영합니다<a class="headerlink" href="#welcome-to-discord-py" title="제목 주소">¶</a></h1>
-<img alt="_images/snake.png" src="_images/snake.png" />
-<p>discord.py는 현대적이고, 사용하기 쉽고, 많은 기능을 담고 있고, 비동기가 준비된 디스코드를 위한 API 래퍼입니다.</p>
+<img alt="_images/snake.svg" src="_images/snake.svg" /><img alt="_images/snake_dark.svg" src="_images/snake_dark.svg" /><p>discord.py는 현대적이고, 사용하기 쉽고, 많은 기능을 담고 있고, 비동기가 준비된 디스코드를 위한 API 래퍼입니다.</p>
 <p><strong>기능들:</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">async</span></code>/<code class="docutils literal notranslate"><span class="pre">await</span></code> 구문을 사용한 최신의 Python스러운 API</p></li>
@@ -59,216 +99,110 @@
 <li><p>객체 지향 설계로 간편한 사용</p></li>
 <li><p>속도와 메모리에 전부 최적화 됨</p></li>
 </ul>
-<div class="section" id="documentation-contents">
-<h2>문서 내용<a class="headerlink" href="#documentation-contents" title="제목 주소">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="intro.html">소개</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="intro.html#prerequisites">요구 조건</a></li>
-<li class="toctree-l2"><a class="reference internal" href="intro.html#installing">설치</a></li>
-<li class="toctree-l2"><a class="reference internal" href="intro.html#basic-concepts">기본 개념</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">빠른 시작</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#a-minimal-bot">최소한의 봇</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="migrating.html">1.0 버전으로 이전하기</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#python-version-change">파이썬의 버전 변화</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#major-model-changes">주요 모델 변화</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#sending-messages">Sending Messages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#asynchronous-iterators">Asynchronous Iterators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#event-changes">Event Changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#voice-changes">Voice Changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#waiting-for-events">Waiting For Events</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#upgraded-dependencies">Upgraded Dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#sharding">Sharding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#connection-improvements">Connection Improvements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating.html#command-extension-changes">Command Extension Changes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="logging.html">로깅 설정</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API 레퍼런스</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api.html#version-related-info">버전과 관련된 정보</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#client">클라이언트</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#voice">Voice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#event-reference">Event Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#utility-functions">Utility Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#profile">Profile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#enumerations">Enumerations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#async-iterator">Async Iterator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#audit-log-data">Audit Log Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#webhook-support">Webhook Support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#abstract-base-classes">Abstract Base Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#discord-models">디스코드 모델</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#data-classes">Data Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#exceptions">Exceptions</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div class="section" id="extensions">
-<h2>확장<a class="headerlink" href="#extensions" title="제목 주소">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ext/commands/index.html"><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code> – Bot commands 프레임워크</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ext/commands/commands.html">명령어</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/commands.html#parameters">매개변수</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/commands.html#invocation-context">Invocation Context</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/commands.html#converters">Converters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/commands.html#error-handling">에러 다루기</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/commands.html#checks">체크</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ext/commands/cogs.html">Cogs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/cogs.html#quick-example">간단한 예제</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/cogs.html#cog-registration">Cog 등록</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/cogs.html#using-cogs">Cogs 사용하기</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/cogs.html#special-methods">특별한 메소드</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/cogs.html#meta-options">메타 옵션</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/cogs.html#inspection">검사</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ext/commands/extensions.html">확장</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/extensions.html#primer">기초</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/extensions.html#reloading">리로딩</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/extensions.html#cleaning-up">확장 정리하기</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ext/commands/api.html">API Reference</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/api.html#bot">봇</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/api.html#event-reference">Event Reference</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/api.html#command">Command</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/api.html#cogs">Cogs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/api.html#help-commands">Help Commands</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/api.html#enums">Enums</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/api.html#checks">Checks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/api.html#context">컨텍스트</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/api.html#converters">Converters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ext/commands/api.html#exceptions">Exceptions</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ext/tasks/index.html"><code class="docutils literal notranslate"><span class="pre">discord.ext.tasks</span></code> – asyncio.Task 헬퍼</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ext/tasks/index.html#recipes">레시피</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ext/tasks/index.html#api-reference">API 레퍼런스</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div class="section" id="additional-information">
-<h2>추가 정보<a class="headerlink" href="#additional-information" title="제목 주소">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="discord.html">봇 계정 생성</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="discord.html#inviting-your-bot">봇 초대</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="intents.html">게이트웨이 인텐트의 시작</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="intents.html#what-intents-are-needed">어떤 인텐트가 필요한가요?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="intents.html#privileged-intents">Privileged Intent(제한된 인텐트)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="intents.html#member-cache">Member Cache</a></li>
-<li class="toctree-l2"><a class="reference internal" href="intents.html#retrieving-members">Retrieving Members</a></li>
-<li class="toctree-l2"><a class="reference internal" href="intents.html#troubleshooting">Troubleshooting</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">자주 묻는 질문</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#coroutines">코루틴</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#general">일반</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#commands-extension">명령어 확장</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="whats_new.html">바뀐 것에 대한 기록</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-5-1">v1.5.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-5-0">v1.5.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-4-2">v1.4.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-4-1">v1.4.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-4-0">v1.4.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-3-4">v1.3.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-3-3">v1.3.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-3-2">v1.3.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-3-1">v1.3.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-3-0">v1.3.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-2-5">v1.2.5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-2-4">v1.2.4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-2-3">v1.2.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-2-2">v1.2.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-2-1">v1.2.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-2-0">v1.2.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-1-1">v1.1.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-1-0">v1.1.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-0-1">v1.0.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v1-0-0">v1.0.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v0-16-6">v0.16.6</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v0-16-1">v0.16.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v0-16-0">v0.16.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v0-15-1">v0.15.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v0-15-0">v0.15.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v0-14-3">v0.14.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v0-14-2">v0.14.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v0-14-1">v0.14.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v0-14-0">v0.14.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v0-13-0">v0.13.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v0-12-0">v0.12.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v0-11-0">v0.11.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new.html#v0-10-0">v0.10.0</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="version_guarantees.html">버전 개런티</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="version_guarantees.html#examples-of-breaking-changes">큰 변화의 예</a></li>
-<li class="toctree-l2"><a class="reference internal" href="version_guarantees.html#examples-of-non-breaking-changes">큰 변화가 아닌 것의 예</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<p>찾으시는 내용이 없다면, 아래의 페이지에서 시도해보세요:</p>
+<section id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="제목 주소">¶</a></h2>
+<p>Is this your first time using the library? This is the place to get started!</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">색인</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">검색 페이지</span></a></p></li>
+<li><p><strong>First steps:</strong> <a class="reference internal" href="intro.html"><span class="doc">소개</span></a> | <a class="reference internal" href="quickstart.html"><span class="doc">빠른 시작</span></a> | <a class="reference internal" href="logging.html"><span class="doc">로깅 설정</span></a></p></li>
+<li><p><strong>Working with Discord:</strong> <a class="reference internal" href="discord.html"><span class="doc">봇 계정 생성</span></a> | <a class="reference internal" href="intents.html"><span class="doc">게이트웨이 인텐트의 시작</span></a></p></li>
+<li><p><strong>Examples:</strong> Many examples are available in the <a class="reference external" href="https://github.com/Rapptz/discord.py/tree/master/examples">repository</a>.</p></li>
+</ul>
+</section>
+<section id="getting-help">
+<h2>Getting help<a class="headerlink" href="#getting-help" title="제목 주소">¶</a></h2>
+<p>If you’re having trouble with something, these resources might help.</p>
+<ul class="simple">
+<li><p>Try the <a class="reference internal" href="faq.html"><span class="doc">자주 묻는 질문</span></a> first, it’s got answers to all common questions.</p></li>
+<li><p>Ask us and hang out with us in our <a class="reference external" href="https://discord.gg/YbfbxpXJ">Discord</a> server.</p></li>
+<li><p>If you’re looking for something specific, try the <a class="reference internal" href="genindex.html"><span class="std std-ref">index</span></a> or <a class="reference internal" href="search.html"><span class="std std-ref">searching</span></a>.</p></li>
+<li><p>Report bugs in the <a class="reference external" href="https://github.com/Rapptz/discord.py/issues">issue tracker</a>.</p></li>
+<li><p>Ask in our <a class="reference external" href="https://github.com/Rapptz/discord.py/discussions">GitHub discussions page</a>.</p></li>
+</ul>
+</section>
+<section id="extensions">
+<h2>확장<a class="headerlink" href="#extensions" title="제목 주소">¶</a></h2>
+<p>These extensions help you during development when it comes to common tasks.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ext/commands/index.html"><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code> – Bot commands 프레임워크</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ext/tasks/index.html"><code class="docutils literal notranslate"><span class="pre">discord.ext.tasks</span></code> – asyncio.Task 헬퍼</a></li>
 </ul>
 </div>
+</section>
+<section id="manuals">
+<h2>Manuals<a class="headerlink" href="#manuals" title="제목 주소">¶</a></h2>
+<p>These pages go into great detail about everything the API can do.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API 레퍼런스</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ext/commands/api.html">discord.ext.commands API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ext/tasks/index.html">discord.ext.tasks API Reference</a></li>
+</ul>
 </div>
+</section>
+<section id="meta">
+<h2>Meta<a class="headerlink" href="#meta" title="제목 주소">¶</a></h2>
+<p>If you’re looking for something related to the project itself, it’s here.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="whats_new.html">바뀐 것에 대한 기록</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version_guarantees.html">버전 개런티</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrating.html">1.0 버전으로 이전하기</a></li>
+</ul>
+</div>
+</section>
+</section>
 
 
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="#">목차</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">discord.py에 오신 것을 환영합니다</a><ul>
-<li><a class="reference internal" href="#documentation-contents">문서 내용</a></li>
-<li><a class="reference internal" href="#extensions">확장</a></li>
-<li><a class="reference internal" href="#additional-information">추가 정보</a></li>
-</ul>
-</li>
-</ul>
-<!-- purposefully empty -->
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">빠른 검색</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="이동" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-  <div class="footer">
-    &copy; Copyright 2015-2020, Rapptz.
-    <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 버전으로 생성되었습니다.
+    </main>
+    <footer class="grid-item">
+        &#169; Copyright 2015-2020, Rapptz.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </footer>
   </div>
-  
+
+  <div id="settings" class="modal" onclick="if (event.target == this){ settingsModal.close(); }" hidden>
+    <div class="modal-content">
+      <span class="close" onclick="settingsModal.close();" title="Close">
+        <span class="material-icons">close</span>
+      </span>
+      <h1>Settings</h1>
+
+      <h2>Font</h2>
+      <div class="setting">
+        <h3>Use a serif font:
+          <label class="toggle"
+            title="Use a serif font? Your system font will be used, falling back to serif.">
+            <input type="checkbox" name="useSerifFont" onclick="updateSetting(this);">
+            <span class="toggle-slider"></span>
+          </label>
+        </h3>
+      </div>
+
+      <h2>Theme</h2>
+      <div class="setting">
+        <h3>
+          <label class="toggle" title="Set your theme based on your system preferences">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="automatic" checked>
+          </label>
+          Automatic
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to light theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="light">
+          </label>
+          Light
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to dark theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="dark">
+          </label>
+          Dark
+        </h3>
+      </div>
+
+    </div>
   </div>
-  
-  </body>
+
+</body>
 </html>

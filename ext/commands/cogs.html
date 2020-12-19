@@ -1,55 +1,95 @@
-
 <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cogs</title> 
+  <!-- end extra head -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/codeblocks.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/icons.css" type="text/css" />
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+  <script src="../../_static/jquery.js"></script>
+  <script src="../../_static/underscore.js"></script>
+  <script src="../../_static/doctools.js"></script>
+  <script src="../../_static/language_data.js"></script>
+  <script src="../../_static/custom.js"></script>
+  <script src="../../_static/settings.js"></script>
+  <script src="../../_static/copy.js"></script>
+  <script src="../../_static/sidebar.js"></script>
+  <script src="../../_static/translations.js"></script>
+  <link rel="shortcut icon" href="../../_static/discord_py_logo.ico"/>
+  <link rel="index" title="색인" href="../../genindex.html" />
+  <link rel="search" title="검색" href="../../search.html" />
+  <link rel="next" title="확장" href="extensions.html" />
+  <link rel="prev" title="명령어" href="commands.html" />
+</head>
+<body>
+  <div class="main-grid">
+    <header class="grid-item">
+      <nav>
+        <a href="../../index.html" class="main-heading">discord.py</a>
+        <a href="https://github.com/Rapptz/discord.py" title="GitHub"><span class="material-icons custom-icons">github</span></a>
+        <a href="https://discord.gg/YbfbxpX" title="Discord"><span class="material-icons custom-icons">discord</span></a>
+        <a href="../../faq.html" title="FAQ"><span class="material-icons">help_center</span></a>
+        <a onclick="mobileSearch.open();" title="검색" id="open-search" class="mobile-only"><span class="material-icons">search</span></a>
+        <a onclick="mobileSearch.close();" title="Close" id="close-search" class="mobile-only" hidden><span class="material-icons">close</span></a>
+      </nav>
+      <nav class="mobile-only">
+        <form role="search" class="search" action="search.html" method="get">
+          <div class="search-wrapper">
+            <input type="search" name="q" placeholder="Search documentation" />
+            <button type="submit">
+              <span class="material-icons">search</span>
+            </button>
+          </div>
+        </form>
+      </nav>
+    </header>
+    <div class="sub-header grid-item">
+      <label for="documentation_select">View Documentation For</label>
+      <select id="documentation_select" onchange="window.location = this.value;">
+        <option value="../../index.html">discord</option>
+        <option value="index.html" selected>discord.ext.commands</option>
+        <option value="../tasks/index.html" >discord.ext.tasks</option>
+      </select>
+      <form role="search" class="search" action="search.html" method="get">
+        <div class="search-wrapper">
+          <input type="search" name="q" placeholder="Search documentation" />
+          <button type="submit">
+            <span class="material-icons">search</span>
+          </button>
+        </div>
+      </form>
+      <a accesskey="S" class="settings" onclick="settingsModal.open();"><span class="material-icons">settings</span></a>
+    </div>
+    <aside class="grid-item">
+      <span id="hamburger-toggle">
+        <span class="material-icons">menu</span>
+      </span>
+      <span id="settings-toggle" class="settings" onclick="settingsModal.open();">
+        <span class="material-icons">settings</span>
+      </span>
+      <div id="sidebar">
+  <h3><a href="../../index.html">목차</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Cogs</a><ul>
+<li><a class="reference internal" href="#quick-example">간단한 예제</a></li>
+<li><a class="reference internal" href="#cog-registration">Cog 등록</a></li>
+<li><a class="reference internal" href="#using-cogs">Cogs 사용하기</a></li>
+<li><a class="reference internal" href="#special-methods">특별한 메소드</a></li>
+<li><a class="reference internal" href="#meta-options">메타 옵션</a></li>
+<li><a class="reference internal" href="#inspection">검사</a></li>
+</ul>
+</li>
+</ul>
 
-<html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cogs &#8212; discord.py 1.5.1 문서</title>
-    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
-    <script src="../../_static/custom.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <link rel="index" title="색인" href="../../genindex.html" />
-    <link rel="search" title="검색" href="../../search.html" />
-    <link rel="next" title="확장" href="extensions.html" />
-    <link rel="prev" title="명령어" href="commands.html" />
-   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
-
-  </head><body>
-  
-  
-
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>탐색</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="전체 색인"
-             accesskey="I">색인</a></li>
-        <li class="right" >
-          <a href="extensions.html" title="확장"
-             accesskey="N">다음</a> |</li>
-        <li class="right" >
-          <a href="commands.html" title="명령어"
-             accesskey="P">이전</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">discord.py 1.5.1 문서</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code> – Bot commands 프레임워크</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Cogs</a></li> 
-      </ul>
-    </div>  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="cogs">
+      </div>
+    </aside>
+    <main class="grid-item">
+      
+  <section id="cogs">
 <span id="ext-commands-cogs"></span><h1>Cogs<a class="headerlink" href="#cogs" title="제목 주소">¶</a></h1>
 <p>봇의 개발 중 명령어들의 모음, 리스너, 그리고 몇몇 state들을 한 클래스에 조직화하고 싶을 때가 옵니다. Cogs는 그것을 할 수 있게 해줍니다.</p>
 <p>요점:</p>
@@ -61,7 +101,7 @@
 <li><p>Cogs는 <a class="reference internal" href="api.html#discord.ext.commands.Bot.remove_cog" title="discord.ext.commands.Bot.remove_cog"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Bot.remove_cog()</span></code></a> 호출로 제거됩니다.</p></li>
 </ul>
 <p>일반적으로 cogs가 <a class="reference internal" href="extensions.html#ext-commands-extensions"><span class="std std-ref">확장</span></a> 와 함께 사용된다는 점을 참고해야 합니다.</p>
-<div class="section" id="quick-example">
+<section id="quick-example">
 <h2>간단한 예제<a class="headerlink" href="#quick-example" title="제목 주소">¶</a></h2>
 <p>이 예제는 당신의 커맨드에 <code class="docutils literal notranslate"><span class="pre">hello</span></code> 라는 이름의 단일 <a class="reference internal" href="commands.html#ext-commands-commands"><span class="std std-ref">command</span></a> 와 <a class="reference internal" href="../../api.html#discord-api-events"><span class="std std-ref">Event</span></a> 를 감지하기 위한 리스너와 함께 <code class="docutils literal notranslate"><span class="pre">Greetings</span></code> 카테고리를 정의합니다.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Greetings</span><span class="p">(</span><span class="n">commands</span><span class="o">.</span><span class="n">Cog</span><span class="p">):</span>
@@ -92,8 +132,8 @@
 <li><p>Cog의 이름은 자동적으로 클래스 이름에서 불러오지만, 덮어씌워질 수 있습니다. <a class="reference internal" href="#ext-commands-cogs-meta-options"><span class="std std-ref">메타 옵션</span></a> 를 참고하세요.</p></li>
 <li><p>모든 명령어들은 이제 상태를 유지하는데 사용될 수 있는 인스턴스 속성들을 사용할 수 있게 <code class="docutils literal notranslate"><span class="pre">self</span></code> 파라미터를 사용해야 합니디.</p></li>
 </ul>
-</div>
-<div class="section" id="cog-registration">
+</section>
+<section id="cog-registration">
 <h2>Cog 등록<a class="headerlink" href="#cog-registration" title="제목 주소">¶</a></h2>
 <p>일단 cogs를 정의했다면, 당신은 cogs를 사용하기 위해 봇에게 등록하라고 해야 합니다.  우리는 이것을 <a class="reference internal" href="api.html#discord.ext.commands.Bot.add_cog" title="discord.ext.commands.Bot.add_cog"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_cog()</span></code></a> 메소드를 통해 수행합니다.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">bot</span><span class="o">.</span><span class="n">add_cog</span><span class="p">(</span><span class="n">Greetings</span><span class="p">(</span><span class="n">bot</span><span class="p">))</span>
@@ -104,8 +144,8 @@
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">bot</span><span class="o">.</span><span class="n">remove_cog</span><span class="p">(</span><span class="s1">&#39;Greetings&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-cogs">
+</section>
+<section id="using-cogs">
 <h2>Cogs 사용하기<a class="headerlink" href="#using-cogs" title="제목 주소">¶</a></h2>
 <p>방금 우리가 cog를 이름으로 제거했듯이, 우린 그것을 이름으로도 검색할 수 있습니다. 이는 우리가 cog를 데이터를 공유하기 위한 명령어 내부의 프로토콜로 사용할 수 있게 합니다. 예를 들어:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Economy</span><span class="p">(</span><span class="n">commands</span><span class="o">.</span><span class="n">Cog</span><span class="p">):</span>
@@ -136,8 +176,8 @@
                 <span class="k">await</span> <span class="n">economy</span><span class="o">.</span><span class="n">deposit_money</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">author</span><span class="p">,</span> <span class="n">money</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="special-methods">
+</section>
+<section id="special-methods">
 <span id="ext-commands-cogs-special-methods"></span><h2>특별한 메소드<a class="headerlink" href="#special-methods" title="제목 주소">¶</a></h2>
 <p>Cogs가 점점 복잡해지고 많은 명령어를 가지면서, cog 또는 봇을 통째로 커스터마이즈 하고 싶을 때가 찾아옵니다.</p>
 <p>이는 다음과 같습니다:</p>
@@ -151,8 +191,8 @@
 <li><p><a class="reference internal" href="api.html#discord.ext.commands.Cog.bot_check_once" title="discord.ext.commands.Cog.bot_check_once"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cog.bot_check_once()</span></code></a></p></li>
 </ul>
 <p>레퍼런스를 방문해 더 자세한 정보를 찾아볼 수 있습니다.</p>
-</div>
-<div class="section" id="meta-options">
+</section>
+<section id="meta-options">
 <span id="ext-commands-cogs-meta-options"></span><h2>메타 옵션<a class="headerlink" href="#meta-options" title="제목 주소">¶</a></h2>
 <p>Cog의 중심에는 다양한 옵션들과 몇몇 행동을 커스터마이즈 할 수 있는 메타클래스 <a class="reference internal" href="api.html#discord.ext.commands.CogMeta" title="discord.ext.commands.CogMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">commands.CogMeta</span></code></a> 가 있습니다. 이를 수행하기 위해서, 키워드 인자들을 클래스 정의 줄에 전달하세요. 예를 들어, cog의 이름을 바꾸기 위해서는 <code class="docutils literal notranslate"><span class="pre">name</span></code> 키워드 매개변수를 다음과 같이 전달합니다:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyCog</span><span class="p">(</span><span class="n">commands</span><span class="o">.</span><span class="n">Cog</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;My Cog&#39;</span><span class="p">):</span>
@@ -160,8 +200,8 @@
 </pre></div>
 </div>
 <p>설정할 수 있는 더 많은 옵션을 보시려면, 문서의 <a class="reference internal" href="api.html#discord.ext.commands.CogMeta" title="discord.ext.commands.CogMeta"><code class="xref py py-class docutils literal notranslate"><span class="pre">commands.CogMeta</span></code></a> 를 참고해주세요.</p>
-</div>
-<div class="section" id="inspection">
+</section>
+<section id="inspection">
 <h2>검사<a class="headerlink" href="#inspection" title="제목 주소">¶</a></h2>
 <p>Cogs가 궁극적으로 클래스이기 때문에, 우리는 cog의 특정한 속성들을 검사하는데 도움을 주는 몇 가지 도구를 가지고 있습니다.</p>
 <p>커맨드들의 <a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> 를 얻기 위해, <a class="reference internal" href="api.html#discord.ext.commands.Cog.get_commands" title="discord.ext.commands.Cog.get_commands"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cog.get_commands()</span></code></a> 를 사용할 수 있습니다.</p>
@@ -179,47 +219,59 @@
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">목차</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Cogs</a><ul>
-<li><a class="reference internal" href="#quick-example">간단한 예제</a></li>
-<li><a class="reference internal" href="#cog-registration">Cog 등록</a></li>
-<li><a class="reference internal" href="#using-cogs">Cogs 사용하기</a></li>
-<li><a class="reference internal" href="#special-methods">특별한 메소드</a></li>
-<li><a class="reference internal" href="#meta-options">메타 옵션</a></li>
-<li><a class="reference internal" href="#inspection">검사</a></li>
-</ul>
-</li>
-</ul>
-<!-- purposefully empty -->
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">빠른 검색</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="이동" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-  <div class="footer">
-    &copy; Copyright 2015-2020, Rapptz.
-    <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 버전으로 생성되었습니다.
+    </main>
+    <footer class="grid-item">
+        &#169; Copyright 2015-2020, Rapptz.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </footer>
   </div>
-  
-  </body>
+
+  <div id="settings" class="modal" onclick="if (event.target == this){ settingsModal.close(); }" hidden>
+    <div class="modal-content">
+      <span class="close" onclick="settingsModal.close();" title="Close">
+        <span class="material-icons">close</span>
+      </span>
+      <h1>Settings</h1>
+
+      <h2>Font</h2>
+      <div class="setting">
+        <h3>Use a serif font:
+          <label class="toggle"
+            title="Use a serif font? Your system font will be used, falling back to serif.">
+            <input type="checkbox" name="useSerifFont" onclick="updateSetting(this);">
+            <span class="toggle-slider"></span>
+          </label>
+        </h3>
+      </div>
+
+      <h2>Theme</h2>
+      <div class="setting">
+        <h3>
+          <label class="toggle" title="Set your theme based on your system preferences">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="automatic" checked>
+          </label>
+          Automatic
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to light theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="light">
+          </label>
+          Light
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to dark theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="dark">
+          </label>
+          Dark
+        </h3>
+      </div>
+
+    </div>
+  </div>
+
+</body>
 </html>

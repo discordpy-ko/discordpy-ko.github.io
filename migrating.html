@@ -1,66 +1,136 @@
-
 <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.0 버전으로 이전하기</title> 
+  <!-- end extra head -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="_static/codeblocks.css" type="text/css" />
+  <link rel="stylesheet" href="_static/icons.css" type="text/css" />
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  <script src="_static/jquery.js"></script>
+  <script src="_static/underscore.js"></script>
+  <script src="_static/doctools.js"></script>
+  <script src="_static/language_data.js"></script>
+  <script src="_static/custom.js"></script>
+  <script src="_static/settings.js"></script>
+  <script src="_static/copy.js"></script>
+  <script src="_static/sidebar.js"></script>
+  <script src="_static/translations.js"></script>
+  <link rel="shortcut icon" href="_static/discord_py_logo.ico"/>
+  <link rel="index" title="색인" href="genindex.html" />
+  <link rel="search" title="검색" href="search.html" />
+  <link rel="prev" title="버전 개런티" href="version_guarantees.html" />
+</head>
+<body>
+  <div class="main-grid">
+    <header class="grid-item">
+      <nav>
+        <a href="index.html" class="main-heading">discord.py</a>
+        <a href="https://github.com/Rapptz/discord.py" title="GitHub"><span class="material-icons custom-icons">github</span></a>
+        <a href="https://discord.gg/YbfbxpX" title="Discord"><span class="material-icons custom-icons">discord</span></a>
+        <a href="faq.html" title="FAQ"><span class="material-icons">help_center</span></a>
+        <a onclick="mobileSearch.open();" title="검색" id="open-search" class="mobile-only"><span class="material-icons">search</span></a>
+        <a onclick="mobileSearch.close();" title="Close" id="close-search" class="mobile-only" hidden><span class="material-icons">close</span></a>
+      </nav>
+      <nav class="mobile-only">
+        <form role="search" class="search" action="search.html" method="get">
+          <div class="search-wrapper">
+            <input type="search" name="q" placeholder="Search documentation" />
+            <button type="submit">
+              <span class="material-icons">search</span>
+            </button>
+          </div>
+        </form>
+      </nav>
+    </header>
+    <div class="sub-header grid-item">
+      <label for="documentation_select">View Documentation For</label>
+      <select id="documentation_select" onchange="window.location = this.value;">
+        <option value="#" selected>discord</option>
+        <option value="ext/commands/index.html" >discord.ext.commands</option>
+        <option value="ext/tasks/index.html" >discord.ext.tasks</option>
+      </select>
+      <form role="search" class="search" action="search.html" method="get">
+        <div class="search-wrapper">
+          <input type="search" name="q" placeholder="Search documentation" />
+          <button type="submit">
+            <span class="material-icons">search</span>
+          </button>
+        </div>
+      </form>
+      <a accesskey="S" class="settings" onclick="settingsModal.open();"><span class="material-icons">settings</span></a>
+    </div>
+    <aside class="grid-item">
+      <span id="hamburger-toggle">
+        <span class="material-icons">menu</span>
+      </span>
+      <span id="settings-toggle" class="settings" onclick="settingsModal.open();">
+        <span class="material-icons">settings</span>
+      </span>
+      <div id="sidebar">
+  <h3><a href="index.html">목차</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1.0 버전으로 이전하기</a><ul>
+<li><a class="reference internal" href="#python-version-change">파이썬의 버전 변화</a></li>
+<li><a class="reference internal" href="#major-model-changes">주요 모델 변화</a><ul>
+<li><a class="reference internal" href="#snowflakes-are-int">Snowflake는 정수형입니다.</a></li>
+<li><a class="reference internal" href="#server-is-now-guild">Server는 이제 Guild입니다.</a></li>
+<li><a class="reference internal" href="#models-are-stateful">모델들은</a></li>
+<li><a class="reference internal" href="#property-changes">속성 변화</a></li>
+<li><a class="reference internal" href="#dict-value-change">딕셔너리 값 변화</a></li>
+<li><a class="reference internal" href="#voice-state-changes">Voice State Changes</a></li>
+<li><a class="reference internal" href="#user-and-member-type-split">User and Member Type Split</a></li>
+<li><a class="reference internal" href="#channel-type-split">Channel Type Split</a></li>
+<li><a class="reference internal" href="#miscellaneous-model-changes">Miscellaneous Model Changes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sending-messages">Sending Messages</a></li>
+<li><a class="reference internal" href="#asynchronous-iterators">Asynchronous Iterators</a></li>
+<li><a class="reference internal" href="#event-changes">Event Changes</a></li>
+<li><a class="reference internal" href="#voice-changes">Voice Changes</a></li>
+<li><a class="reference internal" href="#waiting-for-events">Waiting For Events</a></li>
+<li><a class="reference internal" href="#upgraded-dependencies">Upgraded Dependencies</a></li>
+<li><a class="reference internal" href="#sharding">Sharding</a></li>
+<li><a class="reference internal" href="#connection-improvements">Connection Improvements</a></li>
+<li><a class="reference internal" href="#command-extension-changes">Command Extension Changes</a><ul>
+<li><a class="reference internal" href="#context-changes">Context Changes</a><ul>
+<li><a class="reference internal" href="#subclassing-context">Subclassing Context</a></li>
+<li><a class="reference internal" href="#removed-helpers">Removed Helpers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#command-changes">Command Changes</a></li>
+<li><a class="reference internal" href="#check-changes">Check Changes</a></li>
+<li><a class="reference internal" href="#id2">Event Changes</a></li>
+<li><a class="reference internal" href="#helpformatter-and-help-command-changes">HelpFormatter and Help Command Changes</a></li>
+<li><a class="reference internal" href="#cog-changes">Cog Changes</a></li>
+<li><a class="reference internal" href="#before-and-after-invocation-hooks">Before and After Invocation Hooks</a></li>
+<li><a class="reference internal" href="#converter-changes">Converter Changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-<html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.0 버전으로 이전하기 &#8212; discord.py 1.5.1 문서</title>
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
-    <script src="_static/custom.js"></script>
-    <script src="_static/translations.js"></script>
-    <link rel="index" title="색인" href="genindex.html" />
-    <link rel="search" title="검색" href="search.html" />
-    <link rel="next" title="로깅 설정" href="logging.html" />
-    <link rel="prev" title="빠른 시작" href="quickstart.html" />
-   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
-
-  </head><body>
-  
-  
-
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>탐색</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="전체 색인"
-             accesskey="I">색인</a></li>
-        <li class="right" >
-          <a href="logging.html" title="로깅 설정"
-             accesskey="N">다음</a> |</li>
-        <li class="right" >
-          <a href="quickstart.html" title="빠른 시작"
-             accesskey="P">이전</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.5.1 문서</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">1.0 버전으로 이전하기</a></li> 
-      </ul>
-    </div>  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="migrating-to-v1-0">
+      </div>
+    </aside>
+    <main class="grid-item">
+      
+  <section id="migrating-to-v1-0">
 <span id="migrating-1-0"></span><h1>1.0 버전으로 이전하기<a class="headerlink" href="#migrating-to-v1-0" title="제목 주소">¶</a></h1>
 <p>1.0 버전은 전체적인 재설계로 인해 구버전과 크게 달라졌습니다.</p>
 <p>모든 의도와 목적들을 위한 변경 점들은 매우 방대하고 기므로,이것은 완전히 새로운 라이브러리가 되었습니다.</p>
 <p>재설계에는 여러 가지 요소들을 더 쉽게, 그리고 더 자연스럽게 만드는 것이 포함됩니다.이러한 작업은 어떤 일을 하기 위해 <a class="reference internal" href="api.html#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a> 의 객체를 요구하는 대신에 <a class="reference internal" href="api.html#discord-api-models"><span class="std std-ref">models</span></a> 위에서 완료됩니다.</p>
-<div class="section" id="python-version-change">
+<section id="python-version-change">
 <h2>파이썬의 버전 변화<a class="headerlink" href="#python-version-change" title="제목 주소">¶</a></h2>
 <p>개발을 더 쉽게 만들기 위해, 그리고 우리가 의존하는 라이브러리들이3.7 이상의 버전들을 지원하는 것을 허락하기 위해 버전을 올리는 것을 허락하기 위해, discord.py는3.5.3 아래의 파이썬 버전들을 지원하지 않기로 했습니다. 이것은 본질적으로 <strong>파이썬 3.4버전을 지원하는 일이 취소되었음</strong> 을 의미합니다.</p>
-</div>
-<div class="section" id="major-model-changes">
+</section>
+<section id="major-model-changes">
 <h2>주요 모델 변화<a class="headerlink" href="#major-model-changes" title="제목 주소">¶</a></h2>
 <p>아래는 1.0 버전에서 발생한 주요 모델들의 변경 점들입니다.</p>
-<div class="section" id="snowflakes-are-int">
+<section id="snowflakes-are-int">
 <h3>Snowflake는 정수형입니다.<a class="headerlink" href="#snowflakes-are-int" title="제목 주소">¶</a></h3>
 <p>1.0 이전 버전에서는, 모든 snowflake들은(<code class="docutils literal notranslate"><span class="pre">id</span></code> 특성) 문자열이었습니다. 이것은 <a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> 로 변경되었습니다.</p>
 <p>간단한 예제입니다:</p>
@@ -76,12 +146,12 @@
 </pre></div>
 </div>
 <p>이 변경 점은 ID를 따옴표로 감싸지 않게 만들어 공식 클라이언트에서 ID를 복사하는 기능을 사용했을 때 발생하는 오류의 수를 줄일 수 있게 합니다.또한, 이 변경 점은 내부적으로 JSON 대신 ETF가 사용될 수 있게 해 최적화를 했습니다.</p>
-</div>
-<div class="section" id="server-is-now-guild">
+</section>
+<section id="server-is-now-guild">
 <h3>Server는 이제 Guild입니다.<a class="headerlink" href="#server-is-now-guild" title="제목 주소">¶</a></h3>
 <p>공식 API 문서는 《Server》의 개념을 《Guild》라고 부릅니다. API 문서와 더욱 일관되게 만들기 위해서, 이 모델은 <a class="reference internal" href="api.html#discord.Guild" title="discord.Guild"><code class="xref py py-class docutils literal notranslate"><span class="pre">Guild</span></code></a> 로 개명되었고 이를 참조하는 모든 객체 또한 변경되었습니다.</p>
 <p>아래는 변경된 항목들입니다.</p>
-<table class="docutils align-default">
+<div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
 <col style="width: 48%" />
 <col style="width: 52%" />
@@ -125,12 +195,12 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="models-are-stateful">
+</div></section>
+<section id="models-are-stateful">
 <span id="migrating-1-0-model-state"></span><h3>모델들은<a class="headerlink" href="#models-are-stateful" title="제목 주소">¶</a></h3>
 <p>이전에 언급했듯이, 많은 기능이 <a class="reference internal" href="api.html#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a> 의 밖으로 이동해 각각의 <a class="reference internal" href="api.html#discord-api-models"><span class="std std-ref">model</span></a>에 포함되었습니다.</p>
 <p>변경된 항목들은 아래에 기재되어 있습니다.</p>
-<table class="docutils align-default">
+<div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 67%" />
@@ -312,8 +382,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="property-changes">
+</div></section>
+<section id="property-changes">
 <h3>속성 변화<a class="headerlink" href="#property-changes" title="제목 주소">¶</a></h3>
 <p>좀 더 일관되게 하려고, 속성으로 제공되던 특정 요소들은 메소드로 교체되었습니다.</p>
 <p>다음과 같은 것들은 이제 속성이 아닌 메소드로 제공됩니다.</p>
@@ -322,8 +392,8 @@
 <li><p><a class="reference internal" href="api.html#discord.Client.is_ready" title="discord.Client.is_ready"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.is_ready()</span></code></a></p></li>
 <li><p><a class="reference internal" href="api.html#discord.Client.is_closed" title="discord.Client.is_closed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.is_closed()</span></code></a></p></li>
 </ul>
-</div>
-<div class="section" id="dict-value-change">
+</section>
+<section id="dict-value-change">
 <h3>딕셔너리 값 변화<a class="headerlink" href="#dict-value-change" title="제목 주소">¶</a></h3>
 <p>1.0 이전 버전에 모델들을 반환하던 총합 속성들은》딕셔너리 뷰》 객체를 반환하곤 했습니다.</p>
 <p>그 결과, 딕셔너리가 당신이 그것을 반복하는 동안 크기를 바꾸면, 런타임에러가 발생해 작업을 충돌시킵니다. 이것을완화하기 위해, 《딕셔너리 뷰》 객체들은 리스트로 변경되었습니다.</p>
@@ -338,8 +408,8 @@
 <li><p><a class="reference internal" href="api.html#discord.Guild.emojis" title="discord.Guild.emojis"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.emojis</span></code></a></p></li>
 <li><p><a class="reference internal" href="api.html#discord.Guild.members" title="discord.Guild.members"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.members</span></code></a></p></li>
 </ul>
-</div>
-<div class="section" id="voice-state-changes">
+</section>
+<section id="voice-state-changes">
 <h3>Voice State Changes<a class="headerlink" href="#voice-state-changes" title="제목 주소">¶</a></h3>
 <p>이전에, 0.11.0버전에서 <a class="reference internal" href="api.html#discord.VoiceState" title="discord.VoiceState"><code class="xref py py-class docutils literal notranslate"><span class="pre">VoiceState</span></code></a> 클래스는 <a class="reference internal" href="api.html#discord.Member.voice" title="discord.Member.voice"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Member.voice</span></code></a> 속성과 함께 음성 상태들을 참조하기 위해 추가되었습니다.</p>
 <p>그러나, 이것은 사용자에게 잘 드러나지 않았습니다. 라이브러리가 메모리를 절약하도록 하기 위해, 음성 상태의 변화는 이제 더 가시적입니다.</p>
@@ -356,8 +426,8 @@ the member does not have a voice state this attribute can be <code class="docuti
     <span class="n">member</span><span class="o">.</span><span class="n">voice</span><span class="o">.</span><span class="n">channel</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="user-and-member-type-split">
+</section>
+<section id="user-and-member-type-split">
 <h3>User and Member Type Split<a class="headerlink" href="#user-and-member-type-split" title="제목 주소">¶</a></h3>
 <p>In v1.0 to save memory, <a class="reference internal" href="api.html#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a> and <a class="reference internal" href="api.html#discord.Member" title="discord.Member"><code class="xref py py-class docutils literal notranslate"><span class="pre">Member</span></code></a> are no longer inherited. Instead, they are 《flattened》
 by having equivalent properties that map out to the functional underlying <a class="reference internal" href="api.html#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>. Thus, there is no functional
@@ -365,8 +435,8 @@ change in how they are used. However this breaks <a class="reference external" h
 <p>These memory savings were accomplished by having a global <a class="reference internal" href="api.html#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a> cache, and as a positive consequence you
 can now easily fetch a <a class="reference internal" href="api.html#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a> by their ID by using the new <a class="reference internal" href="api.html#discord.Client.get_user" title="discord.Client.get_user"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.get_user()</span></code></a>. You can also get a list
 of all <a class="reference internal" href="api.html#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a> your client can see with <a class="reference internal" href="api.html#discord.Client.users" title="discord.Client.users"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Client.users</span></code></a>.</p>
-</div>
-<div class="section" id="channel-type-split">
+</section>
+<section id="channel-type-split">
 <span id="migrating-1-0-channel-split"></span><h3>Channel Type Split<a class="headerlink" href="#channel-type-split" title="제목 주소">¶</a></h3>
 <p>Prior to v1.0, channels were two different types, <code class="docutils literal notranslate"><span class="pre">Channel</span></code> and <code class="docutils literal notranslate"><span class="pre">PrivateChannel</span></code> with a <code class="docutils literal notranslate"><span class="pre">is_private</span></code>
 property to help differentiate between them.</p>
@@ -396,8 +466,8 @@ property to help differentiate between them.</p>
 </pre></div>
 </div>
 <p>With this type split also came event changes, which are enumerated in <a class="reference internal" href="#migrating-1-0-event-changes"><span class="std std-ref">Event Changes</span></a>.</p>
-</div>
-<div class="section" id="miscellaneous-model-changes">
+</section>
+<section id="miscellaneous-model-changes">
 <h3>Miscellaneous Model Changes<a class="headerlink" href="#miscellaneous-model-changes" title="제목 주소">¶</a></h3>
 <p>There were lots of other things added or removed in the models in general.</p>
 <p>They will be enumerated here.</p>
@@ -538,9 +608,9 @@ of what the old <code class="docutils literal notranslate"><span class="pre">Gui
 <li><p><a class="reference internal" href="api.html#discord.Colour.from_rgb" title="discord.Colour.from_rgb"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Colour.from_rgb()</span></code></a> to construct a <a class="reference internal" href="api.html#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a> from RGB tuple.</p></li>
 <li><p><a class="reference internal" href="api.html#discord.Guild.get_role" title="discord.Guild.get_role"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.get_role()</span></code></a> to get a role by its ID.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="sending-messages">
+</section>
+</section>
+<section id="sending-messages">
 <span id="migrating-1-0-sending-messages"></span><h2>Sending Messages<a class="headerlink" href="#sending-messages" title="제목 주소">¶</a></h2>
 <p>One of the changes that were done was the merger of the previous <code class="docutils literal notranslate"><span class="pre">Client.send_message</span></code> and <code class="docutils literal notranslate"><span class="pre">Client.send_file</span></code>
 functionality into a single method, <a class="reference internal" href="api.html#discord.abc.Messageable.send" title="discord.abc.Messageable.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">send()</span></code></a>.</p>
@@ -575,8 +645,8 @@ file attachments, you must now use a <a class="reference internal" href="api.htm
 <span class="k">await</span> <span class="n">channel</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;Your images:&#39;</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">my_files</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="asynchronous-iterators">
+</section>
+<section id="asynchronous-iterators">
 <span id="migrating-1-0-async-iter"></span><h2>Asynchronous Iterators<a class="headerlink" href="#asynchronous-iterators" title="제목 주소">¶</a></h2>
 <p>Prior to v1.0, certain functions like <code class="docutils literal notranslate"><span class="pre">Client.logs_from</span></code> would return a different type if done in Python 3.4 or 3.5+.</p>
 <p>In v1.0, this change has been reverted and will now return a singular type meeting an abstract concept called
@@ -611,8 +681,8 @@ functions.</p>
 <li><p><a class="reference internal" href="api.html#discord.Guild.audit_logs" title="discord.Guild.audit_logs"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Guild.audit_logs()</span></code></a></p></li>
 <li><p><a class="reference internal" href="api.html#discord.Reaction.users" title="discord.Reaction.users"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Reaction.users()</span></code></a></p></li>
 </ul>
-</div>
-<div class="section" id="event-changes">
+</section>
+<section id="event-changes">
 <span id="migrating-1-0-event-changes"></span><h2>Event Changes<a class="headerlink" href="#event-changes" title="제목 주소">¶</a></h2>
 <p>A lot of events have gone through some changes.</p>
 <p>Many events with <code class="docutils literal notranslate"><span class="pre">server</span></code> in the name were changed to use <code class="docutils literal notranslate"><span class="pre">guild</span></code> instead.</p>
@@ -690,8 +760,8 @@ functions.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">on_guild_channel_</span></code> events correspond to <a class="reference internal" href="api.html#discord.abc.GuildChannel" title="discord.abc.GuildChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.GuildChannel</span></code></a> being updated (i.e. <a class="reference internal" href="api.html#discord.TextChannel" title="discord.TextChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextChannel</span></code></a>
 and <a class="reference internal" href="api.html#discord.VoiceChannel" title="discord.VoiceChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">VoiceChannel</span></code></a>) and the <code class="docutils literal notranslate"><span class="pre">on_private_channel_</span></code> events correspond to <a class="reference internal" href="api.html#discord.abc.PrivateChannel" title="discord.abc.PrivateChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.PrivateChannel</span></code></a> being
 updated (i.e. <a class="reference internal" href="api.html#discord.DMChannel" title="discord.DMChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">DMChannel</span></code></a> and <a class="reference internal" href="api.html#discord.GroupChannel" title="discord.GroupChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">GroupChannel</span></code></a>).</p>
-</div>
-<div class="section" id="voice-changes">
+</section>
+<section id="voice-changes">
 <span id="migrating-1-0-voice"></span><h2>Voice Changes<a class="headerlink" href="#voice-changes" title="제목 주소">¶</a></h2>
 <p>Voice sending has gone through a complete redesign.</p>
 <p>In particular:</p>
@@ -756,8 +826,8 @@ playing at runtime via <a class="reference internal" href="api.html#discord.Voic
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="waiting-for-events">
+</section>
+<section id="waiting-for-events">
 <span id="migrating-1-0-wait-for"></span><h2>Waiting For Events<a class="headerlink" href="#waiting-for-events" title="제목 주소">¶</a></h2>
 <p>Prior to v1.0, the machinery for waiting for an event outside of the event itself was done through two different
 functions, <code class="docutils literal notranslate"><span class="pre">Client.wait_for_message</span></code> and <code class="docutils literal notranslate"><span class="pre">Client.wait_for_reaction</span></code>. One problem with one such approach is that it did
@@ -796,8 +866,8 @@ when reached instead of setting the return to <code class="docutils literal notr
     <span class="k">await</span> <span class="n">channel</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;You said </span><span class="si">{0.content}</span><span class="s1">, </span><span class="si">{0.author}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="upgraded-dependencies">
+</section>
+<section id="upgraded-dependencies">
 <h2>Upgraded Dependencies<a class="headerlink" href="#upgraded-dependencies" title="제목 주소">¶</a></h2>
 <p>Following v1.0 of the library, we’ve updated our requirements to <a class="reference external" href="https://docs.aiohttp.org/en/stable/index.html" title="(in aiohttp v3.7)"><span class="xref std std-doc">aiohttp</span></a> v2.0 or higher.</p>
 <p>Since this is a backwards incompatible change, it is recommended that you see the
@@ -822,8 +892,8 @@ and the <a class="reference external" href="https://docs.aiohttp.org/en/stable/m
 </div>
 <p>Since it is better to not create a session for every request, you should store it in a variable and then call
 <code class="docutils literal notranslate"><span class="pre">session.close</span></code> on it when it needs to be disposed.</p>
-</div>
-<div class="section" id="sharding">
+</section>
+<section id="sharding">
 <h2>Sharding<a class="headerlink" href="#sharding" title="제목 주소">¶</a></h2>
 <p>The library has received significant changes on how it handles sharding and now has sharding as a first-class citizen.</p>
 <p>If using a Bot account and you want to shard your bot in a single process then you can use the <a class="reference internal" href="api.html#discord.AutoShardedClient" title="discord.AutoShardedClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">AutoShardedClient</span></code></a>.</p>
@@ -846,8 +916,8 @@ per shard.</p>
 </pre></div>
 </div>
 <p>For users of the command extension, there is also <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.AutoShardedBot" title="discord.ext.commands.AutoShardedBot"><code class="xref py py-class docutils literal notranslate"><span class="pre">AutoShardedBot</span></code></a> which behaves similarly.</p>
-</div>
-<div class="section" id="connection-improvements">
+</section>
+<section id="connection-improvements">
 <h2>Connection Improvements<a class="headerlink" href="#connection-improvements" title="제목 주소">¶</a></h2>
 <p>In v1.0, the auto reconnection logic has been powered up significantly.</p>
 <p><a class="reference internal" href="api.html#discord.Client.connect" title="discord.Client.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.connect()</span></code></a> has gained a new keyword argument, <code class="docutils literal notranslate"><span class="pre">reconnect</span></code> that defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code> which controls
@@ -855,12 +925,12 @@ the reconnect logic. When enabled, the client will automatically reconnect in al
 offline or Discord going offline with exponential back-off.</p>
 <p><a class="reference internal" href="api.html#discord.Client.run" title="discord.Client.run"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.run()</span></code></a> and <a class="reference internal" href="api.html#discord.Client.start" title="discord.Client.start"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.start()</span></code></a> gains this keyword argument as well, but for most cases you will not
 need to specify it unless turning it off.</p>
-</div>
-<div class="section" id="command-extension-changes">
+</section>
+<section id="command-extension-changes">
 <span id="migrating-1-0-commands"></span><h2>Command Extension Changes<a class="headerlink" href="#command-extension-changes" title="제목 주소">¶</a></h2>
 <p>Due to the <a class="reference internal" href="#migrating-1-0-model-state"><span class="std std-ref">모델들은</span></a> changes, some of the design of the extension module had to
 undergo some design changes as well.</p>
-<div class="section" id="context-changes">
+<section id="context-changes">
 <h3>Context Changes<a class="headerlink" href="#context-changes" title="제목 주소">¶</a></h3>
 <p>In v1.0, the <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Context" title="discord.ext.commands.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a> has received a lot of changes with how it’s retrieved and used.</p>
 <p>The biggest change is that <code class="docutils literal notranslate"><span class="pre">pass_context=True</span></code> no longer exists, <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Context" title="discord.ext.commands.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a> is always passed. Ergo:</p>
@@ -907,7 +977,7 @@ functionality. The old helpers have been removed in favour of the new <a class="
 </div></blockquote>
 </li>
 </ul>
-<div class="section" id="subclassing-context">
+<section id="subclassing-context">
 <h4>Subclassing Context<a class="headerlink" href="#subclassing-context" title="제목 주소">¶</a></h4>
 <p>In v1.0, there is now the ability to subclass <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Context" title="discord.ext.commands.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a> and use it instead of the default
 provided one.</p>
@@ -932,12 +1002,12 @@ provided one.</p>
     <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">secret</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="removed-helpers">
+</section>
+<section id="removed-helpers">
 <span id="migrating-1-0-removed-helpers"></span><h4>Removed Helpers<a class="headerlink" href="#removed-helpers" title="제목 주소">¶</a></h4>
 <p>With the new <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Context" title="discord.ext.commands.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a> changes, a lot of message sending helpers have been removed.</p>
 <p>For a full list of changes, see below:</p>
-<table class="docutils align-default">
+<div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
 <col style="width: 22%" />
 <col style="width: 78%" />
@@ -963,9 +1033,9 @@ provided one.</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="section" id="command-changes">
+</div></section>
+</section>
+<section id="command-changes">
 <h3>Command Changes<a class="headerlink" href="#command-changes" title="제목 주소">¶</a></h3>
 <p>As mentioned earlier, the first command change is that <code class="docutils literal notranslate"><span class="pre">pass_context=True</span></code> no longer
 exists, so there is no need to pass this as a parameter.</p>
@@ -989,8 +1059,8 @@ dictionary to a set that does not have aliases. To retrieve the previous diction
 </div></blockquote>
 </li>
 </ul>
-</div>
-<div class="section" id="check-changes">
+</section>
+<section id="check-changes">
 <h3>Check Changes<a class="headerlink" href="#check-changes" title="제목 주소">¶</a></h3>
 <p>Prior to v1.0, <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.check" title="discord.ext.commands.check"><code class="xref py py-func docutils literal notranslate"><span class="pre">check()</span></code></a>s could only be synchronous. As of v1.0 checks can now be coroutines.</p>
 <p>Along with this change, a couple new checks were added.</p>
@@ -1012,8 +1082,8 @@ dictionary to a set that does not have aliases. To retrieve the previous diction
 </div></blockquote>
 </li>
 </ul>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h3>Event Changes<a class="headerlink" href="#id2" title="제목 주소">¶</a></h3>
 <p>All command extension events have changed.</p>
 <p>Before:</p>
@@ -1035,8 +1105,8 @@ attribute.</p>
 <p>The error handlers, either <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Command.error" title="discord.ext.commands.Command.error"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Command.error()</span></code></a> or <a class="reference internal" href="ext/commands/api.html#discord.on_command_error" title="discord.on_command_error"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_command_error()</span></code></a>,
 have been re-ordered to use the <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Context" title="discord.ext.commands.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a> as its first parameter to be consistent with other events
 and commands.</p>
-</div>
-<div class="section" id="helpformatter-and-help-command-changes">
+</section>
+<section id="helpformatter-and-help-command-changes">
 <h3>HelpFormatter and Help Command Changes<a class="headerlink" href="#helpformatter-and-help-command-changes" title="제목 주소">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">HelpFormatter</span></code> class has been removed. It has been replaced with a <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.HelpCommand" title="discord.ext.commands.HelpCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">HelpCommand</span></code></a> class. This class now stores all the command handling and processing of the help command.</p>
 <p>The help command is now stored in the <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Bot.help_command" title="discord.ext.commands.Bot.help_command"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Bot.help_command</span></code></a> attribute. As an added extension, you can disable the help command completely by assigning the attribute to <code class="docutils literal notranslate"><span class="pre">None</span></code> or passing it at <code class="docutils literal notranslate"><span class="pre">__init__</span></code> as <code class="docutils literal notranslate"><span class="pre">help_command=None</span></code>.</p>
@@ -1134,8 +1204,8 @@ and commands.</p>
 </pre></div>
 </div>
 <p>For more information, check out the relevant <a class="reference internal" href="ext/commands/api.html#ext-commands-help-command"><span class="std std-ref">documentation</span></a>.</p>
-</div>
-<div class="section" id="cog-changes">
+</section>
+<section id="cog-changes">
 <h3>Cog Changes<a class="headerlink" href="#cog-changes" title="제목 주소">¶</a></h3>
 <p>Cogs have completely been revamped. They are documented in <a class="reference internal" href="ext/commands/cogs.html#ext-commands-cogs"><span class="std std-ref">Cogs</span></a> as well.</p>
 <p>Cogs are now required to have a base class, <a class="reference internal" href="ext/commands/api.html#discord.ext.commands.Cog" title="discord.ext.commands.Cog"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cog</span></code></a> for future proofing purposes. This comes with special methods to customise some behaviour.</p>
@@ -1216,8 +1286,8 @@ and commands.</p>
         <span class="k">pass</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="before-and-after-invocation-hooks">
+</section>
+<section id="before-and-after-invocation-hooks">
 <span id="migrating-1-0-before-after-hook"></span><h3>Before and After Invocation Hooks<a class="headerlink" href="#before-and-after-invocation-hooks" title="제목 주소">¶</a></h3>
 <p>Commands have gained new before and after invocation hooks that allow you to do an action before and after a command is
 run.</p>
@@ -1280,8 +1350,8 @@ handling or clean up of certain resources such a database connection.</p>
 <li><p>Cog local after invocation hook</p></li>
 <li><p>Global after invocation hook</p></li>
 </ol>
-</div>
-<div class="section" id="converter-changes">
+</section>
+<section id="converter-changes">
 <h3>Converter Changes<a class="headerlink" href="#converter-changes" title="제목 주소">¶</a></h3>
 <p>Prior to v1.0, a converter was a type hint that could be a callable that could be invoked
 with a singular argument denoting the argument passed by the user as a string.</p>
@@ -1316,78 +1386,60 @@ always be a coroutine and will now take the two arguments as parameters.</p>
 </div></blockquote>
 </li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">목차</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">1.0 버전으로 이전하기</a><ul>
-<li><a class="reference internal" href="#python-version-change">파이썬의 버전 변화</a></li>
-<li><a class="reference internal" href="#major-model-changes">주요 모델 변화</a><ul>
-<li><a class="reference internal" href="#snowflakes-are-int">Snowflake는 정수형입니다.</a></li>
-<li><a class="reference internal" href="#server-is-now-guild">Server는 이제 Guild입니다.</a></li>
-<li><a class="reference internal" href="#models-are-stateful">모델들은</a></li>
-<li><a class="reference internal" href="#property-changes">속성 변화</a></li>
-<li><a class="reference internal" href="#dict-value-change">딕셔너리 값 변화</a></li>
-<li><a class="reference internal" href="#voice-state-changes">Voice State Changes</a></li>
-<li><a class="reference internal" href="#user-and-member-type-split">User and Member Type Split</a></li>
-<li><a class="reference internal" href="#channel-type-split">Channel Type Split</a></li>
-<li><a class="reference internal" href="#miscellaneous-model-changes">Miscellaneous Model Changes</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#sending-messages">Sending Messages</a></li>
-<li><a class="reference internal" href="#asynchronous-iterators">Asynchronous Iterators</a></li>
-<li><a class="reference internal" href="#event-changes">Event Changes</a></li>
-<li><a class="reference internal" href="#voice-changes">Voice Changes</a></li>
-<li><a class="reference internal" href="#waiting-for-events">Waiting For Events</a></li>
-<li><a class="reference internal" href="#upgraded-dependencies">Upgraded Dependencies</a></li>
-<li><a class="reference internal" href="#sharding">Sharding</a></li>
-<li><a class="reference internal" href="#connection-improvements">Connection Improvements</a></li>
-<li><a class="reference internal" href="#command-extension-changes">Command Extension Changes</a><ul>
-<li><a class="reference internal" href="#context-changes">Context Changes</a><ul>
-<li><a class="reference internal" href="#subclassing-context">Subclassing Context</a></li>
-<li><a class="reference internal" href="#removed-helpers">Removed Helpers</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#command-changes">Command Changes</a></li>
-<li><a class="reference internal" href="#check-changes">Check Changes</a></li>
-<li><a class="reference internal" href="#id2">Event Changes</a></li>
-<li><a class="reference internal" href="#helpformatter-and-help-command-changes">HelpFormatter and Help Command Changes</a></li>
-<li><a class="reference internal" href="#cog-changes">Cog Changes</a></li>
-<li><a class="reference internal" href="#before-and-after-invocation-hooks">Before and After Invocation Hooks</a></li>
-<li><a class="reference internal" href="#converter-changes">Converter Changes</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<!-- purposefully empty -->
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">빠른 검색</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="이동" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-  <div class="footer">
-    &copy; Copyright 2015-2020, Rapptz.
-    <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 버전으로 생성되었습니다.
+    </main>
+    <footer class="grid-item">
+        &#169; Copyright 2015-2020, Rapptz.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </footer>
   </div>
-  
-  </body>
+
+  <div id="settings" class="modal" onclick="if (event.target == this){ settingsModal.close(); }" hidden>
+    <div class="modal-content">
+      <span class="close" onclick="settingsModal.close();" title="Close">
+        <span class="material-icons">close</span>
+      </span>
+      <h1>Settings</h1>
+
+      <h2>Font</h2>
+      <div class="setting">
+        <h3>Use a serif font:
+          <label class="toggle"
+            title="Use a serif font? Your system font will be used, falling back to serif.">
+            <input type="checkbox" name="useSerifFont" onclick="updateSetting(this);">
+            <span class="toggle-slider"></span>
+          </label>
+        </h3>
+      </div>
+
+      <h2>Theme</h2>
+      <div class="setting">
+        <h3>
+          <label class="toggle" title="Set your theme based on your system preferences">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="automatic" checked>
+          </label>
+          Automatic
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to light theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="light">
+          </label>
+          Light
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to dark theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="dark">
+          </label>
+          Dark
+        </h3>
+      </div>
+
+    </div>
+  </div>
+
+</body>
 </html>

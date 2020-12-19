@@ -1,60 +1,278 @@
-
 <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Reference</title> 
+  <!-- end extra head -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/codeblocks.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/icons.css" type="text/css" />
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+  <script src="../../_static/jquery.js"></script>
+  <script src="../../_static/underscore.js"></script>
+  <script src="../../_static/doctools.js"></script>
+  <script src="../../_static/language_data.js"></script>
+  <script src="../../_static/custom.js"></script>
+  <script src="../../_static/settings.js"></script>
+  <script src="../../_static/copy.js"></script>
+  <script src="../../_static/sidebar.js"></script>
+  <script src="../../_static/translations.js"></script>
+  <link rel="shortcut icon" href="../../_static/discord_py_logo.ico"/>
+  <link rel="index" title="색인" href="../../genindex.html" />
+  <link rel="search" title="검색" href="../../search.html" />
+  <link rel="next" title="discord.ext.tasks – asyncio.Task 헬퍼" href="../tasks/index.html" />
+  <link rel="prev" title="확장" href="extensions.html" />
+</head>
+<body>
+  <div class="main-grid">
+    <header class="grid-item">
+      <nav>
+        <a href="../../index.html" class="main-heading">discord.py</a>
+        <a href="https://github.com/Rapptz/discord.py" title="GitHub"><span class="material-icons custom-icons">github</span></a>
+        <a href="https://discord.gg/YbfbxpX" title="Discord"><span class="material-icons custom-icons">discord</span></a>
+        <a href="../../faq.html" title="FAQ"><span class="material-icons">help_center</span></a>
+        <a onclick="mobileSearch.open();" title="검색" id="open-search" class="mobile-only"><span class="material-icons">search</span></a>
+        <a onclick="mobileSearch.close();" title="Close" id="close-search" class="mobile-only" hidden><span class="material-icons">close</span></a>
+      </nav>
+      <nav class="mobile-only">
+        <form role="search" class="search" action="search.html" method="get">
+          <div class="search-wrapper">
+            <input type="search" name="q" placeholder="Search documentation" />
+            <button type="submit">
+              <span class="material-icons">search</span>
+            </button>
+          </div>
+        </form>
+      </nav>
+    </header>
+    <div class="sub-header grid-item">
+      <label for="documentation_select">View Documentation For</label>
+      <select id="documentation_select" onchange="window.location = this.value;">
+        <option value="../../index.html">discord</option>
+        <option value="index.html" selected>discord.ext.commands</option>
+        <option value="../tasks/index.html" >discord.ext.tasks</option>
+      </select>
+      <form role="search" class="search" action="search.html" method="get">
+        <div class="search-wrapper">
+          <input type="search" name="q" placeholder="Search documentation" />
+          <button type="submit">
+            <span class="material-icons">search</span>
+          </button>
+        </div>
+      </form>
+      <a accesskey="S" class="settings" onclick="settingsModal.open();"><span class="material-icons">settings</span></a>
+    </div>
+    <aside class="grid-item">
+      <span id="hamburger-toggle">
+        <span class="material-icons">menu</span>
+      </span>
+      <span id="settings-toggle" class="settings" onclick="settingsModal.open();">
+        <span class="material-icons">settings</span>
+      </span>
+      <div id="sidebar">
+  <h3><a href="../../index.html">목차</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">API Reference</a><ul>
+<li><a class="reference internal" href="#bots">Bots</a><ul>
+<li><a class="reference internal" href="#bot">봇</a></li>
+<li><a class="reference internal" href="#autoshardedbot">AutoShardedBot</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#prefix-helpers">Prefix Helpers</a></li>
+<li><a class="reference internal" href="#event-reference">Event Reference</a></li>
+<li><a class="reference internal" href="#commands">Commands</a><ul>
+<li><a class="reference internal" href="#decorators">Decorators</a></li>
+<li><a class="reference internal" href="#command">Command</a></li>
+<li><a class="reference internal" href="#group">Group</a></li>
+<li><a class="reference internal" href="#groupmixin">GroupMixin</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cogs">Cogs</a><ul>
+<li><a class="reference internal" href="#cog">Cog</a></li>
+<li><a class="reference internal" href="#cogmeta">CogMeta</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#help-commands">Help Commands</a><ul>
+<li><a class="reference internal" href="#helpcommand">HelpCommand</a></li>
+<li><a class="reference internal" href="#defaulthelpcommand">DefaultHelpCommand</a></li>
+<li><a class="reference internal" href="#minimalhelpcommand">MinimalHelpCommand</a></li>
+<li><a class="reference internal" href="#paginator">Paginator</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#enums">Enums</a></li>
+<li><a class="reference internal" href="#checks">Checks</a></li>
+<li><a class="reference internal" href="#context">컨텍스트</a></li>
+<li><a class="reference internal" href="#converters">Converters</a></li>
+<li><a class="reference internal" href="#exceptions">Exceptions</a></li>
+</ul>
+</li>
+</ul>
 
-<html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API Reference &#8212; discord.py 1.5.1 문서</title>
-    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
-    <script src="../../_static/custom.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <link rel="index" title="색인" href="../../genindex.html" />
-    <link rel="search" title="검색" href="../../search.html" />
-    <link rel="next" title="discord.ext.tasks – asyncio.Task 헬퍼" href="../tasks/index.html" />
-    <link rel="prev" title="확장" href="extensions.html" />
-   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
-
-  </head><body>
-  
-  
-
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>탐색</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="전체 색인"
-             accesskey="I">색인</a></li>
-        <li class="right" >
-          <a href="../tasks/index.html" title="discord.ext.tasks – asyncio.Task 헬퍼"
-             accesskey="N">다음</a> |</li>
-        <li class="right" >
-          <a href="extensions.html" title="확장"
-             accesskey="P">이전</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">discord.py 1.5.1 문서</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code> – Bot commands 프레임워크</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">API Reference</a></li> 
-      </ul>
-    </div>  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="api-reference">
+      </div>
+    </aside>
+    <main class="grid-item">
+      
+  <section id="api-reference">
 <h1>API Reference<a class="headerlink" href="#api-reference" title="제목 주소">¶</a></h1>
 <p>이 섹션에서는 discord.py의 명령어 확장 모듈에 대해 설명합니다.</p>
-<div class="section" id="bot">
-<span id="ext-commands-api-bot"></span><h2>봇<a class="headerlink" href="#bot" title="제목 주소">¶</a></h2>
-<dl class="py class">
+<section id="bots">
+<span id="ext-commands-api-bot"></span><h2>Bots<a class="headerlink" href="#bots" title="제목 주소">¶</a></h2>
+<section id="bot">
+<h3>봇<a class="headerlink" href="#bot" title="제목 주소">¶</a></h3>
+<div class="py-attribute-table" data-move-to-id="discord.ext.commands.Bot"><div class="py-attribute-table-column">
+<span>
+Attributes</span><ul>
+<li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.activity">activity</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.allowed_mentions">allowed_mentions</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.cached_messages">cached_messages</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.case_insensitive">case_insensitive</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.cogs">cogs</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.command_prefix">command_prefix</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.commands">commands</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.description">description</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.emojis">emojis</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.extensions">extensions</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.guilds">guilds</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.help_command">help_command</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.intents">intents</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.latency">latency</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.owner_id">owner_id</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.owner_ids">owner_ids</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.private_channels">private_channels</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.self_bot">self_bot</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.user">user</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.users">users</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Bot.voice_clients">voice_clients</a></li></ul>
+</div><div class="py-attribute-table-column">
+<span>
+Methods</span><ul>
+<li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.add_check">add_check</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.add_cog">add_cog</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.add_command">add_command</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.add_listener">add_listener</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.Bot.after_invoke">after_invoke</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.application_info">application_info</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.before_identify_hook">before_identify_hook</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.Bot.before_invoke">before_invoke</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.change_presence">change_presence</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.Bot.check">check</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.Bot.check_once">check_once</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.clear">clear</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.Bot.command">command</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.connect">connect</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.create_guild">create_guild</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.delete_invite">delete_invite</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.Bot.event">event</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.fetch_channel">fetch_channel</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.fetch_guild">fetch_guild</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.fetch_guilds">fetch_guilds</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.fetch_invite">fetch_invite</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.fetch_template">fetch_template</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.fetch_user">fetch_user</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.fetch_user_profile">fetch_user_profile</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.fetch_webhook">fetch_webhook</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.fetch_widget">fetch_widget</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.get_all_channels">get_all_channels</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.get_all_members">get_all_members</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.get_channel">get_channel</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.get_cog">get_cog</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.get_command">get_command</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.get_context">get_context</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.get_emoji">get_emoji</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.get_guild">get_guild</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.get_prefix">get_prefix</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.get_user">get_user</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.Bot.group">group</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.invoke">invoke</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.is_closed">is_closed</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.is_owner">is_owner</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.is_ready">is_ready</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.is_ws_ratelimited">is_ws_ratelimited</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.Bot.listen">listen</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.load_extension">load_extension</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.login">login</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.logout">logout</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.on_command_error">on_command_error</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.on_error">on_error</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.process_commands">process_commands</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.reload_extension">reload_extension</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.remove_check">remove_check</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.remove_cog">remove_cog</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.remove_command">remove_command</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.remove_listener">remove_listener</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.request_offline_members">request_offline_members</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.run">run</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.start">start</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.unload_extension">unload_extension</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.wait_for">wait_for</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Bot.wait_until_ready">wait_until_ready</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Bot.walk_commands">walk_commands</a></li></ul>
+</div></div><dl class="py class">
 <dt id="discord.ext.commands.Bot">
 <em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">Bot</code><span class="sig-paren">(</span><em class="sig-param">command_prefix</em>, <em class="sig-param">help_command=&lt;default-help-command&gt;</em>, <em class="sig-param">description=None</em>, <em class="sig-param">**options</em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Bot" title="정의 주소">¶</a></dt>
 <dd><p>디스코드 봇을 나타냅니다.</p>
@@ -1189,6 +1407,17 @@ through the use of <a class="reference internal" href="#discord.ext.commands.Bot
 </dd></dl>
 
 <dl class="py method">
+<dt id="discord.ext.commands.Bot.is_ws_ratelimited">
+<code class="sig-name descname">is_ws_ratelimited</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Bot.is_ws_ratelimited" title="정의 주소">¶</a></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>: Whether the websocket is currently rate limited.</p>
+<p>This can be useful to know when deciding whether you should query members
+using HTTP or via the gateway.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.6에 추가.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt id="discord.ext.commands.Bot.latency">
 <code class="sig-name descname">latency</code><a class="headerlink" href="#discord.ext.commands.Bot.latency" title="정의 주소">¶</a></dt>
 <dd><p>Measures latency between a HEARTBEAT and a HEARTBEAT_ACK in seconds.</p>
@@ -1665,13 +1894,20 @@ arguments that mirrors the parameters passed in the
 
 </dd></dl>
 
-<dl class="py class">
+</section>
+<section id="autoshardedbot">
+<h3>AutoShardedBot<a class="headerlink" href="#autoshardedbot" title="제목 주소">¶</a></h3>
+<div class="py-attribute-table" data-move-to-id="discord.ext.commands.AutoShardedBot"></div><dl class="py class">
 <dt id="discord.ext.commands.AutoShardedBot">
 <em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">AutoShardedBot</code><span class="sig-paren">(</span><em class="sig-param">command_prefix</em>, <em class="sig-param">help_command=&lt;default-help-command&gt;</em>, <em class="sig-param">description=None</em>, <em class="sig-param">**options</em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.AutoShardedBot" title="정의 주소">¶</a></dt>
 <dd><p>This is similar to <a class="reference internal" href="#discord.ext.commands.Bot" title="discord.ext.commands.Bot"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bot</span></code></a> except that it is inherited from
 <a class="reference internal" href="../../api.html#discord.AutoShardedClient" title="discord.AutoShardedClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">discord.AutoShardedClient</span></code></a> instead.</p>
 </dd></dl>
 
+</section>
+</section>
+<section id="prefix-helpers">
+<h2>Prefix Helpers<a class="headerlink" href="#prefix-helpers" title="제목 주소">¶</a></h2>
 <dl class="py function">
 <dt id="discord.ext.commands.when_mentioned">
 <code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">when_mentioned</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bot</span></em>, <em class="sig-param"><span class="n">msg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.when_mentioned" title="정의 주소">¶</a></dt>
@@ -1704,8 +1940,8 @@ callable, you must call the returned callable, for example:</p>
 </div>
 </dd></dl>
 
-</div>
-<div class="section" id="event-reference">
+</section>
+<section id="event-reference">
 <span id="ext-commands-api-events"></span><h2>Event Reference<a class="headerlink" href="#event-reference" title="제목 주소">¶</a></h2>
 <p>These events function similar to <a class="reference internal" href="../../api.html#discord-api-events"><span class="std std-ref">the regular events</span></a>, except they
 are custom to the command extension module.</p>
@@ -1752,9 +1988,11 @@ passed and the user input it correctly.</p>
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="command">
-<span id="ext-commands-api-command"></span><h2>Command<a class="headerlink" href="#command" title="제목 주소">¶</a></h2>
+</section>
+<section id="commands">
+<span id="ext-commands-api-command"></span><h2>Commands<a class="headerlink" href="#commands" title="제목 주소">¶</a></h2>
+<section id="decorators">
+<h3>Decorators<a class="headerlink" href="#decorators" title="제목 주소">¶</a></h3>
 <dl class="py function">
 <dt id="discord.ext.commands.command">
 <code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">command</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cls</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">attrs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.command" title="정의 주소">¶</a></dt>
@@ -1795,7 +2033,67 @@ parameter is set to <a class="reference internal" href="#discord.ext.commands.Gr
 </div>
 </dd></dl>
 
-<dl class="py class">
+</section>
+<section id="command">
+<h3>Command<a class="headerlink" href="#command" title="제목 주소">¶</a></h3>
+<div class="py-attribute-table" data-move-to-id="discord.ext.commands.Command"><div class="py-attribute-table-column">
+<span>
+Attributes</span><ul>
+<li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.aliases">aliases</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.brief">brief</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.callback">callback</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.checks">checks</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.clean_params">clean_params</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.cog">cog</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.cog_name">cog_name</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.cooldown_after_parsing">cooldown_after_parsing</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.description">description</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.enabled">enabled</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.full_parent_name">full_parent_name</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.help">help</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.hidden">hidden</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.ignore_extra">ignore_extra</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.invoked_subcommand">invoked_subcommand</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.name">name</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.parent">parent</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.parents">parents</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.qualified_name">qualified_name</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.require_var_positional">require_var_positional</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.rest_is_raw">rest_is_raw</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.root_parent">root_parent</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.short_doc">short_doc</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.signature">signature</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Command.usage">usage</a></li></ul>
+</div><div class="py-attribute-table-column">
+<span>
+Methods</span><ul>
+<li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Command.__call__">__call__</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Command.add_check">add_check</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.Command.after_invoke">after_invoke</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.Command.before_invoke">before_invoke</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Command.can_run">can_run</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Command.copy">copy</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.Command.error">error</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Command.get_cooldown_retry_after">get_cooldown_retry_after</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Command.is_on_cooldown">is_on_cooldown</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Command.remove_check">remove_check</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Command.reset_cooldown">reset_cooldown</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Command.update">update</a></li></ul>
+</div></div><dl class="py class">
 <dt id="discord.ext.commands.Command">
 <em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">Command</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Command" title="정의 주소">¶</a></dt>
 <dd><p>A class that implements the protocol for a bot text command.</p>
@@ -2315,7 +2613,63 @@ command is disabled.</p>
 
 </dd></dl>
 
-<dl class="py class">
+</section>
+<section id="group">
+<h3>Group<a class="headerlink" href="#group" title="제목 주소">¶</a></h3>
+<div class="py-attribute-table" data-move-to-id="discord.ext.commands.Group"><div class="py-attribute-table-column">
+<span>
+Attributes</span><ul>
+<li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Group.case_insensitive">case_insensitive</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Group.clean_params">clean_params</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Group.cog_name">cog_name</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Group.commands">commands</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Group.full_parent_name">full_parent_name</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Group.invoke_without_command">invoke_without_command</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Group.parents">parents</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Group.qualified_name">qualified_name</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Group.root_parent">root_parent</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Group.short_doc">short_doc</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Group.signature">signature</a></li></ul>
+</div><div class="py-attribute-table-column">
+<span>
+Methods</span><ul>
+<li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Group.add_check">add_check</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Group.add_command">add_command</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.Group.after_invoke">after_invoke</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.Group.before_invoke">before_invoke</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Group.can_run">can_run</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.Group.command">command</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Group.copy">copy</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.Group.error">error</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Group.get_command">get_command</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Group.get_cooldown_retry_after">get_cooldown_retry_after</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.Group.group">group</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Group.is_on_cooldown">is_on_cooldown</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Group.remove_check">remove_check</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Group.remove_command">remove_command</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Group.reset_cooldown">reset_cooldown</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Group.update">update</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Group.walk_commands">walk_commands</a></li></ul>
+</div></div><dl class="py class">
 <dt id="discord.ext.commands.Group">
 <em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">Group</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Group" title="정의 주소">¶</a></dt>
 <dd><p>A class that implements a grouping protocol for commands to be
@@ -2758,7 +3112,33 @@ subclass constructors, sans the name and callback.</p>
 
 </dd></dl>
 
-<dl class="py class">
+</section>
+<section id="groupmixin">
+<h3>GroupMixin<a class="headerlink" href="#groupmixin" title="제목 주소">¶</a></h3>
+<div class="py-attribute-table" data-move-to-id="discord.ext.commands.GroupMixin"><div class="py-attribute-table-column">
+<span>
+Attributes</span><ul>
+<li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.GroupMixin.all_commands">all_commands</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.GroupMixin.case_insensitive">case_insensitive</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.GroupMixin.commands">commands</a></li></ul>
+</div><div class="py-attribute-table-column">
+<span>
+Methods</span><ul>
+<li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.GroupMixin.add_command">add_command</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.GroupMixin.command">command</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.GroupMixin.get_command">get_command</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.commands.GroupMixin.group">group</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.GroupMixin.remove_command">remove_command</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.GroupMixin.walk_commands">walk_commands</a></li></ul>
+</div></div><dl class="py class">
 <dt id="discord.ext.commands.GroupMixin">
 <em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">GroupMixin</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.GroupMixin" title="정의 주소">¶</a></dt>
 <dd><p>A mixin that implements common functionality for classes that behave
@@ -2907,10 +3287,45 @@ the internal command list via <a class="reference internal" href="#discord.ext.c
 
 </dd></dl>
 
-</div>
-<div class="section" id="cogs">
+</section>
+</section>
+<section id="cogs">
 <span id="ext-commands-api-cogs"></span><h2>Cogs<a class="headerlink" href="#cogs" title="제목 주소">¶</a></h2>
-<dl class="py class">
+<section id="cog">
+<h3>Cog<a class="headerlink" href="#cog" title="제목 주소">¶</a></h3>
+<div class="py-attribute-table" data-move-to-id="discord.ext.commands.Cog"><div class="py-attribute-table-column">
+<span>
+Attributes</span><ul>
+<li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Cog.description">description</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Cog.qualified_name">qualified_name</a></li></ul>
+</div><div class="py-attribute-table-column">
+<span>
+Methods</span><ul>
+<li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="classmethod">
+cls</span><a class="reference internal" href="#discord.ext.commands.Cog.listener">Cog.listener</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Cog.bot_check">bot_check</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Cog.bot_check_once">bot_check_once</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Cog.cog_after_invoke">cog_after_invoke</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Cog.cog_before_invoke">cog_before_invoke</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Cog.cog_check">cog_check</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Cog.cog_command_error">cog_command_error</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Cog.cog_unload">cog_unload</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Cog.get_commands">get_commands</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Cog.get_listeners">get_listeners</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Cog.walk_commands">walk_commands</a></li></ul>
+</div></div><dl class="py class">
 <dt id="discord.ext.commands.Cog">
 <em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">Cog</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Cog" title="정의 주소">¶</a></dt>
 <dd><p>The base class that all cogs must inherit from.</p>
@@ -3084,7 +3499,17 @@ to the commands inside this cog.</p>
 
 </dd></dl>
 
-<dl class="py class">
+</section>
+<section id="cogmeta">
+<h3>CogMeta<a class="headerlink" href="#cogmeta" title="제목 주소">¶</a></h3>
+<div class="py-attribute-table" data-move-to-id="discord.ext.commands.CogMeta"><div class="py-attribute-table-column">
+<span>
+Attributes</span><ul>
+<li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.CogMeta.command_attrs">command_attrs</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.CogMeta.description">description</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.CogMeta.name">name</a></li></ul>
+</div></div><dl class="py class">
 <dt id="discord.ext.commands.CogMeta">
 <em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">CogMeta</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.CogMeta" title="정의 주소">¶</a></dt>
 <dd><p>A metaclass for defining a cog.</p>
@@ -3126,6 +3551,20 @@ like the following example:</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt id="discord.ext.commands.CogMeta.description">
+<code class="sig-name descname">description</code><a class="headerlink" href="#discord.ext.commands.CogMeta.description" title="정의 주소">¶</a></dt>
+<dd><p>The cog description. By default, it is the cleaned docstring of the class.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.6에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">타입</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt id="discord.ext.commands.CogMeta.command_attrs">
 <code class="sig-name descname">command_attrs</code><a class="headerlink" href="#discord.ext.commands.CogMeta.command_attrs" title="정의 주소">¶</a></dt>
 <dd><p>A list of attributes to apply to every command inside this cog. The dictionary
@@ -3151,10 +3590,64 @@ override the one specified inside this attribute. For example:</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="help-commands">
+</section>
+</section>
+<section id="help-commands">
 <span id="ext-commands-help-command"></span><h2>Help Commands<a class="headerlink" href="#help-commands" title="제목 주소">¶</a></h2>
-<dl class="py class">
+<section id="helpcommand">
+<h3>HelpCommand<a class="headerlink" href="#helpcommand" title="제목 주소">¶</a></h3>
+<div class="py-attribute-table" data-move-to-id="discord.ext.commands.HelpCommand"><div class="py-attribute-table-column">
+<span>
+Attributes</span><ul>
+<li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.HelpCommand.clean_prefix">clean_prefix</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.HelpCommand.cog">cog</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.HelpCommand.command_attrs">command_attrs</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.HelpCommand.context">context</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.HelpCommand.invoked_with">invoked_with</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.HelpCommand.show_hidden">show_hidden</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.HelpCommand.verify_checks">verify_checks</a></li></ul>
+</div><div class="py-attribute-table-column">
+<span>
+Methods</span><ul>
+<li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.add_check">add_check</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.command_callback">command_callback</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.command_not_found">command_not_found</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.filter_commands">filter_commands</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.get_bot_mapping">get_bot_mapping</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.get_command_signature">get_command_signature</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.get_destination">get_destination</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.get_max_size">get_max_size</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.on_help_command_error">on_help_command_error</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.prepare_help_command">prepare_help_command</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.remove_check">remove_check</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.remove_mentions">remove_mentions</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.send_bot_help">send_bot_help</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.send_cog_help">send_cog_help</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.send_command_help">send_command_help</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.send_error_message">send_error_message</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.send_group_help">send_group_help</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.HelpCommand.subcommand_not_found">subcommand_not_found</a></li></ul>
+</div></div><dl class="py class">
 <dt id="discord.ext.commands.HelpCommand">
 <em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">HelpCommand</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.HelpCommand" title="정의 주소">¶</a></dt>
 <dd><p>The base implementation for help command formatting.</p>
@@ -3651,7 +4144,38 @@ the behaviour through the methods that actually get dispatched.</p>
 
 </dd></dl>
 
-<dl class="py class">
+</section>
+<section id="defaulthelpcommand">
+<h3>DefaultHelpCommand<a class="headerlink" href="#defaulthelpcommand" title="제목 주소">¶</a></h3>
+<div class="py-attribute-table" data-move-to-id="discord.ext.commands.DefaultHelpCommand"><div class="py-attribute-table-column">
+<span>
+Attributes</span><ul>
+<li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.DefaultHelpCommand.commands_heading">commands_heading</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.DefaultHelpCommand.dm_help">dm_help</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.DefaultHelpCommand.dm_help_threshold">dm_help_threshold</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.DefaultHelpCommand.indent">indent</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.DefaultHelpCommand.no_category">no_category</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.DefaultHelpCommand.paginator">paginator</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.DefaultHelpCommand.sort_commands">sort_commands</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.DefaultHelpCommand.width">width</a></li></ul>
+</div><div class="py-attribute-table-column">
+<span>
+Methods</span><ul>
+<li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.DefaultHelpCommand.add_command_formatting">add_command_formatting</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.DefaultHelpCommand.add_indented_commands">add_indented_commands</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.DefaultHelpCommand.get_destination">get_destination</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.DefaultHelpCommand.get_ending_note">get_ending_note</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.DefaultHelpCommand.send_pages">send_pages</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.DefaultHelpCommand.shorten_text">shorten_text</a></li></ul>
+</div></div><dl class="py class">
 <dt id="discord.ext.commands.DefaultHelpCommand">
 <em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">DefaultHelpCommand</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.DefaultHelpCommand" title="정의 주소">¶</a></dt>
 <dd><p>The implementation of the default help command.</p>
@@ -3824,7 +4348,43 @@ commands parameter.</p></li>
 
 </dd></dl>
 
-<dl class="py class">
+</section>
+<section id="minimalhelpcommand">
+<h3>MinimalHelpCommand<a class="headerlink" href="#minimalhelpcommand" title="제목 주소">¶</a></h3>
+<div class="py-attribute-table" data-move-to-id="discord.ext.commands.MinimalHelpCommand"><div class="py-attribute-table-column">
+<span>
+Attributes</span><ul>
+<li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.MinimalHelpCommand.aliases_heading">aliases_heading</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.MinimalHelpCommand.commands_heading">commands_heading</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.MinimalHelpCommand.dm_help">dm_help</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.MinimalHelpCommand.dm_help_threshold">dm_help_threshold</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.MinimalHelpCommand.no_category">no_category</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.MinimalHelpCommand.paginator">paginator</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.MinimalHelpCommand.sort_commands">sort_commands</a></li></ul>
+</div><div class="py-attribute-table-column">
+<span>
+Methods</span><ul>
+<li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.MinimalHelpCommand.add_aliases_formatting">add_aliases_formatting</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.MinimalHelpCommand.add_bot_commands_formatting">add_bot_commands_formatting</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.MinimalHelpCommand.add_command_formatting">add_command_formatting</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.MinimalHelpCommand.add_subcommand_formatting">add_subcommand_formatting</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.MinimalHelpCommand.get_command_signature">get_command_signature</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.MinimalHelpCommand.get_destination">get_destination</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.MinimalHelpCommand.get_ending_note">get_ending_note</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.MinimalHelpCommand.get_opening_note">get_opening_note</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.MinimalHelpCommand.send_pages">send_pages</a></li></ul>
+</div></div><dl class="py class">
 <dt id="discord.ext.commands.MinimalHelpCommand">
 <em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">MinimalHelpCommand</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.MinimalHelpCommand" title="정의 주소">¶</a></dt>
 <dd><p>An implementation of a help command with minimal output.</p>
@@ -4047,7 +4607,28 @@ followed by a comma separated list of aliases.</p>
 
 </dd></dl>
 
-<dl class="py class">
+</section>
+<section id="paginator">
+<h3>Paginator<a class="headerlink" href="#paginator" title="제목 주소">¶</a></h3>
+<div class="py-attribute-table" data-move-to-id="discord.ext.commands.Paginator"><div class="py-attribute-table-column">
+<span>
+Attributes</span><ul>
+<li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Paginator.max_size">max_size</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Paginator.pages">pages</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Paginator.prefix">prefix</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Paginator.suffix">suffix</a></li></ul>
+</div><div class="py-attribute-table-column">
+<span>
+Methods</span><ul>
+<li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Paginator.add_line">add_line</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Paginator.clear">clear</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Paginator.close_page">close_page</a></li></ul>
+</div></div><dl class="py class">
 <dt id="discord.ext.commands.Paginator">
 <em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">Paginator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prefix</span><span class="o">=</span><span class="default_value">'```'</span></em>, <em class="sig-param"><span class="n">suffix</span><span class="o">=</span><span class="default_value">'```'</span></em>, <em class="sig-param"><span class="n">max_size</span><span class="o">=</span><span class="default_value">2000</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Paginator" title="정의 주소">¶</a></dt>
 <dd><p>A class that aids in paginating code blocks for Discord messages.</p>
@@ -4136,8 +4717,9 @@ is raised.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="enums">
+</section>
+</section>
+<section id="enums">
 <h2>Enums<a class="headerlink" href="#enums" title="제목 주소">¶</a></h2>
 <dl class="py class">
 <dt id="discord.discord.ext.commands.BucketType">
@@ -4190,8 +4772,8 @@ is raised.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="checks">
+</section>
+<section id="checks">
 <span id="ext-commands-api-checks"></span><h2>Checks<a class="headerlink" href="#checks" title="제목 주소">¶</a></h2>
 <dl class="py function">
 <dt id="discord.ext.commands.check">
@@ -4575,10 +5157,55 @@ DM channels will also now pass this check.</p>
 </div>
 </dd></dl>
 
-</div>
-<div class="section" id="context">
+</section>
+<section id="context">
 <span id="ext-commands-api-context"></span><h2>컨텍스트<a class="headerlink" href="#context" title="제목 주소">¶</a></h2>
-<dl class="py class">
+<div class="py-attribute-table" data-move-to-id="discord.ext.commands.Context"><div class="py-attribute-table-column">
+<span>
+Attributes</span><ul>
+<li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.args">args</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.author">author</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.bot">bot</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.channel">channel</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.cog">cog</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.command">command</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.command_failed">command_failed</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.guild">guild</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.invoked_subcommand">invoked_subcommand</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.invoked_with">invoked_with</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.kwargs">kwargs</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.me">me</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.message">message</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.prefix">prefix</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.subcommand_passed">subcommand_passed</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.valid">valid</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.commands.Context.voice_client">voice_client</a></li></ul>
+</div><div class="py-attribute-table-column">
+<span>
+Methods</span><ul>
+<li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Context.fetch_message">fetch_message</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Context.history">history</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Context.invoke">invoke</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Context.pins">pins</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Context.reinvoke">reinvoke</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Context.reply">reply</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Context.send">send</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Context.send_help">send_help</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.commands.Context.trigger_typing">trigger_typing</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.commands.Context.typing">typing</a></li></ul>
+</div></div><dl class="py class">
 <dt id="discord.ext.commands.Context">
 <em class="property">class </em><code class="sig-prename descclassname">discord.ext.commands.</code><code class="sig-name descname">Context</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">attrs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Context" title="정의 주소">¶</a></dt>
 <dd><p>명령어가 실행되고 있는 컨텍스트를 나타냅니다.</p>
@@ -4892,6 +5519,32 @@ If no valid subcommand was invoked then this is equal to <code class="docutils l
 </dd></dl>
 
 <dl class="py method">
+<dt id="discord.ext.commands.Context.reply">
+<em class="property">await </em><code class="sig-name descname">reply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">content</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Context.reply" title="정의 주소">¶</a></dt>
+<dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
+<p>A shortcut method to <code class="xref py py-meth docutils literal notranslate"><span class="pre">abc.Messageable.send()</span></code> to reply to the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.6에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">예외</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="../../api.html#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 전송에 실패했습니다.</p></li>
+<li><p><a class="reference internal" href="../../api.html#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지를 전송하기 위해 필요한 권한들이 없습니다.</p></li>
+<li><p><a class="reference internal" href="../../api.html#discord.InvalidArgument" title="discord.InvalidArgument"><strong>InvalidArgument</strong></a> – <code class="docutils literal notranslate"><span class="pre">files</span></code> 리스트가 적절한 크기가 아니거나 <code class="docutils literal notranslate"><span class="pre">file</span></code>과 <code class="docutils literal notranslate"><span class="pre">files</span></code> 둘 다 사용되었습니다.</p></li>
+</ul>
+</dd>
+<dt class="field-even">반환값</dt>
+<dd class="field-even"><p>보내진 메시지.</p>
+</dd>
+<dt class="field-odd">반환 형식</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="discord.ext.commands.Context.fetch_message">
 <em class="property">await </em><code class="sig-name descname">fetch_message</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Context.fetch_message" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
@@ -4941,7 +5594,7 @@ If no valid subcommand was invoked then this is equal to <code class="docutils l
 
 <dl class="py method">
 <dt id="discord.ext.commands.Context.send">
-<em class="property">await </em><code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">content</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">tts</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">embed</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">files</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">delete_after</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nonce</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">allowed_mentions</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Context.send" title="정의 주소">¶</a></dt>
+<em class="property">await </em><code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">content</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">tts</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">embed</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">files</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">delete_after</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nonce</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">allowed_mentions</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">reference</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mention_author</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.Context.send" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>주어진 내용과 함께 목적지로 메시지를 보냅니다.</p>
 <p>내용은 <code class="docutils literal notranslate"><span class="pre">str(content)</span></code>를 통해 문자열로 전환될 수 있는 타입이어야 합니다. 만약에 내용이 <code class="docutils literal notranslate"><span class="pre">None</span></code> (기본값)으로 설정되어있다면, <code class="docutils literal notranslate"><span class="pre">embed</span></code> 매개 변수가 주어져야 합니다.</p>
@@ -4958,13 +5611,29 @@ If no valid subcommand was invoked then this is equal to <code class="docutils l
 <li><p><strong>nonce</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – 이 메시지를 전송할 때 사용할 임시값. 만약에 메시지가 성공적으로 전송되었다면, 그 메시지는 이 값의 임시값을 가질 것입니다.</p></li>
 <li><p><strong>delete_after</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – 만약에 주어졌다면, 방금 전송한 메시지를 삭제하기 전 까지 백그라운드에서 기다려야 하는 초. 삭제가 실패되었다면, 조용히 무시됩니다.</p></li>
 <li><p><strong>allowed_mentions</strong> (<a class="reference internal" href="../../api.html#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>) – 이 메시지에서 처리되는 맨션을 조정. 만약에 주어졌다면, 객체는 <a class="reference internal" href="../../api.html#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>와 합체됩니다. 합체되는 방식은 객체에 명시적으로 설정된 속성들만 오버라이드 하고, 명시되있지 않았다면 <a class="reference internal" href="../../api.html#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>에 설정된 속성들을 사용합니다. 만약 그 어떤 객체들도 전달되지 않았다면 <a class="reference internal" href="../../api.html#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>에 있는 기본값들을 사용합니다.  .. versionadded:: 1.4</p></li>
+<li><p><strong>reference</strong> (Union[<a class="reference internal" href="../../api.html#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>, <a class="reference internal" href="../../api.html#discord.MessageReference" title="discord.MessageReference"><code class="xref py py-class docutils literal notranslate"><span class="pre">MessageReference</span></code></a>]) – <p>A reference to the <a class="reference internal" href="../../api.html#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> to which you are replying, this can be created using
+<a class="reference internal" href="../../api.html#discord.Message.to_reference" title="discord.Message.to_reference"><code class="xref py py-meth docutils literal notranslate"><span class="pre">to_reference()</span></code></a> or passed directly as a <a class="reference internal" href="../../api.html#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>. You can control
+whether this mentions the author of the referenced message using the <a class="reference internal" href="../../api.html#discord.AllowedMentions.replied_user" title="discord.AllowedMentions.replied_user"><code class="xref py py-attr docutils literal notranslate"><span class="pre">replied_user</span></code></a>
+attribute of <code class="docutils literal notranslate"><span class="pre">allowed_mentions</span></code> or by setting <code class="docutils literal notranslate"><span class="pre">mention_author</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.6에 추가.</span></p>
+</div>
+</p></li>
+<li><p><strong>mention_author</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]) – <p>If set, overrides the <a class="reference internal" href="../../api.html#discord.AllowedMentions.replied_user" title="discord.AllowedMentions.replied_user"><code class="xref py py-attr docutils literal notranslate"><span class="pre">replied_user</span></code></a> attribute of <code class="docutils literal notranslate"><span class="pre">allowed_mentions</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.6에 추가.</span></p>
+</div>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
 <dd class="field-even"><ul class="simple">
 <li><p><a class="reference internal" href="../../api.html#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 전송에 실패했습니다.</p></li>
 <li><p><a class="reference internal" href="../../api.html#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지를 전송하기 위해 필요한 권한들이 없습니다.</p></li>
-<li><p><a class="reference internal" href="../../api.html#discord.InvalidArgument" title="discord.InvalidArgument"><strong>InvalidArgument</strong></a> – <code class="docutils literal notranslate"><span class="pre">files</span></code> 리스트가 적절한 크기가 아니거나 <code class="docutils literal notranslate"><span class="pre">file</span></code>과 <code class="docutils literal notranslate"><span class="pre">files</span></code> 둘 다 사용되었습니다.</p></li>
+<li><p><a class="reference internal" href="../../api.html#discord.InvalidArgument" title="discord.InvalidArgument"><strong>InvalidArgument</strong></a> – The <code class="docutils literal notranslate"><span class="pre">files</span></code> list is not of the appropriate size,
+    you specified both <code class="docutils literal notranslate"><span class="pre">file</span></code> and <code class="docutils literal notranslate"><span class="pre">files</span></code>,
+    or the <code class="docutils literal notranslate"><span class="pre">reference</span></code> object is not a <a class="reference internal" href="../../api.html#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>
+    or <a class="reference internal" href="../../api.html#discord.MessageReference" title="discord.MessageReference"><code class="xref py py-class docutils literal notranslate"><span class="pre">MessageReference</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
@@ -4986,8 +5655,8 @@ If no valid subcommand was invoked then this is equal to <code class="docutils l
 
 </dd></dl>
 
-</div>
-<div class="section" id="converters">
+</section>
+<section id="converters">
 <span id="ext-commands-api-converters"></span><h2>Converters<a class="headerlink" href="#converters" title="제목 주소">¶</a></h2>
 <dl class="py class">
 <dt id="discord.ext.commands.Converter">
@@ -5086,6 +5755,10 @@ properly propagate to the error handlers.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">버전 1.5에서 변경: </span>Raise <a class="reference internal" href="#discord.ext.commands.UserNotFound" title="discord.ext.commands.UserNotFound"><code class="xref py py-exc docutils literal notranslate"><span class="pre">UserNotFound</span></code></a> instead of generic <a class="reference internal" href="#discord.ext.commands.BadArgument" title="discord.ext.commands.BadArgument"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BadArgument</span></code></a></p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">버전 1.6에서 변경: </span>This converter now lazily fetches users from the HTTP APIs if an ID is passed
+and it’s not available in cache.</p>
+</div>
 <dl class="py method">
 <dt id="discord.ext.commands.UserConverter.convert">
 <em class="property">await </em><code class="sig-name descname">convert</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ctx</span></em>, <em class="sig-param"><span class="n">argument</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.commands.UserConverter.convert" title="정의 주소">¶</a></dt>
@@ -5126,7 +5799,7 @@ properly propagate to the error handlers.</p>
 <li><p>Lookup by message URL</p></li>
 </ol>
 <div class="versionchanged">
-<p><span class="versionmodified changed">버전 1.5에서 변경: </span>Raise <a class="reference internal" href="#discord.ext.commands.ChannelNotFound" title="discord.ext.commands.ChannelNotFound"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ChannelNotFound</span></code></a>, <cite>MessageNotFound</cite> or <cite>ChannelNotReadable</cite> instead of generic <a class="reference internal" href="#discord.ext.commands.BadArgument" title="discord.ext.commands.BadArgument"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BadArgument</span></code></a></p>
+<p><span class="versionmodified changed">버전 1.5에서 변경: </span>Raise <a class="reference internal" href="#discord.ext.commands.ChannelNotFound" title="discord.ext.commands.ChannelNotFound"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ChannelNotFound</span></code></a>, <a class="reference internal" href="#discord.ext.commands.MessageNotFound" title="discord.ext.commands.MessageNotFound"><code class="xref py py-exc docutils literal notranslate"><span class="pre">MessageNotFound</span></code></a> or <a class="reference internal" href="#discord.ext.commands.ChannelNotReadable" title="discord.ext.commands.ChannelNotReadable"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ChannelNotReadable</span></code></a> instead of generic <a class="reference internal" href="#discord.ext.commands.BadArgument" title="discord.ext.commands.BadArgument"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BadArgument</span></code></a></p>
 </div>
 <dl class="py method">
 <dt id="discord.ext.commands.MessageConverter.convert">
@@ -5590,8 +6263,8 @@ internal string parsing routine, and continues parsing regularly.</p>
 <p>For more information, check <a class="reference internal" href="commands.html#ext-commands-special-converters"><span class="std std-ref">특별한 변환기</span></a>.</p>
 </dd></dl>
 
-</div>
-<div class="section" id="exceptions">
+</section>
+<section id="exceptions">
 <span id="ext-commands-api-errors"></span><h2>Exceptions<a class="headerlink" href="#exceptions" title="제목 주소">¶</a></h2>
 <dl class="py exception">
 <dt id="discord.ext.commands.CommandError">
@@ -6408,8 +7081,6 @@ because the name is already taken by a different command.</p>
 
 </dd></dl>
 
-<div class="section" id="exception-hierarchy">
-<h3>Exception Hierarchy<a class="headerlink" href="#exception-hierarchy" title="제목 주소">¶</a></h3>
 <div class="exception-hierarchy-content">
 <ul class="simple">
 <li><dl class="simple">
@@ -6502,55 +7173,59 @@ because the name is already taken by a different command.</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
 
 
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">목차</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">API Reference</a><ul>
-<li><a class="reference internal" href="#bot">봇</a></li>
-<li><a class="reference internal" href="#event-reference">Event Reference</a></li>
-<li><a class="reference internal" href="#command">Command</a></li>
-<li><a class="reference internal" href="#cogs">Cogs</a></li>
-<li><a class="reference internal" href="#help-commands">Help Commands</a></li>
-<li><a class="reference internal" href="#enums">Enums</a></li>
-<li><a class="reference internal" href="#checks">Checks</a></li>
-<li><a class="reference internal" href="#context">컨텍스트</a></li>
-<li><a class="reference internal" href="#converters">Converters</a></li>
-<li><a class="reference internal" href="#exceptions">Exceptions</a><ul>
-<li><a class="reference internal" href="#exception-hierarchy">Exception Hierarchy</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<!-- purposefully empty -->
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">빠른 검색</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="이동" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-  <div class="footer">
-    &copy; Copyright 2015-2020, Rapptz.
-    <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 버전으로 생성되었습니다.
+    </main>
+    <footer class="grid-item">
+        &#169; Copyright 2015-2020, Rapptz.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </footer>
   </div>
-  
-  </body>
+
+  <div id="settings" class="modal" onclick="if (event.target == this){ settingsModal.close(); }" hidden>
+    <div class="modal-content">
+      <span class="close" onclick="settingsModal.close();" title="Close">
+        <span class="material-icons">close</span>
+      </span>
+      <h1>Settings</h1>
+
+      <h2>Font</h2>
+      <div class="setting">
+        <h3>Use a serif font:
+          <label class="toggle"
+            title="Use a serif font? Your system font will be used, falling back to serif.">
+            <input type="checkbox" name="useSerifFont" onclick="updateSetting(this);">
+            <span class="toggle-slider"></span>
+          </label>
+        </h3>
+      </div>
+
+      <h2>Theme</h2>
+      <div class="setting">
+        <h3>
+          <label class="toggle" title="Set your theme based on your system preferences">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="automatic" checked>
+          </label>
+          Automatic
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to light theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="light">
+          </label>
+          Light
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to dark theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="dark">
+          </label>
+          Dark
+        </h3>
+      </div>
+
+    </div>
+  </div>
+
+</body>
 </html>

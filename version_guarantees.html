@@ -1,50 +1,91 @@
-
 <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>버전 개런티</title> 
+  <!-- end extra head -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="_static/codeblocks.css" type="text/css" />
+  <link rel="stylesheet" href="_static/icons.css" type="text/css" />
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  <script src="_static/jquery.js"></script>
+  <script src="_static/underscore.js"></script>
+  <script src="_static/doctools.js"></script>
+  <script src="_static/language_data.js"></script>
+  <script src="_static/custom.js"></script>
+  <script src="_static/settings.js"></script>
+  <script src="_static/copy.js"></script>
+  <script src="_static/sidebar.js"></script>
+  <script src="_static/translations.js"></script>
+  <link rel="shortcut icon" href="_static/discord_py_logo.ico"/>
+  <link rel="index" title="색인" href="genindex.html" />
+  <link rel="search" title="검색" href="search.html" />
+  <link rel="next" title="1.0 버전으로 이전하기" href="migrating.html" />
+  <link rel="prev" title="바뀐 것에 대한 기록" href="whats_new.html" />
+</head>
+<body>
+  <div class="main-grid">
+    <header class="grid-item">
+      <nav>
+        <a href="index.html" class="main-heading">discord.py</a>
+        <a href="https://github.com/Rapptz/discord.py" title="GitHub"><span class="material-icons custom-icons">github</span></a>
+        <a href="https://discord.gg/YbfbxpX" title="Discord"><span class="material-icons custom-icons">discord</span></a>
+        <a href="faq.html" title="FAQ"><span class="material-icons">help_center</span></a>
+        <a onclick="mobileSearch.open();" title="검색" id="open-search" class="mobile-only"><span class="material-icons">search</span></a>
+        <a onclick="mobileSearch.close();" title="Close" id="close-search" class="mobile-only" hidden><span class="material-icons">close</span></a>
+      </nav>
+      <nav class="mobile-only">
+        <form role="search" class="search" action="search.html" method="get">
+          <div class="search-wrapper">
+            <input type="search" name="q" placeholder="Search documentation" />
+            <button type="submit">
+              <span class="material-icons">search</span>
+            </button>
+          </div>
+        </form>
+      </nav>
+    </header>
+    <div class="sub-header grid-item">
+      <label for="documentation_select">View Documentation For</label>
+      <select id="documentation_select" onchange="window.location = this.value;">
+        <option value="#" selected>discord</option>
+        <option value="ext/commands/index.html" >discord.ext.commands</option>
+        <option value="ext/tasks/index.html" >discord.ext.tasks</option>
+      </select>
+      <form role="search" class="search" action="search.html" method="get">
+        <div class="search-wrapper">
+          <input type="search" name="q" placeholder="Search documentation" />
+          <button type="submit">
+            <span class="material-icons">search</span>
+          </button>
+        </div>
+      </form>
+      <a accesskey="S" class="settings" onclick="settingsModal.open();"><span class="material-icons">settings</span></a>
+    </div>
+    <aside class="grid-item">
+      <span id="hamburger-toggle">
+        <span class="material-icons">menu</span>
+      </span>
+      <span id="settings-toggle" class="settings" onclick="settingsModal.open();">
+        <span class="material-icons">settings</span>
+      </span>
+      <div id="sidebar">
+  <h3><a href="index.html">목차</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">버전 개런티</a><ul>
+<li><a class="reference internal" href="#examples-of-breaking-changes">큰 변화의 예</a></li>
+<li><a class="reference internal" href="#examples-of-non-breaking-changes">큰 변화가 아닌 것의 예</a></li>
+</ul>
+</li>
+</ul>
 
-<html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>버전 개런티 &#8212; discord.py 1.5.1 문서</title>
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
-    <script src="_static/custom.js"></script>
-    <script src="_static/translations.js"></script>
-    <link rel="index" title="색인" href="genindex.html" />
-    <link rel="search" title="검색" href="search.html" />
-    <link rel="prev" title="바뀐 것에 대한 기록" href="whats_new.html" />
-   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
-
-  </head><body>
-  
-  
-
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>탐색</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="전체 색인"
-             accesskey="I">색인</a></li>
-        <li class="right" >
-          <a href="whats_new.html" title="바뀐 것에 대한 기록"
-             accesskey="P">이전</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.5.1 문서</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">버전 개런티</a></li> 
-      </ul>
-    </div>  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="version-guarantees">
+      </div>
+    </aside>
+    <main class="grid-item">
+      
+  <section id="version-guarantees">
 <span id="id1"></span><h1>버전 개런티<a class="headerlink" href="#version-guarantees" title="제목 주소">¶</a></h1>
 <p>라이브러리는 <a class="reference external" href="https://semver.org/">유의적 버전화 원리</a> 를 따릅니다. 이는 주요 버전이 업데이트될 때마다 호환되지 않는 API 변경이 발생한다는 뜻입니다. 그러나 Python의 상당히 역동적인 성격과 달리 디스코드의 부족한 개런티로는 무엇이 큰 변화이고 아닌지를 분별하기는 어려울 수 있습니다.</p>
 <p>첫 번째로 알아두어야 할 것은 큰 변화는 <strong>공개적으로 작성된 함수와 클래스</strong> 에만 적용된다는 점입니다. 만약 이 문서에 등록되지 않았다면 그것은 공개 API의 일부가 아니므로 변경되어야 합니다. 문서에 작성되지 않은 밑줄로 시작하는 속성 또는 밑줄로 시작하지 않는 함수가 여기에 포함됩니다.</p>
@@ -52,15 +93,15 @@
 <p class="admonition-title">참고</p>
 <p>아래의 예시들은 포괄적이지 않습니다.</p>
 </div>
-<div class="section" id="examples-of-breaking-changes">
+<section id="examples-of-breaking-changes">
 <h2>큰 변화의 예<a class="headerlink" href="#examples-of-breaking-changes" title="제목 주소">¶</a></h2>
 <ul class="simple">
 <li><p>기본 매개 변수 값을 다른 것으로 바꾸는 것.</p></li>
 <li><p>기존 함수를 별칭으로 두지 않고 함수의 이름을 바꾸는 것.</p></li>
 <li><p>이벤트에 매개 변수 추가 또는 삭제.</p></li>
 </ul>
-</div>
-<div class="section" id="examples-of-non-breaking-changes">
+</section>
+<section id="examples-of-non-breaking-changes">
 <h2>큰 변화가 아닌 것의 예<a class="headerlink" href="#examples-of-non-breaking-changes" title="제목 주소">¶</a></h2>
 <ul class="simple">
 <li><p>비공개 밑줄 속성의 추가 또는 제거.</p></li>
@@ -70,43 +111,59 @@
 <li><p>내부적인 HTTP 처리 수정.</p></li>
 <li><p>주 버전 또는 다른 새로운 버전으로의 의존성 업그레이드.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">목차</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">버전 개런티</a><ul>
-<li><a class="reference internal" href="#examples-of-breaking-changes">큰 변화의 예</a></li>
-<li><a class="reference internal" href="#examples-of-non-breaking-changes">큰 변화가 아닌 것의 예</a></li>
-</ul>
-</li>
-</ul>
-<!-- purposefully empty -->
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">빠른 검색</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="이동" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-  <div class="footer">
-    &copy; Copyright 2015-2020, Rapptz.
-    <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 버전으로 생성되었습니다.
+    </main>
+    <footer class="grid-item">
+        &#169; Copyright 2015-2020, Rapptz.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </footer>
   </div>
-  
-  </body>
+
+  <div id="settings" class="modal" onclick="if (event.target == this){ settingsModal.close(); }" hidden>
+    <div class="modal-content">
+      <span class="close" onclick="settingsModal.close();" title="Close">
+        <span class="material-icons">close</span>
+      </span>
+      <h1>Settings</h1>
+
+      <h2>Font</h2>
+      <div class="setting">
+        <h3>Use a serif font:
+          <label class="toggle"
+            title="Use a serif font? Your system font will be used, falling back to serif.">
+            <input type="checkbox" name="useSerifFont" onclick="updateSetting(this);">
+            <span class="toggle-slider"></span>
+          </label>
+        </h3>
+      </div>
+
+      <h2>Theme</h2>
+      <div class="setting">
+        <h3>
+          <label class="toggle" title="Set your theme based on your system preferences">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="automatic" checked>
+          </label>
+          Automatic
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to light theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="light">
+          </label>
+          Light
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to dark theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="dark">
+          </label>
+          Dark
+        </h3>
+      </div>
+
+    </div>
+  </div>
+
+</body>
 </html>

@@ -1,54 +1,91 @@
-
 <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>discord.ext.tasks – asyncio.Task 헬퍼</title> 
+  <!-- end extra head -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/codeblocks.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/icons.css" type="text/css" />
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+  <script src="../../_static/jquery.js"></script>
+  <script src="../../_static/underscore.js"></script>
+  <script src="../../_static/doctools.js"></script>
+  <script src="../../_static/language_data.js"></script>
+  <script src="../../_static/custom.js"></script>
+  <script src="../../_static/settings.js"></script>
+  <script src="../../_static/copy.js"></script>
+  <script src="../../_static/sidebar.js"></script>
+  <script src="../../_static/translations.js"></script>
+  <link rel="shortcut icon" href="../../_static/discord_py_logo.ico"/>
+  <link rel="index" title="색인" href="../../genindex.html" />
+  <link rel="search" title="검색" href="../../search.html" />
+  <link rel="next" title="API 레퍼런스" href="../../api.html" />
+  <link rel="prev" title="API Reference" href="../commands/api.html" />
+</head>
+<body>
+  <div class="main-grid">
+    <header class="grid-item">
+      <nav>
+        <a href="../../index.html" class="main-heading">discord.py</a>
+        <a href="https://github.com/Rapptz/discord.py" title="GitHub"><span class="material-icons custom-icons">github</span></a>
+        <a href="https://discord.gg/YbfbxpX" title="Discord"><span class="material-icons custom-icons">discord</span></a>
+        <a href="../../faq.html" title="FAQ"><span class="material-icons">help_center</span></a>
+        <a onclick="mobileSearch.open();" title="검색" id="open-search" class="mobile-only"><span class="material-icons">search</span></a>
+        <a onclick="mobileSearch.close();" title="Close" id="close-search" class="mobile-only" hidden><span class="material-icons">close</span></a>
+      </nav>
+      <nav class="mobile-only">
+        <form role="search" class="search" action="search.html" method="get">
+          <div class="search-wrapper">
+            <input type="search" name="q" placeholder="Search documentation" />
+            <button type="submit">
+              <span class="material-icons">search</span>
+            </button>
+          </div>
+        </form>
+      </nav>
+    </header>
+    <div class="sub-header grid-item">
+      <label for="documentation_select">View Documentation For</label>
+      <select id="documentation_select" onchange="window.location = this.value;">
+        <option value="../../index.html">discord</option>
+        <option value="../commands/index.html" >discord.ext.commands</option>
+        <option value="#" selected>discord.ext.tasks</option>
+      </select>
+      <form role="search" class="search" action="search.html" method="get">
+        <div class="search-wrapper">
+          <input type="search" name="q" placeholder="Search documentation" />
+          <button type="submit">
+            <span class="material-icons">search</span>
+          </button>
+        </div>
+      </form>
+      <a accesskey="S" class="settings" onclick="settingsModal.open();"><span class="material-icons">settings</span></a>
+    </div>
+    <aside class="grid-item">
+      <span id="hamburger-toggle">
+        <span class="material-icons">menu</span>
+      </span>
+      <span id="settings-toggle" class="settings" onclick="settingsModal.open();">
+        <span class="material-icons">settings</span>
+      </span>
+      <div id="sidebar">
+  <h3><a href="../../index.html">목차</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">discord.ext.tasks</span></code> – asyncio.Task 헬퍼</a><ul>
+<li><a class="reference internal" href="#recipes">레시피</a></li>
+<li><a class="reference internal" href="#api-reference">API 레퍼런스</a></li>
+</ul>
+</li>
+</ul>
 
-<html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>discord.ext.tasks – asyncio.Task 헬퍼 &#8212; discord.py 1.5.1 문서</title>
-    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
-    <script src="../../_static/custom.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <link rel="index" title="색인" href="../../genindex.html" />
-    <link rel="search" title="검색" href="../../search.html" />
-    <link rel="next" title="봇 계정 생성" href="../../discord.html" />
-    <link rel="prev" title="API Reference" href="../commands/api.html" />
-   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
-
-  </head><body>
-  
-  
-
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>탐색</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="전체 색인"
-             accesskey="I">색인</a></li>
-        <li class="right" >
-          <a href="../../discord.html" title="봇 계정 생성"
-             accesskey="N">다음</a> |</li>
-        <li class="right" >
-          <a href="../commands/api.html" title="API Reference"
-             accesskey="P">이전</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">discord.py 1.5.1 문서</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><code class="docutils literal notranslate"><span class="pre">discord.ext.tasks</span></code> – asyncio.Task 헬퍼</a></li> 
-      </ul>
-    </div>  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="discord-ext-tasks-asyncio-task-helpers">
+      </div>
+    </aside>
+    <main class="grid-item">
+      
+  <section id="discord-ext-tasks-asyncio-task-helpers">
 <span id="discord-ext-tasks"></span><h1><code class="docutils literal notranslate"><span class="pre">discord.ext.tasks</span></code> – asyncio.Task 헬퍼<a class="headerlink" href="#discord-ext-tasks-asyncio-task-helpers" title="제목 주소">¶</a></h1>
 <div class="versionadded">
 <p><span class="versionmodified added">버전 1.1.0에 추가.</span></p>
@@ -60,7 +97,7 @@
 <li><p>아무튼 제가 잘 수 있는 최고 시간은 몇초인가요?</p></li>
 </ul>
 <p>이 discord.py 확장의 목적은 이런 관념적인 걱정들을 덜어주는 것입니다.</p>
-<div class="section" id="recipes">
+<section id="recipes">
 <h2>레시피<a class="headerlink" href="#recipes" title="제목 주소">¶</a></h2>
 <p><a class="reference internal" href="../commands/api.html#discord.ext.commands.Cog" title="discord.ext.commands.Cog"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cog</span></code></a> 에서의 간단한 백그라운드 태스크:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">discord.ext</span> <span class="kn">import</span> <span class="n">tasks</span><span class="p">,</span> <span class="n">commands</span>
@@ -165,10 +202,50 @@
             <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_bulk</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="api-reference">
+</section>
+<section id="api-reference">
 <span id="ext-tasks-api"></span><h2>API 레퍼런스<a class="headerlink" href="#api-reference" title="제목 주소">¶</a></h2>
-<dl class="py class">
+<div class="py-attribute-table" data-move-to-id="discord.ext.tasks.Loop"><div class="py-attribute-table-column">
+<span>
+Attributes</span><ul>
+<li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.tasks.Loop.current_loop">current_loop</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.ext.tasks.Loop.next_iteration">next_iteration</a></li></ul>
+</div><div class="py-attribute-table-column">
+<span>
+Methods</span><ul>
+<li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.tasks.Loop.add_exception_type">add_exception_type</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.tasks.Loop.after_loop">after_loop</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.tasks.Loop.before_loop">before_loop</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.tasks.Loop.cancel">cancel</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.tasks.Loop.change_interval">change_interval</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.tasks.Loop.clear_exception_types">clear_exception_types</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="decorator">
+&#64;</span><a class="reference internal" href="#discord.ext.tasks.Loop.error">error</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.tasks.Loop.failed">failed</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.tasks.Loop.get_task">get_task</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.tasks.Loop.is_being_cancelled">is_being_cancelled</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.tasks.Loop.is_running">is_running</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.tasks.Loop.remove_exception_type">remove_exception_type</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.tasks.Loop.restart">restart</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.tasks.Loop.start">start</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.ext.tasks.Loop.stop">stop</a></li></ul>
+</div></div><dl class="py class">
 <dt id="discord.ext.tasks.Loop">
 <em class="property">class </em><code class="sig-prename descclassname">discord.ext.tasks.</code><code class="sig-name descname">Loop</code><a class="headerlink" href="#discord.ext.tasks.Loop" title="정의 주소">¶</a></dt>
 <dd><p>당신을 위해 루프와 재연결 로직을 추상화하는 백그라운드 태스크 헬퍼.</p>
@@ -438,43 +515,59 @@
 </dl>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">목차</a></h3>
-  <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">discord.ext.tasks</span></code> – asyncio.Task 헬퍼</a><ul>
-<li><a class="reference internal" href="#recipes">레시피</a></li>
-<li><a class="reference internal" href="#api-reference">API 레퍼런스</a></li>
-</ul>
-</li>
-</ul>
-<!-- purposefully empty -->
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">빠른 검색</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="이동" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-  <div class="footer">
-    &copy; Copyright 2015-2020, Rapptz.
-    <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 버전으로 생성되었습니다.
+    </main>
+    <footer class="grid-item">
+        &#169; Copyright 2015-2020, Rapptz.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </footer>
   </div>
-  
-  </body>
+
+  <div id="settings" class="modal" onclick="if (event.target == this){ settingsModal.close(); }" hidden>
+    <div class="modal-content">
+      <span class="close" onclick="settingsModal.close();" title="Close">
+        <span class="material-icons">close</span>
+      </span>
+      <h1>Settings</h1>
+
+      <h2>Font</h2>
+      <div class="setting">
+        <h3>Use a serif font:
+          <label class="toggle"
+            title="Use a serif font? Your system font will be used, falling back to serif.">
+            <input type="checkbox" name="useSerifFont" onclick="updateSetting(this);">
+            <span class="toggle-slider"></span>
+          </label>
+        </h3>
+      </div>
+
+      <h2>Theme</h2>
+      <div class="setting">
+        <h3>
+          <label class="toggle" title="Set your theme based on your system preferences">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="automatic" checked>
+          </label>
+          Automatic
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to light theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="light">
+          </label>
+          Light
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to dark theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="dark">
+          </label>
+          Dark
+        </h3>
+      </div>
+
+    </div>
+  </div>
+
+</body>
 </html>

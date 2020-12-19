@@ -1,45 +1,76 @@
-
 <!DOCTYPE html>
-
-<html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>색인 &#8212; discord.py 1.5.1 문서</title>
-    <link rel="stylesheet" href="_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
-    <script src="_static/custom.js"></script>
-    <script src="_static/translations.js"></script>
-    <link rel="index" title="색인" href="#" />
-    <link rel="search" title="검색" href="search.html" />
-   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
-
-  </head><body>
-  
-  
-
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>탐색</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="#" title="전체 색인"
-             accesskey="I">색인</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">discord.py 1.5.1 문서</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">색인</a></li> 
-      </ul>
-    </div>  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>색인</title> 
+  <!-- end extra head -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="_static/codeblocks.css" type="text/css" />
+  <link rel="stylesheet" href="_static/icons.css" type="text/css" />
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  <script src="_static/jquery.js"></script>
+  <script src="_static/underscore.js"></script>
+  <script src="_static/doctools.js"></script>
+  <script src="_static/language_data.js"></script>
+  <script src="_static/custom.js"></script>
+  <script src="_static/settings.js"></script>
+  <script src="_static/copy.js"></script>
+  <script src="_static/sidebar.js"></script>
+  <script src="_static/translations.js"></script>
+  <link rel="shortcut icon" href="_static/discord_py_logo.ico"/>
+  <link rel="index" title="색인" href="#" />
+  <link rel="search" title="검색" href="search.html" />
+</head>
+<body>
+  <div class="main-grid">
+    <header class="grid-item">
+      <nav>
+        <a href="index.html" class="main-heading">discord.py</a>
+        <a href="https://github.com/Rapptz/discord.py" title="GitHub"><span class="material-icons custom-icons">github</span></a>
+        <a href="https://discord.gg/YbfbxpX" title="Discord"><span class="material-icons custom-icons">discord</span></a>
+        <a href="faq.html" title="FAQ"><span class="material-icons">help_center</span></a>
+        <a onclick="mobileSearch.open();" title="검색" id="open-search" class="mobile-only"><span class="material-icons">search</span></a>
+        <a onclick="mobileSearch.close();" title="Close" id="close-search" class="mobile-only" hidden><span class="material-icons">close</span></a>
+      </nav>
+      <nav class="mobile-only">
+        <form role="search" class="search" action="search.html" method="get">
+          <div class="search-wrapper">
+            <input type="search" name="q" placeholder="Search documentation" />
+            <button type="submit">
+              <span class="material-icons">search</span>
+            </button>
+          </div>
+        </form>
+      </nav>
+    </header>
+    <div class="sub-header grid-item">
+      <label for="documentation_select">View Documentation For</label>
+      <select id="documentation_select" onchange="window.location = this.value;">
+        <option value="#" selected>discord</option>
+        <option value="ext/commands/index.html" >discord.ext.commands</option>
+        <option value="ext/tasks/index.html" >discord.ext.tasks</option>
+      </select>
+      <form role="search" class="search" action="search.html" method="get">
+        <div class="search-wrapper">
+          <input type="search" name="q" placeholder="Search documentation" />
+          <button type="submit">
+            <span class="material-icons">search</span>
+          </button>
+        </div>
+      </form>
+      <a accesskey="S" class="settings" onclick="settingsModal.open();"><span class="material-icons">settings</span></a>
+    </div>
+    <aside class="grid-item">
+      <span id="settings-toggle" class="settings" onclick="settingsModal.open();">
+        <span class="material-icons">settings</span>
+      </span>
+      <div id="sidebar">
+      </div>
+    </aside>
+    <main class="grid-item">
+      
   
 
 <h1 id="index">색인</h1>
@@ -151,6 +182,8 @@
 </li>
       <li><a href="api.html#discord.Message.add_reaction">add_reaction() (discord.Message 메서드)</a>
 </li>
+      <li><a href="api.html#discord.PartialMessage.add_reaction">add_reaction() (discord.PartialMessage 메서드)</a>
+</li>
       <li><a href="api.html#discord.Permissions.add_reactions">add_reactions (discord.Permissions의 속성)</a>
 </li>
       <li><a href="api.html#discord.GroupChannel.add_recipients">add_recipients() (discord.GroupChannel 메서드)</a>
@@ -230,6 +263,8 @@
       <li><a href="api.html#discord.Emoji.animated">animated (discord.Emoji의 속성)</a>
 </li>
       <li><a href="api.html#discord.PartialEmoji.animated">animated (discord.PartialEmoji의 속성)</a>
+</li>
+      <li><a href="api.html#discord.StickerType.apng">apng (discord.StickerType의 속성)</a>
 </li>
       <li><a href="api.html#discord.AppInfo">AppInfo (discord 클래스)</a>
 </li>
@@ -419,10 +454,10 @@
 </li>
       <li><a href="api.html#discord.User.block">block() (discord.User 메서드)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api.html#discord.RelationshipType.blocked">blocked (discord.RelationshipType의 속성)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api.html#discord.ClientUser.blocked">blocked() (discord.ClientUser property)</a>
 </li>
       <li><a href="api.html#discord.Colour.blue">blue() (discord.Colour의 클래스 메서드)</a>
@@ -460,6 +495,8 @@
       <li><a href="ext/commands/api.html#discord.ext.commands.bot_has_permissions">bot_has_permissions() (discord.ext.commands 모듈)</a>
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.bot_has_role">bot_has_role() (discord.ext.commands 모듈)</a>
+</li>
+      <li><a href="api.html#discord.RoleTags.bot_id">bot_id (discord.RoleTags의 속성)</a>
 </li>
       <li><a href="api.html#discord.AppInfo.bot_public">bot_public (discord.AppInfo의 속성)</a>
 </li>
@@ -587,6 +624,8 @@
 </li>
       <li><a href="api.html#discord.Message.channel">channel (discord.Message의 속성)</a>
 </li>
+      <li><a href="api.html#discord.PartialMessage.channel">channel (discord.PartialMessage의 속성)</a>
+</li>
       <li><a href="api.html#discord.VoiceClient.channel">channel (discord.VoiceClient의 속성)</a>
 </li>
       <li><a href="api.html#discord.VoiceState.channel">channel (discord.VoiceState의 속성)</a>
@@ -622,6 +661,8 @@
       <li><a href="api.html#discord.RawReactionClearEvent.channel_id">channel_id (discord.RawReactionClearEvent의 속성)</a>
 </li>
       <li><a href="api.html#discord.Webhook.channel_id">channel_id (discord.Webhook의 속성)</a>
+</li>
+      <li><a href="api.html#discord.DeletedReferencedMessage.channel_id">channel_id() (discord.DeletedReferencedMessage property)</a>
 </li>
       <li><a href="api.html#discord.Message.channel_mentions">channel_mentions (discord.Message의 속성)</a>
 </li>
@@ -659,6 +700,8 @@
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Command.checks">checks (discord.ext.commands.Command의 속성)</a>
 </li>
+      <li><a href="api.html#discord.AsyncIterator.chunk">chunk() (discord.AsyncIterator 메서드)</a>
+</li>
       <li><a href="api.html#discord.Guild.chunk">chunk() (discord.Guild 메서드)</a>
 </li>
       <li><a href="api.html#discord.Guild.chunked">chunked() (discord.Guild property)</a>
@@ -695,7 +738,11 @@
 </li>
       <li><a href="api.html#discord.Message.clear_reaction">clear_reaction() (discord.Message 메서드)</a>
 </li>
+      <li><a href="api.html#discord.PartialMessage.clear_reaction">clear_reaction() (discord.PartialMessage 메서드)</a>
+</li>
       <li><a href="api.html#discord.Message.clear_reactions">clear_reactions() (discord.Message 메서드)</a>
+</li>
+      <li><a href="api.html#discord.PartialMessage.clear_reactions">clear_reactions() (discord.PartialMessage 메서드)</a>
 </li>
       <li><a href="api.html#discord.Client">Client (discord 클래스)</a>
 </li>
@@ -761,10 +808,10 @@
 </li>
       <li><a href="api.html#discord.ClientUser.color">color() (discord.ClientUser property)</a>
 </li>
-      <li><a href="api.html#discord.Member.color">color() (discord.Member property)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#discord.Member.color">color() (discord.Member property)</a>
+</li>
       <li><a href="api.html#discord.Role.color">color() (discord.Role property)</a>
 </li>
       <li><a href="api.html#discord.Spotify.color">color() (discord.Spotify property)</a>
@@ -927,6 +974,8 @@
 </li>
       <li><a href="api.html#discord.AppInfo.cover_image_url">cover_image_url() (discord.AppInfo property)</a>
 </li>
+      <li><a href="api.html#discord.AppInfo.cover_image_url_as">cover_image_url_as() (discord.AppInfo 메서드)</a>
+</li>
       <li><a href="api.html#discord.AuditLogActionCategory.create">create (discord.AuditLogActionCategory의 속성)</a>
 </li>
       <li><a href="api.html#discord.Guild.create_category">create_category() (discord.Guild 메서드)</a>
@@ -1001,13 +1050,19 @@
 </li>
       <li><a href="api.html#discord.Object.created_at">created_at() (discord.Object property)</a>
 </li>
+      <li><a href="api.html#discord.PartialEmoji.created_at">created_at() (discord.PartialEmoji property)</a>
+</li>
       <li><a href="api.html#discord.PartialInviteChannel.created_at">created_at() (discord.PartialInviteChannel property)</a>
 </li>
       <li><a href="api.html#discord.PartialInviteGuild.created_at">created_at() (discord.PartialInviteGuild property)</a>
 </li>
+      <li><a href="api.html#discord.PartialMessage.created_at">created_at() (discord.PartialMessage property)</a>
+</li>
       <li><a href="api.html#discord.Role.created_at">created_at() (discord.Role property)</a>
 </li>
       <li><a href="api.html#discord.Spotify.created_at">created_at() (discord.Spotify property)</a>
+</li>
+      <li><a href="api.html#discord.Sticker.created_at">created_at() (discord.Sticker property)</a>
 </li>
       <li><a href="api.html#discord.TextChannel.created_at">created_at() (discord.TextChannel property)</a>
 </li>
@@ -1131,6 +1186,8 @@
 </li>
       <li><a href="api.html#discord.Message.delete">delete() (discord.Message 메서드)</a>
 </li>
+      <li><a href="api.html#discord.PartialMessage.delete">delete() (discord.PartialMessage 메서드)</a>
+</li>
       <li><a href="api.html#discord.Relationship.delete">delete() (discord.Relationship 메서드)</a>
 </li>
       <li><a href="api.html#discord.Role.delete">delete() (discord.Role 메서드)</a>
@@ -1141,13 +1198,19 @@
 </li>
       <li><a href="api.html#discord.Webhook.delete">delete() (discord.Webhook 메서드)</a>
 </li>
+      <li><a href="api.html#discord.WebhookMessage.delete">delete() (discord.WebhookMessage 메서드)</a>
+</li>
       <li><a href="api.html#discord.Client.delete_invite">delete_invite() (discord.Client 메서드)</a>
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Bot.delete_invite">delete_invite() (discord.ext.commands.Bot 메서드)</a>
 </li>
+      <li><a href="api.html#discord.Webhook.delete_message">delete_message() (discord.Webhook 메서드)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api.html#discord.TextChannel.delete_messages">delete_messages() (discord.TextChannel 메서드)</a>
+</li>
+      <li><a href="api.html#discord.DeletedReferencedMessage">DeletedReferencedMessage (discord 클래스)</a>
 </li>
       <li><a href="api.html#discord.AuditLogDiff.deny">deny (discord.AuditLogDiff의 속성)</a>
 </li>
@@ -1157,11 +1220,15 @@
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Bot.description">description (discord.ext.commands.Bot의 속성)</a>
 </li>
+      <li><a href="ext/commands/api.html#discord.ext.commands.CogMeta.description">description (discord.ext.commands.CogMeta의 속성)</a>
+</li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Command.description">description (discord.ext.commands.Command의 속성)</a>
 </li>
       <li><a href="api.html#discord.Guild.description">description (discord.Guild의 속성)</a>
 </li>
       <li><a href="api.html#discord.PartialInviteGuild.description">description (discord.PartialInviteGuild의 속성)</a>
+</li>
+      <li><a href="api.html#discord.Sticker.description">description (discord.Sticker의 속성)</a>
 </li>
       <li><a href="api.html#discord.Template.description">description (discord.Template의 속성)</a>
 </li>
@@ -1281,6 +1348,8 @@
 </li>
       <li><a href="api.html#discord.Message.edit">edit() (discord.Message 메서드)</a>
 </li>
+      <li><a href="api.html#discord.PartialMessage.edit">edit() (discord.PartialMessage 메서드)</a>
+</li>
       <li><a href="api.html#discord.Role.edit">edit() (discord.Role 메서드)</a>
 </li>
       <li><a href="api.html#discord.TextChannel.edit">edit() (discord.TextChannel 메서드)</a>
@@ -1288,6 +1357,10 @@
       <li><a href="api.html#discord.VoiceChannel.edit">edit() (discord.VoiceChannel 메서드)</a>
 </li>
       <li><a href="api.html#discord.Webhook.edit">edit() (discord.Webhook 메서드)</a>
+</li>
+      <li><a href="api.html#discord.WebhookMessage.edit">edit() (discord.WebhookMessage 메서드)</a>
+</li>
+      <li><a href="api.html#discord.Webhook.edit_message">edit_message() (discord.Webhook 메서드)</a>
 </li>
       <li><a href="api.html#discord.Guild.edit_role_positions">edit_role_positions() (discord.Guild 메서드)</a>
 </li>
@@ -1337,10 +1410,10 @@
 </li>
       <li><a href="api.html#discord.Embed.Empty">Empty (discord.Embed의 속성)</a>
 </li>
-      <li><a href="api.html#discord.Integration.enable_emoticons">enable_emoticons (discord.Integration의 속성)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#discord.Integration.enable_emoticons">enable_emoticons (discord.Integration의 속성)</a>
+</li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Command.enabled">enabled (discord.ext.commands.Command의 속성)</a>
 </li>
       <li><a href="api.html#discord.Integration.enabled">enabled (discord.Integration의 속성)</a>
@@ -1435,6 +1508,8 @@
 </li>
       <li><a href="api.html#discord.PartialInviteGuild.features">features (discord.PartialInviteGuild의 속성)</a>
 </li>
+      <li><a href="api.html#discord.PartialMessage.fetch">fetch() (discord.PartialMessage 메서드)</a>
+</li>
       <li><a href="api.html#discord.Guild.fetch_ban">fetch_ban() (discord.Guild 메서드)</a>
 </li>
       <li><a href="api.html#discord.Client.fetch_channel">fetch_channel() (discord.Client 메서드)</a>
@@ -1497,10 +1572,10 @@
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Bot.fetch_webhook">fetch_webhook() (discord.ext.commands.Bot 메서드)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api.html#discord.Client.fetch_widget">fetch_widget() (discord.Client 메서드)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ext/commands/api.html#discord.ext.commands.Bot.fetch_widget">fetch_widget() (discord.ext.commands.Bot 메서드)</a>
 </li>
       <li><a href="api.html#discord.FFmpegAudio">FFmpegAudio (discord 클래스)</a>
@@ -1539,6 +1614,8 @@
 </li>
       <li><a href="api.html#discord.Forbidden">Forbidden</a>
 </li>
+      <li><a href="api.html#discord.Sticker.format">format (discord.Sticker의 속성)</a>
+</li>
       <li><a href="api.html#discord.File.fp">fp (discord.File의 속성)</a>
 </li>
       <li><a href="api.html#discord.VoiceRegion.frankfurt">frankfurt (discord.VoiceRegion의 속성)</a>
@@ -1556,6 +1633,8 @@
       <li><a href="api.html#discord.Colour.from_hsv">from_hsv() (discord.Colour의 클래스 메서드)</a>
 </li>
       <li><a href="api.html#discord.MemberCacheFlags.from_intents">from_intents() (discord.MemberCacheFlags의 클래스 메서드)</a>
+</li>
+      <li><a href="api.html#discord.MessageReference.from_message">from_message() (discord.MessageReference의 클래스 메서드)</a>
 </li>
       <li><a href="api.html#discord.PermissionOverwrite.from_pair">from_pair() (discord.PermissionOverwrite의 클래스 메서드)</a>
 </li>
@@ -1655,6 +1734,10 @@
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.MinimalHelpCommand.get_opening_note">get_opening_note() (discord.ext.commands.MinimalHelpCommand 메서드)</a>
 </li>
+      <li><a href="api.html#discord.DMChannel.get_partial_message">get_partial_message() (discord.DMChannel 메서드)</a>
+</li>
+      <li><a href="api.html#discord.TextChannel.get_partial_message">get_partial_message() (discord.TextChannel 메서드)</a>
+</li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Bot.get_prefix">get_prefix() (discord.ext.commands.Bot 메서드)</a>
 </li>
       <li><a href="api.html#discord.ClientUser.get_relationship">get_relationship() (discord.ClientUser 메서드)</a>
@@ -1719,6 +1802,8 @@
 </li>
       <li><a href="api.html#discord.Message.guild">guild (discord.Message의 속성)</a>
 </li>
+      <li><a href="api.html#discord.PartialMessage.guild">guild (discord.PartialMessage의 속성)</a>
+</li>
       <li><a href="api.html#discord.Role.guild">guild (discord.Role의 속성)</a>
 </li>
       <li><a href="api.html#discord.TextChannel.guild">guild (discord.TextChannel의 속성)</a>
@@ -1752,6 +1837,8 @@
       <li><a href="api.html#discord.RawReactionClearEvent.guild_id">guild_id (discord.RawReactionClearEvent의 속성)</a>
 </li>
       <li><a href="api.html#discord.Webhook.guild_id">guild_id (discord.Webhook의 속성)</a>
+</li>
+      <li><a href="api.html#discord.DeletedReferencedMessage.guild_id">guild_id() (discord.DeletedReferencedMessage property)</a>
 </li>
       <li><a href="api.html#discord.Intents.guild_messages">guild_messages (discord.Intents의 속성)</a>
 </li>
@@ -1871,9 +1958,15 @@
 </li>
       <li><a href="api.html#discord.Team.icon_url">icon_url() (discord.Team property)</a>
 </li>
+      <li><a href="api.html#discord.AppInfo.icon_url_as">icon_url_as() (discord.AppInfo 메서드)</a>
+</li>
+      <li><a href="api.html#discord.GroupChannel.icon_url_as">icon_url_as() (discord.GroupChannel 메서드)</a>
+</li>
       <li><a href="api.html#discord.Guild.icon_url_as">icon_url_as() (discord.Guild 메서드)</a>
 </li>
       <li><a href="api.html#discord.PartialInviteGuild.icon_url_as">icon_url_as() (discord.PartialInviteGuild 메서드)</a>
+</li>
+      <li><a href="api.html#discord.Team.icon_url_as">icon_url_as() (discord.Team 메서드)</a>
 </li>
       <li><a href="api.html#discord.abc.Snowflake.id">id (discord.abc.Snowflake의 속성)</a>
 </li>
@@ -1911,9 +2004,13 @@
 </li>
       <li><a href="api.html#discord.PartialInviteGuild.id">id (discord.PartialInviteGuild의 속성)</a>
 </li>
+      <li><a href="api.html#discord.PartialMessage.id">id (discord.PartialMessage의 속성)</a>
+</li>
       <li><a href="api.html#discord.Role.id">id (discord.Role의 속성)</a>
 </li>
       <li><a href="api.html#discord.ShardInfo.id">id (discord.ShardInfo의 속성)</a>
+</li>
+      <li><a href="api.html#discord.Sticker.id">id (discord.Sticker의 속성)</a>
 </li>
       <li><a href="api.html#discord.TeamMember.id">id (discord.TeamMember의 속성)</a>
 </li>
@@ -1933,6 +2030,8 @@
 </li>
       <li><a href="api.html#discord.Widget.id">id (discord.Widget의 속성)</a>
 </li>
+      <li><a href="api.html#discord.DeletedReferencedMessage.id">id() (discord.DeletedReferencedMessage property)</a>
+</li>
       <li><a href="api.html#discord.Invite.id">id() (discord.Invite property)</a>
 </li>
       <li><a href="api.html#discord.Member.id">id() (discord.Member property)</a>
@@ -1941,7 +2040,13 @@
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Command.ignore_extra">ignore_extra (discord.ext.commands.Command의 속성)</a>
 </li>
+      <li><a href="api.html#discord.Sticker.image">image (discord.Sticker의 속성)</a>
+</li>
       <li><a href="api.html#discord.Embed.image">image() (discord.Embed property)</a>
+</li>
+      <li><a href="api.html#discord.Sticker.image_url">image_url() (discord.Sticker property)</a>
+</li>
+      <li><a href="api.html#discord.Sticker.image_url_as">image_url_as() (discord.Sticker 메서드)</a>
 </li>
       <li><a href="api.html#discord.WebhookType.incoming">incoming (discord.WebhookType의 속성)</a>
 </li>
@@ -1958,6 +2063,8 @@
       <li><a href="api.html#discord.AuditLogAction.integration_create">integration_create (discord.AuditLogAction의 속성)</a>
 </li>
       <li><a href="api.html#discord.AuditLogAction.integration_delete">integration_delete (discord.AuditLogAction의 속성)</a>
+</li>
+      <li><a href="api.html#discord.RoleTags.integration_id">integration_id (discord.RoleTags의 속성)</a>
 </li>
       <li><a href="api.html#discord.AuditLogAction.integration_update">integration_update (discord.AuditLogAction의 속성)</a>
 </li>
@@ -2041,6 +2148,10 @@
 </li>
       <li><a href="api.html#discord.User.is_blocked">is_blocked() (discord.User 메서드)</a>
 </li>
+      <li><a href="api.html#discord.Role.is_bot_managed">is_bot_managed() (discord.Role 메서드)</a>
+</li>
+      <li><a href="api.html#discord.RoleTags.is_bot_managed">is_bot_managed() (discord.RoleTags 메서드)</a>
+</li>
       <li><a href="api.html#discord.Client.is_closed">is_closed() (discord.Client 메서드)</a>
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Bot.is_closed">is_closed() (discord.ext.commands.Bot 메서드)</a>
@@ -2064,6 +2175,10 @@
       <li><a href="api.html#discord.Guild.is_icon_animated">is_icon_animated() (discord.Guild 메서드)</a>
 </li>
       <li><a href="api.html#discord.PartialInviteGuild.is_icon_animated">is_icon_animated() (discord.PartialInviteGuild 메서드)</a>
+</li>
+      <li><a href="api.html#discord.Role.is_integration">is_integration() (discord.Role 메서드)</a>
+</li>
+      <li><a href="api.html#discord.RoleTags.is_integration">is_integration() (discord.RoleTags 메서드)</a>
 </li>
       <li><a href="api.html#discord.opus.is_loaded">is_loaded() (discord.opus 모듈)</a>
 </li>
@@ -2095,6 +2210,10 @@
 </li>
       <li><a href="api.html#discord.VoiceClient.is_playing">is_playing() (discord.VoiceClient 메서드)</a>
 </li>
+      <li><a href="api.html#discord.Role.is_premium_subscriber">is_premium_subscriber() (discord.Role 메서드)</a>
+</li>
+      <li><a href="api.html#discord.RoleTags.is_premium_subscriber">is_premium_subscriber() (discord.RoleTags 메서드)</a>
+</li>
       <li><a href="api.html#discord.Client.is_ready">is_ready() (discord.Client 메서드)</a>
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Bot.is_ready">is_ready() (discord.ext.commands.Bot 메서드)</a>
@@ -2117,6 +2236,14 @@
 </li>
       <li><a href="api.html#discord.Emoji.is_usable">is_usable() (discord.Emoji 메서드)</a>
 </li>
+      <li><a href="api.html#discord.AutoShardedClient.is_ws_ratelimited">is_ws_ratelimited() (discord.AutoShardedClient 메서드)</a>
+</li>
+      <li><a href="api.html#discord.Client.is_ws_ratelimited">is_ws_ratelimited() (discord.Client 메서드)</a>
+</li>
+      <li><a href="ext/commands/api.html#discord.ext.commands.Bot.is_ws_ratelimited">is_ws_ratelimited() (discord.ext.commands.Bot 메서드)</a>
+</li>
+      <li><a href="api.html#discord.ShardInfo.is_ws_ratelimited">is_ws_ratelimited() (discord.ShardInfo 메서드)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -2136,6 +2263,8 @@
       <li><a href="api.html#discord.Widget.json_url">json_url() (discord.Widget property)</a>
 </li>
       <li><a href="api.html#discord.Message.jump_url">jump_url() (discord.Message property)</a>
+</li>
+      <li><a href="api.html#discord.PartialMessage.jump_url">jump_url() (discord.PartialMessage property)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -2197,10 +2326,10 @@
 </li>
       <li><a href="api.html#discord.Colour.lighter_gray">lighter_gray() (discord.Colour의 클래스 메서드)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api.html#discord.Colour.lighter_grey">lighter_grey() (discord.Colour의 클래스 메서드)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ext/commands/api.html#discord.ext.commands.Bot.listen">listen() (discord.ext.commands.Bot 메서드)</a>
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Cog.listener">listener() (discord.ext.commands.Cog의 클래스 메서드)</a>
@@ -2232,6 +2361,8 @@
       <li><a href="api.html#discord.VoiceClient.loop">loop (discord.VoiceClient의 속성)</a>
 </li>
       <li><a href="ext/tasks/index.html#discord.ext.tasks.loop">loop() (discord.ext.tasks 모듈)</a>
+</li>
+      <li><a href="api.html#discord.StickerType.lottie">lottie (discord.StickerType의 속성)</a>
 </li>
       <li><a href="api.html#discord.VerificationLevel.low">low (discord.VerificationLevel의 속성)</a>
 </li>
@@ -2534,6 +2665,8 @@
       <li><a href="api.html#discord.PartialInviteGuild.name">name (discord.PartialInviteGuild의 속성)</a>
 </li>
       <li><a href="api.html#discord.Role.name">name (discord.Role의 속성)</a>
+</li>
+      <li><a href="api.html#discord.Sticker.name">name (discord.Sticker의 속성)</a>
 </li>
       <li><a href="api.html#discord.Streaming.name">name (discord.Streaming의 속성)</a>
 </li>
@@ -2847,6 +2980,8 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#discord.Sticker.pack_id">pack_id (discord.Sticker의 속성)</a>
+</li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Paginator.pages">pages() (discord.ext.commands.Paginator property)</a>
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Paginator">Paginator (discord.ext.commands 클래스)</a>
@@ -2879,6 +3014,8 @@
 </li>
       <li><a href="api.html#discord.PartialInviteGuild">PartialInviteGuild (discord 클래스)</a>
 </li>
+      <li><a href="api.html#discord.PartialMessage">PartialMessage (discord 클래스)</a>
+</li>
       <li><a href="api.html#discord.CallMessage.participants">participants (discord.CallMessage의 속성)</a>
 </li>
       <li><a href="api.html#discord.Profile.partner">partner (discord.Profile의 속성)</a>
@@ -2894,6 +3031,8 @@
       <li><a href="api.html#discord.PCMAudio">PCMAudio (discord 클래스)</a>
 </li>
       <li><a href="api.html#discord.PCMVolumeTransformer">PCMVolumeTransformer (discord 클래스)</a>
+</li>
+      <li><a href="api.html#discord.Member.pending">pending (discord.Member의 속성)</a>
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.MaxConcurrencyReached.per">per (discord.ext.commands.MaxConcurrencyReached의 속성)</a>
 </li>
@@ -2935,6 +3074,8 @@
 </li>
       <li><a href="api.html#discord.Message.pin">pin() (discord.Message 메서드)</a>
 </li>
+      <li><a href="api.html#discord.PartialMessage.pin">pin() (discord.PartialMessage 메서드)</a>
+</li>
       <li><a href="api.html#discord.Message.pinned">pinned (discord.Message의 속성)</a>
 </li>
       <li><a href="api.html#discord.abc.Messageable.pins">pins() (discord.abc.Messageable 메서드)</a>
@@ -2960,6 +3101,8 @@
       <li><a href="api.html#discord.VoiceClient.play">play() (discord.VoiceClient 메서드)</a>
 </li>
       <li><a href="api.html#discord.ActivityType.playing">playing (discord.ActivityType의 속성)</a>
+</li>
+      <li><a href="api.html#discord.StickerType.png">png (discord.StickerType의 속성)</a>
 </li>
       <li><a href="api.html#discord.abc.GuildChannel.position">position (discord.abc.GuildChannel의 속성)</a>
 </li>
@@ -2997,6 +3140,8 @@
 </li>
       <li><a href="api.html#discord.Profile.premium_since">premium_since (discord.Profile의 속성)</a>
 </li>
+      <li><a href="api.html#discord.Guild.premium_subscriber_role">premium_subscriber_role() (discord.Guild property)</a>
+</li>
       <li><a href="api.html#discord.Guild.premium_subscribers">premium_subscribers() (discord.Guild property)</a>
 </li>
       <li><a href="api.html#discord.Guild.premium_subscription_count">premium_subscription_count (discord.Guild의 속성)</a>
@@ -3012,6 +3157,8 @@
       <li><a href="ext/commands/api.html#discord.ext.commands.HelpCommand.prepare_help_command">prepare_help_command() (discord.ext.commands.HelpCommand 메서드)</a>
 </li>
       <li><a href="api.html#discord.Intents.presences">presences (discord.Intents의 속성)</a>
+</li>
+      <li><a href="api.html#discord.Sticker.preview_image">preview_image (discord.Sticker의 속성)</a>
 </li>
       <li><a href="api.html#discord.AppInfo.primary_sku_id">primary_sku_id (discord.AppInfo의 속성)</a>
 </li>
@@ -3059,6 +3206,8 @@
 </li>
       <li><a href="api.html#discord.Message.publish">publish() (discord.Message 메서드)</a>
 </li>
+      <li><a href="api.html#discord.PartialMessage.publish">publish() (discord.PartialMessage 메서드)</a>
+</li>
       <li><a href="api.html#discord.TextChannel.purge">purge() (discord.TextChannel 메서드)</a>
 </li>
       <li><a href="api.html#discord.Colour.purple">purple() (discord.Colour의 클래스 메서드)</a>
@@ -3088,6 +3237,8 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api.html#discord.Colour.r">r() (discord.Colour property)</a>
+</li>
+      <li><a href="api.html#discord.Colour.random">random() (discord.Colour의 클래스 메서드)</a>
 </li>
       <li><a href="api.html#discord.Message.raw_channel_mentions">raw_channel_mentions (discord.Message의 속성)</a>
 </li>
@@ -3193,14 +3344,14 @@
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.GroupMixin.remove_command">remove_command() (discord.ext.commands.GroupMixin 메서드)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ext/tasks/index.html#discord.ext.tasks.Loop.remove_exception_type">remove_exception_type() (discord.ext.tasks.Loop 메서드)</a>
 </li>
       <li><a href="api.html#discord.Embed.remove_field">remove_field() (discord.Embed 메서드)</a>
 </li>
       <li><a href="api.html#discord.Member.remove_friend">remove_friend() (discord.Member 메서드)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api.html#discord.User.remove_friend">remove_friend() (discord.User 메서드)</a>
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Bot.remove_listener">remove_listener() (discord.ext.commands.Bot 메서드)</a>
@@ -3209,11 +3360,21 @@
 </li>
       <li><a href="api.html#discord.Message.remove_reaction">remove_reaction() (discord.Message 메서드)</a>
 </li>
+      <li><a href="api.html#discord.PartialMessage.remove_reaction">remove_reaction() (discord.PartialMessage 메서드)</a>
+</li>
       <li><a href="api.html#discord.GroupChannel.remove_recipients">remove_recipients() (discord.GroupChannel 메서드)</a>
 </li>
       <li><a href="api.html#discord.ExpireBehaviour.remove_role">remove_role (discord.ExpireBehaviour의 속성)</a>
 </li>
       <li><a href="api.html#discord.Member.remove_roles">remove_roles() (discord.Member 메서드)</a>
+</li>
+      <li><a href="api.html#discord.AllowedMentions.replied_user">replied_user (discord.AllowedMentions의 속성)</a>
+</li>
+      <li><a href="ext/commands/api.html#discord.ext.commands.Context.reply">reply() (discord.ext.commands.Context 메서드)</a>
+</li>
+      <li><a href="api.html#discord.Message.reply">reply() (discord.Message 메서드)</a>
+</li>
+      <li><a href="api.html#discord.PartialMessage.reply">reply() (discord.PartialMessage 메서드)</a>
 </li>
       <li><a href="api.html#discord.AsyncWebhookAdapter.request">request() (discord.AsyncWebhookAdapter 메서드)</a>
 </li>
@@ -3240,6 +3401,8 @@
       <li><a href="api.html#discord.utils.resolve_invite">resolve_invite() (discord.utils 모듈)</a>
 </li>
       <li><a href="api.html#discord.utils.resolve_template">resolve_template() (discord.utils 모듈)</a>
+</li>
+      <li><a href="api.html#discord.MessageReference.resolved">resolved (discord.MessageReference의 속성)</a>
 </li>
       <li><a href="api.html#discord.HTTPException.response">response (discord.HTTPException의 속성)</a>
 </li>
@@ -3290,6 +3453,8 @@
 </li>
       <li><a href="api.html#discord.Member.roles">roles() (discord.Member property)</a>
 </li>
+      <li><a href="api.html#discord.RoleTags">RoleTags (discord 클래스)</a>
+</li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Command.root_parent">root_parent() (discord.ext.commands.Command property)</a>
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Group.root_parent">root_parent() (discord.ext.commands.Group property)</a>
@@ -3319,6 +3484,8 @@
       <li><a href="api.html#discord.VoiceState.self_deaf">self_deaf (discord.VoiceState의 속성)</a>
 </li>
       <li><a href="api.html#discord.VoiceState.self_mute">self_mute (discord.VoiceState의 속성)</a>
+</li>
+      <li><a href="api.html#discord.Guild.self_role">self_role() (discord.Guild property)</a>
 </li>
       <li><a href="api.html#discord.VoiceState.self_stream">self_stream (discord.VoiceState의 속성)</a>
 </li>
@@ -3428,10 +3595,10 @@
 </li>
       <li><a href="api.html#discord.Activity.small_image_url">small_image_url() (discord.Activity property)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api.html#discord.abc.Snowflake">Snowflake (discord.abc 클래스)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api.html#discord.utils.snowflake_time">snowflake_time() (discord.utils 모듈)</a>
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.DefaultHelpCommand.sort_commands">sort_commands (discord.ext.commands.DefaultHelpCommand의 속성)</a>
@@ -3493,6 +3660,12 @@
       <li><a href="api.html#discord.WidgetMember.status">status (discord.WidgetMember의 속성)</a>
 </li>
       <li><a href="api.html#discord.Member.status">status() (discord.Member property)</a>
+</li>
+      <li><a href="api.html#discord.Sticker">Sticker (discord 클래스)</a>
+</li>
+      <li><a href="api.html#discord.Message.stickers">stickers (discord.Message의 속성)</a>
+</li>
+      <li><a href="api.html#discord.StickerType">StickerType (discord 클래스)</a>
 </li>
       <li><a href="ext/tasks/index.html#discord.ext.tasks.Loop.stop">stop() (discord.ext.tasks.Loop 메서드)</a>
 </li>
@@ -3556,6 +3729,10 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api.html#discord.VerificationLevel.table_flip">table_flip (discord.VerificationLevel의 속성)</a>
 </li>
+      <li><a href="api.html#discord.Role.tags">tags (discord.Role의 속성)</a>
+</li>
+      <li><a href="api.html#discord.Sticker.tags">tags (discord.Sticker의 속성)</a>
+</li>
       <li><a href="api.html#discord.AuditLogEntry.target">target (discord.AuditLogEntry의 속성)</a>
 </li>
       <li><a href="api.html#discord.Colour.teal">teal() (discord.Colour의 클래스 메서드)</a>
@@ -3610,6 +3787,10 @@
 </li>
       <li><a href="api.html#discord.Attachment.to_file">to_file() (discord.Attachment 메서드)</a>
 </li>
+      <li><a href="api.html#discord.Message.to_reference">to_reference() (discord.Message 메서드)</a>
+</li>
+      <li><a href="api.html#discord.PartialMessage.to_reference">to_reference() (discord.PartialMessage 메서드)</a>
+</li>
       <li><a href="api.html#discord.Colour.to_rgb">to_rgb() (discord.Colour 메서드)</a>
 </li>
       <li><a href="api.html#discord.VoiceClient.token">token (discord.VoiceClient의 속성)</a>
@@ -3620,12 +3801,12 @@
 </li>
       <li><a href="api.html#discord.Member.top_role">top_role() (discord.Member property)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api.html#discord.AuditLogDiff.topic">topic (discord.AuditLogDiff의 속성)</a>
 </li>
       <li><a href="api.html#discord.TextChannel.topic">topic (discord.TextChannel의 속성)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api.html#discord.Spotify.track_id">track_id() (discord.Spotify property)</a>
 </li>
       <li><a href="api.html#discord.abc.Messageable.trigger_typing">trigger_typing() (discord.abc.Messageable 메서드)</a>
@@ -3724,6 +3905,8 @@
 </li>
       <li><a href="api.html#discord.Message.unpin">unpin() (discord.Message 메서드)</a>
 </li>
+      <li><a href="api.html#discord.PartialMessage.unpin">unpin() (discord.PartialMessage 메서드)</a>
+</li>
       <li><a href="api.html#discord.AuditLogActionCategory.update">update (discord.AuditLogActionCategory의 속성)</a>
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Command.update">update() (discord.ext.commands.Command 메서드)</a>
@@ -3754,14 +3937,16 @@
 </li>
       <li><a href="api.html#discord.Webhook.url">url() (discord.Webhook property)</a>
 </li>
+      <li><a href="api.html#discord.Emoji.url_as">url_as() (discord.Emoji 메서드)</a>
+</li>
       <li><a href="api.html#discord.VoiceRegion.us_central">us_central (discord.VoiceRegion의 속성)</a>
 </li>
       <li><a href="api.html#discord.VoiceRegion.us_east">us_east (discord.VoiceRegion의 속성)</a>
 </li>
-      <li><a href="api.html#discord.VoiceRegion.us_south">us_south (discord.VoiceRegion의 속성)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api.html#discord.VoiceRegion.us_south">us_south (discord.VoiceRegion의 속성)</a>
+</li>
       <li><a href="api.html#discord.VoiceRegion.us_west">us_west (discord.VoiceRegion의 속성)</a>
 </li>
       <li><a href="ext/commands/api.html#discord.ext.commands.Command.usage">usage (discord.ext.commands.Command의 속성)</a>
@@ -3968,6 +4153,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api.html#discord.WebhookAdapter">WebhookAdapter (discord 클래스)</a>
 </li>
+      <li><a href="api.html#discord.WebhookMessage">WebhookMessage (discord 클래스)</a>
+</li>
       <li><a href="api.html#discord.Intents.webhooks">webhooks (discord.Intents의 속성)</a>
 </li>
       <li><a href="api.html#discord.Guild.webhooks">webhooks() (discord.Guild 메서드)</a>
@@ -4041,30 +4228,55 @@
     document.querySelectorAll("td").forEach(el => el.style.width = 'auto');
   </script>
 
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><!-- purposefully empty -->
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">빠른 검색</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="이동" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-  <div class="footer">
-    &copy; Copyright 2015-2020, Rapptz.
-    <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 버전으로 생성되었습니다.
+    </main>
+    <footer class="grid-item">
+        &#169; Copyright 2015-2020, Rapptz.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </footer>
   </div>
-  
-  </body>
+
+  <div id="settings" class="modal" onclick="if (event.target == this){ settingsModal.close(); }" hidden>
+    <div class="modal-content">
+      <span class="close" onclick="settingsModal.close();" title="Close">
+        <span class="material-icons">close</span>
+      </span>
+      <h1>Settings</h1>
+
+      <h2>Font</h2>
+      <div class="setting">
+        <h3>Use a serif font:
+          <label class="toggle"
+            title="Use a serif font? Your system font will be used, falling back to serif.">
+            <input type="checkbox" name="useSerifFont" onclick="updateSetting(this);">
+            <span class="toggle-slider"></span>
+          </label>
+        </h3>
+      </div>
+
+      <h2>Theme</h2>
+      <div class="setting">
+        <h3>
+          <label class="toggle" title="Set your theme based on your system preferences">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="automatic" checked>
+          </label>
+          Automatic
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to light theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="light">
+          </label>
+          Light
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to dark theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="dark">
+          </label>
+          Dark
+        </h3>
+      </div>
+
+    </div>
+  </div>
+
+</body>
 </html>

@@ -1,55 +1,117 @@
-
 <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>명령어</title> 
+  <!-- end extra head -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/codeblocks.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/icons.css" type="text/css" />
+  <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+  <script src="../../_static/jquery.js"></script>
+  <script src="../../_static/underscore.js"></script>
+  <script src="../../_static/doctools.js"></script>
+  <script src="../../_static/language_data.js"></script>
+  <script src="../../_static/custom.js"></script>
+  <script src="../../_static/settings.js"></script>
+  <script src="../../_static/copy.js"></script>
+  <script src="../../_static/sidebar.js"></script>
+  <script src="../../_static/translations.js"></script>
+  <link rel="shortcut icon" href="../../_static/discord_py_logo.ico"/>
+  <link rel="index" title="색인" href="../../genindex.html" />
+  <link rel="search" title="검색" href="../../search.html" />
+  <link rel="next" title="Cogs" href="cogs.html" />
+  <link rel="prev" title="discord.ext.commands – Bot commands 프레임워크" href="index.html" />
+</head>
+<body>
+  <div class="main-grid">
+    <header class="grid-item">
+      <nav>
+        <a href="../../index.html" class="main-heading">discord.py</a>
+        <a href="https://github.com/Rapptz/discord.py" title="GitHub"><span class="material-icons custom-icons">github</span></a>
+        <a href="https://discord.gg/YbfbxpX" title="Discord"><span class="material-icons custom-icons">discord</span></a>
+        <a href="../../faq.html" title="FAQ"><span class="material-icons">help_center</span></a>
+        <a onclick="mobileSearch.open();" title="검색" id="open-search" class="mobile-only"><span class="material-icons">search</span></a>
+        <a onclick="mobileSearch.close();" title="Close" id="close-search" class="mobile-only" hidden><span class="material-icons">close</span></a>
+      </nav>
+      <nav class="mobile-only">
+        <form role="search" class="search" action="search.html" method="get">
+          <div class="search-wrapper">
+            <input type="search" name="q" placeholder="Search documentation" />
+            <button type="submit">
+              <span class="material-icons">search</span>
+            </button>
+          </div>
+        </form>
+      </nav>
+    </header>
+    <div class="sub-header grid-item">
+      <label for="documentation_select">View Documentation For</label>
+      <select id="documentation_select" onchange="window.location = this.value;">
+        <option value="../../index.html">discord</option>
+        <option value="index.html" selected>discord.ext.commands</option>
+        <option value="../tasks/index.html" >discord.ext.tasks</option>
+      </select>
+      <form role="search" class="search" action="search.html" method="get">
+        <div class="search-wrapper">
+          <input type="search" name="q" placeholder="Search documentation" />
+          <button type="submit">
+            <span class="material-icons">search</span>
+          </button>
+        </div>
+      </form>
+      <a accesskey="S" class="settings" onclick="settingsModal.open();"><span class="material-icons">settings</span></a>
+    </div>
+    <aside class="grid-item">
+      <span id="hamburger-toggle">
+        <span class="material-icons">menu</span>
+      </span>
+      <span id="settings-toggle" class="settings" onclick="settingsModal.open();">
+        <span class="material-icons">settings</span>
+      </span>
+      <div id="sidebar">
+  <h3><a href="../../index.html">목차</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">명령어</a><ul>
+<li><a class="reference internal" href="#parameters">매개변수</a><ul>
+<li><a class="reference internal" href="#positional">위치</a></li>
+<li><a class="reference internal" href="#variable">변수</a></li>
+<li><a class="reference internal" href="#keyword-only-arguments">키워드 전용 전달인자</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#invocation-context">Invocation Context</a></li>
+<li><a class="reference internal" href="#converters">Converters</a><ul>
+<li><a class="reference internal" href="#basic-converters">Basic Converters</a><ul>
+<li><a class="reference internal" href="#bool">bool</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#advanced-converters">Advanced Converters</a></li>
+<li><a class="reference internal" href="#inline-advanced-converters">Inline Advanced Converters</a></li>
+<li><a class="reference internal" href="#discord-converters">Discord Converters</a></li>
+<li><a class="reference internal" href="#special-converters">특별한 변환기</a><ul>
+<li><a class="reference internal" href="#typing-union">typing.Union</a></li>
+<li><a class="reference internal" href="#typing-optional">typing.Optional</a></li>
+<li><a class="reference internal" href="#greedy">Greedy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#error-handling">에러 다루기</a></li>
+<li><a class="reference internal" href="#checks">체크</a><ul>
+<li><a class="reference internal" href="#global-checks">글로벌 체크</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-<html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>명령어 &#8212; discord.py 1.5.1 문서</title>
-    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
-    <script src="../../_static/custom.js"></script>
-    <script src="../../_static/translations.js"></script>
-    <link rel="index" title="색인" href="../../genindex.html" />
-    <link rel="search" title="검색" href="../../search.html" />
-    <link rel="next" title="Cogs" href="cogs.html" />
-    <link rel="prev" title="discord.ext.commands – Bot commands 프레임워크" href="index.html" />
-   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
-
-  </head><body>
-  
-  
-
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>탐색</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="전체 색인"
-             accesskey="I">색인</a></li>
-        <li class="right" >
-          <a href="cogs.html" title="Cogs"
-             accesskey="N">다음</a> |</li>
-        <li class="right" >
-          <a href="index.html" title="discord.ext.commands – Bot commands 프레임워크"
-             accesskey="P">이전</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">discord.py 1.5.1 문서</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U"><code class="docutils literal notranslate"><span class="pre">discord.ext.commands</span></code> – Bot commands 프레임워크</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">명령어</a></li> 
-      </ul>
-    </div>  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="commands">
+      </div>
+    </aside>
+    <main class="grid-item">
+      
+  <section id="commands">
 <span id="ext-commands-commands"></span><h1>명령어<a class="headerlink" href="#commands" title="제목 주소">¶</a></h1>
 <p>명령어 확장자에서 가장 매력적인 것은 명령어를 정의하는 것이 매우 쉽고 당신 마음대로 그룹과 명령어를 묶어서 풍부한 서브커맨드 시스템을 가질 수 있다는 것입니다.</p>
 <p>명령어는 기본적인 Python 함수에 붙여서 정의됩니다. 그다음에 유저가 Python 함수처럼 비슷한 서명을 사용해서 실행됩니다.</p>
@@ -90,11 +152,11 @@
     <span class="k">pass</span>
 </pre></div>
 </div>
-<div class="section" id="parameters">
+<section id="parameters">
 <h2>매개변수<a class="headerlink" href="#parameters" title="제목 주소">¶</a></h2>
 <p>우리는 명령어를 Python 함수를 만드는 것으로 정의하고 있기 때문에, 우리는 지나가는 전달인자도 함수 매개변수로 정의합니다.</p>
 <p>특정 매개변수 종류는 유저쪽에서 다른 것을 하고 대부분의 매개변수 형태는 지원됩니다.</p>
-<div class="section" id="positional">
+<section id="positional">
 <h3>위치<a class="headerlink" href="#positional" title="제목 주소">¶</a></h3>
 <p>The most basic form of parameter passing is the positional parameter. This is where we pass a parameter as-is:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@bot</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
@@ -114,8 +176,8 @@
     <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;You passed </span><span class="si">{}</span><span class="s1"> and </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="variable">
+</section>
+<section id="variable">
 <h3>변수<a class="headerlink" href="#variable" title="제목 주소">¶</a></h3>
 <p>Sometimes you want users to pass in an undetermined number of parameters. The library supports this
 similar to how variable list parameters are done in Python:</p>
@@ -135,8 +197,8 @@ at all:</p>
 <img alt="../../_images/variable3.png" src="../../_images/variable3.png" />
 <p>Since the <code class="docutils literal notranslate"><span class="pre">args</span></code> variable is a <a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#tuple" title="(in Python v3.9)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a>,
 you can do anything you would usually do with one.</p>
-</div>
-<div class="section" id="keyword-only-arguments">
+</section>
+<section id="keyword-only-arguments">
 <h3>키워드 전용 전달인자<a class="headerlink" href="#keyword-only-arguments" title="제목 주소">¶</a></h3>
 <p>When you want to handle parsing of the argument yourself or do not feel like you want to wrap multi-word user input into
 quotes, you can ask the library to give you the rest as a single argument. We do this by using a <strong>keyword-only argument</strong>,
@@ -156,9 +218,9 @@ seen below:</p>
 <img alt="../../_images/keyword2.png" src="../../_images/keyword2.png" />
 <p>By default, the keyword-only arguments are stripped of white space to make it easier to work with. This behaviour can be
 toggled by the <a class="reference internal" href="api.html#discord.ext.commands.Command.rest_is_raw" title="discord.ext.commands.Command.rest_is_raw"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Command.rest_is_raw</span></code></a> argument in the decorator.</p>
-</div>
-</div>
-<div class="section" id="invocation-context">
+</section>
+</section>
+<section id="invocation-context">
 <span id="ext-commands-context"></span><h2>Invocation Context<a class="headerlink" href="#invocation-context" title="제목 주소">¶</a></h2>
 <p>As seen earlier, every command must take at least a single parameter, called the <a class="reference internal" href="api.html#discord.ext.commands.Context" title="discord.ext.commands.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>.</p>
 <p>This parameter gives you access to something called the 《invocation context》. Essentially all the information you need to
@@ -171,8 +233,8 @@ know how the command was executed. It contains a lot of useful information:</p>
 </ul>
 <p>The context implements the <a class="reference internal" href="../../api.html#discord.abc.Messageable" title="discord.abc.Messageable"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.Messageable</span></code></a> interface, so anything you can do on a <a class="reference internal" href="../../api.html#discord.abc.Messageable" title="discord.abc.Messageable"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.Messageable</span></code></a> you
 can do on the <a class="reference internal" href="api.html#discord.ext.commands.Context" title="discord.ext.commands.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>.</p>
-</div>
-<div class="section" id="converters">
+</section>
+<section id="converters">
 <h2>Converters<a class="headerlink" href="#converters" title="제목 주소">¶</a></h2>
 <p>Adding bot arguments with function parameters is only the first step in defining your bot’s command interface. To actually
 make use of the arguments, we usually want to convert the data into a target type. We call these
@@ -188,7 +250,7 @@ make use of the arguments, we usually want to convert the data into a target typ
 </li>
 <li><p>A custom class that inherits from <a class="reference internal" href="api.html#discord.ext.commands.Converter" title="discord.ext.commands.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Converter</span></code></a>.</p></li>
 </ul>
-<div class="section" id="basic-converters">
+<section id="basic-converters">
 <h3>Basic Converters<a class="headerlink" href="#basic-converters" title="제목 주소">¶</a></h3>
 <p>At its core, a basic converter is a callable that takes in an argument and turns it into something else.</p>
 <p>For example, if we wanted to add two numbers together, we could request that they are turned into integers
@@ -209,7 +271,7 @@ introduced in <span class="target" id="index-0"></span><a class="pep reference e
     <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="section" id="bool">
+<section id="bool">
 <h4>bool<a class="headerlink" href="#bool" title="제목 주소">¶</a></h4>
 <p>Unlike the other basic converters, the <a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> converter is treated slightly different. Instead of casting directly to the <a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> type, which would result in any non-empty argument returning <code class="docutils literal notranslate"><span class="pre">True</span></code>, it instead evaluates the argument as <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> based on its given content:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">lowered</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;true&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;enable&#39;</span><span class="p">,</span> <span class="s1">&#39;on&#39;</span><span class="p">):</span>
@@ -218,9 +280,9 @@ introduced in <span class="target" id="index-0"></span><a class="pep reference e
     <span class="k">return</span> <span class="kc">False</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="advanced-converters">
+</section>
+</section>
+<section id="advanced-converters">
 <span id="ext-commands-adv-converters"></span><h3>Advanced Converters<a class="headerlink" href="#advanced-converters" title="제목 주소">¶</a></h3>
 <p>Sometimes a basic converter doesn’t have enough information that we need. For example, sometimes we want to get some
 information from the <a class="reference internal" href="../../api.html#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> that called the command or we want to do some asynchronous processing.</p>
@@ -267,8 +329,8 @@ fine tuning the converter. An example of this is actually in the library, <a cla
 </div>
 <p>If a converter fails to convert an argument to its designated target type, the <a class="reference internal" href="api.html#discord.ext.commands.BadArgument" title="discord.ext.commands.BadArgument"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BadArgument</span></code></a> exception must be
 raised.</p>
-</div>
-<div class="section" id="inline-advanced-converters">
+</section>
+<section id="inline-advanced-converters">
 <h3>Inline Advanced Converters<a class="headerlink" href="#inline-advanced-converters" title="제목 주소">¶</a></h3>
 <p>If we don’t want to inherit from <a class="reference internal" href="api.html#discord.ext.commands.Converter" title="discord.ext.commands.Converter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Converter</span></code></a>, we can still provide a converter that has the
 advanced functionalities of an advanced converter and save us from specifying two types.</p>
@@ -320,8 +382,8 @@ advanced functionalities of an advanced converter and save us from specifying tw
         <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;Hm you&#39;re not so new.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="discord-converters">
+</section>
+<section id="discord-converters">
 <h3>Discord Converters<a class="headerlink" href="#discord-converters" title="제목 주소">¶</a></h3>
 <p>Working with <a class="reference internal" href="../../api.html#discord-api-models"><span class="std std-ref">디스코드 모델</span></a> is a fairly common thing when defining commands, as a result the library makes
 working with them easy.</p>
@@ -353,7 +415,7 @@ or just a regular username. The default set of converters have been written to b
 specify.</p>
 <p>Under the hood, these are implemented by the <a class="reference internal" href="#ext-commands-adv-converters"><span class="std std-ref">Advanced Converters</span></a> interface. A table of the equivalent
 converter is given below:</p>
-<table class="docutils align-default">
+<div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
 <col style="width: 35%" />
 <col style="width: 65%" />
@@ -400,7 +462,7 @@ converter is given below:</p>
 </tr>
 </tbody>
 </table>
-<p>By providing the converter it allows us to use them as building blocks for another converter:</p>
+</div><p>By providing the converter it allows us to use them as building blocks for another converter:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MemberRoles</span><span class="p">(</span><span class="n">commands</span><span class="o">.</span><span class="n">MemberConverter</span><span class="p">):</span>
     <span class="k">async</span> <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">argument</span><span class="p">):</span>
         <span class="n">member</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">argument</span><span class="p">)</span>
@@ -412,13 +474,13 @@ converter is given below:</p>
     <span class="k">await</span> <span class="n">ctx</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;I see the following roles: &#39;</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">member</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="special-converters">
+</section>
+<section id="special-converters">
 <span id="ext-commands-special-converters"></span><h3>특별한 변환기<a class="headerlink" href="#special-converters" title="제목 주소">¶</a></h3>
 <p>The command extension also has support for certain converters to allow for more advanced and intricate use cases that go
 beyond the generic linear parsing. These converters allow you to introduce some more relaxed and dynamic grammar to your
 commands in an easy to use manner.</p>
-<div class="section" id="typing-union">
+<section id="typing-union">
 <h4>typing.Union<a class="headerlink" href="#typing-union" title="제목 주소">¶</a></h4>
 <p>A <a class="reference external" href="https://docs.python.org/ko/3/library/typing.html#typing.Union" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code></a> is a special type hint that allows for the command to take in any of the specific types instead of
 a singular type. For example, given the following:</p>
@@ -434,8 +496,8 @@ The way this works is through a left-to-right order. It first attempts to conver
 <a class="reference internal" href="../../api.html#discord.TextChannel" title="discord.TextChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">discord.TextChannel</span></code></a>, and if it fails it tries to convert it to a <a class="reference internal" href="../../api.html#discord.Member" title="discord.Member"><code class="xref py py-class docutils literal notranslate"><span class="pre">discord.Member</span></code></a>. If all converters fail,
 then a special error is raised, <a class="reference internal" href="api.html#discord.ext.commands.BadUnionArgument" title="discord.ext.commands.BadUnionArgument"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BadUnionArgument</span></code></a>.</p>
 <p>Note that any valid converter discussed above can be passed in to the argument list of a <a class="reference external" href="https://docs.python.org/ko/3/library/typing.html#typing.Union" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Union</span></code></a>.</p>
-</div>
-<div class="section" id="typing-optional">
+</section>
+<section id="typing-optional">
 <h4>typing.Optional<a class="headerlink" href="#typing-optional" title="제목 주소">¶</a></h4>
 <p>A <a class="reference external" href="https://docs.python.org/ko/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a> is a special type hint that allows for 《back-referencing》 behaviour. If the converter fails to
 parse into the specified type, the parser will skip the parameter and then either <code class="docutils literal notranslate"><span class="pre">None</span></code> or the specified default will be
@@ -455,8 +517,8 @@ resumes handling, which in this case would be to pass it into the <code class="d
 <p class="admonition-title">참고</p>
 <p>This converter only works in regular positional parameters, not variable parameters or keyword-only parameters.</p>
 </div>
-</div>
-<div class="section" id="greedy">
+</section>
+<section id="greedy">
 <h4>Greedy<a class="headerlink" href="#greedy" title="제목 주소">¶</a></h4>
 <p>The <a class="reference internal" href="api.html#discord.ext.commands.Greedy" title="discord.ext.commands.Greedy"><code class="xref py py-data docutils literal notranslate"><span class="pre">Greedy</span></code></a> converter is a generalisation of the <a class="reference external" href="https://docs.python.org/ko/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a> converter, except applied
 to a list of arguments. In simple terms, this means that it tries to convert as much as it can until it can’t convert
@@ -507,10 +569,10 @@ allowed through custom converters or reordering the parameters to minimise clash
 <p>To help aid with some parsing ambiguities, <a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="docutils literal notranslate"><span class="pre">None</span></code>, <a class="reference external" href="https://docs.python.org/ko/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">typing.Optional</span></code></a> and
 <a class="reference internal" href="api.html#discord.ext.commands.Greedy" title="discord.ext.commands.Greedy"><code class="xref py py-data docutils literal notranslate"><span class="pre">Greedy</span></code></a> are forbidden as parameters for the <a class="reference internal" href="api.html#discord.ext.commands.Greedy" title="discord.ext.commands.Greedy"><code class="xref py py-data docutils literal notranslate"><span class="pre">Greedy</span></code></a> converter.</p>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="error-handling">
+</section>
+</section>
+</section>
+<section id="error-handling">
 <span id="ext-commands-error-handler"></span><h2>에러 다루기<a class="headerlink" href="#error-handling" title="제목 주소">¶</a></h2>
 <p>When our commands fail to parse we will, by default, receive a noisy error in <code class="docutils literal notranslate"><span class="pre">stderr</span></code> of our console that tells us
 that an error has happened and has been silently ignored.</p>
@@ -533,8 +595,8 @@ handlers that allow us to do just that. First we decorate an error handler funct
 </div>
 <p>The first parameter of the error handler is the <a class="reference internal" href="api.html#discord.ext.commands.Context" title="discord.ext.commands.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a> while the second one is an exception that is derived from
 <a class="reference internal" href="api.html#discord.ext.commands.CommandError" title="discord.ext.commands.CommandError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">CommandError</span></code></a>. A list of errors is found in the <a class="reference internal" href="api.html#ext-commands-api-errors"><span class="std std-ref">Exceptions</span></a> page of the documentation.</p>
-</div>
-<div class="section" id="checks">
+</section>
+<section id="checks">
 <h2>체크<a class="headerlink" href="#checks" title="제목 주소">¶</a></h2>
 <p>우리가 유저들이 전용 명령어를 사용하지 못하게 막고 싶을 때가 있습니다. 그들에게 권한이 없거나 우리가 그들이 봇을 사용하지 못하도록 막았었을 수도 있습니다. 명령어 확장자는 이것들을 위한 완전한 지원이 <a class="reference internal" href="api.html#ext-commands-api-checks"><span class="std std-ref">Checks</span></a>로 함께 옵니다.</p>
 <p>체크는 <a class="reference internal" href="api.html#discord.ext.commands.Context" title="discord.ext.commands.Context"><code class="xref py py-class docutils literal notranslate"><span class="pre">Context</span></code></a>에서 단독 매개 변수로 자리잡는 기본적인 서술자입니다. 이 안에서, 당신에게는 이런 옵션들이 있습니다:</p>
@@ -638,7 +700,7 @@ raise a custom <a class="reference internal" href="api.html#discord.ext.commands
 <p class="admonition-title">참고</p>
 <p>Since having a <code class="docutils literal notranslate"><span class="pre">guild_only</span></code> decorator is pretty common, it comes built-in via <a class="reference internal" href="api.html#discord.ext.commands.guild_only" title="discord.ext.commands.guild_only"><code class="xref py py-func docutils literal notranslate"><span class="pre">guild_only()</span></code></a>.</p>
 </div>
-<div class="section" id="global-checks">
+<section id="global-checks">
 <h3>글로벌 체크<a class="headerlink" href="#global-checks" title="제목 주소">¶</a></h3>
 <p>가끔 우리는 특정 명령어 말고 <strong>모든</strong> 명령어에 체크를 적용하고 싶을때가 있습니다. 이 라이브러리는 글로벌 체크를 통해 이 기능을 지원합니다.</p>
 <p>글로벌 체크는 <code class="xref py py-func docutils literal notranslate"><span class="pre">Bot.check()</span></code> 데코레이터와 함께 등록된다는 것을 제외하면 기본 체크들과 동일하게 작동합니다.</p>
@@ -652,70 +714,60 @@ raise a custom <a class="reference internal" href="api.html#discord.ext.commands
 <p class="admonition-title">경고</p>
 <p>당신이 당신의 봇을 사용 못하도록 만들 수도 있기 때문에 글로벌 체크를 작성할 때는 조심하세요.</p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">목차</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">명령어</a><ul>
-<li><a class="reference internal" href="#parameters">매개변수</a><ul>
-<li><a class="reference internal" href="#positional">위치</a></li>
-<li><a class="reference internal" href="#variable">변수</a></li>
-<li><a class="reference internal" href="#keyword-only-arguments">키워드 전용 전달인자</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#invocation-context">Invocation Context</a></li>
-<li><a class="reference internal" href="#converters">Converters</a><ul>
-<li><a class="reference internal" href="#basic-converters">Basic Converters</a><ul>
-<li><a class="reference internal" href="#bool">bool</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#advanced-converters">Advanced Converters</a></li>
-<li><a class="reference internal" href="#inline-advanced-converters">Inline Advanced Converters</a></li>
-<li><a class="reference internal" href="#discord-converters">Discord Converters</a></li>
-<li><a class="reference internal" href="#special-converters">특별한 변환기</a><ul>
-<li><a class="reference internal" href="#typing-union">typing.Union</a></li>
-<li><a class="reference internal" href="#typing-optional">typing.Optional</a></li>
-<li><a class="reference internal" href="#greedy">Greedy</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#error-handling">에러 다루기</a></li>
-<li><a class="reference internal" href="#checks">체크</a><ul>
-<li><a class="reference internal" href="#global-checks">글로벌 체크</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<!-- purposefully empty -->
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">빠른 검색</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="이동" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-  <div class="footer">
-    &copy; Copyright 2015-2020, Rapptz.
-    <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 버전으로 생성되었습니다.
+    </main>
+    <footer class="grid-item">
+        &#169; Copyright 2015-2020, Rapptz.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </footer>
   </div>
-  
-  </body>
+
+  <div id="settings" class="modal" onclick="if (event.target == this){ settingsModal.close(); }" hidden>
+    <div class="modal-content">
+      <span class="close" onclick="settingsModal.close();" title="Close">
+        <span class="material-icons">close</span>
+      </span>
+      <h1>Settings</h1>
+
+      <h2>Font</h2>
+      <div class="setting">
+        <h3>Use a serif font:
+          <label class="toggle"
+            title="Use a serif font? Your system font will be used, falling back to serif.">
+            <input type="checkbox" name="useSerifFont" onclick="updateSetting(this);">
+            <span class="toggle-slider"></span>
+          </label>
+        </h3>
+      </div>
+
+      <h2>Theme</h2>
+      <div class="setting">
+        <h3>
+          <label class="toggle" title="Set your theme based on your system preferences">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="automatic" checked>
+          </label>
+          Automatic
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to light theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="light">
+          </label>
+          Light
+        </h3>
+        <h3>
+          <label class="toggle" title="Set your theme to dark theme">
+            <input type="radio" name="setTheme" onclick="updateSetting(this);" value="dark">
+          </label>
+          Dark
+        </h3>
+      </div>
+
+    </div>
+  </div>
+
+</body>
 </html>
