@@ -60,7 +60,7 @@ With the API change requiring bot authors to specify intents, some intents were 
 A privileged intent is one that requires you to go to the developer portal and manually enable it. To enable privileged intents do the following:
 
 1. Make sure you're logged on to the `Discord website <https://discord.com>`_.
-2. Navigate to the `application page <https://discord.com/developers/applications>`_
+2. Navigate to the `application page <https://discord.com/developers/applications>`_.
 3. Click on the bot you want to enable privileged intents for.
 4. Navigate to the bot tab on the left side of the screen.
 
@@ -74,7 +74,7 @@ A privileged intent is one that requires you to go to the developer portal and m
 
 .. warning::
 
-    Enabling privileged intents when your bot is in over 100 guilds requires going through `bot verification <https://support.discord.com/hc/en-us/articles/360040720412>`_. If your bot is already verified and you would like to enable a privileged intent you must go through `discord support <https://dis.gd/contact>`_ and talk to them about it.
+    Enabling privileged intents when your bot is in over 100 guilds requires going through `bot verification <https://support.discord.com/hc/en-us/articles/360040720412>`_. If your bot is already verified and you would like to enable a privileged intent you must go through `Discord support <https://dis.gd/contact>`_ and talk to them about it.
 
 .. note::
 
@@ -118,8 +118,9 @@ It should be noted that certain things do not need a member cache since Discord 
 
 - :func:`on_message` will have :attr:`Message.author` be a member even if cache is disabled.
 - :func:`on_voice_state_update` will have the ``member`` parameter be a member even if cache is disabled.
-- :func:`on_reaction_add` will have the ``user`` parameter be a member even if cache is disabled.
-- :func:`on_raw_reaction_add` will have :attr:`RawReactionActionEvent.member` be a member even if cache is disabled.
+- :func:`on_reaction_add` will have the ``user`` parameter be a member when in a guild even if cache is disabled.
+- :func:`on_raw_reaction_add` will have :attr:`RawReactionActionEvent.member` be a member when in a guild even if cache is disabled.
+- The reaction add events do not contain additional information when in direct messages. This is a Discord limitation.
 - The reaction removal events do not have the member information. This is a Discord limitation.
 
 Other events that take a :class:`Member` will require the use of the member cache. If absolute accuracy over the member cache is desirable, then it is advisable to have the :attr:`Intents.members` intent enabled.
@@ -203,4 +204,4 @@ On Windows use ``py -3`` instead of ``python3``.
 
     There is no currently set date in which the old gateway will stop working so it is recommended to update your code instead.
 
-If you truly dislike the direction Discord is going with their API, you can contact them via `support <https://dis.gd/contact>`_
+If you truly dislike the direction Discord is going with their API, you can contact them via `support <https://dis.gd/contact>`_.

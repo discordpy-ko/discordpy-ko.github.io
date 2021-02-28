@@ -281,6 +281,9 @@ Converters
 .. autoclass:: discord.ext.commands.MessageConverter
     :members:
 
+.. autoclass:: discord.ext.commands.PartialMessageConverter
+    :members:
+
 .. autoclass:: discord.ext.commands.TextChannelConverter
     :members:
 
@@ -291,6 +294,9 @@ Converters
     :members:
 
 .. autoclass:: discord.ext.commands.InviteConverter
+    :members:
+
+.. autoclass:: discord.ext.commands.GuildConverter
     :members:
 
 .. autoclass:: discord.ext.commands.RoleConverter
@@ -407,6 +413,9 @@ Exceptions
 .. autoexception:: discord.ext.commands.MemberNotFound
     :members:
 
+.. autoexception:: discord.ext.commands.GuildNotFound
+    :members:
+
 .. autoexception:: discord.ext.commands.UserNotFound
     :members:
 
@@ -416,7 +425,13 @@ Exceptions
 .. autoexception:: discord.ext.commands.ChannelNotReadable
     :members:
 
+.. autoexception:: discord.ext.commands.BadColourArgument
+    :members:
+
 .. autoexception:: discord.ext.commands.RoleNotFound
+    :members:
+
+.. autoexception:: discord.ext.commands.BadInviteArgument
     :members:
 
 .. autoexception:: discord.ext.commands.EmojiNotFound
@@ -472,7 +487,7 @@ Exceptions
 
 
 Exception Hierarchy
-+++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~
 
 .. exception_hierarchy::
 

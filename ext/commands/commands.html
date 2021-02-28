@@ -37,7 +37,7 @@
         <a onclick="mobileSearch.close();" title="Close" id="close-search" class="mobile-only" hidden><span class="material-icons">close</span></a>
       </nav>
       <nav class="mobile-only">
-        <form role="search" class="search" action="search.html" method="get">
+        <form role="search" class="search" action="../../search.html" method="get">
           <div class="search-wrapper">
             <input type="search" name="q" placeholder="Search documentation" />
             <button type="submit">
@@ -54,7 +54,7 @@
         <option value="index.html" selected>discord.ext.commands</option>
         <option value="../tasks/index.html" >discord.ext.tasks</option>
       </select>
-      <form role="search" class="search" action="search.html" method="get">
+      <form role="search" class="search" action="../../search.html" method="get">
         <div class="search-wrapper">
           <input type="search" name="q" placeholder="Search documentation" />
           <button type="submit">
@@ -109,7 +109,7 @@
 
       </div>
     </aside>
-    <main class="grid-item">
+    <main class="grid-item" role="main">
       
   <section id="commands">
 <span id="ext-commands-commands"></span><h1>명령어<a class="headerlink" href="#commands" title="제목 주소">¶</a></h1>
@@ -405,6 +405,7 @@ or just a regular username. The default set of converters have been written to b
 <li><p><a class="reference internal" href="../../api.html#discord.CategoryChannel" title="discord.CategoryChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CategoryChannel</span></code></a></p></li>
 <li><p><a class="reference internal" href="../../api.html#discord.Role" title="discord.Role"><code class="xref py py-class docutils literal notranslate"><span class="pre">Role</span></code></a></p></li>
 <li><p><a class="reference internal" href="../../api.html#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> (v1.1 부터)</p></li>
+<li><p><a class="reference internal" href="../../api.html#discord.PartialMessage" title="discord.PartialMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PartialMessage</span></code></a> (since v1.7)</p></li>
 <li><p><a class="reference internal" href="../../api.html#discord.Invite" title="discord.Invite"><code class="xref py py-class docutils literal notranslate"><span class="pre">Invite</span></code></a></p></li>
 <li><p><a class="reference internal" href="../../api.html#discord.Game" title="discord.Game"><code class="xref py py-class docutils literal notranslate"><span class="pre">Game</span></code></a></p></li>
 <li><p><a class="reference internal" href="../../api.html#discord.Emoji" title="discord.Emoji"><code class="xref py py-class docutils literal notranslate"><span class="pre">Emoji</span></code></a></p></li>
@@ -430,34 +431,37 @@ converter is given below:</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="../../api.html#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p></td>
 <td><p><a class="reference internal" href="api.html#discord.ext.commands.MessageConverter" title="discord.ext.commands.MessageConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">MessageConverter</span></code></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../api.html#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../api.html#discord.PartialMessage" title="discord.PartialMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">PartialMessage</span></code></a></p></td>
+<td><p><code class="xref py py-class docutils literal notranslate"><span class="pre">PartialMessageConveter</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../api.html#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a></p></td>
 <td><p><a class="reference internal" href="api.html#discord.ext.commands.UserConverter" title="discord.ext.commands.UserConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserConverter</span></code></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../api.html#discord.TextChannel" title="discord.TextChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextChannel</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../api.html#discord.TextChannel" title="discord.TextChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextChannel</span></code></a></p></td>
 <td><p><a class="reference internal" href="api.html#discord.ext.commands.TextChannelConverter" title="discord.ext.commands.TextChannelConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextChannelConverter</span></code></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../api.html#discord.VoiceChannel" title="discord.VoiceChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">VoiceChannel</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../api.html#discord.VoiceChannel" title="discord.VoiceChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">VoiceChannel</span></code></a></p></td>
 <td><p><a class="reference internal" href="api.html#discord.ext.commands.VoiceChannelConverter" title="discord.ext.commands.VoiceChannelConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">VoiceChannelConverter</span></code></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../api.html#discord.CategoryChannel" title="discord.CategoryChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CategoryChannel</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../api.html#discord.CategoryChannel" title="discord.CategoryChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CategoryChannel</span></code></a></p></td>
 <td><p><a class="reference internal" href="api.html#discord.ext.commands.CategoryChannelConverter" title="discord.ext.commands.CategoryChannelConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">CategoryChannelConverter</span></code></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../api.html#discord.Role" title="discord.Role"><code class="xref py py-class docutils literal notranslate"><span class="pre">Role</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../api.html#discord.Role" title="discord.Role"><code class="xref py py-class docutils literal notranslate"><span class="pre">Role</span></code></a></p></td>
 <td><p><a class="reference internal" href="api.html#discord.ext.commands.RoleConverter" title="discord.ext.commands.RoleConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">RoleConverter</span></code></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../api.html#discord.Invite" title="discord.Invite"><code class="xref py py-class docutils literal notranslate"><span class="pre">Invite</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../api.html#discord.Invite" title="discord.Invite"><code class="xref py py-class docutils literal notranslate"><span class="pre">Invite</span></code></a></p></td>
 <td><p><a class="reference internal" href="api.html#discord.ext.commands.InviteConverter" title="discord.ext.commands.InviteConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">InviteConverter</span></code></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../api.html#discord.Game" title="discord.Game"><code class="xref py py-class docutils literal notranslate"><span class="pre">Game</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../api.html#discord.Game" title="discord.Game"><code class="xref py py-class docutils literal notranslate"><span class="pre">Game</span></code></a></p></td>
 <td><p><a class="reference internal" href="api.html#discord.ext.commands.GameConverter" title="discord.ext.commands.GameConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">GameConverter</span></code></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../api.html#discord.Emoji" title="discord.Emoji"><code class="xref py py-class docutils literal notranslate"><span class="pre">Emoji</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../api.html#discord.Emoji" title="discord.Emoji"><code class="xref py py-class docutils literal notranslate"><span class="pre">Emoji</span></code></a></p></td>
 <td><p><a class="reference internal" href="api.html#discord.ext.commands.EmojiConverter" title="discord.ext.commands.EmojiConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmojiConverter</span></code></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../../api.html#discord.PartialEmoji" title="discord.PartialEmoji"><code class="xref py py-class docutils literal notranslate"><span class="pre">PartialEmoji</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../api.html#discord.PartialEmoji" title="discord.PartialEmoji"><code class="xref py py-class docutils literal notranslate"><span class="pre">PartialEmoji</span></code></a></p></td>
 <td><p><a class="reference internal" href="api.html#discord.ext.commands.PartialEmojiConverter" title="discord.ext.commands.PartialEmojiConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">PartialEmojiConverter</span></code></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../../api.html#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../../api.html#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a></p></td>
 <td><p><a class="reference internal" href="api.html#discord.ext.commands.ColourConverter" title="discord.ext.commands.ColourConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ColourConverter</span></code></a></p></td>
 </tr>
 </tbody>
@@ -703,7 +707,7 @@ raise a custom <a class="reference internal" href="api.html#discord.ext.commands
 <section id="global-checks">
 <h3>글로벌 체크<a class="headerlink" href="#global-checks" title="제목 주소">¶</a></h3>
 <p>가끔 우리는 특정 명령어 말고 <strong>모든</strong> 명령어에 체크를 적용하고 싶을때가 있습니다. 이 라이브러리는 글로벌 체크를 통해 이 기능을 지원합니다.</p>
-<p>글로벌 체크는 <code class="xref py py-func docutils literal notranslate"><span class="pre">Bot.check()</span></code> 데코레이터와 함께 등록된다는 것을 제외하면 기본 체크들과 동일하게 작동합니다.</p>
+<p>Global checks work similarly to regular checks except they are registered with the <a class="reference internal" href="api.html#discord.ext.commands.Bot.check" title="discord.ext.commands.Bot.check"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Bot.check()</span></code></a> decorator.</p>
 <p>예를 들면, 모든 DM을 막기 위해 이렇게 할 수도 있습니다:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@bot</span><span class="o">.</span><span class="n">check</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">globally_block_dms</span><span class="p">(</span><span class="n">ctx</span><span class="p">):</span>
@@ -767,6 +771,10 @@ raise a custom <a class="reference internal" href="api.html#discord.ext.commands
       </div>
 
     </div>
+  </div>
+
+  <div id="to-top" onclick="scrollToTop()" hidden>
+    <span><span class="material-icons">arrow_upward</span> to top</span>
   </div>
 
 </body>

@@ -111,6 +111,8 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#webhook-support">Webhook Support</a><ul>
+<li><a class="reference internal" href="#webhook">Webhook</a></li>
+<li><a class="reference internal" href="#webhookmessage">WebhookMessage</a></li>
 <li><a class="reference internal" href="#adapters">Adapters</a></li>
 </ul>
 </li>
@@ -197,7 +199,7 @@
 
       </div>
     </aside>
-    <main class="grid-item">
+    <main class="grid-item" role="main">
       
   <section id="api-reference">
 <h1>API 레퍼런스<a class="headerlink" href="#api-reference" title="제목 주소">¶</a></h1>
@@ -632,8 +634,12 @@ Use this at your own risk.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>token</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The authentication token. Do not prefix this token with
 anything as the library will do it for you.</p></li>
-<li><p><strong>bot</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Keyword argument that specifies if the account logging on is a bot
-token or not.</p></li>
+<li><p><strong>bot</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <p>Keyword argument that specifies if the account logging on is a bot
+token or not.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
@@ -1312,6 +1318,9 @@ do require that you do.</p>
 <em class="property">await </em><code class="sig-name descname">fetch_user_profile</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Client.fetch_user_profile" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>Gets an arbitrary user’s profile.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -3162,7 +3171,7 @@ via the <a class="reference external" href="https://docs.python.org/ko/3/library
 </section>
 <section id="event-reference">
 <span id="discord-api-events"></span><h2>Event Reference<a class="headerlink" href="#event-reference" title="제목 주소">¶</a></h2>
-<p>This page outlines the different types of events listened by <a class="reference internal" href="#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a>.</p>
+<p>This section outlines the different types of events listened by <a class="reference internal" href="#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a>.</p>
 <p>There are two ways to register an event, the first way is through the use of
 <a class="reference internal" href="#discord.Client.event" title="discord.Client.event"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Client.event()</span></code></a>. The second way is through subclassing <a class="reference internal" href="#discord.Client" title="discord.Client"><code class="xref py py-class docutils literal notranslate"><span class="pre">Client</span></code></a> and
 overriding the specific events. For example:</p>
@@ -3211,10 +3220,10 @@ to denote when a particular shard ID has connected to Discord.</p>
 <dl class="py function">
 <dt id="discord.on_disconnect">
 <code class="sig-prename descclassname">discord.</code><code class="sig-name descname">on_disconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.on_disconnect" title="정의 주소">¶</a></dt>
-<dd><p>Called when the client has disconnected from Discord. This could happen either through
-the internet being disconnected, explicit calls to logout, or Discord terminating the connection
-one way or the other.</p>
-<p>This function can be called many times.</p>
+<dd><p>Called when the client has disconnected from Discord, or a connection attempt to Discord has failed.
+This could happen either through the internet being disconnected, explicit calls to logout,
+or Discord terminating the connection one way or the other.</p>
+<p>This function can be called many times without a corresponding <a class="reference internal" href="#discord.on_connect" title="discord.on_connect"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_connect()</span></code></a> call.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -3281,7 +3290,7 @@ to denote when a particular shard ID has resumed a session.</p>
 
 <dl class="py function">
 <dt id="discord.on_error">
-<code class="sig-prename descclassname">discord.</code><code class="sig-name descname">on_error</code><span class="sig-paren">(</span><em class="sig-param">event</em>, <em class="sig-param">\*args</em>, <em class="sig-param">\*\*kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#discord.on_error" title="정의 주소">¶</a></dt>
+<code class="sig-prename descclassname">discord.</code><code class="sig-name descname">on_error</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">event</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.on_error" title="정의 주소">¶</a></dt>
 <dd><p>Usually when an event raises an uncaught exception, a traceback is
 printed to stderr and the exception is ignored. If you want to
 change this behaviour and handle the exception for whatever reason
@@ -3493,7 +3502,10 @@ or use the <a class="reference internal" href="#discord.on_raw_message_edit" tit
 <dd><p>Called when a message is edited. Unlike <a class="reference internal" href="#discord.on_message_edit" title="discord.on_message_edit"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_message_edit()</span></code></a>, this is called
 regardless of the state of the internal message cache.</p>
 <p>If the message is found in the message cache,
-it can be accessed via <a class="reference internal" href="#discord.RawMessageUpdateEvent.cached_message" title="discord.RawMessageUpdateEvent.cached_message"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RawMessageUpdateEvent.cached_message</span></code></a></p>
+it can be accessed via <a class="reference internal" href="#discord.RawMessageUpdateEvent.cached_message" title="discord.RawMessageUpdateEvent.cached_message"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RawMessageUpdateEvent.cached_message</span></code></a>. The cached message represents
+the message before it has been edited. For example, if the content of a message is modified and
+triggers the <a class="reference internal" href="#discord.on_raw_message_edit" title="discord.on_raw_message_edit"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_raw_message_edit()</span></code></a> coroutine, the <a class="reference internal" href="#discord.RawMessageUpdateEvent.cached_message" title="discord.RawMessageUpdateEvent.cached_message"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RawMessageUpdateEvent.cached_message</span></code></a>
+will return a <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> object that represents the message before the content was modified.</p>
 <p>Due to the inherently raw nature of this event, the data parameter coincides with
 the raw data given by the <a class="reference external" href="https://discord.com/developers/docs/topics/gateway#message-update">gateway</a>.</p>
 <p>Since the data payload can be partial, care must be taken when accessing stuff in the dictionary.
@@ -3519,6 +3531,14 @@ event will not be called. Consider using <a class="reference internal" href="#di
 <p>To get the <a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a> being reacted, access it via <a class="reference internal" href="#discord.Reaction.message" title="discord.Reaction.message"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Reaction.message</span></code></a>.</p>
 </div>
 <p>This requires <a class="reference internal" href="#discord.Intents.reactions" title="discord.Intents.reactions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Intents.reactions</span></code></a> to be enabled.</p>
+<div class="admonition note">
+<p class="admonition-title">참고</p>
+<p>This doesn’t require <a class="reference internal" href="#discord.Intents.members" title="discord.Intents.members"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Intents.members</span></code></a> within a guild context,
+but due to Discord not providing updated user information in a direct message
+it’s required for direct messages to receive this event.
+Consider using <a class="reference internal" href="#discord.on_raw_reaction_add" title="discord.on_raw_reaction_add"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_raw_reaction_add()</span></code></a> if you need this and do not otherwise want
+to enable the members intent.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
@@ -3778,6 +3798,7 @@ regardless of the state of the internal message cache.</p>
 <li><p>activity</p></li>
 <li><p>nickname</p></li>
 <li><p>roles</p></li>
+<li><p>pending</p></li>
 </ul>
 <p>This requires <a class="reference internal" href="#discord.Intents.members" title="discord.Intents.members"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Intents.members</span></code></a> to be enabled.</p>
 <dl class="field-list simple">
@@ -4049,6 +4070,9 @@ filled by the Discord gateway for this event is <a class="reference internal" hr
 <code class="sig-prename descclassname">discord.</code><code class="sig-name descname">on_relationship_remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">relationship</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.on_relationship_remove" title="정의 주소">¶</a></dt>
 <dd><p>Called when a <a class="reference internal" href="#discord.Relationship" title="discord.Relationship"><code class="xref py py-class docutils literal notranslate"><span class="pre">Relationship</span></code></a> is added or removed from the
 <a class="reference internal" href="#discord.ClientUser" title="discord.ClientUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">ClientUser</span></code></a>.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>relationship</strong> (<a class="reference internal" href="#discord.Relationship" title="discord.Relationship"><code class="xref py py-class docutils literal notranslate"><span class="pre">Relationship</span></code></a>) – The relationship that was added or removed.</p>
@@ -4061,6 +4085,9 @@ filled by the Discord gateway for this event is <a class="reference internal" hr
 <code class="sig-prename descclassname">discord.</code><code class="sig-name descname">on_relationship_update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">before</span></em>, <em class="sig-param"><span class="n">after</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.on_relationship_update" title="정의 주소">¶</a></dt>
 <dd><p>Called when a <a class="reference internal" href="#discord.Relationship" title="discord.Relationship"><code class="xref py py-class docutils literal notranslate"><span class="pre">Relationship</span></code></a> is updated, e.g. when you
 block a friend or a friendship is accepted.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
@@ -4291,6 +4318,9 @@ it is assumed to be in UTC.</p></li>
 <dt id="discord.Profile">
 <em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">Profile</code><a class="headerlink" href="#discord.Profile" title="정의 주소">¶</a></dt>
 <dd><p>A namedtuple representing a user’s Discord public profile.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="py attribute">
 <dt id="discord.Profile.user">
 <code class="sig-name descname">user</code><a class="headerlink" href="#discord.Profile.user" title="정의 주소">¶</a></dt>
@@ -4612,6 +4642,55 @@ and it achieved level 3.</p>
 <dd><p>The system message denoting that an announcement channel has been followed.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">버전 1.3에 추가.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="discord.MessageType.guild_stream">
+<code class="sig-name descname">guild_stream</code><a class="headerlink" href="#discord.MessageType.guild_stream" title="정의 주소">¶</a></dt>
+<dd><p>The system message denoting that a member is streaming in the guild.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.7에 추가.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="discord.MessageType.guild_discovery_disqualified">
+<code class="sig-name descname">guild_discovery_disqualified</code><a class="headerlink" href="#discord.MessageType.guild_discovery_disqualified" title="정의 주소">¶</a></dt>
+<dd><p>The system message denoting that the guild is no longer eligible for Server
+Discovery.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.7에 추가.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="discord.MessageType.guild_discovery_requalified">
+<code class="sig-name descname">guild_discovery_requalified</code><a class="headerlink" href="#discord.MessageType.guild_discovery_requalified" title="정의 주소">¶</a></dt>
+<dd><p>The system message denoting that the guild has become eligible again for Server
+Discovery.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.7에 추가.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="discord.MessageType.guild_discovery_grace_period_initial_warning">
+<code class="sig-name descname">guild_discovery_grace_period_initial_warning</code><a class="headerlink" href="#discord.MessageType.guild_discovery_grace_period_initial_warning" title="정의 주소">¶</a></dt>
+<dd><p>The system message denoting that the guild has failed to meet the Server
+Discovery requirements for one week.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.7에 추가.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="discord.MessageType.guild_discovery_grace_period_final_warning">
+<code class="sig-name descname">guild_discovery_grace_period_final_warning</code><a class="headerlink" href="#discord.MessageType.guild_discovery_grace_period_final_warning" title="정의 주소">¶</a></dt>
+<dd><p>The system message denoting that the guild has failed to meet the Server
+Discovery requirements for 3 weeks in a row.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.7에 추가.</span></p>
 </div>
 </dd></dl>
 
@@ -5637,6 +5716,9 @@ the <a class="reference internal" href="#discord.Object" title="discord.Object">
 <dt id="discord.RelationshipType">
 <em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">RelationshipType</code><a class="headerlink" href="#discord.RelationshipType" title="정의 주소">¶</a></dt>
 <dd><p>Specifies the type of <a class="reference internal" href="#discord.Relationship" title="discord.Relationship"><code class="xref py py-class docutils literal notranslate"><span class="pre">Relationship</span></code></a>.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This only applies to users, <em>not</em> bots.</p>
@@ -5672,6 +5754,9 @@ the <a class="reference internal" href="#discord.Object" title="discord.Object">
 <em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">UserContentFilter</code><a class="headerlink" href="#discord.UserContentFilter" title="정의 주소">¶</a></dt>
 <dd><p>Represents the options found in <code class="docutils literal notranslate"><span class="pre">Settings</span> <span class="pre">&gt;</span> <span class="pre">Privacy</span> <span class="pre">&amp;</span> <span class="pre">Safety</span> <span class="pre">&gt;</span> <span class="pre">Safe</span> <span class="pre">Direct</span> <span class="pre">Messaging</span></code>
 in the Discord client.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This only applies to users, <em>not</em> bots.</p>
@@ -5701,6 +5786,9 @@ in the Discord client.</p>
 <em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">FriendFlags</code><a class="headerlink" href="#discord.FriendFlags" title="정의 주소">¶</a></dt>
 <dd><p>Represents the options found in <code class="docutils literal notranslate"><span class="pre">Settings</span> <span class="pre">&gt;</span> <span class="pre">Privacy</span> <span class="pre">&amp;</span> <span class="pre">Safety</span> <span class="pre">&gt;</span> <span class="pre">Who</span> <span class="pre">Can</span> <span class="pre">Add</span> <span class="pre">You</span> <span class="pre">As</span> <span class="pre">A</span> <span class="pre">Friend</span></code>
 in the Discord client.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This only applies to users, <em>not</em> bots.</p>
@@ -5741,6 +5829,9 @@ in the Discord client.</p>
 <dt id="discord.PremiumType">
 <em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">PremiumType</code><a class="headerlink" href="#discord.PremiumType" title="정의 주소">¶</a></dt>
 <dd><p>Represents the user’s Discord Nitro subscription type.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This only applies to users, <em>not</em> bots.</p>
@@ -5763,6 +5854,9 @@ in the Discord client.</p>
 <dt id="discord.Theme">
 <em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">Theme</code><a class="headerlink" href="#discord.Theme" title="정의 주소">¶</a></dt>
 <dd><p>Represents the theme synced across all Discord clients.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This only applies to users, <em>not</em> bots.</p>
@@ -6881,6 +6975,8 @@ sending another message in the channel.</p>
 <section id="webhook-support">
 <h2>Webhook Support<a class="headerlink" href="#webhook-support" title="제목 주소">¶</a></h2>
 <p>discord.py offers support for creating, editing, and executing webhooks through the <a class="reference internal" href="#discord.Webhook" title="discord.Webhook"><code class="xref py py-class docutils literal notranslate"><span class="pre">Webhook</span></code></a> class.</p>
+<section id="webhook">
+<h3>Webhook<a class="headerlink" href="#webhook" title="제목 주소">¶</a></h3>
 <div class="py-attribute-table" data-move-to-id="discord.Webhook"><div class="py-attribute-table-column">
 <span>
 Attributes</span><ul>
@@ -7384,7 +7480,18 @@ you only have an ID.</p>
 
 </dd></dl>
 
-<dl class="py class">
+</section>
+<section id="webhookmessage">
+<h3>WebhookMessage<a class="headerlink" href="#webhookmessage" title="제목 주소">¶</a></h3>
+<div class="py-attribute-table" data-move-to-id="discord.WebhookMessage"><div class="py-attribute-table-column">
+<span>
+Methods</span><ul>
+<li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.WebhookMessage.delete">delete</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.WebhookMessage.edit">edit</a></li></ul>
+</div></div><dl class="py class">
 <dt id="discord.WebhookMessage">
 <em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">WebhookMessage</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">state</span></em>, <em class="sig-param"><span class="n">channel</span></em>, <em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.WebhookMessage" title="정의 주소">¶</a></dt>
 <dd><p>Represents a message sent from your webhook.</p>
@@ -7450,6 +7557,7 @@ are ignored. If this is not a coroutine then the delay blocks the thread.</p>
 
 </dd></dl>
 
+</section>
 <section id="adapters">
 <h3>Adapters<a class="headerlink" href="#adapters" title="제목 주소">¶</a></h3>
 <p>Adapters allow you to change how the request should be handled. They all build on a single
@@ -8550,6 +8658,9 @@ def</span><a class="reference internal" href="#discord.ClientUser.permissions_in
 <dt id="discord.ClientUser.email">
 <code class="sig-name descname">email</code><a class="headerlink" href="#discord.ClientUser.email" title="정의 주소">¶</a></dt>
 <dd><p>사용자가 등록 할 때 사용한 이메일</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
@@ -8583,6 +8694,9 @@ def</span><a class="reference internal" href="#discord.ClientUser.permissions_in
 <dt id="discord.ClientUser.premium">
 <code class="sig-name descname">premium</code><a class="headerlink" href="#discord.ClientUser.premium" title="정의 주소">¶</a></dt>
 <dd><p>사용자가 프리미엄 사용자인지 여부를 지정(예 : Discord Nitro 사용)</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
@@ -8594,6 +8708,9 @@ def</span><a class="reference internal" href="#discord.ClientUser.permissions_in
 <dt id="discord.ClientUser.premium_type">
 <code class="sig-name descname">premium_type</code><a class="headerlink" href="#discord.ClientUser.premium_type" title="정의 주소">¶</a></dt>
 <dd><p>사용자가 가진 프리미엄 유형을 지정 (예 : Nitro 또는 Nitro Classic) 사용자가 프리미엄이 아닌 경우 None 일 수 있습니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p>선택 사항 [<a class="reference internal" href="#discord.PremiumType" title="discord.PremiumType"><code class="xref py py-class docutils literal notranslate"><span class="pre">PremiumType</span></code></a>]</p>
@@ -8605,6 +8722,9 @@ def</span><a class="reference internal" href="#discord.ClientUser.permissions_in
 <dt id="discord.ClientUser.get_relationship">
 <code class="sig-name descname">get_relationship</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ClientUser.get_relationship" title="정의 주소">¶</a></dt>
 <dd><p><a class="reference internal" href="#discord.Relationship" title="discord.Relationship"><code class="xref py py-class docutils literal notranslate"><span class="pre">Relationship</span></code></a> 이 적용 가능한 경우를 검색</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -8626,6 +8746,9 @@ def</span><a class="reference internal" href="#discord.ClientUser.permissions_in
 <dt id="discord.ClientUser.relationships">
 <code class="sig-name descname">relationships</code><a class="headerlink" href="#discord.ClientUser.relationships" title="정의 주소">¶</a></dt>
 <dd><p>사용자가 가진 모든 관련성를 리턴</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -8641,6 +8764,9 @@ def</span><a class="reference internal" href="#discord.ClientUser.permissions_in
 <dt id="discord.ClientUser.friends">
 <code class="sig-name descname">friends</code><a class="headerlink" href="#discord.ClientUser.friends" title="정의 주소">¶</a></dt>
 <dd><p>사용자와 친구인 모든 사용자를 리턴</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -8656,6 +8782,9 @@ def</span><a class="reference internal" href="#discord.ClientUser.permissions_in
 <dt id="discord.ClientUser.blocked">
 <code class="sig-name descname">blocked</code><a class="headerlink" href="#discord.ClientUser.blocked" title="정의 주소">¶</a></dt>
 <dd><p>사용자가 차단한 모든 사용자를 리턴</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -8673,6 +8802,10 @@ def</span><a class="reference internal" href="#discord.ClientUser.permissions_in
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>클라이언트의 프로필을 편집</p>
 <p>봇 계정을 사용하는 경우 비밀번호 필드는 선택 사항이며 그렇지 않은 경우는 비밀번호 필드가 필요합니다.</p>
+<div class="admonition warning">
+<p class="admonition-title">경고</p>
+<p>The user account-only fields are deprecated.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>아바타를 업로드 하려면 <a class="reference external" href="https://docs.python.org/ko/3/glossary.html#term-bytes-like-object" title="(in Python v3.9)"><span>bytes-like object</span></a> 형식의 이미지로 전달해야 합니다. <code class="docutils literal notranslate"><span class="pre">open('파일이름',</span> <span class="pre">'rb')</span></code> 로 파일을 열어야 하며, <code class="docutils literal notranslate"><span class="pre">fp.read()</span></code> 로 전달해야 합니다.</p>
@@ -8706,6 +8839,9 @@ Only applicable to user accounts.</p></li>
 <em class="property">await </em><code class="sig-name descname">create_group</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">recipients</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ClientUser.create_group" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>제공된 유저와 그룹 채팅을 합니다. 이런 유저는 <a class="reference internal" href="#discord.RelationshipType.friend" title="discord.RelationshipType.friend"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RelationshipType.friend</span></code></a> 유형이여야 합니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -8734,6 +8870,9 @@ Only applicable to user accounts.</p></li>
 <em class="property">await </em><code class="sig-name descname">edit_settings</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ClientUser.edit_settings" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>클라이언트의 설정을 편집합니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -8974,6 +9113,9 @@ async</span><a class="reference internal" href="#discord.Relationship.delete">de
 <em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">Relationship</code><a class="headerlink" href="#discord.Relationship" title="정의 주소">¶</a></dt>
 <dd><p>디스코드에서 관련성을 나타냄</p>
 <p>관련성은 친구, 차단 된 유저와 같습니다. 봇이 아닌 계정만 관련성이 있습니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="py attribute">
 <dt id="discord.Relationship.user">
 <code class="sig-name descname">user</code><a class="headerlink" href="#discord.Relationship.user" title="정의 주소">¶</a></dt>
@@ -9001,6 +9143,9 @@ async</span><a class="reference internal" href="#discord.Relationship.delete">de
 <em class="property">await </em><code class="sig-name descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.Relationship.delete" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>관련성을 삭제</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">예외</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 관련성 삭제에 실패했습니다.</p>
@@ -9013,6 +9158,9 @@ async</span><a class="reference internal" href="#discord.Relationship.delete">de
 <em class="property">await </em><code class="sig-name descname">accept</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.Relationship.accept" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>친구 요청을 수락</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">예외</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 친구 요청 수락에 실패했습니다.</p>
@@ -9042,6 +9190,7 @@ Attributes</span><ul>
 <a class="reference internal" href="#discord.User.dm_channel">dm_channel</a></li><li class="py-attribute-table-entry">
 <a class="reference internal" href="#discord.User.id">id</a></li><li class="py-attribute-table-entry">
 <a class="reference internal" href="#discord.User.mention">mention</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.User.mutual_guilds">mutual_guilds</a></li><li class="py-attribute-table-entry">
 <a class="reference internal" href="#discord.User.name">name</a></li><li class="py-attribute-table-entry">
 <a class="reference internal" href="#discord.User.public_flags">public_flags</a></li><li class="py-attribute-table-entry">
 <a class="reference internal" href="#discord.User.relationship">relationship</a></li><li class="py-attribute-table-entry">
@@ -9255,6 +9404,24 @@ async</span><a class="reference internal" href="#discord.User.unblock">unblock</
 </dd></dl>
 
 <dl class="py method">
+<dt id="discord.User.mutual_guilds">
+<code class="sig-name descname">mutual_guilds</code><a class="headerlink" href="#discord.User.mutual_guilds" title="정의 주소">¶</a></dt>
+<dd><p>The guilds that the user shares with the client.</p>
+<div class="admonition note">
+<p class="admonition-title">참고</p>
+<p>This will only return mutual guilds within the client’s internal cache.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.7에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">타입</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#discord.Guild" title="discord.Guild"><code class="xref py py-class docutils literal notranslate"><span class="pre">Guild</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="discord.User.create_dm">
 <em class="property">await </em><code class="sig-name descname">create_dm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.User.create_dm" title="정의 주소">¶</a></dt>
 <dd><p>사용자와의 <a class="reference internal" href="#discord.DMChannel" title="discord.DMChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">DMChannel</span></code></a> 을 만듭니다.</p>
@@ -9289,6 +9456,9 @@ async</span><a class="reference internal" href="#discord.User.unblock">unblock</
 <em class="property">await </em><code class="sig-name descname">mutual_friends</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.User.mutual_friends" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>사용자의 모든 친구를 얻습니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -9313,6 +9483,9 @@ async</span><a class="reference internal" href="#discord.User.unblock">unblock</
 <dt id="discord.User.is_friend">
 <code class="sig-name descname">is_friend</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.User.is_friend" title="정의 주소">¶</a></dt>
 <dd><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>: Checks if the user is your friend.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -9323,6 +9496,9 @@ async</span><a class="reference internal" href="#discord.User.unblock">unblock</
 <dt id="discord.User.is_blocked">
 <code class="sig-name descname">is_blocked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.User.is_blocked" title="정의 주소">¶</a></dt>
 <dd><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>: Checks if the user is blocked.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -9334,6 +9510,9 @@ async</span><a class="reference internal" href="#discord.User.unblock">unblock</
 <em class="property">await </em><code class="sig-name descname">block</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.User.block" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>사용자를 차단합니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -9353,6 +9532,9 @@ async</span><a class="reference internal" href="#discord.User.unblock">unblock</
 <em class="property">await </em><code class="sig-name descname">unblock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.User.unblock" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>사용자를 차단 해제합니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -9372,6 +9554,9 @@ async</span><a class="reference internal" href="#discord.User.unblock">unblock</
 <em class="property">await </em><code class="sig-name descname">remove_friend</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.User.remove_friend" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>사용자를 친구 삭제합니다</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -9391,6 +9576,9 @@ async</span><a class="reference internal" href="#discord.User.unblock">unblock</
 <em class="property">await </em><code class="sig-name descname">send_friend_request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.User.send_friend_request" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>사용자에게 친구 요청을 보냅니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -9410,6 +9598,9 @@ async</span><a class="reference internal" href="#discord.User.unblock">unblock</
 <em class="property">await </em><code class="sig-name descname">profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.User.profile" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>사용자의 프로필을 가져옵니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -10180,7 +10371,8 @@ async</span><a class="reference internal" href="#discord.Message.unpin">unpin</a
 <dl class="py attribute">
 <dt id="discord.Message.nonce">
 <code class="sig-name descname">nonce</code><a class="headerlink" href="#discord.Message.nonce" title="정의 주소">¶</a></dt>
-<dd><p>메시지가 성공적으로 전송되었는지 확인하기 위해 서버와 클라이언트가 사용하는 값입니다. 이는 별로 중요하지 않습니다.</p>
+<dd><p>The value used by the discord guild and the client to verify that the message is successfully sent.
+This is not stored long term within Discord’s servers and is only used ephemerally.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -10209,6 +10401,9 @@ async</span><a class="reference internal" href="#discord.Message.unpin">unpin</a
 <dt id="discord.Message.call">
 <code class="sig-name descname">call</code><a class="headerlink" href="#discord.Message.call" title="정의 주소">¶</a></dt>
 <dd><p>그룹 통화 메시지. <a class="reference internal" href="#discord.MessageType.call" title="discord.MessageType.call"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MessageType.call</span></code></a> 유형의 메시지에만 적용됩니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p>선택 사항[<a class="reference internal" href="#discord.CallMessage" title="discord.CallMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">CallMessage</span></code></a>]</p>
@@ -10253,7 +10448,8 @@ followed channel integration, or message replies.</p>
 <dd><p>언급된 <a class="reference internal" href="#discord.Member" title="discord.Member"><code class="xref py py-class docutils literal notranslate"><span class="pre">Member</span></code></a> 의 목록입니다. 메시지가 개인 메시지일 경우 리스트가 <a class="reference internal" href="#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a> 가 됩니다. <a class="reference internal" href="#discord.MessageType.default" title="discord.MessageType.default"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MessageType.default</span></code></a> 유형이 아닌 메시지의 경우 이 배열을 사용하여 시스템 메시지를 지원할 수 있습니다. 자세한 내용은 <a class="reference internal" href="#discord.Message.system_content" title="discord.Message.system_content"><code class="xref py py-attr docutils literal notranslate"><span class="pre">system_content</span></code></a>를 참조하시기 바랍니다.</p>
 <div class="admonition warning">
 <p class="admonition-title">경고</p>
-<p>언급 리스트의 순서가 특정 순서가 아니므로 이 순서에 의존해서는 안됩니다. 이것은 라이브러리에서가 아닌 디스코드에서의 제한입니다.</p>
+<p>The order of the mentions list is not in any particular order so you should
+not rely on it. This is a Discord limitation, not one with the library.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
@@ -10736,6 +10932,9 @@ are used instead.</p>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>메시지를 읽은 것 으로 표시합니다.</p>
 <p>사용자는 봇이 아니여야 합니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">예외</dt>
 <dd class="field-odd"><ul class="simple">
@@ -11062,6 +11261,9 @@ Attributes</span><ul>
 <dd><p>Represents a group call message from Discord.</p>
 <p>This is only received in cases where the message type is equivalent to
 <a class="reference internal" href="#discord.MessageType.call" title="discord.MessageType.call"><code class="xref py py-attr docutils literal notranslate"><span class="pre">MessageType.call</span></code></a>.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="py attribute">
 <dt id="discord.CallMessage.ended_timestamp">
 <code class="sig-name descname">ended_timestamp</code><a class="headerlink" href="#discord.CallMessage.ended_timestamp" title="정의 주소">¶</a></dt>
@@ -11099,6 +11301,9 @@ Attributes</span><ul>
 <dt id="discord.CallMessage.call_ended">
 <code class="sig-name descname">call_ended</code><a class="headerlink" href="#discord.CallMessage.call_ended" title="정의 주소">¶</a></dt>
 <dd><p>Indicates if the call has ended.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
@@ -11110,6 +11315,9 @@ Attributes</span><ul>
 <dt id="discord.CallMessage.channel">
 <code class="sig-name descname">channel</code><a class="headerlink" href="#discord.CallMessage.channel" title="정의 주소">¶</a></dt>
 <dd><p>The private channel associated with this message.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#discord.GroupChannel" title="discord.GroupChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">GroupChannel</span></code></a></p>
@@ -11123,6 +11331,9 @@ Attributes</span><ul>
 <dd><p>Queries the duration of the call.</p>
 <p>If the call has not ended then the current duration will
 be returned.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">반환값</dt>
 <dd class="field-odd"><p>The timedelta object representing the duration.</p>
@@ -11159,6 +11370,9 @@ def</span><a class="reference internal" href="#discord.GroupCall.voice_state_for
 <em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">GroupCall</code><a class="headerlink" href="#discord.GroupCall" title="정의 주소">¶</a></dt>
 <dd><p>Represents the actual group call from Discord.</p>
 <p>This is accompanied with a <a class="reference internal" href="#discord.CallMessage" title="discord.CallMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">CallMessage</span></code></a> denoting the information.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="py attribute">
 <dt id="discord.GroupCall.call">
 <code class="sig-name descname">call</code><a class="headerlink" href="#discord.GroupCall.call" title="정의 주소">¶</a></dt>
@@ -11207,6 +11421,9 @@ def</span><a class="reference internal" href="#discord.GroupCall.voice_state_for
 <dt id="discord.GroupCall.connected">
 <code class="sig-name descname">connected</code><a class="headerlink" href="#discord.GroupCall.connected" title="정의 주소">¶</a></dt>
 <dd><p>A property that returns all users that are currently in this call.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p>리스트 [<a class="reference internal" href="#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>]</p>
@@ -11218,6 +11435,9 @@ def</span><a class="reference internal" href="#discord.GroupCall.voice_state_for
 <dt id="discord.GroupCall.channel">
 <code class="sig-name descname">channel</code><a class="headerlink" href="#discord.GroupCall.channel" title="정의 주소">¶</a></dt>
 <dd><p>Returns the channel the group call is in.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#discord.GroupChannel" title="discord.GroupChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">GroupChannel</span></code></a></p>
@@ -11231,6 +11451,9 @@ def</span><a class="reference internal" href="#discord.GroupCall.voice_state_for
 <dd><p>Retrieves the <a class="reference internal" href="#discord.VoiceState" title="discord.VoiceState"><code class="xref py py-class docutils literal notranslate"><span class="pre">VoiceState</span></code></a> for a specified <a class="reference internal" href="#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>.</p>
 <p>If the <a class="reference internal" href="#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a> has no voice state then this function returns
 <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>user</strong> (<a class="reference internal" href="#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>) – The user to retrieve the voice state for.</p>
@@ -11337,6 +11560,8 @@ async</span><a class="reference internal" href="#discord.Guild.create_integratio
 <span class="py-attribute-table-badge" title="coroutine">
 async</span><a class="reference internal" href="#discord.Guild.create_role">create_role</a></li><li class="py-attribute-table-entry">
 <span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.Guild.create_template">create_template</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
 async</span><a class="reference internal" href="#discord.Guild.create_text_channel">create_text_channel</a></li><li class="py-attribute-table-entry">
 <span class="py-attribute-table-badge" title="coroutine">
 async</span><a class="reference internal" href="#discord.Guild.create_voice_channel">create_voice_channel</a></li><li class="py-attribute-table-entry">
@@ -11390,6 +11615,8 @@ async</span><a class="reference internal" href="#discord.Guild.prune_members">pr
 async</span><a class="reference internal" href="#discord.Guild.query_members">query_members</a></li><li class="py-attribute-table-entry">
 <span class="py-attribute-table-badge" title="메서드">
 def</span><a class="reference internal" href="#discord.Guild.splash_url_as">splash_url_as</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.Guild.templates">templates</a></li><li class="py-attribute-table-entry">
 <span class="py-attribute-table-badge" title="coroutine">
 async</span><a class="reference internal" href="#discord.Guild.unban">unban</a></li><li class="py-attribute-table-entry">
 <span class="py-attribute-table-badge" title="coroutine">
@@ -11661,6 +11888,8 @@ the guild does not require 2FA for their administrative members. If the value is
 <li><p><code class="docutils literal notranslate"><span class="pre">ANIMATED_ICON</span></code>: Guild can upload an animated icon.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PUBLIC_DISABLED</span></code>: Guild cannot be public.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">WELCOME_SCREEN_ENABLED</span></code>: Guild has enabled the welcome screen</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MEMBER_VERIFICATION_GATE_ENABLED</span></code>: Guild has Membership Screening enabled.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PREVIEW_ENABLED</span></code>: Guild can be viewed before being accepted via Membership Screening.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
@@ -12557,6 +12786,8 @@ be owner of the guild to do this.</p></li>
 <li><p><strong>vanity_code</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The new vanity code for the guild.</p></li>
 <li><p><strong>system_channel</strong> (Optional[<a class="reference internal" href="#discord.TextChannel" title="discord.TextChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextChannel</span></code></a>]) – The new channel that is used for the system channel. Could be <code class="docutils literal notranslate"><span class="pre">None</span></code> for no system channel.</p></li>
 <li><p><strong>system_channel_flags</strong> (<a class="reference internal" href="#discord.SystemChannelFlags" title="discord.SystemChannelFlags"><code class="xref py py-class docutils literal notranslate"><span class="pre">SystemChannelFlags</span></code></a>) – The new system channel settings to use with the new system channel.</p></li>
+<li><p><strong>preferred_locale</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The new preferred locale for the guild. Used as the primary language in the guild.
+If set, this must be an ISO 639 code, e.g. <code class="docutils literal notranslate"><span class="pre">en-US</span></code> or <code class="docutils literal notranslate"><span class="pre">ja</span></code> or <code class="docutils literal notranslate"><span class="pre">zh-CN</span></code>.</p></li>
 <li><p><strong>rules_channel</strong> (Optional[<a class="reference internal" href="#discord.TextChannel" title="discord.TextChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">TextChannel</span></code></a>]) – The new channel that is used for rules. This is only available to
 guilds that contain <code class="docutils literal notranslate"><span class="pre">PUBLIC</span></code> in <a class="reference internal" href="#discord.Guild.features" title="discord.Guild.features"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Guild.features</span></code></a>. Could be <code class="docutils literal notranslate"><span class="pre">None</span></code> for no rules
 channel.</p></li>
@@ -12656,7 +12887,7 @@ If a date is provided it must be a timezone-naive datetime representing UTC time
 <dt id="discord.Guild.fetch_member">
 <em class="property">await </em><code class="sig-name descname">fetch_member</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">member_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Guild.fetch_member" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
-<p>Retreives a <a class="reference internal" href="#discord.Member" title="discord.Member"><code class="xref py py-class docutils literal notranslate"><span class="pre">Member</span></code></a> from a guild ID, and a member ID.</p>
+<p>Retrieves a <a class="reference internal" href="#discord.Member" title="discord.Member"><code class="xref py py-class docutils literal notranslate"><span class="pre">Member</span></code></a> from a guild ID, and a member ID.</p>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This method is an API call. For general usage, consider <a class="reference internal" href="#discord.Guild.get_member" title="discord.Guild.get_member"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_member()</span></code></a> instead.</p>
@@ -12684,9 +12915,7 @@ If a date is provided it must be a timezone-naive datetime representing UTC time
 <dt id="discord.Guild.fetch_ban">
 <em class="property">await </em><code class="sig-name descname">fetch_ban</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Guild.fetch_ban" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
-<p>Retrieves the <code class="xref py py-class docutils literal notranslate"><span class="pre">BanEntry</span></code> for a user, which is a namedtuple
-with a <code class="docutils literal notranslate"><span class="pre">user</span></code> and <code class="docutils literal notranslate"><span class="pre">reason</span></code> field. See <a class="reference internal" href="#discord.Guild.bans" title="discord.Guild.bans"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bans()</span></code></a> for more
-information.</p>
+<p>Retrieves the <a class="reference internal" href="#discord.BanEntry" title="discord.BanEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">BanEntry</span></code></a> for a user.</p>
 <p>You must have the <a class="reference internal" href="#discord.Permissions.ban_members" title="discord.Permissions.ban_members"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ban_members</span></code></a> permission
 to get this information.</p>
 <dl class="field-list simple">
@@ -12701,10 +12930,10 @@ to get this information.</p>
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
-<dd class="field-odd"><p>The BanEntry object for the specified user.</p>
+<dd class="field-odd"><p>The <a class="reference internal" href="#discord.BanEntry" title="discord.BanEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">BanEntry</span></code></a> object for the specified user.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
-<dd class="field-even"><p>BanEntry</p>
+<dd class="field-even"><p><a class="reference internal" href="#discord.BanEntry" title="discord.BanEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">BanEntry</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -12713,11 +12942,7 @@ to get this information.</p>
 <dt id="discord.Guild.bans">
 <em class="property">await </em><code class="sig-name descname">bans</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.Guild.bans" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
-<p>Retrieves all the users that are banned from the guild.</p>
-<p>This coroutine returns a <a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of BanEntry objects, which is a
-namedtuple with a <code class="docutils literal notranslate"><span class="pre">user</span></code> field to denote the <a class="reference internal" href="#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>
-that got banned along with a <code class="docutils literal notranslate"><span class="pre">reason</span></code> field specifying
-why the user was banned that could be set to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Retrieves all the users that are banned from the guild as a <a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="#discord.BanEntry" title="discord.BanEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">BanEntry</span></code></a>.</p>
 <p>You must have the <a class="reference internal" href="#discord.Permissions.ban_members" title="discord.Permissions.ban_members"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ban_members</span></code></a> permission
 to get this information.</p>
 <dl class="field-list simple">
@@ -12728,10 +12953,10 @@ to get this information.</p>
 </ul>
 </dd>
 <dt class="field-even">반환값</dt>
-<dd class="field-even"><p>A list of BanEntry objects.</p>
+<dd class="field-even"><p>A list of <a class="reference internal" href="#discord.BanEntry" title="discord.BanEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">BanEntry</span></code></a> objects.</p>
 </dd>
 <dt class="field-odd">반환 형식</dt>
-<dd class="field-odd"><p>List[BanEntry]</p>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#discord.BanEntry" title="discord.BanEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">BanEntry</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -12777,6 +13002,28 @@ then this returns <code class="docutils literal notranslate"><span class="pre">N
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p>Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.Guild.templates">
+<em class="property">await </em><code class="sig-name descname">templates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.Guild.templates" title="정의 주소">¶</a></dt>
+<dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
+<p>Gets the list of templates from this guild.</p>
+<p>Requires <a class="reference internal" href="#discord.Permissions.manage_guild" title="discord.Permissions.manage_guild"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_guild</span></code></a> permissions.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.7에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">예외</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – You don’t have permissions to get the templates.</p>
+</dd>
+<dt class="field-even">반환값</dt>
+<dd class="field-even"><p>The templates for this guild.</p>
+</dd>
+<dt class="field-odd">반환 형식</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#discord.Template" title="discord.Template"><code class="xref py py-class docutils literal notranslate"><span class="pre">Template</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -12846,6 +13093,26 @@ this information.</p>
 </dd>
 <dt class="field-odd">반환 형식</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#discord.Invite" title="discord.Invite"><code class="xref py py-class docutils literal notranslate"><span class="pre">Invite</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.Guild.create_template">
+<em class="property">await </em><code class="sig-name descname">create_template</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">description</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Guild.create_template" title="정의 주소">¶</a></dt>
+<dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
+<p>Creates a template for the guild.</p>
+<p>You must have the <a class="reference internal" href="#discord.Permissions.manage_guild" title="discord.Permissions.manage_guild"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_guild</span></code></a> permission to
+do this.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.7에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The name of the template.</p></li>
+<li><p><strong>description</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – The description of the template.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -13020,12 +13287,15 @@ Only JPG, PNG and GIF images are supported.</p></li>
 <p>All fields are optional.</p>
 <p>You must have the <a class="reference internal" href="#discord.Permissions.manage_roles" title="discord.Permissions.manage_roles"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_roles</span></code></a> permission to
 do this.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">버전 1.6에서 변경: </span>Can now pass <code class="docutils literal notranslate"><span class="pre">int</span></code> to <code class="docutils literal notranslate"><span class="pre">colour</span></code> keyword-only parameter.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The role name. Defaults to 〈new role〉.</p></li>
 <li><p><strong>permissions</strong> (<a class="reference internal" href="#discord.Permissions" title="discord.Permissions"><code class="xref py py-class docutils literal notranslate"><span class="pre">Permissions</span></code></a>) – The permissions to have. Defaults to no permissions.</p></li>
-<li><p><strong>colour</strong> (<a class="reference internal" href="#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a>) – The colour for the role. Defaults to <a class="reference internal" href="#discord.Colour.default" title="discord.Colour.default"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Colour.default()</span></code></a>.
+<li><p><strong>colour</strong> (Union[<a class="reference internal" href="#discord.Colour" title="discord.Colour"><code class="xref py py-class docutils literal notranslate"><span class="pre">Colour</span></code></a>, <a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]) – The colour for the role. Defaults to <a class="reference internal" href="#discord.Colour.default" title="discord.Colour.default"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Colour.default()</span></code></a>.
 This is aliased to <code class="docutils literal notranslate"><span class="pre">color</span></code> as well.</p></li>
 <li><p><strong>hoist</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Indicates if the role should be shown separately in the member list.
 Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
@@ -13198,6 +13468,9 @@ this as well.</p>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>Marks every message in this guild as read.</p>
 <p>사용자는 봇이 아니여야 합니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">예외</dt>
 <dd class="field-odd"><ul class="simple">
@@ -13255,7 +13528,7 @@ this as well.</p>
 
 <dl class="py method">
 <dt id="discord.Guild.query_members">
-<em class="property">await </em><code class="sig-name descname">query_members</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">user_ids</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cache</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Guild.query_members" title="정의 주소">¶</a></dt>
+<em class="property">await </em><code class="sig-name descname">query_members</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">user_ids</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">presences</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">cache</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Guild.query_members" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>Request members that belong to this guild whose username starts with
 the query given.</p>
@@ -13269,6 +13542,12 @@ the query given.</p>
 <li><p><strong>query</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – The string that the username’s start with.</p></li>
 <li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The maximum number of members to send back. This must be
 a number between 5 and 100.</p></li>
+<li><p><strong>presences</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <p>Whether to request for presences to be provided. This defaults
+to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.6에 추가.</span></p>
+</div>
+</p></li>
 <li><p><strong>cache</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Whether to cache the members internally. This makes operations
 such as <a class="reference internal" href="#discord.Guild.get_member" title="discord.Guild.get_member"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_member()</span></code></a> work for those that matched.</p></li>
 <li><p><strong>user_ids</strong> (Optional[List[<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]]) – <p>List of user IDs to search for. If the user ID is not in the guild then it won’t be returned.</p>
@@ -13282,6 +13561,7 @@ such as <a class="reference internal" href="#discord.Guild.get_member" title="di
 <dd class="field-even"><ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-exceptions.html#asyncio.TimeoutError" title="(in Python v3.9)"><strong>asyncio.TimeoutError</strong></a> – The query timed out waiting for the members.</p></li>
 <li><p><a class="reference external" href="https://docs.python.org/ko/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><strong>ValueError</strong></a> – Invalid parameters were passed to the function</p></li>
+<li><p><a class="reference internal" href="#discord.ClientException" title="discord.ClientException"><strong>ClientException</strong></a> – The presences intent is not enabled.</p></li>
 </ul>
 </dd>
 <dt class="field-odd">반환값</dt>
@@ -13308,6 +13588,34 @@ such as <a class="reference internal" href="#discord.Guild.get_member" title="di
 <li><p><strong>self_mute</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Indicates if the client should be self-muted.</p></li>
 <li><p><strong>self_deaf</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Indicates if the client should be self-deafened.</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="discord.BanEntry">
+<em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">BanEntry</code><a class="headerlink" href="#discord.BanEntry" title="정의 주소">¶</a></dt>
+<dd><p>A namedtuple which represents a ban returned from <a class="reference internal" href="#discord.Guild.bans" title="discord.Guild.bans"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bans()</span></code></a>.</p>
+<dl class="py attribute">
+<dt id="discord.BanEntry.reason">
+<code class="sig-name descname">reason</code><a class="headerlink" href="#discord.BanEntry.reason" title="정의 주소">¶</a></dt>
+<dd><p>The reason this user was banned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">타입</dt>
+<dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="discord.BanEntry.user">
+<code class="sig-name descname">user</code><a class="headerlink" href="#discord.BanEntry.user" title="정의 주소">¶</a></dt>
+<dd><p>The <a class="reference internal" href="#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a> that was banned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">타입</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -13586,6 +13894,7 @@ Attributes</span><ul>
 <a class="reference internal" href="#discord.Member.joined_at">joined_at</a></li><li class="py-attribute-table-entry">
 <a class="reference internal" href="#discord.Member.mention">mention</a></li><li class="py-attribute-table-entry">
 <a class="reference internal" href="#discord.Member.mobile_status">mobile_status</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.Member.mutual_guilds">mutual_guilds</a></li><li class="py-attribute-table-entry">
 <a class="reference internal" href="#discord.Member.name">name</a></li><li class="py-attribute-table-entry">
 <a class="reference internal" href="#discord.Member.nick">nick</a></li><li class="py-attribute-table-entry">
 <a class="reference internal" href="#discord.Member.pending">pending</a></li><li class="py-attribute-table-entry">
@@ -14149,7 +14458,9 @@ Pass <code class="docutils literal notranslate"><span class="pre">None</span></c
 <em class="property">await </em><code class="sig-name descname">add_roles</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">roles</span></em>, <em class="sig-param"><span class="n">reason</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">atomic</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Member.add_roles" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>Gives the member a number of <a class="reference internal" href="#discord.Role" title="discord.Role"><code class="xref py py-class docutils literal notranslate"><span class="pre">Role</span></code></a>s.</p>
-<p>이것을 사용하려면 <a class="reference internal" href="#discord.Permissions.manage_roles" title="discord.Permissions.manage_roles"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_roles</span></code></a> 권한이 있어야 합니다.</p>
+<p>You must have the <a class="reference internal" href="#discord.Permissions.manage_roles" title="discord.Permissions.manage_roles"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_roles</span></code></a> permission to
+use this, and the added <a class="reference internal" href="#discord.Role" title="discord.Role"><code class="xref py py-class docutils literal notranslate"><span class="pre">Role</span></code></a>s must appear lower in the list
+of roles than the highest role of the member.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
@@ -14213,6 +14524,9 @@ state of the cache.</p></li>
 <code class="sig-name descname">block</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Member.block" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>사용자를 차단합니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -14320,6 +14634,9 @@ state of the cache.</p></li>
 <dt id="discord.Member.is_blocked">
 <code class="sig-name descname">is_blocked</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Member.is_blocked" title="정의 주소">¶</a></dt>
 <dd><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>: Checks if the user is blocked.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -14330,6 +14647,9 @@ state of the cache.</p></li>
 <dt id="discord.Member.is_friend">
 <code class="sig-name descname">is_friend</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Member.is_friend" title="정의 주소">¶</a></dt>
 <dd><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>: Checks if the user is your friend.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -14341,6 +14661,9 @@ state of the cache.</p></li>
 <code class="sig-name descname">mutual_friends</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Member.mutual_friends" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>사용자의 모든 친구를 얻습니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -14359,6 +14682,12 @@ state of the cache.</p></li>
 <dd class="field-odd"><p>리스트 [<a class="reference internal" href="#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>]</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.Member.mutual_guilds">
+<code class="sig-name descname">mutual_guilds</code><a class="headerlink" href="#discord.Member.mutual_guilds" title="정의 주소">¶</a></dt>
+<dd><p>Equivalent to <a class="reference internal" href="#discord.User.mutual_guilds" title="discord.User.mutual_guilds"><code class="xref py py-attr docutils literal notranslate"><span class="pre">User.mutual_guilds</span></code></a></p>
 </dd></dl>
 
 <dl class="py method">
@@ -14394,6 +14723,9 @@ state of the cache.</p></li>
 <code class="sig-name descname">profile</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Member.profile" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>사용자의 프로필을 가져옵니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -14431,6 +14763,9 @@ state of the cache.</p></li>
 <code class="sig-name descname">remove_friend</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Member.remove_friend" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>사용자를 친구 삭제합니다</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -14450,7 +14785,9 @@ state of the cache.</p></li>
 <em class="property">await </em><code class="sig-name descname">remove_roles</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">roles</span></em>, <em class="sig-param"><span class="n">reason</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">atomic</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Member.remove_roles" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>Removes <a class="reference internal" href="#discord.Role" title="discord.Role"><code class="xref py py-class docutils literal notranslate"><span class="pre">Role</span></code></a>s from this member.</p>
-<p>이것을 사용하려면 <a class="reference internal" href="#discord.Permissions.manage_roles" title="discord.Permissions.manage_roles"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_roles</span></code></a> 권한이 있어야 합니다.</p>
+<p>You must have the <a class="reference internal" href="#discord.Permissions.manage_roles" title="discord.Permissions.manage_roles"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_roles</span></code></a> permission to
+use this, and the removed <a class="reference internal" href="#discord.Role" title="discord.Role"><code class="xref py py-class docutils literal notranslate"><span class="pre">Role</span></code></a>s must appear lower in the list
+of roles than the highest role of the member.</p>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
@@ -14538,6 +14875,9 @@ attribute of <code class="docutils literal notranslate"><span class="pre">allowe
 <code class="sig-name descname">send_friend_request</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Member.send_friend_request" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>사용자에게 친구 요청을 보냅니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -14571,6 +14911,9 @@ attribute of <code class="docutils literal notranslate"><span class="pre">allowe
 <code class="sig-name descname">unblock</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Member.unblock" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>사용자를 차단 해제합니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
 <p>This can only be used by non-bot accounts.</p>
@@ -15239,7 +15582,9 @@ Methods</span><ul>
 <span class="py-attribute-table-badge" title="메서드">
 def</span><a class="reference internal" href="#discord.PartialEmoji.is_custom_emoji">is_custom_emoji</a></li><li class="py-attribute-table-entry">
 <span class="py-attribute-table-badge" title="메서드">
-def</span><a class="reference internal" href="#discord.PartialEmoji.is_unicode_emoji">is_unicode_emoji</a></li></ul>
+def</span><a class="reference internal" href="#discord.PartialEmoji.is_unicode_emoji">is_unicode_emoji</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="메서드">
+def</span><a class="reference internal" href="#discord.PartialEmoji.url_as">url_as</a></li></ul>
 </div></div><dl class="py class">
 <dt id="discord.PartialEmoji">
 <em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">PartialEmoji</code><a class="headerlink" href="#discord.PartialEmoji" title="정의 주소">¶</a></dt>
@@ -15339,10 +15684,44 @@ got deleted (e.g. removing a reaction with a deleted emoji).</p>
 <dl class="py method">
 <dt id="discord.PartialEmoji.url">
 <code class="sig-name descname">url</code><a class="headerlink" href="#discord.PartialEmoji.url" title="정의 주소">¶</a></dt>
-<dd><p>Returns an asset of the emoji, if it is custom.</p>
+<dd><p>Returns the asset of the emoji, if it is custom.</p>
+<p>This is equivalent to calling <a class="reference internal" href="#discord.PartialEmoji.url_as" title="discord.PartialEmoji.url_as"><code class="xref py py-meth docutils literal notranslate"><span class="pre">url_as()</span></code></a> with
+the default parameters (i.e. png/gif detection).</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#discord.Asset" title="discord.Asset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Asset</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.PartialEmoji.url_as">
+<code class="sig-name descname">url_as</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">format</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">static_format</span><span class="o">=</span><span class="default_value">'png'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.PartialEmoji.url_as" title="정의 주소">¶</a></dt>
+<dd><p>Returns an <a class="reference internal" href="#discord.Asset" title="discord.Asset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Asset</span></code></a> for the emoji’s url, if it is custom.</p>
+<p>The format must be one of 〈webp〉, 〈jpeg〉, 〈jpg〉, 〈png〉 or 〈gif〉.
+〈gif〉 is only valid for animated emojis.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.7에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>format</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – The format to attempt to convert the emojis to.
+If the format is <code class="docutils literal notranslate"><span class="pre">None</span></code>, then it is automatically
+detected as either 〈gif〉 or static_format, depending on whether the
+emoji is animated or not.</p></li>
+<li><p><strong>static_format</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – Format to attempt to convert only non-animated emoji’s to.
+Defaults to 〈png〉</p></li>
+</ul>
+</dd>
+<dt class="field-even">예외</dt>
+<dd class="field-even"><p><a class="reference internal" href="#discord.InvalidArgument" title="discord.InvalidArgument"><strong>InvalidArgument</strong></a> – Bad image format passed to <code class="docutils literal notranslate"><span class="pre">format</span></code> or <code class="docutils literal notranslate"><span class="pre">static_format</span></code>.</p>
+</dd>
+<dt class="field-odd">반환값</dt>
+<dd class="field-odd"><p>The resulting CDN asset.</p>
+</dd>
+<dt class="field-even">반환 형식</dt>
+<dd class="field-even"><p><a class="reference internal" href="#discord.Asset" title="discord.Asset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Asset</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -16183,7 +16562,10 @@ do this.</p>
 <li><p><strong>after</strong> (Optional[Union[<a class="reference internal" href="#discord.abc.Snowflake" title="discord.abc.Snowflake"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.Snowflake</span></code></a>, <a class="reference external" href="https://docs.python.org/ko/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]]) – <a class="reference internal" href="#discord.TextChannel.history" title="discord.TextChannel.history"><code class="xref py py-meth docutils literal notranslate"><span class="pre">history()</span></code></a> 에서의 <code class="docutils literal notranslate"><span class="pre">after</span></code> 와 동일합니다.</p></li>
 <li><p><strong>around</strong> (Optional[Union[<a class="reference internal" href="#discord.abc.Snowflake" title="discord.abc.Snowflake"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.Snowflake</span></code></a>, <a class="reference external" href="https://docs.python.org/ko/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]]) – <a class="reference internal" href="#discord.TextChannel.history" title="discord.TextChannel.history"><code class="xref py py-meth docutils literal notranslate"><span class="pre">history()</span></code></a> 에서의 <code class="docutils literal notranslate"><span class="pre">around</span></code> 와 동일합니다.</p></li>
 <li><p><strong>oldest_first</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]) – <a class="reference internal" href="#discord.TextChannel.history" title="discord.TextChannel.history"><code class="xref py py-meth docutils literal notranslate"><span class="pre">history()</span></code></a> 에서의 <code class="docutils literal notranslate"><span class="pre">oldest_first</span></code> 와 동일합니다.</p></li>
-<li><p><strong>bulk</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> 일 경우, 대량 삭제를 사용합니다. <code class="docutils literal notranslate"><span class="pre">False</span></code> 로 설정하면 <a class="reference internal" href="#discord.Permissions.manage_messages" title="discord.Permissions.manage_messages"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Permissions.manage_messages</span></code></a> 없이 봇 자신의 메시지를 대량 삭제하는 데 유용합니다. <code class="docutils literal notranslate"><span class="pre">True</span></code> 일 경우, 현재 계정이 사용자 봇이거나 메시지가 2주보다 오래된 경우 단일 삭제로 돌아갑니다.</p></li>
+<li><p><strong>bulk</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, use bulk delete. Setting this to <code class="docutils literal notranslate"><span class="pre">False</span></code> is useful for mass-deleting
+a bot’s own messages without <a class="reference internal" href="#discord.Permissions.manage_messages" title="discord.Permissions.manage_messages"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Permissions.manage_messages</span></code></a>. When <code class="docutils literal notranslate"><span class="pre">True</span></code>, will
+fall back to single delete if current account is a user bot (now deprecated), or if messages are
+older than two weeks.</p></li>
 </ul>
 </dd>
 <dt class="field-even">예외</dt>
@@ -18289,8 +18671,8 @@ The size must be a power of 2 between 16 and 4096.</p>
 <p>실제 개인 메시지에는 권한 개념이 없습니다.</p>
 <p>다음을 제외한 모든 텍스트 관련 권한이 <code class="docutils literal notranslate"><span class="pre">True</span></code> 로 설정됩니다.</p>
 <ul class="simple">
-<li><p>send_tts_messages: 개인 메시지에서는 TTS 메시지를 보낼 수 없습니다.</p></li>
-<li><p>manage_messages: 개인 메시지에서는 다른 메시지를 삭제할 수 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.Permissions.send_tts_messages" title="discord.Permissions.send_tts_messages"><code class="xref py py-attr docutils literal notranslate"><span class="pre">send_tts_messages</span></code></a>: 개인 메시지에서는 TTS 메시지를 보낼 수 없습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.Permissions.manage_messages" title="discord.Permissions.manage_messages"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_messages</span></code></a>: 개인 메시지에서는 다른 메시지를 삭제할 수 없습니다.</p></li>
 </ul>
 <p>사용자가 소유자인 경우 kick_members 권한도 확인합니다.</p>
 <dl class="field-list simple">
@@ -18312,6 +18694,9 @@ The size must be a power of 2 between 16 and 4096.</p>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>이 그룹에 사용자를 추가합니다.</p>
 <p>한 그룹은 최대 10명의 멤버만 가질 수 있습니다. 더 추가하려고 하면 예외가 발생합니다.사용자를 그룹에 추가하려면 <a class="reference internal" href="#discord.RelationshipType.friend" title="discord.RelationshipType.friend"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RelationshipType.friend</span></code></a> 유형의 사용자와 관련성을 가져야 합니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>*recipients</strong> (<a class="reference internal" href="#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>) – 이 그룹에 추가할 사용자의 인수 목록.</p>
@@ -18327,6 +18712,9 @@ The size must be a power of 2 between 16 and 4096.</p>
 <em class="property">await </em><code class="sig-name descname">remove_recipients</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">recipients</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.GroupChannel.remove_recipients" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>이 그룹에서 사용자를 제거합니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>*recipients</strong> (<a class="reference internal" href="#discord.User" title="discord.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a>) – 이 그룹에서 제거할 사용자의 인수 목록.</p>
@@ -18342,6 +18730,9 @@ The size must be a power of 2 between 16 and 4096.</p>
 <em class="property">await </em><code class="sig-name descname">edit</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">fields</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.GroupChannel.edit" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
 <p>그룹을 편집합니다.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">버전 1.7부터 폐지.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
@@ -19127,7 +19518,13 @@ Attributes</span><ul>
 Methods</span><ul>
 <li class="py-attribute-table-entry">
 <span class="py-attribute-table-badge" title="coroutine">
-async</span><a class="reference internal" href="#discord.Template.create_guild">create_guild</a></li></ul>
+async</span><a class="reference internal" href="#discord.Template.create_guild">create_guild</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.Template.delete">delete</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.Template.edit">edit</a></li><li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.Template.sync">sync</a></li></ul>
 </div></div><dl class="py class">
 <dt id="discord.Template">
 <em class="property">class </em><code class="sig-prename descclassname">discord.</code><code class="sig-name descname">Template</code><a class="headerlink" href="#discord.Template" title="정의 주소">¶</a></dt>
@@ -19251,6 +19648,75 @@ added to cache.</p>
 </dd>
 <dt class="field-even">반환 형식</dt>
 <dd class="field-even"><p><a class="reference internal" href="#discord.Guild" title="discord.Guild"><code class="xref py py-class docutils literal notranslate"><span class="pre">Guild</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.Template.sync">
+<em class="property">await </em><code class="sig-name descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.Template.sync" title="정의 주소">¶</a></dt>
+<dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
+<p>Sync the template to the guild’s current state.</p>
+<p>You must have the <a class="reference internal" href="#discord.Permissions.manage_guild" title="discord.Permissions.manage_guild"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_guild</span></code></a> permission in the
+source guild to do this.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.7에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">예외</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Editing the template failed.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – You don’t have permissions to edit the template.</p></li>
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – This template does not exist.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.Template.edit">
+<em class="property">await </em><code class="sig-name descname">edit</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.Template.edit" title="정의 주소">¶</a></dt>
+<dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
+<p>Edit the template metadata.</p>
+<p>You must have the <a class="reference internal" href="#discord.Permissions.manage_guild" title="discord.Permissions.manage_guild"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_guild</span></code></a> permission in the
+source guild to do this.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.7에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – The template’s new name.</p></li>
+<li><p><strong>description</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – The template’s description.</p></li>
+</ul>
+</dd>
+<dt class="field-even">예외</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Editing the template failed.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – You don’t have permissions to edit the template.</p></li>
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – This template does not exist.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.Template.delete">
+<em class="property">await </em><code class="sig-name descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discord.Template.delete" title="정의 주소">¶</a></dt>
+<dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
+<p>Delete the template.</p>
+<p>You must have the <a class="reference internal" href="#discord.Permissions.manage_guild" title="discord.Permissions.manage_guild"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_guild</span></code></a> permission in the
+source guild to do this.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.7에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">예외</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – Editing the template failed.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – You don’t have permissions to edit the template.</p></li>
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – This template does not exist.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -20251,7 +20717,8 @@ Attributes</span><ul>
 <dl class="py attribute">
 <dt id="discord.RawMessageUpdateEvent.cached_message">
 <code class="sig-name descname">cached_message</code><a class="headerlink" href="#discord.RawMessageUpdateEvent.cached_message" title="정의 주소">¶</a></dt>
-<dd><p>The cached message, if found in the internal message cache.</p>
+<dd><p>The cached message, if found in the internal message cache. Represents the message before
+it is modified by the data in <a class="reference internal" href="#discord.RawMessageUpdateEvent.data" title="discord.RawMessageUpdateEvent.data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RawMessageUpdateEvent.data</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p>Optional[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
@@ -21151,7 +21618,7 @@ to <code class="docutils literal notranslate"><span class="pre">True</span></cod
 <dt id="discord.MessageReference.resolved">
 <code class="sig-name descname">resolved</code><a class="headerlink" href="#discord.MessageReference.resolved" title="정의 주소">¶</a></dt>
 <dd><p>The message that this reference resolved to. If this is <code class="docutils literal notranslate"><span class="pre">None</span></code>
-then the original message was not fetched either due to the discord API
+then the original message was not fetched either due to the Discord API
 not attempting to resolve it or it not being available at the time of creation.
 If the message was resolved at a prior point but has since been deleted then
 this will be of type <a class="reference internal" href="#discord.DeletedReferencedMessage" title="discord.DeletedReferencedMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeletedReferencedMessage</span></code></a>.</p>
@@ -21193,6 +21660,20 @@ this will be of type <a class="reference internal" href="#discord.DeletedReferen
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p>Optional[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.MessageReference.jump_url">
+<code class="sig-name descname">jump_url</code><a class="headerlink" href="#discord.MessageReference.jump_url" title="정의 주소">¶</a></dt>
+<dd><p>Returns a URL that allows the client to jump to the referenced message.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.7에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">타입</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -21301,6 +21782,46 @@ the constructor itself, and the second is via
 </dd></dl>
 
 <dl class="py method">
+<dt id="discord.PartialMessage.edit">
+<em class="property">await </em><code class="sig-name descname">edit</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">fields</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.PartialMessage.edit" title="정의 주소">¶</a></dt>
+<dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
+<p>메시지를 편집합니다.</p>
+<p>내용은 <code class="docutils literal notranslate"><span class="pre">str(내용)</span></code> 을 통해 문자열로 변환할 수 있어야 합니다.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">버전 1.7에서 변경: </span><a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">discord.Message</span></code></a> is returned instead of <code class="docutils literal notranslate"><span class="pre">None</span></code> if an edit took place.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>content</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – 메시지를 대체 할 새 컨텐츠입니다. <code class="docutils literal notranslate"><span class="pre">None</span></code>으로 내용을 제거 할 수 있습니다.</p></li>
+<li><p><strong>embed</strong> (Optional[<a class="reference internal" href="#discord.Embed" title="discord.Embed"><code class="xref py py-class docutils literal notranslate"><span class="pre">Embed</span></code></a>]) – 임베드를 대체 할 새 임베드입니다. <code class="docutils literal notranslate"><span class="pre">None</span></code>으로 임베드를 제거 할 수 있습니다.</p></li>
+<li><p><strong>suppress</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 메시지에 대한 임베드를 억제할지 여부입니다. <code class="docutils literal notranslate"><span class="pre">True</span></code>로 설정하면 모든 임베드가 제거됩니다. <code class="docutils literal notranslate"><span class="pre">False</span></code>으로 설정된 경우 억제된 경우 임베드를 다시 가져옵니다. 이 매개 변수를 사용하려면 <a class="reference internal" href="#discord.Permissions.manage_messages" title="discord.Permissions.manage_messages"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_messages</span></code></a>가 필요합니다.</p></li>
+<li><p><strong>delete_after</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – 제공한 경우 방금 편집 한 메시지를 삭제하기 전에 백그라운드에서 대기하는 시간 (초)입니다. 삭제가 실패하면 자동으로 무시됩니다.</p></li>
+<li><p><strong>allowed_mentions</strong> (Optional[<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>]) – Controls the mentions being processed in this message. If this is
+passed, then the object is merged with <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>.
+The merging behaviour only overrides attributes that have been explicitly passed
+to the object, otherwise it uses the attributes set in <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>.
+If no object is passed at all then the defaults given by <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>
+are used instead.</p></li>
+</ul>
+</dd>
+<dt class="field-even">예외</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – The message was not found.</p></li>
+<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 편집에 실패했습니다.</p></li>
+<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 권한이 없는 메시지를 편집하거나 자신의 것이 아닌 메시지의 내용 또는 임베드를 편집하려고 했습니다.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">반환값</dt>
+<dd class="field-odd"><p>The message that was edited.</p>
+</dd>
+<dt class="field-even">반환 형식</dt>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="#discord.Message" title="discord.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="discord.PartialMessage.add_reaction">
 <em class="property">await </em><code class="sig-name descname">add_reaction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">emoji</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.PartialMessage.add_reaction" title="정의 주소">¶</a></dt>
 <dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
@@ -21381,43 +21902,6 @@ the constructor itself, and the second is via
 <li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 메시지를 삭제할 수 있는 권한이 없습니다.</p></li>
 <li><p><a class="reference internal" href="#discord.NotFound" title="discord.NotFound"><strong>NotFound</strong></a> – 메시지가 이미 삭제되었습니다</p></li>
 <li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 삭제에 실패했습니다.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="discord.PartialMessage.edit">
-<em class="property">await </em><code class="sig-name descname">edit</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">fields</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.PartialMessage.edit" title="정의 주소">¶</a></dt>
-<dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
-<p>메시지를 편집합니다.</p>
-<p>내용은 <code class="docutils literal notranslate"><span class="pre">str(내용)</span></code> 을 통해 문자열로 변환할 수 있어야 합니다.</p>
-<div class="versionchanged">
-<p><span class="versionmodified changed">버전 1.3에서 변경: </span>새 <code class="docutils literal notranslate"><span class="pre">suppress</span></code> 키워드 전용 매개 변수를 추가했습니다.</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">매개변수</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>content</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – 메시지를 대체 할 새 컨텐츠입니다. <code class="docutils literal notranslate"><span class="pre">None</span></code>으로 내용을 제거 할 수 있습니다.</p></li>
-<li><p><strong>embed</strong> (Optional[<a class="reference internal" href="#discord.Embed" title="discord.Embed"><code class="xref py py-class docutils literal notranslate"><span class="pre">Embed</span></code></a>]) – 임베드를 대체 할 새 임베드입니다. <code class="docutils literal notranslate"><span class="pre">None</span></code>으로 임베드를 제거 할 수 있습니다.</p></li>
-<li><p><strong>suppress</strong> (<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – 메시지에 대한 임베드를 억제할지 여부입니다. <code class="docutils literal notranslate"><span class="pre">True</span></code>로 설정하면 모든 임베드가 제거됩니다. <code class="docutils literal notranslate"><span class="pre">False</span></code>으로 설정된 경우 억제된 경우 임베드를 다시 가져옵니다. 이 매개 변수를 사용하려면 <a class="reference internal" href="#discord.Permissions.manage_messages" title="discord.Permissions.manage_messages"><code class="xref py py-attr docutils literal notranslate"><span class="pre">manage_messages</span></code></a>가 필요합니다.</p></li>
-<li><p><strong>delete_after</strong> (Optional[<a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]) – 제공한 경우 방금 편집 한 메시지를 삭제하기 전에 백그라운드에서 대기하는 시간 (초)입니다. 삭제가 실패하면 자동으로 무시됩니다.</p></li>
-<li><p><strong>allowed_mentions</strong> (Optional[<a class="reference internal" href="#discord.AllowedMentions" title="discord.AllowedMentions"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllowedMentions</span></code></a>]) – <p>Controls the mentions being processed in this message. If this is
-passed, then the object is merged with <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>.
-The merging behaviour only overrides attributes that have been explicitly passed
-to the object, otherwise it uses the attributes set in <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>.
-If no object is passed at all then the defaults given by <a class="reference internal" href="#discord.Client.allowed_mentions" title="discord.Client.allowed_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">allowed_mentions</span></code></a>
-are used instead.</p>
-<div class="versionadded">
-<p><span class="versionmodified added">버전 1.4에 추가.</span></p>
-</div>
-</p></li>
-</ul>
-</dd>
-<dt class="field-even">예외</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#discord.HTTPException" title="discord.HTTPException"><strong>HTTPException</strong></a> – 메시지 편집에 실패했습니다.</p></li>
-<li><p><a class="reference internal" href="#discord.Forbidden" title="discord.Forbidden"><strong>Forbidden</strong></a> – 권한이 없는 메시지를 편집하거나 자신의 것이 아닌 메시지의 내용 또는 임베드를 편집하려고 했습니다.</p></li>
 </ul>
 </dd>
 </dl>
@@ -23262,6 +23746,7 @@ Attributes</span><ul>
 <a class="reference internal" href="#discord.Permissions.speak">speak</a></li><li class="py-attribute-table-entry">
 <a class="reference internal" href="#discord.Permissions.stream">stream</a></li><li class="py-attribute-table-entry">
 <a class="reference internal" href="#discord.Permissions.use_external_emojis">use_external_emojis</a></li><li class="py-attribute-table-entry">
+<a class="reference internal" href="#discord.Permissions.use_slash_commands">use_slash_commands</a></li><li class="py-attribute-table-entry">
 <a class="reference internal" href="#discord.Permissions.use_voice_activation">use_voice_activation</a></li><li class="py-attribute-table-entry">
 <a class="reference internal" href="#discord.Permissions.value">value</a></li><li class="py-attribute-table-entry">
 <a class="reference internal" href="#discord.Permissions.view_audit_log">view_audit_log</a></li><li class="py-attribute-table-entry">
@@ -23844,6 +24329,20 @@ listed. Extraneous key/value pairs will be silently ignored.</p>
 <dt id="discord.Permissions.manage_emojis">
 <code class="sig-name descname">manage_emojis</code><a class="headerlink" href="#discord.Permissions.manage_emojis" title="정의 주소">¶</a></dt>
 <dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if a user can create, edit, or delete emojis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">타입</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="discord.Permissions.use_slash_commands">
+<code class="sig-name descname">use_slash_commands</code><a class="headerlink" href="#discord.Permissions.use_slash_commands" title="정의 주소">¶</a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if a user can use slash commands.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.7에 추가.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">타입</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/ko/3/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
@@ -24752,6 +25251,10 @@ that are required. Currently these are as follows:</p>
       </div>
 
     </div>
+  </div>
+
+  <div id="to-top" onclick="scrollToTop()" hidden>
+    <span><span class="material-icons">arrow_upward</span> to top</span>
   </div>
 
 </body>

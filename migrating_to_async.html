@@ -89,7 +89,7 @@
 
       </div>
     </aside>
-    <main class="grid-item">
+    <main class="grid-item" role="main">
       
   <section id="migrating-to-v0-10-0">
 <span id="migrating-to-async"></span><h1>v0.10.0으로 이동<a class="headerlink" href="#migrating-to-v0-10-0" title="제목 주소">¶</a></h1>
@@ -204,7 +204,7 @@ is not in a guaranteed order.</p>
 <section id="enumerations">
 <h2>Enumerations<a class="headerlink" href="#enumerations" title="제목 주소">¶</a></h2>
 <p>Due to dropping support for versions lower than Python 3.4.2, the library can now use
-<a class="reference external" href="https://docs.python.org/ko/3/library/enum.html" title="(in Python v3.9)"><span>enum — Support for enumerations</span></a> in places where it makes sense.</p>
+<a class="reference external" href="https://docs.python.org/ko/3/library/enum.html" title="(in Python v3.9)"><span>enum — 열거형 지원</span></a> in places where it makes sense.</p>
 <p>The common places where this was changed was in the server region, member status, and channel type.</p>
 <p>이전:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">server</span><span class="o">.</span><span class="n">region</span> <span class="o">==</span> <span class="s1">&#39;us-west&#39;</span>
@@ -439,6 +439,10 @@ event loop then doing so is quite straightforward:</p>
       </div>
 
     </div>
+  </div>
+
+  <div id="to-top" onclick="scrollToTop()" hidden>
+    <span><span class="material-icons">arrow_upward</span> to top</span>
   </div>
 
 </body>

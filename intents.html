@@ -96,7 +96,7 @@
 
       </div>
     </aside>
-    <main class="grid-item">
+    <main class="grid-item" role="main">
       
   <div class="versionadded">
 <p><span class="versionmodified added">버전 1.5에 추가.</span></p>
@@ -143,7 +143,7 @@
 <p>Privileged Intent(제한된 인텐트)는 Developer Portal에서 수동으로 활성화를 해주어야 합니다. 활성화를 위해서는 다음과 같이 해야 합니다:</p>
 <ol class="arabic">
 <li><p><a class="reference external" href="https://discord.com">디스코드 웹사이트</a> 에 로그인했는지 확인하세요.</p></li>
-<li><p><a class="reference external" href="https://discord.com/developers/applications">애플리케이션 페이지</a> 로 이동합니다.</p></li>
+<li><p>Navigate to the <a class="reference external" href="https://discord.com/developers/applications">application page</a>.</p></li>
 <li><p>Privileged Intent(제한된 인텐트)를 활성화 할 봇을 클릭하세요.</p></li>
 <li><p>화면 왼쪽의 Bot 탭으로 이동합니다.</p>
 <blockquote>
@@ -158,7 +158,7 @@
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">경고</p>
-<p>봇의 길드수가 100을 넘었을 때 Privileged Intent(제한된 인텐트)를 활성화하기 위해서는 <a class="reference external" href="https://support.discord.com/hc/en-us/articles/360040720412">봇 인증</a> 과정을 거쳐야 합니다. 만약에 봇이 이미 인증되었고 Privileged Intent(제한된 인텐트)를 활성화하고 싶다면 <a class="reference external" href="https://dis.gd/contact">디스코드 문의</a> 에 문의해서 인텐트 활성화에 대해 말해야 합니다.</p>
+<p>Enabling privileged intents when your bot is in over 100 guilds requires going through <a class="reference external" href="https://support.discord.com/hc/en-us/articles/360040720412">bot verification</a>. If your bot is already verified and you would like to enable a privileged intent you must go through <a class="reference external" href="https://dis.gd/contact">Discord support</a> and talk to them about it.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">참고</p>
@@ -194,8 +194,9 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="api.html#discord.on_message" title="discord.on_message"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_message()</span></code></a> will have <a class="reference internal" href="api.html#discord.Message.author" title="discord.Message.author"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Message.author</span></code></a> be a member even if cache is disabled.</p></li>
 <li><p><a class="reference internal" href="api.html#discord.on_voice_state_update" title="discord.on_voice_state_update"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_voice_state_update()</span></code></a> will have the <code class="docutils literal notranslate"><span class="pre">member</span></code> parameter be a member even if cache is disabled.</p></li>
-<li><p><a class="reference internal" href="api.html#discord.on_reaction_add" title="discord.on_reaction_add"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_reaction_add()</span></code></a> will have the <code class="docutils literal notranslate"><span class="pre">user</span></code> parameter be a member even if cache is disabled.</p></li>
-<li><p><a class="reference internal" href="api.html#discord.on_raw_reaction_add" title="discord.on_raw_reaction_add"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_raw_reaction_add()</span></code></a> will have <a class="reference internal" href="api.html#discord.RawReactionActionEvent.member" title="discord.RawReactionActionEvent.member"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RawReactionActionEvent.member</span></code></a> be a member even if cache is disabled.</p></li>
+<li><p><a class="reference internal" href="api.html#discord.on_reaction_add" title="discord.on_reaction_add"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_reaction_add()</span></code></a> will have the <code class="docutils literal notranslate"><span class="pre">user</span></code> parameter be a member when in a guild even if cache is disabled.</p></li>
+<li><p><a class="reference internal" href="api.html#discord.on_raw_reaction_add" title="discord.on_raw_reaction_add"><code class="xref py py-func docutils literal notranslate"><span class="pre">on_raw_reaction_add()</span></code></a> will have <a class="reference internal" href="api.html#discord.RawReactionActionEvent.member" title="discord.RawReactionActionEvent.member"><code class="xref py py-attr docutils literal notranslate"><span class="pre">RawReactionActionEvent.member</span></code></a> be a member when in a guild even if cache is disabled.</p></li>
+<li><p>The reaction add events do not contain additional information when in direct messages. This is a Discord limitation.</p></li>
 <li><p>The reaction removal events do not have the member information. This is a Discord limitation.</p></li>
 </ul>
 <p>Other events that take a <a class="reference internal" href="api.html#discord.Member" title="discord.Member"><code class="xref py py-class docutils literal notranslate"><span class="pre">Member</span></code></a> will require the use of the member cache. If absolute accuracy over the member cache is desirable, then it is advisable to have the <a class="reference internal" href="api.html#discord.Intents.members" title="discord.Intents.members"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Intents.members</span></code></a> intent enabled.</p>
@@ -278,7 +279,7 @@
 <p class="admonition-title">경고</p>
 <p>There is no currently set date in which the old gateway will stop working so it is recommended to update your code instead.</p>
 </div>
-<p>If you truly dislike the direction Discord is going with their API, you can contact them via <a class="reference external" href="https://dis.gd/contact">support</a></p>
+<p>If you truly dislike the direction Discord is going with their API, you can contact them via <a class="reference external" href="https://dis.gd/contact">support</a>.</p>
 </section>
 </section>
 </section>
@@ -332,6 +333,10 @@
       </div>
 
     </div>
+  </div>
+
+  <div id="to-top" onclick="scrollToTop()" hidden>
+    <span><span class="material-icons">arrow_upward</span> to top</span>
   </div>
 
 </body>

@@ -37,7 +37,7 @@
         <a onclick="mobileSearch.close();" title="Close" id="close-search" class="mobile-only" hidden><span class="material-icons">close</span></a>
       </nav>
       <nav class="mobile-only">
-        <form role="search" class="search" action="search.html" method="get">
+        <form role="search" class="search" action="../../search.html" method="get">
           <div class="search-wrapper">
             <input type="search" name="q" placeholder="Search documentation" />
             <button type="submit">
@@ -54,7 +54,7 @@
         <option value="../commands/index.html" >discord.ext.commands</option>
         <option value="#" selected>discord.ext.tasks</option>
       </select>
-      <form role="search" class="search" action="search.html" method="get">
+      <form role="search" class="search" action="../../search.html" method="get">
         <div class="search-wrapper">
           <input type="search" name="q" placeholder="Search documentation" />
           <button type="submit">
@@ -83,7 +83,7 @@
 
       </div>
     </aside>
-    <main class="grid-item">
+    <main class="grid-item" role="main">
       
   <section id="discord-ext-tasks-asyncio-task-helpers">
 <span id="discord-ext-tasks"></span><h1><code class="docutils literal notranslate"><span class="pre">discord.ext.tasks</span></code> – asyncio.Task 헬퍼<a class="headerlink" href="#discord-ext-tasks-asyncio-task-helpers" title="제목 주소">¶</a></h1>
@@ -215,6 +215,8 @@ Attributes</span><ul>
 <span>
 Methods</span><ul>
 <li class="py-attribute-table-entry">
+<span class="py-attribute-table-badge" title="coroutine">
+async</span><a class="reference internal" href="#discord.ext.tasks.Loop.__call__">__call__</a></li><li class="py-attribute-table-entry">
 <span class="py-attribute-table-badge" title="메서드">
 def</span><a class="reference internal" href="#discord.ext.tasks.Loop.add_exception_type">add_exception_type</a></li><li class="py-attribute-table-entry">
 <span class="py-attribute-table-badge" title="decorator">
@@ -271,6 +273,24 @@ def</span><a class="reference internal" href="#discord.ext.tasks.Loop.stop">stop
 <dl class="field-list simple">
 <dt class="field-odd">형식</dt>
 <dd class="field-odd"><p>옵션[<a class="reference external" href="https://docs.python.org/ko/3/library/datetime.html#datetime.datetime" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discord.ext.tasks.Loop.__call__">
+<em class="property">await </em><code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discord.ext.tasks.Loop.__call__" title="정의 주소">¶</a></dt>
+<dd><p>이 함수는 <a class="reference external" href="https://docs.python.org/ko/3/library/asyncio-task.html#coroutine"><em>코루틴</em></a> 입니다.</p>
+<p>Calls the internal callback that the task holds.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">버전 1.6에 추가.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*args</strong> – 사용할 전달인자.</p></li>
+<li><p><strong>**kwargs</strong> – 사용할 키워드 전달인자.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -567,6 +587,10 @@ def</span><a class="reference internal" href="#discord.ext.tasks.Loop.stop">stop
       </div>
 
     </div>
+  </div>
+
+  <div id="to-top" onclick="scrollToTop()" hidden>
+    <span><span class="material-icons">arrow_upward</span> to top</span>
   </div>
 
 </body>

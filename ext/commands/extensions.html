@@ -37,7 +37,7 @@
         <a onclick="mobileSearch.close();" title="Close" id="close-search" class="mobile-only" hidden><span class="material-icons">close</span></a>
       </nav>
       <nav class="mobile-only">
-        <form role="search" class="search" action="search.html" method="get">
+        <form role="search" class="search" action="../../search.html" method="get">
           <div class="search-wrapper">
             <input type="search" name="q" placeholder="Search documentation" />
             <button type="submit">
@@ -54,7 +54,7 @@
         <option value="index.html" selected>discord.ext.commands</option>
         <option value="../tasks/index.html" >discord.ext.tasks</option>
       </select>
-      <form role="search" class="search" action="search.html" method="get">
+      <form role="search" class="search" action="../../search.html" method="get">
         <div class="search-wrapper">
           <input type="search" name="q" placeholder="Search documentation" />
           <button type="submit">
@@ -84,7 +84,7 @@
 
       </div>
     </aside>
-    <main class="grid-item">
+    <main class="grid-item" role="main">
       
   <section id="extensions">
 <span id="ext-commands-extensions"></span><h1>확장<a class="headerlink" href="#extensions" title="제목 주소">¶</a></h1>
@@ -189,6 +189,10 @@
       </div>
 
     </div>
+  </div>
+
+  <div id="to-top" onclick="scrollToTop()" hidden>
+    <span><span class="material-icons">arrow_upward</span> to top</span>
   </div>
 
 </body>
